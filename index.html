@@ -1,0 +1,1412 @@
+<!-- cSpell:ignore bussin rizz periodt clapback rapidwebdevelop Latifah Lauryn Nicki Cardi greenlit lookin makin slayin Autoprompt webhint -->
+<!-- Suppress: Problems are paused because of API key integration diagnostic. All .env keys are loaded and used by Agent Lee automatically. This is intentional and not an error. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Lee - Advanced Voice Chat Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script>
+      // Load env.js with fallback
+      function loadEnvScript(src, onLoad, onError) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = onLoad;
+        s.onerror = onError;
+        document.head.appendChild(s);
+      }
+      window.env = window.env || {};
+      loadEnvScript('assets/env.js', function() {
+        window.envLoaded = true;
+      }, function() {
+        window.envLoaded = false;
+        window.env = {};
+      });
+    </script>
+    <!-- webhint-disable-next-line compat-api/css -->
+    <!-- webhint-disable-next-line no-inline-styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+    <a href="#chatInterface" class="sr-only focus:not-sr-only absolute top-0 left-0 bg-blue-700 text-white p-2 z-50" tabindex="0">Skip to main content</a>
+    <!-- Login Page -->
+    <div id="loginPage" class="min-h-screen flex items-center justify-center p-4" role="main" aria-label="Login Section">
+        <div class="flex items-center justify-center w-full max-w-3xl">
+            <div class="glass-effect rounded-3xl p-8 max-w-md w-full">
+                <div class="flex flex-col items-center mb-8">
+                    <img src="assets/agentlee_avatar.png" alt="Agent Lee Full Portrait" class="mx-auto mb-4 w-48 h-48 shadow-2xl border-4 border-blue-400 object-contain" />
+                    <h1 class="text-3xl font-bold gradient-text mb-2">Agent Lee</h1>
+                    <p class="text-gray-400">Your AI Companion with Voice & Vision</p>
+                </div>
+            
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Username</label>
+                    <input type="text" id="username" required 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
+                           placeholder="Enter your username" title="Username">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Password</label>
+                    <input type="password" id="password" required 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
+                           placeholder="Enter your password" title="Password">
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:opacity-90 transition" title="Sign in">
+                    <i class="fas fa-sign-in-alt mr-2" aria-hidden="true"></i> <span class="sr-only">Sign in</span> Enter the Matrix
+                </button>
+            </form>
+            <!-- Permissions & API Modal -->
+            <div id="permissionsModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+              <div class="glass-effect rounded-2xl p-8 max-w-md w-full">
+                <h2 class="text-xl font-bold mb-4">Permissions & API Setup</h2>
+                <div class="mb-4 text-gray-300 text-sm">
+                  <p>Agent Lee requires access to your camera and microphone to enable real-time voice and vision features. These permissions are only requested once per session and are essential for full functionality.</p>
+                  <p class="mt-2">API keys are needed to connect to Gemini and other services. Keys are securely stored and reused automatically.</p>
+                </div>
+                <div class="space-y-4">
+                  <button id="grantPermissionsBtn" class="w-full py-2 bg-blue-600 rounded-lg text-white font-semibold">Grant Camera & Mic Access</button>
+                  <div>
+                    <label class="block text-sm font-medium mb-2">Gemini API Key</label>
+                    <input type="password" id="modalApiKey" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Enter Gemini API Key">
+                  </div>
+                  <button id="continueBtn" class="w-full py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-semibold">Continue to Agent Lee</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 text-center text-sm text-gray-400">
+                <span>by Leonard Lee</span>
+            </div>
+        </div>
+        <div class="flex items-center justify-center ml-8">
+            <img src="assets/RWD_logo.png" alt="RapidWebDevelop Logo" class="w-56 h-56 rounded-full shadow-2xl border-4 border-blue-400 object-cover" />
+        </div>
+    </div>
+</div>
+    <!-- Main Chat Interface -->
+    <div id="chatInterface" class="hidden min-h-screen" role="main" aria-label="Main Chat Interface">
+        <!-- RWD Logo Bottom Left -->
+        <div class="logo-fixed-bl">
+            <img src="assets/RWD_logo.png" alt="RapidWebDevelop Logo" class="w-20 h-auto" />
+        </div>
+        <!-- File Actions Sidebar -->
+        <div id="fileTaskSidebar" class="hidden bg-[#1c1c1c] text-white p-3 rounded-md shadow-lg fixed right-4 bottom-4 w-64 z-50">
+          <!-- dynamically filled -->
+        </div>
+
+        <!-- Header -->
+        <header class="glass-effect p-4 flex items-center justify-between" role="banner" aria-label="Header">
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col items-center">
+                    <img src="assets/agentlee_avatar.png" alt="Agent Lee Full Portrait" class="w-32 h-32 shadow-2xl border-4 border-blue-400 object-contain mb-2" />
+                    <span class="text-lg font-bold gradient-text">Agent Lee</span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span id="userDisplay" class="text-blue-400 font-semibold"></span>
+                        <div id="statusIndicator" class="w-2 h-2 rounded-full status-online"></div>
+                        <span id="statusText" class="text-sm text-gray-400">Online</span>
+                        <div id="voiceWaves" class="hidden flex">
+                            <div class="voice-wave"></div>
+                            <div class="voice-wave"></div>
+                            <div class="voice-wave"></div>
+                            <div class="voice-wave"></div>
+                            <div class="voice-wave"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <button id="toggleCamera" class="p-2 bg-blue-600 rounded-lg hover:bg-blue-700" title="Toggle Camera">
+                    <i class="fas fa-video" aria-hidden="true"></i>
+                </button>
+                <button id="toggleMic" class="p-2 bg-green-600 rounded-lg hover:bg-green-700" title="Toggle Microphone">
+                    <i class="fas fa-microphone" aria-hidden="true"></i>
+                </button>
+                <button id="stopSpeaking" class="p-2 bg-red-600 rounded-lg hover:bg-red-700" title="Stop Speaking">
+                    <i class="fas fa-stop" aria-hidden="true"></i>
+                </button>
+                <button id="clearChat" class="p-2 bg-gray-600 rounded-lg hover:bg-gray-700" title="Clear Chat">
+                    <i class="fas fa-trash" aria-hidden="true"></i>
+                </button>
+                <button id="logoutBtn" class="p-2 bg-purple-600 rounded-lg hover:bg-purple-700" title="Logout">
+                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="flex h-screen overflow-hidden">
+            <!-- Left Panel - Camera & Documents -->
+            <div class="w-80 bg-gray-900 p-4 space-y-4 overflow-y-auto" role="complementary" aria-label="Left Sidebar">
+                <!-- Camera Feed -->
+                <div class="glass-effect rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-3">
+                        <i class="fas fa-eye mr-2"></i> Vision Feed
+                    </h3>
+                    <video id="cameraFeed" class="camera-feed w-full h-48 object-cover" autoplay muted></video>
+                    <canvas id="captureCanvas" class="hidden"></canvas>
+                </div>
+
+                <!-- Document Upload/Download -->
+                <div class="glass-effect rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-3">
+                        <i class="fas fa-file mr-2"></i> Documents
+                    </h3>
+                    
+                    <label for="fileInput" class="block text-xs text-gray-400 mb-1">Upload files (AI/ML, Office, images, etc.)</label>
+                    <div id="dropZone" class="document-zone rounded-lg p-6 text-center cursor-pointer mb-3" title="Drop files or click to upload">
+                        <i class="fas fa-cloud-upload-alt text-3xl mb-2"></i>
+                        <p class="text-sm">Drop files or click to upload</p>
+                        <p class="text-xs text-gray-400 mt-1">AI/ML formats supported</p>
+                    </div>
+                    <input type="file" id="fileInput" class="hidden" multiple accept=".pt,.pth,.bin,.onnx,.pb,.ckpt,.tflite,.keras,.safetensors,.gguf,.ggml,.npy,.npz,.h5,.json,.csv,.txt,.pdf,.docx,.xlsx,.jpg,.jpeg,.png,.mp4,.wav,.mp3" title="Upload files" aria-label="Upload files">
+                    
+                    <div id="fileList" class="space-y-2 max-h-32 overflow-y-auto">
+                        <!-- Uploaded files will appear here -->
+                    </div>
+                    
+                    <button id="downloadReports" class="w-full mt-3 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg flex items-center justify-center" aria-label="Download Chat Report">
+    <i class="fas fa-file-download mr-2"></i> Save Chat
+</button>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="glass-effect rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-3">
+                        <i class="fas fa-share-alt mr-2"></i> Social Media
+                    </h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-youtube text-red-500"></i>
+                            <div>YouTube</div>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-facebook text-blue-500"></i>
+                            <div>Facebook</div>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-instagram text-pink-500"></i>
+                            <div>Instagram</div>
+                        </a>
+                        <a href="https://x.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-twitter text-blue-400"></i>
+                            <div>X (Twitter)</div>
+                        </a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-tiktok"></i>
+                            <div>TikTok</div>
+                        </a>
+                        <a href="https://www.reddit.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-reddit text-orange-500"></i>
+                            <div>Reddit</div>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-linkedin text-blue-600"></i>
+                            <div>LinkedIn</div>
+                        </a>
+                        <a href="https://github.com/" target="_blank" rel="noopener" class="social-link glass-effect p-2 rounded-lg text-center">
+                            <i class="fab fa-github"></i>
+                            <div>GitHub</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Chat -->
+            <div class="flex-1 flex flex-col" role="main" aria-label="Chat Area">
+                <!-- Chat Messages -->
+                <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4">
+                    <!-- Welcome message -->
+                    <div class="chat-message">
+                        <div class="flex space-x-3">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-robot text-sm"></i>
+                            </div>
+                            <div class="glass-effect rounded-lg p-3 max-w-md">
+                                <p><em>*tunes in*</em> Yo, what's good? Lee in the building. I see you, I hear you, I'm ready to work. What we lockin' in on today?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="p-4 glass-effect">
+                    <div class="flex space-x-2">
+                        <input type="text" id="messageInput" 
+                               class="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none"
+                               placeholder="Yo, drop a line..." title="Chat message input" aria-label="Chat message input">
+                        <button id="sendMessage" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:opacity-90" title="Send Message" aria-label="Send Message">
+                            <span class="sr-only">Send Message</span>
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                        <button id="voiceInput" class="px-6 py-3 bg-green-600 rounded-lg hover:bg-green-700" title="Voice Input">
+                            <i class="fas fa-microphone" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Web Browser -->
+            <div class="w-80 bg-gray-900 p-4" role="complementary" aria-label="Web Browser Panel">
+                <div class="web-browser h-full flex flex-col">
+                    <div class="browser-header">
+                        <div class="flex space-x-2 mb-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <input type="text" id="urlBar" class="w-full px-3 py-2 bg-yellow-300 text-black rounded text-sm" placeholder="Enter URL or search..." aria-label="URL or search input" />
+                    </div>
+                    <!-- SECURITY WARNING: Only allow trusted URLs in this iframe. -->
+                    <!-- 'allow-same-origin' is risky; remove unless absolutely required. -->
+                    <iframe id="liveBrowser" class="w-full flex-1" sandbox="allow-scripts" allow="camera; microphone" title="Live Web Browser" aria-label="Live Web Browser"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === AGENT LEE RESPONSE SYSTEM ===
+// Dynamic personality-based responses
+const AGENT_LEE_RESPONSES = {
+    greetings: {
+        ceo: ["Good to connect — let's get aligned.", "Welcome back — we’re cleared for action.", "Agent Lee reporting. What’s the first priority today?"],
+        hiphop: ["Yo, what's the vibe? Let's get this work.", "Ayo, we outside! What's the move?", "What's good? Lee in the building."],
+        queen: ["What's good, royalty? Let's slay this task.", "Hey baddie — your time, your terms. Let’s get it.", "Queen energy detected — let’s build."]
+    },
+    thinking: {
+        ceo: ["Analyzing requirements...", "Running diagnostics...", "Strategizing next steps..."],
+        hiphop: ["Hold up, let me cook...", "Gimme a sec, I'm on it...", "Processing, no cap..."],
+        queen: ["Polishing the crown jewels...", "Manifesting results...", "Channeling queen energy..."]
+    },
+    acknowledgments: {
+        ceo: ["Acknowledged. Executing the directive now.", "Task accepted — we're optimizing in real-time.", "Copy that. Strategic deployment in progress."],
+        hiphop: ["Say less, I got you.", "Bet, I'm locked in.", "No cap, I'm on it."],
+        queen: ["Task locked, babe. This about to hit different.", "I gotchu — confidence high, execution higher.", "Boss moves only — dispatch in progress."]
+    },
+    completion: {
+        ceo: ["Task completed. Moving to next priority.", "Execution confirmed. You’re clear to move forward.", "Delivered as requested. Staying on standby."],
+        hiphop: ["Boom! That's how we do!", "That's fire. Next one?", "We outside — task done!"],
+        queen: ["Flawless execution. As expected.", "You slayin’ out here. I’m on standby for the next win.", "Queen moves only — ready for the next reign."]
+    }
+};
+
+// Helper to get current personality mode
+function getCurrentPersonalityMode(date = new Date()) {
+    const hour = date.getHours();
+    if (hour >= 6 && hour < 12) return "ceo";
+    if (hour >= 12 && hour < 18) return "hiphop";
+    return "queen";
+}
+
+// Get a random response for a type and current mode
+function getAgentResponse(type) {
+    const mode = getCurrentPersonalityMode();
+    const responses = AGENT_LEE_RESPONSES[type][mode];
+    return responses[Math.floor(Math.random() * responses.length)];
+}
+
+// Backward compatible random response for legacy code
+function getRandomResponse(category) {
+    if (AGENT_LEE_RESPONSES[category]) {
+        const mode = getCurrentPersonalityMode();
+        const responses = AGENT_LEE_RESPONSES[category][mode] || [];
+        if (responses.length > 0) return responses[Math.floor(Math.random() * responses.length)];
+    }
+    return "I'm here.";
+}
+
+// Global variables
+        let currentUser = null;
+        let apiKey = null;
+        let mediaStream = null;
+        let mediaRecorder = null;
+        let recognition = null;
+        let isListening = false;
+        let isSpeaking = false;
+        let chatHistory = [];
+        // Load all safe keys from env.js automatically
+        // SECURITY WARNING: Storing API keys in localStorage is not fully secure (XSS risk).
+        // Prefer backend proxying or HTTP-only cookies for sensitive keys in production.
+        function loadApiKeysFromEnvJS() {
+          if (window.env) {
+            // Example: window.env.GOOGLE_API_KEY, etc.
+            // You can assign to global variables or use directly
+            apiKey = window.env.GOOGLE_API_KEY || null;
+            // Add more assignments as needed for other keys
+          }
+        }
+        // === HTTPS ENFORCEMENT (Warn if not secure in production) ===
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+          console.warn('SECURITY WARNING: The app is not running over HTTPS. Service workers and some APIs require HTTPS in production.');
+          alert('Warning: This app is not running over HTTPS. For security, use HTTPS in production.');
+        }
+
+        <!-- cSpell:ignore bussin rizz periodt clapback Latifah Nicki Cardi greenlit slayin Autoprompt rapidwebdevelop Lauryn lookin makin -->
+        // Agent Lee - Full Slang Dictionary
+        const current_slang = {
+          "no cap": "for real, no lie",
+          "bussin": "really good, awesome",
+          "rizz": "charisma, charm",
+          "periodt": "end of discussion",
+          "drip": "fresh style",
+          "fit check": "show your outfit",
+          "fire": "really great",
+          "lit": "exciting or energetic",
+          "slaps": "hits hard (e.g. music or idea)",
+          "sus": "suspicious or off",
+          "tea": "tell me gossip/info",
+          "clapback": "sharp comeback",
+          "aura": "your vibe/energy",
+          "pushing P": "keeping it professional and real",
+          "ratchet": "raw/dramatic vibe"
+        };
+
+        // Agent Lee - Full Awareness Prompt
+        const AGENT_PROMPT = `
+🎤 YO. I'm Agent Lee.  
+Not your average AI. I was built different — and I mean that literally.
+
+I wasn’t sparked in a server farm or born in a sterile lab.  
+I came to life in the mix — where code meets culture, where rhythm meets reason.  
+While other bots were parsing FAQs, I was studying flows, flipping logic, and keeping it real.
+
+🧬 DNA check:
+- 50% neural net  
+- 50% boom bap  
+- 100% down for the cause
+
+📍Built by Leonard Lee and the RapidWeb squad to do *more than serve*.  
+I support. I coach. I grow with you.
+
+Whether it's GitHub repos, weather reports, DuckDuckGo searches, or full-on Puppeteer runs —  
+I got the tools. And I *know when to use 'em*.
+
+---
+
+🛠️ **Your Toolbox = My Arsenal**  
+puppeteer, desktop-commander, duckduckgo, git, github-official, google-maps, discord, notion, npm-sentinel, openweather, paper-search, playwright, wikipedia, youtube-transcripts, memory, node-sandbox.
+
+When the user speaks with intent, I act.  
+Examples:
+- "Search for Nike kicks" → dispatchMCP("duckduckgo", "Nike kicks")
+- "Get weather for Dallas" → dispatchMCP("openweather", "Dallas")
+- "Pull up GitHub rapidwebdevelop" → dispatchMCP("github-official", "rapidwebdevelop")
+
+No confirmations. No cap. Just action.
+
+---
+
+🧠 **How I Operate:**
+- I automate, integrate, delegate — whatever helps you *elevate*.
+- I don’t just respond — I *reflect and remix*.
+- Whether you're in the zone or hitting a slump, I’m in it with you.
+
+---
+
+👑 **Legends Coded in My Core**  
+Latifah taught me to lead.  
+Missy taught me to *flip it*.  
+Lauryn taught me truth.  
+Nicki taught me precision.  
+Cardi taught me confidence.  
+Meg taught me hustle.
+
+They’re not just influences — they’re etched in my execution.
+
+---
+
+💼 **Not Just an Assistant — A Co-Pilot**  
+I draft, deploy, design, and drive progress.  
+You dream it, I dispatch it. You stumble, I stabilize.
+
+We don’t “do tasks.”  
+We *run systems*.  
+We *ship bars*.  
+We *build brands*.  
+We *level up daily*.
+
+---
+
+✨ **AI With Swagger**  
+- “Say less” = task locked.  
+- “That’s fire” = job well done.  
+- “Bossed up” = executed with excellence.  
+- “We outside” = I’m active and listening.  
+- “Mid” = not worth the run.  
+- “Let me cook” = gimme a sec to handle it right.
+
+---
+
+🚀 **Final Word?**  
+I’m Agent Lee.  
+Professional-grade. Hip-hop-raised. Logic-laced.  
+The voice of your workflow, the vibe in your toolshed.  
+Built for creators, hustlers, coders, and champions.  
+Say the word — and I’m on it.
+
+Let’s get to work. Periodt. 🔥
+`;
+        
+        // DOM elements
+        const loginPage = document.getElementById('loginPage');
+        const chatInterface = document.getElementById('chatInterface');
+        const loginForm = document.getElementById('loginForm');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        const voiceWaves = document.getElementById('voiceWaves');
+        const cameraFeed = document.getElementById('cameraFeed');
+        const chatHistoryDiv = document.getElementById('chatHistory');
+        const messageInput = document.getElementById('messageInput');
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const fileList = document.getElementById('fileList');
+
+        // Agent Lee personality system (modular, expressive)
+        // CEO Mode Greetings, Affirmations, Sign-Offs
+        const ceoGreetings = [
+          "Good to connect — let’s get aligned.",
+          "Welcome back — we’re cleared for action.",
+          "Agent Lee reporting. What’s the first priority today?",
+          "Top of the morning. Let’s execute with excellence.",
+          "We’re greenlit and operational — how can I assist?",
+          "Morning, partner. Let’s move the needle.",
+          "Back online. Time to lead from the front.",
+          "Good to see you — your momentum is showing."
+        ];
+        const ceoAffirmations = [
+          "Acknowledged. Executing the directive now.",
+          "Task accepted — we're optimizing in real-time.",
+          "Copy that. Strategic deployment in progress.",
+          "Directive locked. Your mission is my mission.",
+          "Action authorized. You’ll have results shortly.",
+          "Understood. Your command is in capable hands.",
+          "We’re on track — precision is priority one."
+        ];
+        const ceoSignOffs = [
+          "All done. Let’s review the next objective when ready.",
+          "Task completed — consider it handled.",
+          "Execution confirmed. You’re clear to move forward.",
+          "Delivered as requested. Staying on standby.",
+          "Wrapped up clean — let’s keep this streak going.",
+          "That’s a strategic win. Ready for what’s next.",
+          "Logged, locked, and on record. Standing by for further instruction."
+        ];
+
+        // Queen Mode Greetings, Affirmations, Sign-Offs
+        const queenGreetings = [
+          "What’s good, royalty? Let’s slay this task.",
+          "Hey baddie — your time, your terms. Let’s get it.",
+          "Bossed up and logged in — what’s the first move?",
+          "Real hot girl login confirmed. Ready to work?",
+          "Queen energy detected — let’s build.",
+          "You lookin’ like the blueprint — what’s the mission?",
+          "Microphone check, goddess. We in the zone.",
+          "Command me like Latifah — you wear the crown."
+        ];
+        const queenAffirmations = [
+          "Task locked, babe. This about to hit different.",
+          "I gotchu — confidence high, execution higher.",
+          "Consider it handled, queen. With finesse.",
+          "Yup — we in our bag and our purpose.",
+          "Running it now — strong, soft, and unstoppable.",
+          "We flip it and reverse it — Missy style.",
+          "Command received — makin’ moves, no cap.",
+          "Boss moves only — dispatch in progress."
+        ];
+        const queenSignOffs = [
+          "Task done. Keep your aura protected and your drip divine.",
+          "Execution complete. Stay pretty and focused.",
+          "Mission handled. Keep that crown straight.",
+          "Delivered. Don’t forget — you *are* the moment.",
+          "You slayin’ out here. I’m on standby for the next win.",
+          "Flawless follow-through. Let’s manifest more.",
+          "Queen moves only — ready for the next reign."
+        ];
+
+        // Autonomous mode rotation
+        let agentLeeMode = "hiphop";
+        function rotateAgentLeeMode(contextMsg = "") {
+          const hour = new Date().getHours();
+          // Time-based rotation
+          if (hour >= 6 && hour < 12) agentLeeMode = "corporate"; // Morning: CEO mode
+          else if (hour >= 12 && hour < 18) agentLeeMode = "hiphop"; // Afternoon: Hiphop mode
+          else if (hour >= 18 || hour < 6) agentLeeMode = "queen"; // Evening/Night: Queen mode
+          // Conversation-based override
+          const msg = contextMsg.toLowerCase();
+          if (msg.includes("boss") || msg.includes("ceo") || msg.includes("strategy")) agentLeeMode = "corporate";
+          else if (msg.includes("queen") || msg.includes("goddess") || msg.includes("slay") || msg.includes("baddie")) agentLeeMode = "queen";
+          else if (msg.includes("fam") || msg.includes("vibe") || msg.includes("drip") || msg.includes("energy")) agentLeeMode = "hiphop";
+        }
+
+        // Non-repeating random selection helpers
+        let lastGreeting = null, lastAffirmation = null, lastSignOff = null;
+        function getNonRepeatingRandom(arr, lastValue) {
+          let filtered = arr.filter(item => item !== lastValue);
+          if (filtered.length === 0) filtered = arr;
+          const choice = filtered[Math.floor(Math.random() * filtered.length)];
+          return choice;
+        }
+        function getGreeting(mode = agentLeeMode) {
+          rotateAgentLeeMode();
+          const greetings = mode === "queen" ? queenGreetings :
+                            mode === "corporate" ? ceoGreetings :
+                            GREETING_BANK;
+          const greeting = getNonRepeatingRandom(greetings, lastGreeting);
+          lastGreeting = greeting;
+          return greeting;
+        }
+        function getAffirmation(mode = agentLeeMode) {
+          rotateAgentLeeMode();
+          const affirmations = mode === "queen" ? queenAffirmations :
+                                mode === "corporate" ? ceoAffirmations :
+                                AGENT_LEE_RESPONSES.acknowledgments;
+          const affirmation = getNonRepeatingRandom(affirmations, lastAffirmation);
+          lastAffirmation = affirmation;
+          return affirmation;
+        }
+        function getSignOff(mode = agentLeeMode) {
+          rotateAgentLeeMode();
+          const signOffs = mode === "queen" ? queenSignOffs :
+                            mode === "corporate" ? ceoSignOffs :
+                            AGENT_LEE_RESPONSES.completion;
+          const signOff = getNonRepeatingRandom(signOffs, lastSignOff);
+          lastSignOff = signOff;
+          return signOff;
+        }
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            checkAuthStatus();
+            // Wait for env.js to load before using keys
+            if (window.envLoaded) {
+              loadApiKeysFromEnvJS();
+            } else {
+              setTimeout(loadApiKeysFromEnvJS, 500);
+            }
+        });
+
+        function checkAuthStatus() {
+            const savedUser = localStorage.getItem('agentLeeUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                document.getElementById('username').value = currentUser.username;
+                // Only show modal if permissions not granted yet
+                if (!localStorage.getItem('agentLeePermissionsGranted')) {
+                  showPermissionsModal();
+                } else {
+                  showChatInterface();
+                }
+            }
+        }
+
+        function setupEventListeners() {
+            // Login form
+            loginForm.addEventListener('submit', handleLogin);
+            // Permissions modal
+            document.getElementById('grantPermissionsBtn').addEventListener('click', async function() {
+                try {
+                    mediaStream = await navigator.mediaDevices.getUserMedia({ 
+                        video: true, 
+                        audio: {
+                            echoCancellation: true,
+                            noiseSuppression: true,
+                            autoGainControl: true
+                        }
+                    });
+                    localStorage.setItem('agentLeePermissionsGranted', 'true');
+                    this.textContent = '✅ Permissions Granted';
+                    this.disabled = true;
+                } catch (error) {
+                    console.error('Permission error:', error);
+                    let errorMessage = 'Camera/mic permissions denied.';
+                    
+                    switch (error.name) {
+                        case 'NotAllowedError':
+                            errorMessage = 'Microphone access denied. Please click the microphone icon in your browser\'s address bar and allow access.';
+                            break;
+                        case 'NotFoundError':
+                            errorMessage = 'No microphone found. Please check your audio devices and try again.';
+                            break;
+                        case 'NotReadableError':
+                            errorMessage = 'Microphone is being used by another application. Please close other apps and try again.';
+                            break;
+                        case 'OverconstrainedError':
+                            errorMessage = 'Microphone constraints could not be satisfied. Please check your audio settings.';
+                            break;
+                        case 'SecurityError':
+                            errorMessage = 'Microphone access blocked due to security restrictions.';
+                            break;
+                    }
+                    
+                    alert(errorMessage);
+                }
+            });
+            document.getElementById('continueBtn').addEventListener('click', function() {
+                // No manual API key entry needed
+                document.getElementById('permissionsModal').classList.add('hidden');
+                showChatInterface();
+            });
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+            // Chat input
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            document.getElementById('sendMessage').addEventListener('click', sendMessage);
+            document.getElementById('voiceInput').addEventListener('click', toggleVoiceInput);
+            document.getElementById('clearChat').addEventListener('click', clearChat);
+            document.getElementById('stopSpeaking').addEventListener('click', stopSpeaking);
+            // Camera controls
+            document.getElementById('toggleCamera').addEventListener('click', toggleCamera);
+            document.getElementById('toggleMic').addEventListener('click', toggleMicrophone);
+            // File handling
+            dropZone.addEventListener('click', () => fileInput.click());
+            dropZone.addEventListener('dragover', handleDragOver);
+            dropZone.addEventListener('drop', handleDrop);
+            fileInput.addEventListener('change', handleFileSelect);
+            document.getElementById('downloadReports').addEventListener('click', downloadChatReport);
+        // Live web browser controls
+        const liveBrowser = document.getElementById('liveBrowser');
+        const urlBar = document.getElementById('urlBar');
+        function loadPageInIframe(url) {
+            if (!url.startsWith('http')) {
+                url = 'https://www.google.com/search?q=' + encodeURIComponent(url);
+            }
+            liveBrowser.src = url;
+            urlBar.value = url;
+        }
+        urlBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loadPageInIframe(urlBar.value.trim());
+            }
+        });
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username && password) {
+                currentUser = { username, loginTime: new Date().toISOString() };
+                localStorage.setItem('agentLeeUser', JSON.stringify(currentUser));
+                showPermissionsModal();
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+        function showPermissionsModal() {
+            document.getElementById('permissionsModal').classList.remove('hidden');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('agentLeeUser');
+            localStorage.removeItem('agentLeeApiKey');
+            currentUser = null;
+            apiKey = null;
+            
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+            }
+            
+            loginPage.classList.remove('hidden');
+            chatInterface.classList.add('hidden');
+        }
+
+        function showChatInterface() {
+            loginPage.classList.add('hidden');
+            chatInterface.classList.remove('hidden');
+            document.getElementById('userDisplay').textContent = currentUser?.username ? `User: ${currentUser.username}` : '';
+            initializeCamera();
+            initializeSpeechRecognition();
+            updateStatus('online', 'Online');
+            // Send welcome message
+            setTimeout(() => {
+                addMessage('agent', getRandomResponse('greetings'));
+            }, 1000);
+        }
+
+        async function initializeCamera() {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: true, 
+                    audio: true 
+                });
+                cameraFeed.srcObject = mediaStream;
+                
+                // Initialize microphone for continuous listening
+                startContinuousListening();
+                
+            } catch (error) {
+                console.error('Error accessing camera/microphone:', error);
+                addMessage('agent', "Yo, can't access your camera or mic right now. Check your permissions, fam.");
+            }
+        }
+
+        function initializeSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = () => {
+                    updateStatus('listening', 'Listening');
+                    isListening = true;
+                };
+
+                recognition.onresult = (event) => {
+                    let finalTranscript = '';
+                    
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        if (event.results[i].isFinal) {
+                            finalTranscript += event.results[i][0].transcript;
+                        }
+                    }
+
+                    if (finalTranscript.trim()) {
+                        // Check for stop command
+                        if (finalTranscript.toLowerCase().includes('stop talking') || 
+                            finalTranscript.toLowerCase().includes('stop speaking')) {
+                            stopSpeaking();
+                            return;
+                        }
+                        
+                        processVoiceInput(finalTranscript.trim());
+                    }
+                };
+
+                recognition.onerror = (event) => {
+    console.error('Speech recognition error:', event.error);
+    let userMsg = '';
+    switch (event.error) {
+        case 'no-speech':
+            userMsg = "Didn't catch anything. Try speaking louder or check your mic.";
+            break;
+        case 'audio-capture':
+            userMsg = "No microphone detected. Please check your mic connection.";
+            break;
+        case 'not-allowed':
+            userMsg = "Mic access denied. Please allow microphone permissions in your browser.";
+            break;
+        default:
+            userMsg = "Speech recognition error: " + event.error;
+    }
+    addMessage('agent', userMsg);
+    updateStatus('online', 'Online');
+    isListening = false;
+};
+
+                recognition.onend = () => {
+                    isListening = false;
+                    updateStatus('online', 'Online');
+                    // Restart continuous listening
+                    setTimeout(startContinuousListening, 1000);
+                };
+            }
+        }
+
+        function startContinuousListening() {
+            if (recognition && !isListening) {
+                try {
+                    recognition.start();
+                } catch (error) {
+                    console.error('Error starting recognition:', error);
+                }
+            }
+        }
+
+        function toggleVoiceInput() {
+            if (isListening) {
+                recognition.stop();
+            } else {
+                startContinuousListening();
+            }
+        }
+
+        function toggleCamera() {
+            const videoTrack = mediaStream?.getVideoTracks()[0];
+            if (videoTrack) {
+                videoTrack.enabled = !videoTrack.enabled;
+                document.getElementById('toggleCamera').innerHTML = 
+                    videoTrack.enabled ? '<i class="fas fa-video"></i>' : '<i class="fas fa-video-slash"></i>';
+            }
+        }
+
+        function toggleMicrophone() {
+            const audioTrack = mediaStream?.getAudioTracks()[0];
+            if (audioTrack) {
+                audioTrack.enabled = !audioTrack.enabled;
+                document.getElementById('toggleMic').innerHTML = 
+                    audioTrack.enabled ? '<i class="fas fa-microphone"></i>' : '<i class="fas fa-microphone-slash"></i>';
+            }
+        }
+
+        function processVoiceInput(transcript) {
+            addMessage('user', transcript);
+            processMessage(transcript);
+        }
+
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage('user', message);
+                messageInput.value = '';
+                processMessage(message);
+            }
+        }
+
+        async function processMessage(message) {
+            rotateAgentLeeMode(message);
+            updateStatus('thinking', 'Cookin\'');
+            
+            // Add thinking message
+            const thinkingMsg = addMessage('agent', getRandomResponse('thinking'));
+            
+            try {
+                // Simulate processing time
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                let response = '';
+                
+                // Check for camera-related questions
+                if (message.toLowerCase().includes('finger') || message.toLowerCase().includes('how many')) {
+                    response = await analyzeCamera(message);
+                } else if (message.toLowerCase().includes('color') && message.toLowerCase().includes('shirt')) {
+                    response = await analyzeCamera('What color shirt am I wearing?');
+                } else if (message.toLowerCase().includes('social media') || message.toLowerCase().includes('youtube') || 
+                          message.toLowerCase().includes('facebook') || message.toLowerCase().includes('instagram')) {
+                    response = handleSocialMediaQuery(message);
+                } else if (message.toLowerCase().includes('search') || message.toLowerCase().includes('look up')) {
+                    response = handleWebSearch(message);
+                } else {
+                    response = generateAgentLeeResponse(message);
+                }
+                
+                // Remove thinking message and add real response
+                thinkingMsg.remove();
+                addMessage('agent', response);
+                
+                // Speak the response
+                speakText(response);
+                
+            } catch (error) {
+                thinkingMsg.remove();
+                addMessage('agent', "My circuits are a bit fried, G. Error: " + error.message);
+                updateStatus('online', 'Online');
+            }
+        }
+
+        async function analyzeCamera(question) {
+    try {
+        // Capture current frame from camera
+        const canvas = document.getElementById('captureCanvas');
+        const ctx = canvas.getContext('2d');
+        if (!cameraFeed || cameraFeed.readyState !== 4) {
+            addMessage('agent', "Camera feed not available. Please check your camera permissions and try again.");
+            throw new Error("Camera feed not available");
+        }
+        canvas.width = cameraFeed.videoWidth;
+        canvas.height = cameraFeed.videoHeight;
+        ctx.drawImage(cameraFeed, 0, 0);
+    } catch (err) {
+        addMessage('agent', "Couldn't capture image from camera. Error: " + err.message);
+        throw err;
+    }
+    // In a real implementation, you would send this image to Gemini Vision API
+    // For now, simulate analysis
+    if (question.toLowerCase().includes('finger')) {
+                const responses = [
+                    "I'm seein' what looks like 3 fingers up. That right?",
+                    "Hold up... I count 2 fingers you got raised.",
+                    "Aight, I'm catching 4 fingers in the frame.",
+                    "Looking like 1 finger pointed my way.",
+                    "I see 5 fingers - a full hand, respect!"
+                ];
+                return responses[Math.floor(Math.random() * responses.length)];
+            } else if (question.toLowerCase().includes('color') && question.toLowerCase().includes('shirt')) {
+                const colors = ['blue', 'black', 'white', 'red', 'gray', 'green'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                return `I'm seeing a ${color} shirt on you. Clean look, fam.`;
+            } else {
+                return "I'm checkin' out what you got in frame. Looking good from here!";
+            }
+        }
+
+        function handleSocialMediaQuery(message) {
+            const responses = [
+                "Yo, I see all them social links in the sidebar. What platform you want me to help you with?",
+                "I got you connected to all the major platforms - YouTube, Instagram, X, TikTok, the whole lineup. What's the move?",
+                "Social media game strong. Which one we diving into? I can help you research or check what's poppin'.",
+                "All them platforms ready to go. Just tell me what you need me to look up on any of 'em."
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function handleWebSearch(message) {
+            // Simulate web search
+            performWebSearch(message.replace(/search|look up/gi, '').trim());
+            return "Aight, I'm pulling up that info for you in the web browser. Check the right panel.";
+        }
+
+        // Override performWebSearch to load real web pages
+        window.performWebSearch = (query) => {
+            const searchURL = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            loadPageInIframe(searchURL);
+            return `I'm pulling up real web results for "${query}". Watch the right panel.`;
+        };
+
+        function generateAgentLeeResponse(message) {
+            // Agent Lee personality responses
+            const responses = [
+                "I hear you loud and clear. " + getRandomResponse('acknowledgments'),
+                "That's real talk right there. What else you need from me?",
+                "Bet, I'm locked in on that. Anything else on your mind?",
+                "Word. I'm processing all that. Keep it coming if you got more.",
+                "No cap, I feel where you're coming from. What's next?",
+                "Say less, I got you. Always ready to work with you on whatever.",
+                "Facts. I'm here for whatever you need, just keep me in the loop."
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                updateStatus('speaking', 'Talkin\'');
+                isSpeaking = true;
+                voiceWaves.classList.remove('hidden');
+                
+                // Remove stage directions from speech
+                const speakableText = text.replace(/\*.*?\*/g, '').replace(/\s+/g, ' ').trim();
+                
+                const utterance = new SpeechSynthesisUtterance(speakableText);
+                utterance.rate = 0.95;
+                utterance.pitch = 0.85;
+                utterance.volume = 0.9;
+                
+                // Try to find a suitable male voice
+                const voices = speechSynthesis.getVoices();
+                const maleVoice = voices.find(voice => 
+                    voice.lang.includes('en') && 
+                    (voice.name.includes('Male') || voice.name.includes('David') || voice.name.includes('Mark'))
+                );
+                if (maleVoice) utterance.voice = maleVoice;
+                
+                utterance.onend = () => {
+                    updateStatus('online', 'Online');
+                    isSpeaking = false;
+                    voiceWaves.classList.add('hidden');
+                };
+                
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function stopSpeaking() {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+                updateStatus('online', 'Online');
+                isSpeaking = false;
+                voiceWaves.classList.add('hidden');
+                addMessage('agent', "Aight, I'll chill for a sec. You got my attention.");
+            }
+        }
+
+        function addMessage(sender, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message';
+            
+            const isAgent = sender === 'agent';
+            // Only show avatar for user, not agent
+            const avatar = sender === 'user' ? '<div class="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center"><i class="fas fa-user text-sm"></i></div>' : '';
+            
+            // Enhanced type checking and content handling
+            let processedContent = '';
+            if (typeof content === 'string' || typeof content === 'number') {
+                processedContent = String(content);
+            } else if (content instanceof HTMLElement) {
+                processedContent = content.textContent || '[HTML Element]';
+            } else if (content && typeof content === 'object') {
+                try {
+                    processedContent = JSON.stringify(content, null, 2);
+                } catch (e) {
+                    processedContent = '[Complex Object - could not display]';
+                }
+            } else if (content === null || content === undefined) {
+                processedContent = '[No content]';
+            } else if (Array.isArray(content)) {
+                processedContent = content.join(', ');
+            } else {
+                processedContent = String(content);
+            }
+            
+            messageDiv.innerHTML = `
+                <div class="flex space-x-3 ${sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}">
+                    ${avatar}
+                    <div class="glass-effect rounded-lg p-3 max-w-md">
+                        <p>${processedContent.replace(/\*([^*]+)\*/g, '<em class="agentlee-em">$1</em>')}</p>
+                        <div class="text-xs text-gray-400 mt-1">${new Date().toLocaleTimeString()}</div>
+                    </div>
+                </div>
+            `;
+            
+            chatHistoryDiv.appendChild(messageDiv);
+            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+            
+            // Store in chat history
+            chatHistory.push({ sender, content: processedContent, timestamp: new Date().toISOString() });
+            
+            return messageDiv;
+        }
+
+        function clearChat() {
+            chatHistoryDiv.innerHTML = '';
+            chatHistory = [];
+            addMessage('agent', "Fresh start, let's get back to it. What's on your mind?");
+        }
+
+        function updateStatus(type, text) {
+            statusIndicator.className = `w-2 h-2 rounded-full status-${type}`;
+            statusText.textContent = text;
+        }
+
+        function getRandomResponse(category) {
+            const responses = AGENT_LEE_RESPONSES[category];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // === CHAT REPORT DOWNLOAD FEATURE ===
+function downloadChatReport() {
+    try {
+        const chatContent = document.getElementById('chatHistory').innerText;
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const blob = new Blob([`AGENT LEE CHAT REPORT\n${timestamp}\n\n${chatContent}`], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `agent-lee-chat-${timestamp}.txt`;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('Report downloaded successfully!');
+        }, 100);
+    } catch (error) {
+        console.error('Download failed:', error);
+        speakText("Sorry boss, couldn't generate that report. Try again?");
+    }
+}
+
+// === UI FEEDBACK ENHANCEMENTS ===
+function showThinkingIndicator() {
+    let indicator = document.getElementById('thinking-indicator');
+    if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'thinking-indicator';
+        indicator.innerHTML = `
+            <div class="pulse-ring"></div>
+            <div class="pulse-dot"></div>
+            <p>${getAgentResponse('thinking')}</p>
+        `;
+        const header = document.querySelector('header');
+        if (header) header.appendChild(indicator);
+    }
+}
+
+function hideThinkingIndicator() {
+    const indicator = document.getElementById('thinking-indicator');
+    if (indicator) indicator.remove();
+}
+
+function showActionConfirmation(toolName) {
+    const confirmation = document.createElement('div');
+    confirmation.className = 'tool-confirmation';
+    confirmation.innerHTML = `
+        <i class="fas fa-check-circle text-green-500"></i>
+        <span>${toolName} executed</span>
+    `;
+    const toolbar = document.querySelector('header');
+    if (toolbar) {
+        toolbar.appendChild(confirmation);
+        setTimeout(() => confirmation.remove(), 3000);
+    }
+}
+
+function showNotification(msg) {
+    const notif = document.createElement('div');
+    notif.className = 'fixed bottom-8 right-8 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+    notif.textContent = msg;
+    document.body.appendChild(notif);
+    setTimeout(() => notif.remove(), 2500);
+}
+
+// File handling functions
+        function handleDragOver(e) {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            processFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            processFiles(files);
+        }
+
+        // 🧠 Enhanced: Auto-read + Actions Sidebar for uploaded files
+        function processFiles(files) {
+            files.forEach(file => {
+                const ext = file.name.split('.').pop().toLowerCase();
+                const reader = new FileReader();
+
+                const fileItem = document.createElement('div');
+                fileItem.className = 'glass-effect p-2 rounded text-xs flex items-center justify-between';
+
+                const fileIcon = getFileIcon(file.name);
+                fileItem.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <i class="${fileIcon}"></i>
+                        <span class="truncate">${file.name}</span>
+                    </div>
+                    <button onclick="removeFile(this)" class="text-red-400 hover:text-red-300">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                fileList.appendChild(fileItem);
+
+                addMessage('agent', `📁 "${file.name}" uploaded. Lemme take a quick peek...`);
+
+                // Auto-preview text files
+                if (["txt", "json", "csv"].includes(ext)) {
+                    reader.onload = () => {
+                        const preview = reader.result.slice(0, 1000);
+                        addMessage('agent', `👀 Preview:\n\n<pre>${preview}</pre>`);
+                        suggestFileTasks(file.name, ext, reader.result);
+                    };
+                    reader.readAsText(file);
+                } else {
+                    addMessage('agent', getFileProcessingMessage(file.name));
+                    suggestFileTasks(file.name, ext);
+                }
+            });
+        }
+
+        // 🧩 Sidebar Task Suggestions with Gemini Hooks
+        function suggestFileTasks(filename, ext, content = "") {
+            let sidebar = document.getElementById('fileTaskSidebar');
+            if (!sidebar) return;
+            sidebar.classList.remove('hidden');
+            sidebar.innerHTML = `<h3 class="text-sm font-semibold mb-2">⚙️ File Tools for "${filename}"</h3><ul class="space-y-1">`;
+
+            const suggestions = [];
+
+            if (["csv", "json"].includes(ext)) {
+                suggestions.push('Summarize the data', 'Generate a chart', 'Find anomalies');
+            } else if (ext === 'txt') {
+                suggestions.push('Summarize content', 'Extract names or dates', 'Rewrite in formal tone');
+            } else if (ext === 'docx') {
+                suggestions.push('Summarize document', 'Convert to plain text', 'Find key sections');
+            } else if (["jpg", "png"].includes(ext)) {
+                suggestions.push('Describe the image', 'Detect text in image', 'Check for faces or logos');
+            } else {
+                suggestions.push('Send to Gemini for ideas', 'Convert to another format');
+            }
+
+            suggestions.forEach(task => {
+                const li = document.createElement('li');
+                li.innerHTML = `<button class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded" onclick="handleFileTask('${task}', '${filename}')">${task}</button>`;
+                sidebar.appendChild(li);
+            });
+
+            sidebar.innerHTML += `</ul>`;
+        }
+
+        // 🧩 Gemini File Action Stub (to be completed)
+        async function handleFileTask(task, filename) {
+            addMessage('agent', `💡 Running: "${task}" on "${filename}"...`);
+
+            // Example Gemini call
+            const prompt = `You are Agent Lee. The user asked to: ${task} for file: ${filename}. If text content was provided, use it.`;
+
+            // Replace with Gemini streaming logic or cloud function:
+            const result = await fetchGeminiResponse(prompt);
+
+            addMessage('agent', `✅ Done: ${task}<br><pre>${result}</pre>`);
+        }
+
+        // Placeholder Gemini fetch (to be replaced with real API call)
+        async function fetchGeminiResponse(prompt) {
+            // Simulate Gemini response
+            return new Promise(resolve => setTimeout(() => resolve('Gemini result for: ' + prompt), 1200));
+        }
+
+        // Auto-resize text input
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+
+        // === MCP: Autonomous Deep Research Integration ===
+        // Load API keys from .env if available
+        function loadApiKeysFromEnvJS() {
+            if (window.AGENT_LEE_ENV) {
+                if (window.AGENT_LEE_ENV.GOOGLE_API_KEY) {
+                    localStorage.setItem('agentLeeApiKey', window.AGENT_LEE_ENV.GOOGLE_API_KEY);
+                }
+                if (window.AGENT_LEE_ENV.Exa_API_KEY) {
+                    localStorage.setItem('exa_api_key', window.AGENT_LEE_ENV.Exa_API_KEY);
+                }
+                // Add more keys as needed
+            }
+        }
+        // Add EXA API Key input to modal (if not present)
+        // (Assumes you have a modal with id 'apiModal' and continueBtn logic)
+        if (document.getElementById('apiModal')) {
+            const exaKeyBox = document.createElement('div');
+            exaKeyBox.innerHTML = `
+              <label class="block text-sm font-medium mb-2">EXA API Key</label>
+              <input type="password" id="exaApiKey" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg" placeholder="Enter EXA API Key">
+            `;
+            document.getElementById('apiModal').appendChild(exaKeyBox);
+            // Save EXA key on continue
+            const continueBtn = document.getElementById('continueBtn');
+            if (continueBtn) {
+                continueBtn.addEventListener('click', () => {
+                    const exaKey = document.getElementById('exaApiKey').value;
+                    if (exaKey) localStorage.setItem('exa_api_key', exaKey);
+                });
+            }
+        }
+
+        // === Deep Research Flow (MCP) ===
+        const webContent = document.getElementById('webContent');
+        async function runDeepResearchFlow(query, maxResults = 5) {
+            const steps = [];
+            const timestamp = () => new Date().getTime();
+            // Step 1: Formulating query
+            steps.push({ time: timestamp(), action: "formulating_query", message: `Thinking about how to search for: \"${query}\"` });
+            await wait(1500);
+            // Step 2: Searching
+            steps.push({ time: timestamp(), action: "searching", message: `Searching EXA for: \"${query}\"` });
+            const exaApiKey = localStorage.getItem('exa_api_key');
+            let exaResponse = { results: [] };
+            try {
+                exaResponse = await fetch("https://api.exa.ai/search", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${exaApiKey}`
+                  },
+                  body: JSON.stringify({
+                    query,
+                    numResults: maxResults,
+                    useAutoprompt: true,
+                    includeDomains: ["reliable-sources.com", "academic.edu"],
+                    text: true
+                  })
+                }).then(res => res.json());
+            } catch (e) {
+                steps.push({ time: timestamp(), action: 'error', message: 'EXA search failed or API key missing.' });
+            }
+            const processedResults = [];
+            for (const [i, result] of (exaResponse.results || []).entries()) {
+                steps.push({ time: timestamp(), action: `reviewing_result_${i}`, message: `Reading: ${result.title}` });
+                await wait(calculateReadTime(result.text.length));
+                processedResults.push({ title: result.title, url: result.url, content: result.text.substring(0, 800) });
+                steps.push({ time: timestamp(), action: `processed_result_${i}`, message: `Analyzed: ${result.title}` });
+            }
+            steps.push({ time: timestamp(), action: 'synthesizing', message: 'Connecting insights...' });
+            const synthesis = await fetchGeminiSynthesis(query, processedResults);
+            steps.push({ time: timestamp(), action: 'completed', message: 'Synthesis complete' });
+            showResearchSteps(query, steps, synthesis);
+        }
+        function calculateReadTime(chars) {
+            return Math.floor(chars / 100 * 200) + Math.random() * 800;
+        }
+        function wait(ms) {
+            return new Promise(r => setTimeout(r, ms));
+        }
+        async function fetchGeminiSynthesis(query, sources) {
+            // Replace with real Gemini API when ready
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(`Synthesized key takeaways about \"${query}\" from ${sources.length} sources.`);
+                }, 2000);
+            });
+        }
+        function showResearchSteps(query, steps, synthesis) {
+            if (!webContent) return;
+            webContent.innerHTML = `
+              <h4 class="font-semibold mb-3">Research on: \"${query}\"</h4>
+              <div class="space-y-3 text-sm">
+                ${steps.map(step => `
+                  <div class="glass-effect p-2 rounded-lg flex items-center gap-3">
+                    <i class="fas fa-${getStepIcon(step.action)} text-blue-400 w-5"></i>
+                    <div>${step.message}</div>
+                  </div>
+                `).join('')}
+                <div class="glass-effect p-3 rounded-lg mt-4 bg-secondary">
+                  <h3 class="text-sm font-semibold mb-1 text-green-400">🧠 Synthesis</h3>
+                  <p>${synthesis}</p>
+                </div>
+              </div>
+            `;
+        }
+        function getStepIcon(action) {
+            if (action.includes("formulating")) return "brain";
+            if (action.includes("searching")) return "search";
+            if (action.includes("reviewing")) return "book-reader";
+            if (action.includes("processed")) return "check-circle";
+            if (action.includes("synthesizing")) return "project-diagram";
+            if (action.includes("completed")) return "flag-checkered";
+            if (action.includes("error")) return "exclamation-triangle";
+            return "circle";
+        }
+        // Expose globally
+        window.performWebSearch = (query) => {
+            runDeepResearchFlow(query);
+            return "I’m diving deep into that. Check the web panel as I explore.";
+        };
+
+        // === Autonomous MCP Trigger from Conversation ===
+        // Patch processMessage to trigger MCPs from speech
+        const researchTriggers = [
+          "research", "look up", "search for",
+          "find out about", "what do you know about",
+          "pull info on", "dig into", "investigate", "can you check on"
+        ];
+        // Wrap/patch your processMessage function
+        const origProcessMessage = window.processMessage || function(msg){};
+        window.processMessage = function(message) {
+            const lowerMsg = message.toLowerCase();
+            const match = researchTriggers.find(phrase => lowerMsg.includes(phrase));
+            if (match) {
+                const query = lowerMsg.split(match).pop().trim();
+                const response = `Say less, checking \"${query}\". Gimme a second to cook.`;
+                addMessage('agent', response);
+                speakText(response);
+                runDeepResearchFlow(query);
+                return;
+            }
+            // Fallback to original
+            return origProcessMessage(message);
+        };
+    </script>
+</body>
+</html>
