@@ -1,0 +1,33 @@
+import { computeOnion, iconFor, sig8 } from './lib/leeway-hash.mjs';
+
+const tags = [
+  'FILE.AGENTLEEGEMINI.AGENT_LEE_LOADER',
+  'FILE.AGENTLEEGEMINI.AGENT_SYSTEM.DATABASE_INTERFACE',
+  'FILE.AGENTLEEGEMINI.AGENT_SYSTEM.PROMPTS',
+  'FILE.AGENTLEEGEMINI.AGENT_SYSTEM.INIT',
+  'FILE.AGENTLEE_MCP_HUB.APP',
+  'FILE.AGENTLEE_MCP_HUB.MCP.EMAIL_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.GOOGLE_MAPS_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.LIVEKIT_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.MEMORY',
+  'FILE.AGENTLEE_MCP_HUB.MCP.MEMORY_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.NOTION_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.VIDEO_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.WEBHOOK_API',
+  'FILE.AGENTLEE_MCP_HUB.MCP.INIT',
+  'FILE.BACKEND.APP',
+  'REGION.CORE.BOOTSTRAP',
+  'FILE.PUBLIC.MAIN',
+  'DOCS.SPEC.COLOR_ICON.LEEWAY_V1',
+  'FN.UTILS.LEEWAY_FIX',
+  'FN.UTILS.LEEWAY_FIX2',
+  'FN.UTILS.LEEWAY_CI'
+];
+
+const out = {};
+for (const t of tags) {
+  const o = computeOnion(t);
+  const i = iconFor(t);
+  out[t] = { neon: o.neon, fluo: o.fluo, pastel: o.pastel, sig: o.sig, icon_family: i.family, icon_glyph: i.glyph, icon_sig: i.ICON_SIG };
+}
+console.log(JSON.stringify(out, null, 2));

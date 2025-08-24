@@ -1,0 +1,1891 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <!-- LEEWAY HEADER (ASCII) — DO NOT EDIT TAG LINE -->
+  <!-- TAG: REGION.CORE.BOOTSTRAP -->
+  <!-- COLOR_ONION_HEX: NEON=#39FF14 FLUO=#0DFF94 PASTEL=#C7FFD8 | SIG: 06104CA0 -->
+  <!-- ICON_ASCII: family=lucide glyph=meta ICON_SIG=CD534113 -->
+  <!-- 5WH: WHAT=Self-contained SPA for Agent Lee; WHY=Frontend-first, zero-cost defaults; WHEN=on load; HOW=inline JS, local LLMs, backend proxy; WHERE=public/index.html; WHO=end users + devs -->
+
+  <title>Agent Lee — Leeway Standard SPA</title>
+  <meta name="description" content="Agent Lee: unified search + RAG + voice in a single input; all in one page, frontend-first, Leeway compliant." />
+  <meta name="keywords" content="Agent Lee, AI assistant, local LLM, RAG, unified search, frontend mesh, Dribbble UI, voice control, WebRTC, real-time communication" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://localhost:8000/" /> <!-- Update with actual URL in production -->
+  <meta property="og:title" content="Agent Lee — Leeway Standard SPA" />
+  <meta property="og:description" content="Agent Lee: unified search + RAG + voice in a single input; all in one page, frontend-first, Leeway compliant." />
+  <meta property="og:image" content="http://localhost:8000/agent_lee.png" /> <!-- Update with actual URL for social share image -->
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="http://localhost:8000/" /> <!-- Update with actual URL in production -->
+  <meta property="twitter:title" content="Agent Lee — Leeway Standard SPA" />
+  <meta property="twitter:description" content="Agent Lee: unified search + RAG + voice in a single input; all in one page, frontend-first, Leeway compliant." />
+  <meta property="twitter:image" content="http://localhost:8000/agent_lee.png" /> <!-- Update with actual URL for social share image -->
+
+  <!-- GA4 (non-blocking; safe if unset) -->
+  <script>
+    (function(){
+      const ID = localStorage.getItem('ga4_id') || ''; // set in Settings
+      if (ID) {
+        const s = document.createElement('script');
+        s.async = true; s.src = `https://www.googletagmanager.com/gtag/js?id=${ID}`;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', ID);
+      } else {
+        window.gtag = (...args)=>console.log('[GA4 stub]', ...args);
+      }
+    })();
+  </script>
+
+  <!-- Tailwind (CDN ok for dev, compile for prod) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ink': '#0b0e14',
+            'panel': '#10131b',
+            'edge': '#242938',
+            'accent': '#3b82f6',
+            'lee-neon': '#39FF14',
+          },
+          fontFamily: { inter: ['Inter','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Custom CSS files -->
+  <!-- Note: Database.css linked here. Review its contents for valid CSS. -->
+  <link rel="stylesheet" href="./Database.css"/>
+
+  <!-- Styles moved to Database.css for better separation and linting -->
+</head>
+<body class="text-white font-inter">
+
+  <!-- RWD Logo in bottom-right -->
+  <img id="rwdLogo" src="./rwd_logo.png" alt="RWD Logo" class="fixed bottom-3 right-3 h-8 w-auto z-10"
+       onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc5NicgaGVpZ2h0PSczMiI+PHJlY3QgZmlsbD0nIzQ3NTU2QiIgLXdpZHRoPSc5NicgaGVpZ2h0PSczMiIgcmV4b212ZXJzPSc0Jy8+PHRleHQgeD0nNTAlJScgeT0nNTAlJScgZmlsbD0nI2Y4ZmZmYScgZm9udC1zaXplPScxMiIgdGV4dC1hbmNob3I9J21pZGRsZScgZG9taW5hbnQtYmFzZWxpbmU9J2NlbnRyYWwnPlJXRCBMb2dvPC90ZXh0Pjwvc3ZnPj'"/>
+
+  <div class="grid-2x2">
+    <!-- Camera + Unified Input -->
+    <div class="card">
+      <div class="absolute top-3 left-3 flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+        <span class="text-xs text-gray-300">Camera</span>
+      </div>
+  <video id="userCamera" autoplay muted class="w-full h-full object-cover bg-gray-900"
+             poster="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MjAnIGhlaWdodD0nNDIwJz48cmVjdCBmaWxsPScjMzM0MTUyJyB3aWR0aD0nNDIwJyBoZWlnaHQ9JzQyMCcvPjx0ZXh0IHg9JzUwJScgeT0nNTAlJScgZmlsbD0nI2EwYWVjMCcgZm9udC1zaXplPScyNCcgdGV4dC1hbmNob3I9J21pZGRsZScgZG9taW5hbnQtYmFzZWxpbmU9J2NlbnRyYWwnPkNhbWVyYSBPZmxpbmU8L2x0Pg==;"></video>
+      <!-- The poster is a fallback if camera fails or permissions are denied -->
+
+      <!-- Call Grid (up to 4) -->
+      <div id="callContainer" class="call-grid hidden absolute inset-0 p-2">
+        <!-- dynamically populated -->
+      </div>
+
+      <div class="absolute bottom-3 left-3 right-3">
+        <div class="flex bg-black/50 border border-gray-700 rounded-lg overflow-hidden relative">
+          <!-- Unified single input for everything -->
+          <input id="messageInput" class="flex-1 bg-transparent px-3 py-2 outline-none pr-28" placeholder="Say or type anything (e.g., “look up Chicago lakefront events”)"/>
+          <div class="absolute right-0 top-0 bottom-0 flex items-center pr-1 gap-1">
+              <button type="button" id="voiceSearchBtn" class="px-2 py-1 rounded-md bg-gray-800 hover:bg-gray-700 text-sm" title="Voice search">
+                🎤
+              </button>
+              <button type="button" id="sendBtn" class="px-2 py-1 text-accent hover:text-blue-300 text-sm" title="Send"><span class="fa fa-paper-plane"></span></button>
+          </div>
+        </div>
+        <div class="text-[11px] text-gray-400 mt-1">Tip: “look up … / find … / what is … / research … / search …” triggers a web search.</div>
+      </div>
+      <canvas id="analyzeCanvas" class="visually-hidden"></canvas>
+    </div>
+
+    <!-- Agent Panel -->
+    <div class="card">
+      <div class="absolute top-3 left-3 flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-lee-neon"></span>
+        <span class="text-xs text-gray-300">Agent Lee</span>
+      </div>
+      <div class="h-full w-full flex items-center justify-center p-6">
+        <div class="agent-avatar-container">
+          <!-- Agent Lee Avatar -->
+    <img id="agentImg" alt="Agent Lee" src="./agentleeavatar.png" class="w-full h-full object-contain object-center"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MjAnIGhlaWdodD0nNDIwJz48cmVjdCBmaWxsPScjMmQzNzQ4JyB3aWR0aD0nNDIwJyBoZWlnaHQ9JzQyMCcvPjx0ZXh0IHg9JzUwJScgeT0nNTAlJScgZmlsbD0nI2EwYWVjMCcgZm9udC1zaXplPSc0OCcgdGV4dC1hbmNob3I9J21pZGRsZScgZG9taW5hbnQtYmFzZWxpbmU9J2NlbnRyYWwnPkFnZW50IExlZTwvdGV4dD48L3N2Zz4='"/>
+    <!-- Video player for Agent Lee speaking animations; hidden by default and shown when speaking -->
+  <video id="agentVideo" class="absolute inset-0 w-full h-full object-contain" muted preload="auto"></video>
+        </div>
+      </div>
+      <div class="wave" id="leeWave"><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="absolute bottom-3 right-3 chip">v8 • local+free</div>
+    </div>
+
+    <!-- Search Panel -->
+    <div class="card">
+      <div class="flex items-center justify-between px-3 py-2 border-b border-gray-800">
+        <div class="flex items-center gap-2">
+          <span class="fa fa-globe text-accent"></span>
+          <h3 class="font-semibold">Search</h3>
+          <span class="chip">Unified input + voice</span>
+        </div>
+        <div class="text-xs text-gray-400" id="resCount">0 results</div>
+      </div>
+
+      <!-- Reason w/ LLM checkbox (moved from search toolbar to here) -->
+      <div class="p-3 flex items-center gap-2 border-b border-gray-800">
+        <label class="text-xs text-gray-400 flex items-center gap-1">
+          <input id="useLLM" type="checkbox" class="accent-lee-neon" checked/>
+          Reason w/ LLM (for search summaries)
+        </label>
+      </div>
+
+      <div id="results" class="p-3 space-y-2 overflow-auto"></div>
+
+      <!-- In-panel web preview -->
+      <div id="webPreview" class="hidden p-3 border-t border-gray-800">
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-xs text-gray-400">Preview</div>
+          <button type="button" id="closePreview" class="text-xs text-gray-300 hover:text-white">Close</button>
+        </div>
+        <iframe id="webPreviewFrame" class="w-full h-full bg-black/40 rounded border border-gray-800" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-pointer-lock allow-downloads allow-modals allow-presentation allow-orientation-lock allow-media allow-fullscreen" title="Web Page Preview"></iframe>
+      </div>
+    </div>
+
+    <!-- Document Panel -->
+    <div class="card">
+      <div class="flex items-center justify-between px-3 py-2 border-b border-gray-800">
+        <div class="flex items-center gap-2">
+          <span class="fa fa-file-alt text-accent"></span>
+          <h3 id="docTitle" class="font-semibold">Document</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="shareDoc" class="text-gray-300 hover:text-white" title="Share"><span class="fa fa-share-alt"></span></button>
+          <button type="button" id="downloadDoc" class="text-gray-300 hover:text-white" title="Download"><span class="fa fa-download"></span></button>
+          <button type="button" id="uploadDoc" class="text-gray-300 hover:text-white" title="Upload"><span class="fa fa-upload"></span></button>
+          <input type="file" id="docFile" accept=".txt,.md,.json,.html,.csv,.pdf,.jpg,.jpeg,.png,.gif,.webp,video/*" class="hidden" title="Upload Document or Video"/>
+        </div>
+      </div>
+      <div id="docBody" class="p-3 overflow-auto">
+        <div class="text-gray-400 text-sm">No document or video loaded yet.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nexus mic + Quick Actions -->
+  <div class="nexus" id="nexus">
+    <div class="qa-panel" id="qaPanel" role="toolbar" aria-label="Quick Actions">
+  <button type="button" class="qa-btn" id="qaNote"  title="Quick Note">📝</button>
+  <button type="button" class="qa-btn" id="qaEmail" title="Quick Email">✉️</button>
+  <button type="button" class="qa-btn" id="qaSearch" title="Quick Search">🔎</button>
+  <button type="button" class="qa-btn" id="qaStartCall" title="Start Call">📞</button>
+  <button type="button" class="qa-btn" id="qaEndCall" title="End Call">📴</button>
+    </div>
+  <button type="button" id="nexusBtn" title="Talk to Agent Lee">🎤</button>
+  </div>
+
+  <!-- Call Notification -->
+  <div id="callNotification" class="hidden">
+    <span class="fa fa-phone animate-pulse"></span>
+    <span id="callNotificationText">Incoming Call...</span>
+  </div>
+
+  <!-- Settings Button -->
+  <button type="button" id="settingsBtn" class="fixed bottom-3 left-3 bg-gray-700 text-white py-2 px-4 rounded-lg flex items-center gap-2 shadow-lg hover:bg-gray-600 transition-colors">
+    <span class="fa fa-cog"></span> Settings
+  </button>
+
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settingsModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Agent Lee • Settings</h2>
+  <button type="button" id="closeSettings" class="text-gray-300 hover:text-white text-xl">&times;</button>
+      </div>
+
+      <div class="section">
+        <h3 class="font-semibold mb-2">AI Engines</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <div class="flex items-center justify-between">
+              <span>Always-on Local LLM</span>
+              <label class="flex items-center gap-2 text-sm">
+                <input id="alwaysLocal" type="checkbox" class="accent-lee-neon" checked/> On
+              </label>
+            </div>
+            <div class="mt-2">
+              <label class="text-xs text-gray-400">Preferred Local Model</label>
+              <select id="modelPick" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1">
+                <option value="phi3">Phi-3 (local)</option>
+                <option value="gemma">Gemma (local)</option>
+                <option value="llama">Llama (local)</option>
+                <option value="azr">AZR Reasoner (phi3 fallback)</option>
+              </select>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">Status: <span id="llmStatus">idle</span></div>
+          </div>
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <div class="flex items-center justify-between">
+              <span>Online Helpers (free)</span>
+              <label class="flex items-center gap-2 text-sm">
+                <input id="onlineHelpers" type="checkbox" class="accent-lee-neon" checked/> Enable
+              </label>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">
+              Uses DuckDuckGo Instant Answers & Wikipedia via backend proxy when reasoning is enabled.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 class="font-semibold mb-2">Voice (OpenVoice-ready)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <label class="text-sm">Clone from mic (backend)</label>
+            <div class="mt-2 flex gap-2">
+              <button type="button" id="recordRef" class="px-3 py-2 bg-emerald-600 rounded hover:bg-emerald-700">Record ref</button>
+              <button type="button" id="uploadRef" class="px-3 py-2 bg-gray-700 rounded hover:bg-gray-600">Upload ref</button>
+              <input id="refFile" type="file" accept="audio/*" class="hidden"/>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">Endpoint: <code>/api/voice/clone</code></div>
+          </div>
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <label class="text-sm">Synthesize sample</label>
+            <div class="mt-2 flex gap-2">
+              <input id="ttsText" class="flex-1 bg-gray-900 border border-gray-700 rounded px-2 py-1" placeholder="Type something…" />
+              <button type="button" id="synthBtn" class="px-3 py-2 bg-indigo-600 rounded hover:bg-indigo-700">Synthesize</button>
+            </div>
+            <div class="mt-2 text-xs text-gray-400">Endpoint: <code>/api/voice/synthesize</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 class="font-semibold mb-2">Search Settings</h3>
+        <div class="space-y-3">
+          <!-- Engine selection -->
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <label class="text-sm font-medium">Search Engines</label>
+            <div class="mt-2 grid grid-cols-2 gap-2 text-xs text-gray-400">
+              <label><input id="engineDdg" type="checkbox" class="accent-lee-neon" checked/> DuckDuckGo</label>
+              <label><input id="engineWiki" type="checkbox" class="accent-lee-neon" checked/> Wikipedia</label>
+              <label><input id="engineHn" type="checkbox" class="accent-lee-neon" checked/> Hacker News</label>
+              <label><input id="engineSo" type="checkbox" class="accent-lee-neon" checked/> StackOverflow</label>
+              <label><input id="engineArxiv" type="checkbox" class="accent-lee-neon" checked/> arXiv</label>
+              <label><input id="engineReddit" type="checkbox" class="accent-lee-neon" checked/> Reddit</label>
+              <label><input id="enginePerplexica" type="checkbox" class="accent-lee-neon"/> Perplexica</label>
+              <label><input id="engineVespa" type="checkbox" class="accent-lee-neon"/> Vespa</label>
+              <label><input id="engineHaystack" type="checkbox" class="accent-lee-neon"/> Haystack</label>
+            </div>
+          </div>
+          <!-- Search options -->
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <label class="text-sm font-medium">Options</label>
+            <div class="mt-2 space-y-2 text-xs text-gray-400">
+              <label class="flex items-center gap-2"><input id="useRag" type="checkbox" class="accent-lee-neon" checked/> Use local RAG</label>
+              <label class="flex items-center gap-2"><input id="useLlmGlobal" type="checkbox" class="accent-lee-neon" checked/> Use local LLM</label>
+              <div class="flex items-center gap-2">
+                <label for="resultsK">Max results</label>
+                <input id="resultsK" type="number" min="1" max="20" value="6" class="w-16 bg-gray-900 border border-gray-700 rounded px-1 py-0.5"/>
+              </div>
+            </div>
+          </div>
+          <!-- Analytics -->
+          <div class="p-3 bg-gray-900/60 rounded border border-gray-800">
+            <label class="text-sm font-medium">Analytics</label>
+            <input id="ga4Input" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1" placeholder="G-XXXXXXX" />
+            <button type="button" id="saveGA4" class="mt-2 px-3 py-2 bg-accent rounded hover:bg-blue-600">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3 class="font-semibold mb-2">Camera & Call Settings</h3>
+        <div class="p-3 bg-gray-900/60 rounded border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span>Hidden on-demand analysis</span>
+            <label class="flex items-center gap-2 text-sm">
+              <input id="allowAnalyze" type="checkbox" class="accent-lee-neon" checked/> Enable
+            </label>
+          </div>
+          <div class="pt-3 border-t border-gray-800">
+            <h4 class="text-sm font-medium mb-2">Simulate Calls (for testing UI)</h4>
+            <div class="flex gap-2 flex-wrap">
+              <button type="button" id="simCall1" class="px-3 py-1 bg-blue-600 rounded text-xs hover:bg-blue-700">1 Participant</button>
+              <button type="button" id="simCall2" class="px-3 py-1 bg-blue-600 rounded text-xs hover:bg-blue-700">2 Participants</button>
+              <button type="button" id="simCall4" class="px-3 py-1 bg-blue-600 rounded text-xs hover:bg-blue-700">4 Participants</button>
+              <button type="button" id="simEndCall" class="px-3 py-1 bg-red-600 rounded text-xs hover:bg-red-700">End Call</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Custom JS files (loaded as modules for strict mode and better scoping) -->
+  <!-- These will define classes like window.Embedder, window.GemmaLLM, etc. -->
+  <!-- If they fail to load or don't define these, the inline stubs will be used by LEW. -->
+  <!-- Imports are deferred to body end to ensure DOM is available and not block rendering -->
+  <script type="module" src="/models/embedder.js"></script>
+  <script type="module" src="/models/gemma.js"></script>
+  <script type="module" src="/models/llama.js"></script>
+  <script type="module" src="/models/phi3.js"></script>
+  <script type="module" src="/models/azr.js"></script>
+  <script type="module" src="/models/azr_modules_combined.js"></script>
+  <!-- Database.js import commented out to prevent SyntaxError. Its functionality is now handled inline by LEW.store -->
+  <!-- Database helper moved to public/js/; enable only if ESM-compatible -->
+  <!-- <script type="module" src="./js/Database.js"></script> -->
+
+
+  <!-- LEW: Main Application Script -->
+  <script type="module">
+  // LEW: Global Namespace for Leeway Application Logic
+  window.LEW = window.LEW || {};
+
+  // =========================================================================
+  // LEW.util: Core Utilities
+  // =========================================================================
+  LEW.util = {
+    qs: (s, el = document) => {
+      const element = el.querySelector(s);
+      // if (!element) console.warn(`LEW.util: Element "${s}" not found.`); // Removed to reduce console noise for non-critical elements
+      return element;
+    },
+    qsa: (s, el = document) => {
+      const elements = [...el.querySelectorAll(s)];
+      // if (elements.length === 0) console.warn(`LEW.util: No elements found for "${s}".`); // Removed to reduce console noise
+      return elements;
+    },
+    clamp: (n, a, b) => Math.max(a, Math.min(b, n)),
+    sleep: ms => new Promise(r => setTimeout(r, ms)),
+    escapeHtml: (s) => (s || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])),
+    now: () => Date.now(),
+    safeTrim: (s) => (typeof s === 'string' ? s.trim() : ''), // Robust trim
+    uuid: () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    })
+  };
+
+  // =========================================================================
+  // LEW.store: IndexedDB for KV (Logs) and RAG Chunks
+  // =========================================================================
+  // NOTE: This module is now self-contained using IndexedDB directly.
+  // It does not rely on an external 'Database.js' to prevent SyntaxError issues.
+  LEW.store = {
+    // KV Store (for logs and notes)
+    _kvDb: null,
+    _kvName: 'LEW_KV_Store_v1',
+    _kvStore: 'kv',
+    async _openKvDb() {
+      if (this._kvDb) return this._kvDb;
+      return new Promise((res, rej) => {
+        const req = indexedDB.open(this._kvName, 1);
+        req.onupgradeneeded = e => e.target.result.createObjectStore(this._kvStore);
+        req.onsuccess = () => { this._kvDb = req.result; res(req.result); };
+        req.onerror = () => {
+          console.error('LEW.store: KV DB error', req.error);
+          rej(req.error || new Error('LEW.store: KV DB error'));
+        };
+      });
+    },
+    async kvSet(key, value) {
+      try {
+        const db = await this._openKvDb();
+        const tx = db.transaction(this._kvStore, 'readwrite');
+        tx.objectStore(this._kvStore).put(value, key);
+        return await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
+      } catch (e) { console.warn('LEW.store: Failed to set KV', e); }
+    },
+    async kvGet(key) {
+      try {
+        const db = await this._openKvDb();
+        return new Promise((res, rej) => {
+          const req = db.transaction(this._kvStore).objectStore(this._kvStore).get(key);
+          req.onsuccess = () => res(req.result);
+          req.onerror = () => rej(req.error || new Error('LEW.store: KV get error'));
+        });
+      } catch (e) { console.warn('LEW.store: Failed to get KV', e); return null; }
+    },
+
+    // RAG Store (for document chunks)
+    _ragDb: null,
+    _ragName: 'LEW_RAG_Store_v1',
+    _ragStore: 'chunks',
+    async _openRagDb() {
+      if (this._ragDb) return this._ragDb;
+      return new Promise((res, rej) => {
+        const req = indexedDB.open(this._ragName, 1);
+        req.onupgradeneeded = e => e.target.result.createObjectStore(this._ragStore, { keyPath: 'id' });
+        req.onsuccess = () => { this._ragDb = req.result; res(req.result); };
+        req.onerror = () => {
+          console.error('LEW.store: RAG DB error', req.error);
+          rej(req.error || new Error('LEW.store: RAG DB error'));
+        };
+      });
+    },
+    async ragPutMany(rows) {
+      try {
+        const db = await this._openRagDb();
+        const tx = db.transaction(this._ragStore, 'readwrite');
+        const os = tx.objectStore(this._ragStore);
+        for (const row of rows) os.put(row);
+        return await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
+      } catch (e) { console.warn('LEW.store: Failed to put RAG chunks', e); }
+    },
+    async ragGetAll() {
+      try {
+        const db = await this._openRagDb();
+        return new Promise((res, rej) => {
+          const out = [];
+          const req = db.transaction(this._ragStore, 'readonly').objectStore(this._ragStore).openCursor();
+          req.onsuccess = e => {
+            const cursor = e.target.result;
+            if (!cursor) return res(out);
+            out.push(cursor.value);
+            cursor.continue();
+          };
+          req.onerror = () => rej(req.error || new Error('LEW.store: RAG getAll error'));
+        });
+      } catch (e) { console.warn('LEW.store: Failed to get all RAG chunks', e); return []; }
+    }
+  };
+
+  // =========================================================================
+  // LEW.bus: Event Bus for centralized logging
+  // =========================================================================
+  LEW.bus = {
+    _events: new EventTarget(),
+    _logQueue: [],
+    _logTimer: null,
+    _logDelay: 1000,
+
+    init() {
+      this._events.addEventListener('LEW_Event', this._handleEvent.bind(this));
+    },
+
+    dispatch(type, payload = {}) {
+      const event = new CustomEvent('LEW_Event', { detail: { type, payload, ts: LEW.util.now(), v: 1 } });
+      this._events.dispatchEvent(event);
+    },
+
+    _handleEvent(event) {
+      const { type, payload, ts, v } = event.detail;
+      const logEntry = { type, payload, ts, v, id: LEW.util.uuid() };
+      this._logQueue.push(logEntry);
+      clearTimeout(this._logTimer);
+      this._logTimer = setTimeout(this._flushLogs.bind(this), this._logDelay);
+      console.debug(`[LEW.bus] Dispatched event: ${type}`, logEntry);
+    },
+
+    async _flushLogs() {
+      if (this._logQueue.length === 0) return;
+      const logsToFlush = [...this._logQueue];
+      this._logQueue = [];
+      for (const log of logsToFlush) {
+        await LEW.store.kvSet(`log:${log.type}:${log.ts}:${log.id}`, log);
+      }
+      console.log(`[LEW.bus] Flushed ${logsToFlush.length} logs to IndexedDB.`);
+    }
+  };
+
+  // =========================================================================
+  // LEW.speech: Speech-to-Text (STT) and Text-to-Speech (TTS)
+  // =========================================================================
+  LEW.speech = {
+    _recognition: null,
+    _synthesis: window.speechSynthesis,
+    _nexusState: 'idle',
+    _lastTranscript: '',
+    _searchRecognition: null,
+    _utteranceQueue: [],
+    _isSpeaking: false,
+    _micMediaStream: null, // To keep track of the mic stream for permissions
+    _lipSyncCanvas: null,
+    _lipSyncCtx: null,
+    _agentImgEl: null,
+    _lipSyncInterval: null,
+
+
+    init() {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SR) {
+        this._recognition = new SR();
+        this._recognition.continuous = false;
+        this._recognition.interimResults = true;
+        this._recognition.lang = 'en-US';
+
+        this._recognition.onstart = () => this.setState('listening');
+        this._recognition.onresult = (e) => {
+          this._lastTranscript = Array.from(e.results).map(r => r[0].transcript).join(' ');
+          LEW.ui.setMessageInput(this._lastTranscript);
+        };
+        this._recognition.onerror = (e) => {
+          console.error('LEW.speech: Recognition error', e);
+          this.setState('idle');
+          if (e.error !== 'no-speech' && e.error !== 'aborted') {
+            this.speak("I had trouble understanding you. Please try again.");
+          }
+          LEW.bus.dispatch('speech_error', { type: 'recognition', error: e.error });
+        };
+        this._recognition.onend = () => {
+          if (this._nexusState === 'listening') { // Only dispatch if not manually stopped
+            this.setState('thinking');
+            LEW.ui.dispatchUnifiedInput(this._lastTranscript);
+          } else {
+            this.setState('idle');
+          }
+        };
+
+        this._searchRecognition = new SR();
+        this._searchRecognition.continuous = false;
+        this._searchRecognition.interimResults = true;
+        this._searchRecognition.lang = 'en-US';
+
+        this._searchRecognition.onstart = () => this.setState('listening');
+        this._searchRecognition.onresult = (e) => {
+          this._lastTranscript = Array.from(e.results).map(r => r[0].transcript).join(' ');
+          LEW.ui.setMessageInput(this._lastTranscript);
+        };
+        this._searchRecognition.onerror = (e) => {
+          console.error('LEW.speech: Search recognition error', e);
+          this.setState('idle');
+          if (e.error !== 'no-speech' && e.error !== 'aborted') {
+            this.speak("Voice search failed. Please try again.");
+          }
+          LEW.bus.dispatch('speech_error', { type: 'search_recognition', error: e.error });
+        };
+        this._searchRecognition.onend = () => {
+          if (this._nexusState === 'listening') { // Only dispatch if not manually stopped
+            this.setState('thinking');
+            LEW.ui.forcedSearch = true; // Force search intent
+            LEW.ui.dispatchUnifiedInput(this._lastTranscript);
+          } else {
+            this.setState('idle');
+          }
+        };
+
+        // Replace lip-sync canvas with video-based speaking animation.
+        this._synthesis.onstart = () => {
+          this._isSpeaking = true;
+          this.setState('speaking');
+          this._playAgentVideoSequence();
+        };
+        this._synthesis.onend = () => {
+          this._isSpeaking = false;
+          this._stopAgentVideo();
+          if (this._utteranceQueue.length > 0) {
+            this._speakNextInQueue();
+          } else {
+            this.setState('idle');
+          }
+        };
+        this._synthesis.onerror = (e) => {
+          console.error('LEW.speech: Synthesis error', e);
+          this._isSpeaking = false;
+          this._stopLipSync();
+          this.setState('idle');
+          this._utteranceQueue = [];
+          LEW.bus.dispatch('speech_error', { type: 'synthesis', error: e.error });
+        };
+
+        // Video-based avatar elements
+        this._agentImgEl = LEW.util.qs('#agentImg');
+        this._agentVideoEl = LEW.util.qs('#agentVideo');
+
+        // Prepare a playlist of speaking videos. Order: speaks -> speak3 -> speaks2 (looping as requested)
+        this._agentVideoPlaylist = [
+          { src: './agentleespeaks.mp4', loop: false },
+          { src: './agentleespeak3.mp4', loop: false },
+          { src: './agentleespeaks2.mp4', loop: false }
+        ];
+        this._agentVideoIdx = 0;
+        this._agentVideoSwitchTimeout = null;
+
+        // Ensure agent image is visible initially and video is hidden
+  if (this._agentImgEl) this._agentImgEl.style.display = '';
+  if (this._agentVideoEl) this._agentVideoEl.classList.remove('active');
+
+      } else {
+        console.warn('LEW.speech: Speech Recognition not available in this browser. Voice features disabled.');
+        LEW.util.qs('#nexusBtn')?.setAttribute('disabled', 'true');
+        LEW.util.qs('#voiceSearchBtn')?.setAttribute('disabled', 'true');
+      }
+    },
+
+    setState(state) {
+      this._nexusState = state;
+      const nexusEl = LEW.util.qs('#nexus');
+      const leeWaveEl = LEW.util.qs('#leeWave');
+      if (nexusEl) nexusEl.classList.toggle('active', state !== 'idle');
+      if (leeWaveEl) leeWaveEl.style.display = (state === 'speaking') ? 'flex' : 'none';
+    },
+
+    getTranscript() {
+      return LEW.util.safeTrim(this._lastTranscript);
+    },
+
+    async _requestMicAccess() {
+        // Check if mic stream already exists and is active
+        if (this._micMediaStream && this._micMediaStream.active) {
+            console.log("LEW.speech: Mic access already active.");
+            return true; // Already got access
+        }
+        try {
+            this._micMediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            console.log('LEW.speech: Microphone access granted.');
+            LEW.bus.dispatch('mic_access', { status: 'granted' });
+            return true;
+        } catch (e) {
+            console.error('LEW.speech: Microphone access denied', e);
+            this.speak('Microphone access is required for voice commands.');
+            LEW.bus.dispatch('mic_access', { status: 'denied', error: e.message });
+            return false;
+        }
+    },
+
+    async toggleMainListen() {
+      if (!this._recognition) { this.speak('Speech recognition is not available.'); return; }
+
+      const hasMicAccess = await this._requestMicAccess();
+      if (!hasMicAccess) return;
+
+      if (this._nexusState === 'listening') {
+        this._recognition.stop();
+        LEW.bus.dispatch('speech_recognition', { action: 'stopped' });
+      } else {
+        this._lastTranscript = '';
+        LEW.ui.setMessageInput('');
+        this._recognition.start();
+        LEW.bus.dispatch('speech_recognition', { action: 'started' });
+      }
+    },
+
+    async startVoiceSearch() {
+      if (!this._searchRecognition) { this.speak('Voice search is not available.'); return; }
+
+      const hasMicAccess = await this._requestMicAccess();
+      if (!hasMicAccess) return;
+
+      if (this._nexusState === 'listening') { // If main mic is listening, stop it first
+          this._recognition.stop();
+      }
+
+      this._lastTranscript = '';
+      LEW.ui.setMessageInput('');
+      this._searchRecognition.start();
+      LEW.bus.dispatch('speech_recognition', { action: 'search_started' });
+    },
+
+    _cleanForSpeech(text) {
+      return (text || '')
+        .replace(/```[\s\S]*?```/g, ' ') // Remove code blocks
+        .replace(/[*•#>\-–—_~`]+/g, ' ') // Remove bullet points, hashes, dashes etc.
+        .replace(/[“”"']/g, ' ') // Remove various quote marks
+        .replace(/(https?:\/\/[^\s]+)/g, ' ') // Remove URLs
+        .replace(/\(\s*\)/g, ' ') // Remove empty parentheses
+        .replace(/[.,!?;:]/g, m => m === '.' ? '.' : '') // Keep periods, remove other sentence-ending punctuation initially
+        .replace(/\s{2,}/g, ' ') // Compress multiple spaces
+        .trim();
+    },
+
+    // Video playback helpers
+    _playAgentVideoSequence() {
+      if (!this._agentVideoEl || !this._agentVideoPlaylist || this._agentVideoPlaylist.length === 0) return;
+  // Show video, hide static image
+  if (this._agentImgEl) this._agentImgEl.style.display = 'none';
+  this._agentVideoEl.classList.add('active');
+
+      // Start from current index
+      this._agentVideoIdx = 0;
+      const playNext = () => {
+        const entry = this._agentVideoPlaylist[this._agentVideoIdx];
+        this._agentVideoEl.src = entry.src;
+        this._agentVideoEl.currentTime = 0;
+        this._agentVideoEl.loop = false;
+        this._agentVideoEl.play().catch(() => {});
+
+        // Schedule switch to next video just before the last 3 seconds
+        // We'll attempt to read duration; if not available, fallback to switching after (duration-3) or 3s
+        const onLoaded = () => {
+          const dur = isFinite(this._agentVideoEl.duration) && this._agentVideoEl.duration > 4 ? this._agentVideoEl.duration : null;
+          const switchAt = dur ? Math.max(0, dur - 3) : Math.max(0, (dur || 6) - 3);
+          // Clear any previous timeout
+          if (this._agentVideoSwitchTimeout) clearTimeout(this._agentVideoSwitchTimeout);
+          this._agentVideoSwitchTimeout = setTimeout(() => {
+            // advance index
+            this._agentVideoIdx = (this._agentVideoIdx + 1) % this._agentVideoPlaylist.length;
+            playNext();
+          }, switchAt * 1000);
+        };
+
+        // Clean up listeners
+        this._agentVideoEl.onloadedmetadata = onLoaded;
+      };
+
+      playNext();
+    },
+
+    _stopAgentVideo() {
+      if (!this._agentVideoEl) return;
+      if (this._agentVideoSwitchTimeout) { clearTimeout(this._agentVideoSwitchTimeout); this._agentVideoSwitchTimeout = null; }
+      try { this._agentVideoEl.pause(); this._agentVideoEl.removeAttribute('src'); this._agentVideoEl.load(); } catch (e) {}
+  this._agentVideoEl.classList.remove('active');
+  if (this._agentImgEl) this._agentImgEl.style.display = '';
+    },
+
+    _speakNextInQueue() {
+      if (this._utteranceQueue.length > 0 && !this._isSpeaking) {
+        const textToSpeak = this._utteranceQueue.shift();
+        const u = new SpeechSynthesisUtterance(textToSpeak);
+        const voice = this._synthesis.getVoices().find(v => v.lang.startsWith('en')) || null;
+        if (voice) u.voice = voice;
+        // The onstart for lip-sync is already handled by _synthesis.onstart
+        this._synthesis.cancel();
+        this._isSpeaking = true;
+        this._synthesis.speak(u);
+      }
+    },
+
+    speak(text) {
+      const cleanedText = LEW.util.safeTrim(this._cleanForSpeech(text));
+      if (!cleanedText) {
+        console.warn('LEW.speech: No text to speak after cleaning, skipping.');
+        this.setState('idle');
+        return;
+      }
+      this._utteranceQueue.push(cleanedText);
+      this._speakNextInQueue();
+      LEW.bus.dispatch('speech', { action: 'speak', text: cleanedText });
+    }
+  };
+
+  // =========================================================================
+  // LEW.vec: Vector Embeddings & RAG operations
+  // =========================================================================
+  LEW.vec = {
+    _embedder: null,
+    _dim: 384,
+
+    init() {
+      // Define a stub Embedder if window.Embedder is not already defined by an external script.
+      if (typeof window.Embedder === 'undefined') {
+        window.Embedder = class {
+          constructor() { this.dim = LEW.vec._dim; console.warn('LEW.vec: Using stub Embedder.'); }
+          async initialize() { console.log('Stub Embedder initialized.'); }
+          async embed(text) {
+            const v = new Float32Array(this.dim);
+            let h = 2166136261 >>> 0;
+            for (let i = 0; i < text.length && i < 1024; i++) {
+              h ^= text.charCodeAt(i);
+              h = (h * 16777619) >>> 0;
+              v[i % this.dim] += ((h & 0xffff) / 65535) - 0.5;
+            }
+            let sumSq = 0; for (const x of v) sumSq += x * x;
+            const mag = Math.sqrt(sumSq) || 1;
+            for (let i = 0; i < v.length; i++) v[i] /= mag;
+            return v;
+          }
+        };
+      }
+      this._embedder = new window.Embedder();
+      this._embedder.initialize();
+    },
+
+    async embedTexts(texts) {
+      if (!this._embedder) {
+        LEW.bus.dispatch('embed_error', { message: 'Embedder not initialized.' });
+        throw new Error('LEW.vec: Embedder not initialized.');
+      }
+      const embeddings = [];
+      for (const text of texts) {
+        embeddings.push(await this._embedder.embed(text));
+      }
+      return embeddings;
+    },
+
+    cosineSimilarity(vecA, vecB) {
+      let dotProduct = 0;
+      for (let i = 0; i < vecA.length; i++) {
+        dotProduct += vecA[i] * vecB[i];
+      }
+      return dotProduct;
+    },
+
+    chunkText(text, { max = 600, overlap = 120 } = {}) {
+      const clean = LEW.util.safeTrim(text);
+      if (!clean) return [];
+      const parts = [];
+      let i = 0;
+      while (i < clean.length) {
+        const end = LEW.util.clamp(i + max, 0, clean.length);
+        parts.push(clean.slice(i, end));
+        i += (max - overlap);
+        if (i >= clean.length) i = clean.length;
+      }
+      return parts.filter(Boolean);
+    }
+  };
+
+  // =========================================================================
+  // LEW.llm: Local LLM Abstraction
+  // =========================================================================
+  LEW.llm = {
+    _llmInstance: null,
+    _status: 'idle',
+    _preferredModel: 'phi3',
+
+    init() {
+      // Define LLM stubs if window.LLMName is not already defined by an external script.
+      if (typeof window.GemmaLLM === 'undefined') window.GemmaLLM = class { constructor() {console.warn('LEW.llm: Using Gemma stub.');} async initialize() {} async chat(p) { return { text: '' }; } getStatus() { return { name: 'Gemma (stub)', ready: true }; } };
+      if (typeof window.LlamaLLM === 'undefined') window.LlamaLLM = class { constructor() {console.warn('LEW.llm: Using Llama stub.');} async initialize() {} async chat(p) { return { text: '' }; } getStatus() { return { name: 'Llama (stub)', ready: true }; } };
+      if (typeof window.Phi3LLM === 'undefined') window.Phi3LLM = class { constructor() {console.warn('LEW.llm: Using Phi-3 stub.');} async initialize() {} async chat(p) { return { text: '' }; } getStatus() { return { name: 'Phi-3 (stub)', ready: true }; } };
+      if (typeof window.AZRLLM === 'undefined') window.AZRLLM = class { constructor() {console.warn('LEW.llm: Using AZR stub.');} async initialize() {} async chat(p) { return { text: '' }; } getStatus() { return { name: 'AZR (stub)', ready: true }; } };
+
+      this._preferredModel = localStorage.getItem('llm_pref') || 'phi3';
+      this.loadPreferredLLM();
+    },
+
+    async loadPreferredLLM() {
+      this._status = 'loading';
+      LEW.ui.updateLlmStatus('loading...');
+      const modelPickEl = LEW.util.qs('#modelPick');
+      if (modelPickEl) modelPickEl.value = this._preferredModel;
+
+      const modelMap = {
+        gemma: window.GemmaLLM,
+        llama: window.LlamaLLM,
+        phi3: window.Phi3LLM,
+        azr: window.AZRLLM
+      };
+      const Ctor = modelMap[this._preferredModel];
+
+      if (!Ctor) {
+        this._status = 'error';
+        LEW.ui.updateLlmStatus('not found');
+        console.error(`LEW.llm: Constructor for model "${this._preferredModel}" not found.`);
+        LEW.bus.dispatch('llm_load_error', { model: this._preferredModel, error: 'Constructor not found' });
+        return;
+      }
+
+      try {
+        this._llmInstance = new Ctor();
+        if (this._llmInstance.initialize) await this._llmInstance.initialize();
+        this._status = 'ready';
+        LEW.ui.updateLlmStatus(this._llmInstance.getStatus?.().name || 'ready');
+        LEW.bus.dispatch('llm_loaded', { model: this._preferredModel, status: 'ready' });
+      } catch (e) {
+        console.error(`LEW.llm: Error loading LLM (${this._preferredModel})`, e);
+        this._status = 'error';
+        LEW.ui.updateLlmStatus('error');
+        LEW.bus.dispatch('llm_load_error', { model: this._preferredModel, error: e.message });
+      }
+    },
+
+    getLLM() {
+      return this._llmInstance;
+    },
+
+    getStatus() {
+      return this._status;
+    },
+
+    setPreferredModel(modelId) {
+      this._preferredModel = modelId;
+      localStorage.setItem('llm_pref', modelId);
+      this.loadPreferredLLM();
+    }
+  };
+
+  // =========================================================================
+  // LEW.search: Unified Search, RAG & LLM Synthesis
+  // =========================================================================
+  LEW.search = {
+    _backendBase: '',
+    _capabilities: { backend: false, vespa: false, haystack: false, perplexica: false },
+    _lastQuery: '',
+    _lastSummary: '',
+    _lastResults: [],
+
+    init({ backendBase = '' } = {}) {
+      this._backendBase = backendBase;
+      this._checkBackendCapabilities();
+    },
+
+    async _checkBackendCapabilities() {
+      try {
+        if (this._backendBase) {
+          const r = await fetch(this._backendBase + '/api/capabilities');
+          if (r.ok) {
+            const caps = await r.json();
+            this._capabilities = { ...this._capabilities, ...caps, backend: true };
+            console.log('LEW.search: Backend capabilities', this._capabilities);
+          }
+        }
+      } catch (e) {
+        console.warn('LEW.search: Backend capabilities check failed (no backend or network error).', e);
+        this._capabilities.backend = false;
+      }
+    },
+
+    async _tryFetch(url, init = {}, fallbackPath = null) {
+      try {
+        const r = await fetch(url, init);
+        if (!r.ok) throw new Error(`Status ${r.status}`);
+        const contentType = r.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) return await r.json();
+        return await r.text();
+      } catch (e) {
+        if (!this._capabilities.backend || !fallbackPath) throw new Error(`Direct fetch failed: ${e.message}`);
+        console.warn(`LEW.search: Direct fetch failed for ${url}, trying proxy: ${e.message}`);
+        const r2 = await fetch(this._backendBase + fallbackPath, init);
+        if (!r2.ok) throw new Error(`Proxy fetch failed: Status ${r2.status}`);
+        const contentType2 = r2.headers.get('content-type') || '';
+        if (contentType2.includes('application/json')) return await r2.json();
+        return await r2.text();
+      }
+    },
+
+    // --- Search Providers ---
+    async p_ddg(q) {
+      const j = await this._tryFetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(q)}&format=json&no_redirect=1&no_html=1`,
+        { headers: { 'User-Agent': 'AgentLee/1.0' } }, `/api/provider/ddg?q=${encodeURIComponent(q)}`);
+      const items = [];
+      if (j.Abstract && j.AbstractURL) items.push({ title: j.Heading || q, url: j.AbstractURL, snippet: j.Abstract, source: 'DDG' });
+      (j.RelatedTopics || []).forEach(t => {
+        if (t.Text && t.FirstURL) items.push({ title: t.Text, url: t.FirstURL, snippet: t.Text, source: 'DDG' });
+        (t.Topics || []).forEach(s => { if (s.Text && s.FirstURL) items.push({ title: s.Text, url: s.FirstURL, snippet: s.Text, source: 'DDG' }); });
+      });
+      return items;
+    },
+    async p_wiki(q) {
+      const j = await this._tryFetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&format=json&origin=*`,
+        {}, `/api/provider/wiki?q=${encodeURIComponent(q)}`);
+      const hits = j?.query?.search || [];
+      return hits.map(h => ({ title: h.title, url: `https://en.wikipedia.org/wiki/${encodeURIComponent(h.title.replace(/\s/g, '_'))}`, snippet: h.snippet?.replace(/<[^>]+>/g, '') || '', source: 'Wikipedia' }));
+    },
+    async p_hn(q) {
+      const j = await this._tryFetch(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(q)}&hitsPerPage=8`,
+        {}, `/api/provider/hn?q=${encodeURIComponent(q)}`);
+      const hits = j?.hits || [];
+      return hits.filter(h => h.url || h.story_url).map(h => ({ title: h.title || h.story_title, url: h.url || h.story_url, snippet: h._highlightResult?.title?.value?.replace(/<[^>]+>/g, '') || '', source: 'HN' }));
+    },
+    async p_so(q) {
+      const j = await this._tryFetch(`https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=relevance&q=${encodeURIComponent(q)}&site=stackoverflow&pagesize=6`,
+        {}, `/api/provider/so?q=${encodeURIComponent(q)}`);
+      return (j.items || []).map(it => ({ title: it.title, url: it.link, snippet: (it.tags || []).join(', '), source: 'StackOverflow' }));
+    },
+    async p_reddit(q) {
+      const j = await this._tryFetch(`https://www.reddit.com/search.json?q=${encodeURIComponent(q)}&limit=8`,
+        { headers: { 'User-Agent': 'AgentLee/1.0' } }, `/api/provider/reddit?q=${encodeURIComponent(q)}`);
+      return (j.data?.children || []).map(c => {
+        const d = c.data || {};
+        return { title: d.title, url: `https://www.reddit.com${d.permalink}`, snippet: d.selftext?.slice(0, 160) || d.subreddit_name_prefixed || '', source: 'Reddit' };
+      });
+    },
+
+    // --- Core Search and Answer Function ---
+    async searchAndAnswer(q, { engines = ['wiki', 'hn', 'so', 'reddit', 'ddg'], k = 6, useRag = true, useLLM = true } = {}) {
+      LEW.bus.dispatch('search_start', { query: q, engines: engines, k, useRag, useLLM });
+
+      // 1) RAG Retrieval (Local)
+      let ragContext = '';
+      if (useRag) {
+        try {
+          const allChunks = await LEW.store.ragGetAll();
+          if (allChunks.length > 0) {
+            const queryVec = (await LEW.vec.embedTexts([q]))[0];
+            const scoredChunks = allChunks.map(c => ({ chunk: c, score: LEW.vec.cosineSimilarity(queryVec, new Float32Array(c.vec)) }));
+            scoredChunks.sort((a, b) => b.score - a.score);
+            ragContext = scoredChunks.slice(0, k).map(x => x.chunk.text).join(' ');
+          }
+        } catch (e) {
+          console.warn('LEW.search: RAG retrieval failed, skipping.', e);
+          LEW.bus.dispatch('rag_failure', { error: e.message });
+        }
+      }
+      LEW.bus.dispatch('rag_complete', { haveContext: !!ragContext, tokens: ragContext.length });
+
+      // 2) Multi-provider Fetch
+      const providers = {
+        wiki: this.p_wiki.bind(this), hn: this.p_hn.bind(this), so: this.p_so.bind(this),
+        reddit: this.p_reddit.bind(this), ddg: this.p_ddg.bind(this),
+        perplexica: async (query) => this._capabilities.perplexica ? (await this._tryFetch(null, {}, `/api/provider/perplexica?q=${encodeURIComponent(query)}`)).results || [] : [],
+        vespa: async (query) => this._capabilities.vespa ? (await this._tryFetch(null, {}, `/api/provider/vespa?q=${encodeURIComponent(query)}`)).results || [] : [],
+        haystack: async (query) => this._capabilities.haystack ? (await this._tryFetch(null, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: query }) }, `/api/provider/haystack`)).results || [] : [],
+      };
+
+      const activeEngines = engines.filter(name => LEW.ui._engineCheckboxes[name]?.checked !== false);
+
+      const jobs = activeEngines.map(name => {
+        const fn = providers[name];
+        if (!fn) { console.warn(`LEW.search: Unknown engine: ${name}`); return Promise.resolve([]); }
+        return fn(q).catch(e => {
+          console.error(`LEW.search: Provider ${name} failed`, e);
+          LEW.bus.dispatch('provider_failure', { provider: name, error: e.message });
+          return [];
+        });
+      });
+
+      const allParts = await Promise.allSettled(jobs);
+      const rawResults = allParts.flatMap(p => p.status === 'fulfilled' ? p.value : []);
+
+      const seen = new Set();
+      const finalResults = [];
+      for (const item of rawResults) {
+        const key = (item.url || item.title || '').toLowerCase();
+        if (!key || seen.has(key)) continue;
+        seen.add(key);
+        finalResults.push(item);
+      }
+      LEW.bus.dispatch('providers_complete', { count: finalResults.length });
+
+      // 3) Optional Local LLM Synthesis
+      let answer = '';
+      if (useLLM) {
+        const llm = LEW.llm.getLLM();
+        if (llm && LEW.llm.getStatus() === 'ready' && llm.chat) {
+          const topSources = finalResults.slice(0, k).map((r, i) => `${i + 1}. ${LEW.util.escapeHtml(r.title || r.url)} — ${r.url}\n   ${LEW.util.escapeHtml(r.snippet || '')}`).join('\n');
+          const prompt = `You are Agent Lee. Answer the query using the provided sources and (optionally) local document context.
+Query: ${q}
+
+Top sources:
+${topSources}
+
+${ragContext ? `Local RAG context:\n${ragContext}\n` : ''}
+
+Return:
+- a concise answer (3-7 sentences)
+- 3 bullet key takeaways
+- cite 2-3 source URLs (from the list)`;
+          try {
+            const response = await llm.chat(prompt);
+            answer = response.text || '';
+          } catch (e) {
+            console.error('LEW.search: LLM chat failed', e);
+            LEW.bus.dispatch('llm_failure', { error: e.message });
+            answer = '';
+          }
+        }
+      }
+      LEW.bus.dispatch('llm_complete', { answerLength: answer.length });
+
+      let finalSummary = LEW.search._sanitizeLLMAnswer(answer);
+      if (!finalSummary) {
+        finalSummary = LEW.search._autoSummaryFromItems(finalResults);
+        LEW.bus.dispatch('summary_fallback', { reason: 'LLM empty/generic' });
+      }
+
+      this._lastQuery = q;
+      this._lastSummary = finalSummary;
+      this._lastResults = finalResults;
+
+      LEW.bus.dispatch('search_complete', { query: q, summary: finalSummary, resultCount: finalResults.length });
+      return { q, answer: finalSummary, results: finalResults, rag: { used: !!ragContext, tokens: ragContext.length } };
+    },
+
+    _sanitizeLLMAnswer(raw = '') {
+      if (!raw) return '';
+      let t = raw
+        .replace(/^.*You are Agent Lee.*$/gmi, '') // Remove direct prompt injection echo
+        .replace(/^Return:.*$/gmi, '')             // Remove explicit return instructions
+        .replace(/```[\s\S]*?```/g, '')            // Remove code fences
+        .replace(/<[^>]+>/g, '')                   // Strip HTML tags
+        .replace(/&(amp|lt|gt|quot|#39);/g, "")    // Remove HTML entities like &quot;
+        .replace(/\s{2,}/g, ' ')                   // Compress multiple spaces
+        .trim();
+
+      const lines = t.split(/\n+/).filter(Boolean);
+      let bodyPara = '';
+      const bullets = [];
+      lines.forEach(l => {
+        const trim = l.trim();
+        if (/^(?:[-•*]|\d+\.|\d+\))/.test(trim)) {
+          bullets.push(trim.replace(/^(?:[-•*]|\d+\.|\d+\))\s*/, ''));
+        } else if (bodyPara.split('. ').length <= 4) { // Only take up to 4 sentences for main body
+          bodyPara += trim + ' ';
+        }
+      });
+
+      let cleanAnswer = LEW.util.safeTrim(bodyPara);
+      if (bullets.length > 0) {
+        cleanAnswer += '\n\nKey Takeaways:\n' + bullets.slice(0, 3).map(b => `- ${b}`).join('\n'); // Up to 3 bullets
+      }
+
+      return cleanAnswer || '';
+    },
+
+    _autoSummaryFromItems(items = []) {
+      if (!items.length) return '';
+      const top = items[0];
+      const host = (() => { try { return new URL(top.url).hostname } catch { return '' } })();
+      let summary = `I found ${items.length} relevant sources. The top result is titled “${LEW.util.escapeHtml(top.title)}” from ${host}.`;
+
+      if (top.snippet) {
+          // Clean the snippet from potential HTML entities or excessive length
+          let cleanedSnippet = LEW.util.safeTrim(top.snippet)
+              .replace(/<[^>]+>/g, '') // Remove any HTML tags
+              .replace(/&(amp|lt|gt|quot|#39);/g, "") // Remove HTML entities
+              .replace(/\s{2,}/g, ' ')
+              .slice(0, 160); // Truncate for brevity
+          summary += ` It says: "${cleanedSnippet}".`;
+      } else {
+          summary += ` A brief description is unavailable.`;
+      }
+      return summary;
+    }
+  };
+
+  // =========================================================================
+  // LEW.ui: User Interface Management
+  // =========================================================================
+  LEW.ui = {
+    _messageInput: null,
+    _searchResultDiv: null,
+    _resCountSpan: null,
+    _docTitleH3: null,
+    _docBodyDiv: null,
+    _webPreviewDiv: null,
+    _webPreviewFrame: null,
+    _useLlmCheckbox: null, // This is the checkbox in the search panel for LLM reasoning
+    _llmStatusSpan: null,
+    _qaPanel: null,
+    _nexusBtn: null,
+    _settingsBtn: null,
+    _settingsModal: null,
+    _closeSettingsBtn: null,
+    _modelPickSelect: null,
+    _ga4Input: null,
+    _saveGa4Btn: null,
+    _engineCheckboxes: {}, // Store references to engine checkboxes
+    _userCameraVideoEl: null,
+    _analyzeCanvasEl: null,
+    _callNotificationEl: null, // New element for call notifications
+
+
+    _searchCues: [
+      /^\s*look\s*up\b/i, /^\s*find\b/i, /^\s*research\s*for\b/i, /^\s*research\b/i,
+      /^\s*what\s+is\b/i, /^\s*who\s+is\b/i, /^\s*tell\s+me\s+about\b/i,
+      /^\s*how\s+to\b/i, /^\s*search\b/i
+    ],
+    forcedSearch: false,
+
+    init() {
+      this._messageInput = LEW.util.qs('#messageInput');
+      this._searchResultDiv = LEW.util.qs('#results');
+      this._resCountSpan = LEW.util.qs('#resCount');
+      this._docTitleH3 = LEW.util.qs('#docTitle');
+      this._docBodyDiv = LEW.util.qs('#docBody');
+      this._webPreviewDiv = LEW.util.qs('#webPreview');
+      this._webPreviewFrame = LEW.util.qs('#webPreviewFrame');
+      this._useLlmCheckbox = LEW.util.qs('#useLLM'); // This is the checkbox in the search panel for LLM reasoning
+      this._llmStatusSpan = LEW.util.qs('#llmStatus');
+      this._qaPanel = LEW.util.qs('#qaPanel');
+      this._nexusBtn = LEW.util.qs('#nexusBtn');
+      this._settingsBtn = LEW.util.qs('#settingsBtn');
+      this._settingsModal = LEW.util.qs('#settingsModal');
+      this._closeSettingsBtn = LEW.util.qs('#closeSettings');
+      this._modelPickSelect = LEW.util.qs('#modelPick');
+      this._ga4Input = LEW.util.qs('#ga4Input');
+      this._saveGa4Btn = LEW.util.qs('#saveGA4');
+      this._userCameraVideoEl = LEW.util.qs('#userCamera');
+      this._analyzeCanvasEl = LEW.util.qs('#analyzeCanvas');
+      this._callNotificationEl = LEW.util.qs('#callNotification');
+
+
+      // Cache engine checkboxes
+      const engineIds = ['Ddg', 'Wiki', 'Hn', 'So', 'Arxiv', 'Reddit', 'Perplexica', 'Vespa', 'Haystack'];
+      engineIds.forEach(id => {
+        const el = LEW.util.qs(`#engine${id}`);
+        if (el) this._engineCheckboxes[id.toLowerCase()] = el;
+      });
+
+      // Event Listeners
+      this._messageInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') this.dispatchUnifiedInput(this._messageInput.value);
+      });
+      LEW.util.qs('#sendBtn')?.addEventListener('click', () => this.dispatchUnifiedInput(this._messageInput.value));
+      this._nexusBtn?.addEventListener('click', () => LEW.speech.toggleMainListen());
+      LEW.util.qs('#voiceSearchBtn')?.addEventListener('click', () => LEW.speech.startVoiceSearch());
+      LEW.util.qs('#closePreview')?.addEventListener('click', () => {
+        this._webPreviewDiv?.classList.add('hidden');
+        this._webPreviewFrame?.setAttribute('src', 'about:blank');
+      });
+      LEW.util.qs('#qaNote')?.addEventListener('click', () => this.handleQuickNote());
+      LEW.util.qs('#qaEmail')?.addEventListener('click', () => this.handleQuickEmail());
+      LEW.util.qs('#qaSearch')?.addEventListener('click', () => this.handleQuickSearch());
+      LEW.util.qs('#qaStartCall')?.addEventListener('click', () => this.simulateIncomingCall(1)); // Default to 1 participant for quick action
+      LEW.util.qs('#qaEndCall')?.addEventListener('click', () => this.simulateEndCall());
+
+      LEW.util.qs('#shareDoc')?.addEventListener('click', () => this.handleShareDoc());
+      LEW.util.qs('#downloadDoc')?.addEventListener('click', () => this.handleDownloadDoc());
+      LEW.util.qs('#uploadDoc')?.addEventListener('click', () => LEW.util.qs('#docFile')?.click());
+      LEW.util.qs('#docFile')?.addEventListener('change', (e) => this.handleDocUpload(e));
+      this._settingsBtn?.addEventListener('click', () => this.openSettings());
+      this._closeSettingsBtn?.addEventListener('click', () => this.closeSettings());
+      this._modelPickSelect?.addEventListener('change', (e) => LEW.llm.setPreferredModel(e.target.value));
+      this._saveGa4Btn?.addEventListener('click', () => this.saveGa4Id());
+
+      // Call simulation buttons in settings
+      LEW.util.qs('#simCall1')?.addEventListener('click', () => this.simulateIncomingCall(1));
+      LEW.util.qs('#simCall2')?.addEventListener('click', () => this.simulateIncomingCall(2));
+      LEW.util.qs('#simCall4')?.addEventListener('click', () => this.simulateIncomingCall(4));
+      LEW.util.qs('#simEndCall')?.addEventListener('click', () => this.simulateEndCall());
+
+      // Quick Actions hover
+      LEW.util.qs('#nexus')?.addEventListener('mouseenter', () => this.showQaPanel());
+      this._qaPanel?.addEventListener('mouseleave', () => this.hideQaPanel());
+
+      // Add event listeners for settings checkboxes/inputs to save immediately
+      LEW.util.qs('#alwaysLocal')?.addEventListener('change', (e) => localStorage.setItem('alwaysLocal', e.target.checked));
+      LEW.util.qs('#onlineHelpers')?.addEventListener('change', (e) => localStorage.setItem('onlineHelpers', e.target.checked));
+      LEW.util.qs('#allowAnalyze')?.addEventListener('change', (e) => localStorage.setItem('allowAnalyze', e.target.checked));
+      LEW.util.qs('#useRag')?.addEventListener('change', (e) => localStorage.setItem('useRag', e.target.checked));
+      LEW.util.qs('#useLlmGlobal')?.addEventListener('change', (e) => localStorage.setItem('useLlmGlobal', e.target.checked));
+      LEW.util.qs('#resultsK')?.addEventListener('change', (e) => localStorage.setItem('resultsK', e.target.value));
+      for (const engine in this._engineCheckboxes) {
+          this._engineCheckboxes[engine]?.addEventListener('change', (e) => localStorage.setItem(`engine_${engine}`, e.target.checked));
+      }
+
+      // Restore GA4 ID on init if element exists
+      if (this._ga4Input) this._ga4Input.value = localStorage.getItem('ga4_id') || '';
+    },
+
+    setMessageInput(text) {
+      if (this._messageInput) this._messageInput.value = text;
+    },
+
+    updateLlmStatus(statusText) {
+      if (this._llmStatusSpan) this._llmStatusSpan.textContent = statusText;
+    },
+
+    showQaPanel() {
+      this._qaPanel?.classList.add('show');
+    },
+    hideQaPanel() {
+      setTimeout(() => {
+        if (!this._qaPanel?.matches(':hover') && !LEW.util.qs('#nexus')?.matches(':hover')) {
+          this._qaPanel?.classList.remove('show');
+        }
+      }, 500);
+    },
+
+    // --- Settings Panel ---
+    openSettings() {
+      this._settingsModal?.classList.add('show');
+      this._settingsModal?.setAttribute('aria-hidden', 'false');
+      // Load current settings values
+      if (this._ga4Input) this._ga4Input.value = localStorage.getItem('ga4_id') || '';
+      if (this._modelPickSelect) this._modelPickSelect.value = localStorage.getItem('llm_pref') || 'phi3';
+      LEW.util.qs('#alwaysLocal')?.checked = localStorage.getItem('alwaysLocal') !== 'false';
+      LEW.util.qs('#onlineHelpers')?.checked = localStorage.getItem('onlineHelpers') !== 'false';
+      LEW.util.qs('#allowAnalyze')?.checked = localStorage.getItem('allowAnalyze') !== 'false';
+      LEW.util.qs('#useRag')?.checked = localStorage.getItem('useRag') !== 'false';
+      LEW.util.qs('#useLlmGlobal')?.checked = localStorage.getItem('useLlmGlobal') !== 'false';
+      LEW.util.qs('#resultsK')?.value = localStorage.getItem('resultsK') || '6';
+
+      for (const engine in this._engineCheckboxes) {
+        if (this._engineCheckboxes[engine]) {
+          this._engineCheckboxes[engine].checked = localStorage.getItem(`engine_${engine}`) !== 'false';
+        }
+      }
+    },
+    closeSettings() {
+      this._settingsModal?.classList.remove('show');
+      this._settingsModal?.setAttribute('aria-hidden', 'true');
+      // All settings are saved on change, so no need to save here.
+      // Re-initialize LLM if model pick changed
+      LEW.llm.setPreferredModel(this._modelPickSelect?.value || 'phi3');
+    },
+    saveGa4Id() {
+      const ga4Id = LEW.util.safeTrim(this._ga4Input?.value);
+      localStorage.setItem('ga4_id', ga4Id);
+      alert('GA4 ID saved. Reload page to apply analytics.');
+      LEW.bus.dispatch('settings_update', { item: 'ga4_id', value: ga4Id });
+    },
+
+    // --- Unified Input Routing ---
+    _wantsSearch(text) {
+      return !!(LEW.util.safeTrim(text) && this._searchCues.some(rx => rx.test(text)));
+    },
+
+    async dispatchUnifiedInput(rawText) {
+      const text = LEW.util.safeTrim(rawText);
+      if (!text) {
+        LEW.speech.setState('idle');
+        return;
+      }
+      LEW.bus.dispatch('unified_input', { text, forcedSearch: this.forcedSearch });
+
+      const doWebSearch = this.forcedSearch || this._wantsSearch(text);
+      this.forcedSearch = false;
+
+      if (doWebSearch) {
+        let query = text.replace(/^\s*(search|look\s*up|find|research\s*for|research|what\s+is|who\s+is|tell\s+me\s+about|how\s+to)\s*/i, '');
+        if (!LEW.util.safeTrim(query)) query = text;
+
+        query = query
+          .replace(/[.,;!?"'-_]/g, ' ')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+
+        await this.doSearch(query);
+      } else {
+        LEW.speech.setState('thinking');
+        const llm = LEW.llm.getLLM();
+        const useLocalLlmForChat = LEW.util.qs('#alwaysLocal')?.checked !== false;
+
+        if (llm && LEW.llm.getStatus() === 'ready' && useLocalLlmForChat) {
+          let prompt = text;
+          if (LEW.search._lastSummary && !this._wantsSearch(text)) {
+            prompt = `You are Agent Lee. The user previously performed a search for "${LEW.search._lastQuery}". Here is a summary of those findings: "${LEW.search._lastSummary}". The user now asks: "${text}". Provide a concise follow-up answer (2-4 sentences) based on the previous context and the new question.`;
+            LEW.bus.dispatch('chat_followup', { originalQuery: LEW.search._lastQuery, followUp: text });
+          } else {
+            prompt = `You are Agent Lee. The user asks: "${text}". Provide a concise answer (2-4 sentences).`; // General chat prompt
+            LEW.bus.dispatch('chat_message', { message: text });
+          }
+
+          try {
+            const response = await llm.chat(prompt);
+            const cleanResponse = LEW.search._sanitizeLLMAnswer(response.text || '');
+            LEW.speech.speak(cleanResponse || 'Done.');
+            this.toastDoc('Assistant', `<div class="text-sm">${LEW.util.escapeHtml(cleanResponse || 'No response from LLM.')}</div>`);
+            LEW.bus.dispatch('llm_response', { type: 'chat', response: cleanResponse });
+          } catch (e) {
+            console.error('LEW.ui: LLM chat failed', e);
+            LEW.speech.speak('I had trouble thinking locally.');
+            LEW.bus.dispatch('llm_failure', { type: 'chat', error: e.message });
+          }
+        } else {
+          LEW.speech.speak('Local AI is not ready or disabled; using a simple response.');
+          this.toastDoc('Assistant', `<div class="text-sm">Local AI is not ready or disabled; using a simple response.</div>`);
+        }
+      }
+      this.setMessageInput('');
+      LEW.speech.setState('idle');
+    },
+
+    // --- Search Logic ---
+    async doSearch(query) {
+      if (!this._searchResultDiv || !this._resCountSpan) return;
+      this._searchResultDiv.innerHTML = `<div class="text-gray-400 text-sm p-3">Searching “${LEW.util.escapeHtml(query)}”…</div>`;
+      LEW.speech.setState('thinking');
+
+      try {
+        const useRag = LEW.util.qs('#useRag')?.checked !== false;
+        const useLlmGlobal = LEW.util.qs('#useLlmGlobal')?.checked !== false;
+        const useLlmFromToggle = this._useLlmCheckbox?.checked !== false;
+        const finalUseLlm = useLlmGlobal && useLlmFromToggle;
+
+        const maxResults = parseInt(LEW.util.qs('#resultsK')?.value) || 6;
+
+        const enabledEngines = Object.keys(this._engineCheckboxes).filter(engine => this._engineCheckboxes[engine]?.checked);
+        if (enabledEngines.length === 0) {
+          LEW.speech.speak("No search engines are enabled in settings. Please check your settings.");
+          this.renderSearchResults([], "No search engines are enabled in settings. Please check your settings.");
+          return;
+        }
+
+        const searchResult = await LEW.search.searchAndAnswer(query, {
+          engines: enabledEngines,
+          useRag: useRag,
+          useLLM: finalUseLlm,
+          k: maxResults
+        });
+        this.renderSearchResults(searchResult.results, searchResult.answer);
+        LEW.speech.speak(searchResult.answer);
+      } catch (e) {
+        console.error('LEW.ui: Search failed', e);
+        this._searchResultDiv.innerHTML = `<div class="text-red-400 text-sm p-3">Search failed: ${LEW.util.escapeHtml(e.message || 'Unknown error.')}</div>`;
+        LEW.speech.speak('I encountered an error during the search.');
+        LEW.bus.dispatch('search_error', { query, error: e.message });
+      } finally {
+        // LEW.speech.setState('idle'); // Speech.speak manages state transitions
+      }
+    },
+
+    // --- Render Search Results ---
+    async renderSearchResults(items, summary) {
+      if (!this._searchResultDiv || !this._resCountSpan) return;
+
+      this._resCountSpan.textContent = `${items.length} results`;
+
+      const enrichedItems = await Promise.all(items.slice(0, 10).map(async r => {
+        let thumb = '';
+        if ((r.source || '').toLowerCase().includes('wikipedia')) {
+          const m = (r.url || '').match(/\/wiki\/([^?#]+)/);
+          const title = m ? decodeURIComponent(m[1].replace(/_/g, ' ')) : (r.title || '');
+          thumb = await LEW.ui.getWikiThumbnail(title);
+        }
+        return { ...r, thumb };
+      }));
+
+      let html = '';
+      if (summary) {
+        // Split summary into lines and identify bullet points
+        const lines = summary.split(/\n+/);
+        let bodyPara = '';
+        const bullets = [];
+        lines.forEach(l => {
+          const trim = l.trim();
+          if (/^(?:[-•*]|\d+\.|\d+\))/.test(trim)) {
+            bullets.push(trim.replace(/^(?:[-•*]|\d+\.|\d+\))\s*/, ''));
+          } else {
+            bodyPara += trim + ' ';
+          }
+        });
+
+        html += `<div class="p-3 mb-2 rounded border border-gray-800 bg-gray-900/60 text-sm">
+          <div class="font-semibold mb-1">Answer</div>
+          <p class="text-gray-200 mb-1">${LEW.util.escapeHtml(bodyPara.trim())}</p>
+          ${bullets.length ? `<ul class="list-disc list-inside text-xs text-gray-300">${bullets.map(b=>`<li>${LEW.util.escapeHtml(b)}</li>`).join('')}</ul>` : ''}
+        </div>`;
+      }
+
+      html += enrichedItems.map((r, idx) => {
+        const host = (() => { try { return new URL(r.url).hostname; } catch { return '' } })();
+        const favicon = LEW.ui.getFavicon(r.url);
+        const citation = r.citationIndex ? ` [${r.citationIndex}]` : '';
+
+        return `
+          <div class="p-3 rounded border border-gray-800 bg-gray-900/50 result-item"
+               data-url="${LEW.util.escapeHtml(encodeURI(r.url || ''))}"
+               data-title="${LEW.util.escapeHtml(r.title || '')}"
+               data-snippet="${LEW.util.escapeHtml(r.snippet || '')}">
+            <div class="flex items-start gap-3">
+              ${r.thumb ? `<img src="${LEW.util.escapeHtml(r.thumb)}" class="w-20 h-16 object-cover rounded-md border border-gray-800" alt="Thumbnail">`
+                        : `<img src="${LEW.util.escapeHtml(favicon)}" class="w-6 h-6 mt-1 rounded" alt="Favicon">`}
+              <div class="flex-1">
+                <div class="font-semibold text-accent line-clamp-2">${LEW.util.escapeHtml(r.title || r.url || '')}${citation}</div>
+                <div class="text-[11px] text-gray-400 mt-0.5">${LEW.util.escapeHtml(host)} ${r.source ? `• ${LEW.util.escapeHtml(r.source)}` : ''}</div>
+                <div class="text-xs text-gray-300 mt-1">${LEW.util.escapeHtml(r.snippet || '')}</div>
+                <div class="mt-2 flex items-center gap-2">
+                  <button class="px-2 py-1 text-xs rounded border border-gray-700 hover:border-gray-500 preview-btn">Preview</button>
+                  <button class="px-2 py-1 text-xs rounded border border-gray-700 hover:border-gray-500 doc-btn">Doc</button>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }).join('') || `<div class="text-gray-400 text-sm p-3">No results found.</div>`;
+
+      this._searchResultDiv.innerHTML = html;
+
+      LEW.util.qsa('.result-item', this._searchResultDiv).forEach(el => {
+        const url = el.dataset.url;
+        const title = el.dataset.title;
+        const snippet = el.dataset.snippet;
+
+        el.querySelector('.preview-btn')?.addEventListener('click', () => this.handlePreviewResult(url, title));
+        el.querySelector('.doc-btn')?.addEventListener('click', () => this.handleOpenResultInDoc(url, title, snippet));
+      });
+    },
+
+    // --- Helper for thumbnails/favicons ---
+    getFavicon(url) {
+      try {
+        const u = new URL(url);
+        return `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=64`;
+      } catch { return ''; }
+    },
+
+    async getWikiThumbnail(title) {
+      try {
+        const api = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&pithumbsize=300&format=json&origin=*&titles=${encodeURIComponent(title)}`;
+        const r = await fetch(api);
+        const j = await r.json();
+        const pages = j?.query?.pages || {};
+        const firstPage = Object.values(pages)[0];
+        return firstPage?.thumbnail?.source || '';
+      } catch (e) {
+        console.warn('LEW.ui: Failed to get Wikipedia thumbnail', title, e);
+        return '';
+      }
+    },
+
+    // --- Handle Search Result Actions ---
+    handlePreviewResult(url, title) {
+      if (!this._webPreviewDiv || !this._webPreviewFrame) return;
+      this._webPreviewDiv.classList.remove('hidden');
+      try {
+        this._webPreviewFrame.src = decodeURI(url);
+      } catch (e) {
+        console.error('LEW.ui: Failed to set iframe src', e);
+        this._webPreviewFrame.src = 'about:blank';
+      }
+      LEW.bus.dispatch('preview_result', { url, title });
+    },
+
+    async handleOpenResultInDoc(url, title, snippet) {
+      if (!this._docTitleH3 || !this._docBodyDiv) return;
+      this.toastDoc('Summarizing…', `<div class="text-gray-400 text-sm p-3">Getting summary for "${LEW.util.escapeHtml(title || url)}"…</div>`);
+
+      try {
+        const useLlmGlobal = LEW.util.qs('#useLlmGlobal')?.checked !== false;
+        const useRag = LEW.util.qs('#useRag')?.checked !== false;
+
+        const { answer } = await LEW.search.searchAndAnswer(title || url, { engines: ['wiki', 'ddg'], useRag: useRag, useLLM: useLlmGlobal, k: 3 });
+        let cleanSummary = LEW.search._sanitizeLLMAnswer(answer);
+        if (!cleanSummary) cleanSummary = LEW.util.safeTrim(snippet) ? `Summary: ${LEW.util.escapeHtml(snippet)}` : 'No summary available.';
+
+        const host = (() => { try { return new URL(url).hostname; } catch { return '' } })();
+        const html = `
+          <div class="text-sm">
+            <div class="font-semibold">${LEW.util.escapeHtml(title || 'Web Result')}</div>
+            <div class="text-xs text-gray-400 mb-2">${LEW.util.escapeHtml(url)}</div>
+            <p>${cleanSummary.replace(/\n\n/g, '<br><br>')}</p>
+            <div class="mt-2"><a class="text-accent underline" href="${LEW.util.escapeHtml(url)}" target="_blank" rel="noopener">Open source</a></div>
+          </div>`;
+        this._docTitleH3.textContent = title || 'Web Document';
+        this._docBodyDiv.innerHTML = html;
+        LEW.bus.dispatch('doc_transfer_from_search', { url, title, summary: cleanSummary });
+        await LEW.search.addDocument(`search-summary-${LEW.util.uuid()}`, cleanSummary, { url, title, source: 'search_summary' });
+        LEW.speech.speak(cleanSummary);
+      } catch (e) {
+        console.error('LEW.ui: Failed to summarize result for document panel', e);
+        this.toastDoc('Error', `<div class="text-sm text-red-400">Could not summarize: ${LEW.util.escapeHtml(e.message || 'error')}</div>`);
+        LEW.bus.dispatch('doc_transfer_error', { url, error: e.message });
+      }
+    },
+
+    // --- Document Panel Management ---
+    toastDoc(title, html) {
+      if (this._docTitleH3) this._docTitleH3.textContent = title;
+      if (this._docBodyDiv) this._docBodyDiv.innerHTML = html;
+    },
+
+    async handleShareDoc() {
+      const title = LEW.util.safeTrim(this._docTitleH3?.textContent);
+      const text = LEW.util.safeTrim(this._docBodyDiv?.innerText).slice(0, 800);
+      if (navigator.share) {
+        try { await navigator.share({ title, text, url: location.href }); LEW.bus.dispatch('share_doc', { success: true }); }
+        catch (e) { console.warn('LEW.ui: Share failed', e); LEW.bus.dispatch('share_doc', { success: false, error: e.message }); }
+      } else {
+        navigator.clipboard.writeText(`${title}\n\n${text}`);
+        alert('Copied summary to clipboard.');
+        LEW.bus.dispatch('share_doc', { method: 'clipboard' });
+      }
+    },
+
+    handleDownloadDoc() {
+      const title = LEW.util.safeTrim(this._docTitleH3?.textContent).replace(/[^a-z0-9]+/gi, '_');
+      const content = LEW.util.safeTrim(this._docBodyDiv?.innerText);
+      if (!content) return;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${title || 'document'}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      LEW.bus.dispatch('download_doc', { filename: a.download, size: content.length });
+    },
+
+    async handleDocUpload(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = async (evt) => {
+        try {
+          if (file.type.startsWith('image/')) {
+            const base64 = evt.target.result;
+            const imgHtml = `<img src="${base64}" class="max-w-full rounded border border-gray-800" alt="${LEW.util.escapeHtml(file.name)}">`;
+            this.toastDoc(file.name, imgHtml + `<div class="text-xs text-gray-400 mt-2">Image loaded. Analysis not yet implemented in frontend without backend.</div>`);
+            LEW.bus.dispatch('upload_doc', { name: file.name, type: file.type, kind: 'image' });
+            // For actual analysis, this would typically involve a backend API call
+            // const analysis = await fetch(LEW.search._backendBase + '/api/vision/analyze', ...);
+          } else if (file.type.startsWith('video/')) {
+            const videoUrl = URL.createObjectURL(file);
+            const videoHtml = `<video controls src="${LEW.util.escapeHtml(videoUrl)}" class="max-w-full rounded border border-gray-800"></video><div class="text-xs text-gray-400 mt-2">Video loaded. Analysis not yet implemented for videos in frontend.</div>`;
+            this.toastDoc(file.name, videoHtml);
+            LEW.bus.dispatch('upload_doc', { name: file.name, type: file.type, kind: 'video' });
+            LEW.speech.speak(`Video ${file.name} loaded.`);
+          }
+          else if (file.type === 'application/pdf') {
+            this.toastDoc(file.name, `<div class="text-sm text-yellow-300 p-3">PDF parsing is not supported in this stub implementation. Please upload a text-based, image, or video file.</div>`);
+            LEW.bus.dispatch('upload_doc', { name: file.name, type: file.type, kind: 'pdf' });
+          } else {
+            const textContent = String(evt.target.result || '');
+            const docId = `doc-${LEW.util.uuid()}`;
+            await LEW.search.addDocument(docId, textContent, { name: file.name, type: file.type });
+            this.toastDoc(file.name, `<pre class="whitespace-pre-wrap text-sm">${LEW.util.escapeHtml(textContent.slice(0, 1000))}${textContent.length > 1000 ? '\n\n<em>... (truncated)</em>' : ''}</pre>`);
+            LEW.bus.dispatch('upload_doc', { name: file.name, type: file.type, kind: 'text', chars: textContent.length, ragChunks: LEW.vec.chunkText(textContent).length });
+            LEW.speech.speak(`Document ${file.name} uploaded and added to local knowledge base.`);
+          }
+        } catch (err) {
+          console.error('LEW.ui: Document upload processing error', err);
+          this.toastDoc('Upload Error', `<div class="text-sm text-red-400">Failed to process document: ${LEW.util.escapeHtml(err.message || 'Unknown error.')}</div>`);
+          LEW.bus.dispatch('upload_error', { name: file.name, error: err.message });
+        }
+      };
+      if (file.type.startsWith('image/') || file.type.startsWith('video/')) reader.readAsDataURL(file);
+      else reader.readAsText(file);
+    },
+
+    // --- Quick Action Handlers ---
+    handleQuickNote() {
+      const text = LEW.speech.getTranscript() || LEW.util.safeTrim(this._messageInput?.value);
+      if (!text) {
+        this.toastDoc('Quick Note', 'Nothing to save.');
+        LEW.speech.speak('Nothing to save as a note.');
+        return;
+      }
+      LEW.store.kvSet(`note:${LEW.util.now()}`, { text, ts: new Date().toISOString() });
+      LEW.speech.speak(`Saved your note.`);
+      this.toastDoc('Quick Note', `<p class="text-sm text-gray-300">Saved:<br><em>${LEW.util.escapeHtml(text.slice(0, 200))}...</em></p>`);
+      LEW.bus.dispatch('quick_note', { textLength: text.length });
+    },
+
+    handleQuickEmail() {
+      const text = LEW.speech.getTranscript() || LEW.util.safeTrim(this._messageInput?.value) || '(no body)';
+      window.location.href = `mailto:?subject=From Agent Lee&body=${encodeURIComponent(text)}`;
+      LEW.bus.dispatch('quick_email', { textLength: text.length });
+    },
+
+    handleQuickSearch() {
+      const text = LEW.speech.getTranscript() || LEW.util.safeTrim(this._messageInput?.value);
+      if (!text) {
+        LEW.speech.speak('Please say or type something to search.');
+        return;
+      }
+      this.forcedSearch = true;
+      this.dispatchUnifiedInput(text);
+      LEW.bus.dispatch('quick_search', { query: text });
+    },
+
+    // --- Camera and Call Handling ---
+    _cameraMediaStream: null, // To keep track of the camera stream for permissions
+    async initCamera() {
+      this._userCameraVideoEl = LEW.util.qs('#userCamera');
+      if (!this._userCameraVideoEl) {
+        console.error('LEW.ui: #userCamera element not found.');
+        return;
+      }
+
+      if (this._cameraMediaStream && this._cameraMediaStream.active) {
+          console.log('LEW.ui: Camera already active from previous request.');
+          LEW.bus.dispatch('camera_status', { status: 'already_active' });
+          this._userCameraVideoEl.srcObject = this._cameraMediaStream; // Ensure it's still attached
+          return;
+      }
+
+      try {
+        const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false }); // Camera does not need audio
+        this._cameraMediaStream = mediaStream;
+        this._userCameraVideoEl.srcObject = this._cameraMediaStream;
+        LEW.bus.dispatch('camera_status', { status: 'ready' });
+        console.log('LEW.ui: Camera access granted.');
+      } catch (e) {
+        console.error('LEW.ui: Camera access error', e);
+        this._userCameraVideoEl.style.background = '#111827';
+        LEW.bus.dispatch('camera_status', { status: 'error', error: e.message });
+      }
+    },
+
+    _currentCallStreams: [], // Keep track of active call streams
+    _callNotificationTimeout: null,
+
+    updateCallGrid(streams) {
+      const callContainer = LEW.util.qs('#callContainer');
+      if (!callContainer) return;
+
+      this._currentCallStreams = streams || []; // Update current streams
+      callContainer.innerHTML = ''; // Clear existing
+      this._hideCallNotification(); // Hide any pending notifications
+
+      if (this._currentCallStreams.length === 0) {
+        callContainer.classList.remove('active', 'participants-2', 'participants-4');
+        callContainer.classList.add('hidden');
+        LEW.bus.dispatch('call_status', { action: 'end', participants: 0 });
+        LEW.speech.speak("Call ended.");
+        return;
+      }
+
+      callContainer.classList.remove('hidden');
+      callContainer.classList.add('active');
+      callContainer.classList.toggle('participants-2', this._currentCallStreams.length === 2);
+      callContainer.classList.toggle('participants-4', this._currentCallStreams.length >= 3);
+
+      this._currentCallStreams.forEach((stream, index) => {
+        const callBox = document.createElement('div');
+        callBox.className = 'call-box';
+        const video = document.createElement('video');
+  video.autoplay = true;
+  // Prefer setting playsInline property when supported to avoid using the HTML attribute
+  // (some browsers, notably certain Firefox builds, may not support the attribute or behave differently).
+  if ('playsInline' in video) try { video.playsInline = true; } catch(e) {}
+        video.muted = true; // Mute local streams initially
+        video.srcObject = stream;
+        video.className = 'w-full h-full object-cover rounded-lg';
+        callBox.appendChild(video);
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'call-name';
+        nameSpan.textContent = `Caller ${index + 1}`; // Placeholder name
+        callBox.appendChild(nameSpan);
+        callContainer.appendChild(callBox);
+      });
+      LEW.bus.dispatch('call_status', { action: 'update', participants: this._currentCallStreams.length });
+    },
+
+    _showCallNotification(message) {
+      if (!this._callNotificationEl) {
+        console.warn('LEW.ui: Call notification element not found.');
+        return;
+      }
+      this._callNotificationEl.classList.add('show');
+      LEW.util.qs('#callNotificationText').textContent = message;
+      clearTimeout(this._callNotificationTimeout);
+      this._callNotificationTimeout = setTimeout(() => {
+        this._hideCallNotification();
+      }, 5000); // Notification disappears after 5 seconds
+    },
+
+    _hideCallNotification() {
+      if (this._callNotificationEl) {
+        this._callNotificationEl.classList.remove('show');
+      }
+    },
+
+    simulateIncomingCall(participants = 1) {
+      // Simulate real streams if camera is active, otherwise just dummy
+      let streams = [];
+      if (this._cameraMediaStream && this._cameraMediaStream.active) {
+          // Use a clone of the camera stream for the first participant, then dummy for others
+          streams.push(this._cameraMediaStream.clone());
+          for (let i = 1; i < participants; i++) streams.push(new MediaStream());
+      } else {
+          for (let i = 0; i < participants; i++) streams.push(new MediaStream());
+      }
+
+      this.updateCallGrid(streams);
+      this._showCallNotification(`Call active with ${participants} participant${participants > 1 ? 's' : ''}.`);
+      LEW.speech.speak(`Call initiated with ${participants} participant${participants > 1 ? 's' : ''}.`);
+      LEW.bus.dispatch('simulate_call_start', { participants });
+    },
+
+    simulateEndCall() {
+      this._currentCallStreams.forEach(stream => {
+        stream.getTracks().forEach(track => track.stop()); // Stop all tracks
+      });
+      this.updateCallGrid([]);
+      this._showCallNotification("Call ended.");
+      LEW.bus.dispatch('simulate_call_end');
+    },
+
+    async analyzeFrame() {
+      const allowAnalyze = LEW.util.qs('#allowAnalyze')?.checked !== false;
+      const userCameraEl = LEW.util.qs('#userCamera');
+      const analyzeCanvasEl = LEW.util.qs('#analyzeCanvas');
+
+      if (!allowAnalyze || !userCameraEl || !analyzeCanvasEl || !userCameraEl.videoWidth) {
+        LEW.bus.dispatch('vision_analyze', { status: 'skipped', reason: 'disabled/no_camera' });
+        return { ok: false, reason: 'disabled or camera not ready' };
+      }
+
+      analyzeCanvasEl.width = userCameraEl.videoWidth;
+      analyzeCanvasEl.height = userCameraEl.videoHeight;
+      const ctx = analyzeCanvasEl.getContext('2d', { willReadFrequently: true });
+      ctx.drawImage(userCameraEl, 0, 0, userCameraEl.videoWidth, userCameraEl.videoHeight);
+      const imgDataUrl = analyzeCanvasEl.toDataURL('image/jpeg', 0.7);
+
+      try {
+        const backendBase = LEW.search._backendBase || '';
+        if (!backendBase) {
+            console.warn('LEW.ui: No backend configured for image analysis. Skipping.');
+            LEW.bus.dispatch('vision_analyze', { status: 'skipped', reason: 'no_backend_configured' });
+            return { ok: false, reason: 'No backend configured for image analysis.' };
+        }
+        const r = await fetch(backendBase + '/api/vision/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: imgDataUrl })
+        });
+        const result = await r.json();
+        LEW.bus.dispatch('vision_analyze', { status: 'success', result: result });
+        return result;
+      } catch (e) {
+        console.error('LEW.ui: Image analysis failed', e);
+        LEW.bus.dispatch('vision_analyze', { status: 'error', error: e.message });
+        return { ok: false, reason: `Analysis failed: ${e.message}` };
+      }
+    }
+  };
+
+  // =========================================================================
+  // LEW.app: Application Bootstrapping
+  // =========================================================================
+  LEW.app = {
+    async boot() {
+      console.log('Agent Lee: Application Bootstrapping...');
+      LEW.bus.init();
+      LEW.speech.init();
+      LEW.vec.init();
+      await LEW.llm.init();
+
+      LEW.ui.init();
+      await LEW.ui.initCamera();
+
+      LEW.search.init({ backendBase: '' }); // Set to 'http://localhost:5175' when backend is running
+
+      LEW.speech.speak('Hello, Agent. I am ready.'); // Initial greeting from Agent Lee
+      LEW.ui.toastDoc('Welcome, Agent.', `<p class="text-sm text-gray-300">I am Agent Lee, your unified research assistant. Ask me anything, or try: <em>"look up Chicago lakefront events"</em> or <em>"find best desk chairs"</em>.</p>`);
+      LEW.bus.dispatch('app_boot', { status: 'complete' });
+    }
+  };
+
+  // Start the application
+  LEW.app.boot();
+
+  // =========================================================================
+  // LEW.test: Simple Self-Tests (for console validation)
+  // =========================================================================
+  LEW.test = {
+    run() {
+      console.log('--- Running LEW Self-Tests ---');
+      console.assert(LEW.util.safeTrim(' hello ') === 'hello', 'safeTrim basic');
+      console.assert(LEW.util.safeTrim(null) === '', 'safeTrim null');
+      console.assert(LEW.util.safeTrim(undefined) === '', 'safeTrim undefined');
+      console.assert(LEW.util.safeTrim('') === '', 'safeTrim empty');
+
+      console.assert(LEW.speech._cleanForSpeech("Hello, world! #test *bullet-point*") === "Hello world test bullet point", "cleanForSpeech punctuation/symbols");
+      console.assert(LEW.speech._cleanForSpeech("Check this out: https://example.com/some/path.html") === "Check this out", "cleanForSpeech URLs");
+      console.assert(LEW.speech._cleanForSpeech("You are Agent Lee. Return: - an answer.") === "an answer", "cleanForSpeech LLM prompt residue");
+
+      console.assert(LEW.ui._wantsSearch('look up chicago') === true, 'wantsSearch "look up"');
+      console.assert(LEW.ui._wantsSearch('find best restaurants') === true, 'wantsSearch "find"');
+      console.assert(LEW.ui._wantsSearch('what is quantum computing') === true, 'wantsSearch "what is"');
+      console.assert(LEW.ui._wantsSearch('hello there') === false, 'wantsSearch chat');
+      console.assert(LEW.ui._wantsSearch('  search for me') === true, 'wantsSearch "search" with leading space');
+      console.assert(LEW.ui._wantsSearch(null) === false, 'wantsSearch null');
+
+      const rawLLMOutput = `You are Agent Lee. Answer the query using sources and optional local context.\nQuery: Test\n\nTop sources:\n1. Source 1\n\nReturn:\n- a concise answer (3-7 sentences)\n- 3 bullet key takeaways\n- cite 2-3 source URLs (from the list)\n\nThis is a concise answer. It has multiple sentences. [1]\n\nKey Takeaways:\n- First point\n- Second point\n- Third point\n- Fourth point`;
+      const cleanedLLMOutput = LEW.search._sanitizeLLMAnswer(rawLLMOutput);
+      console.assert(!cleanedLLMOutput.includes("You are Agent Lee"), "sanitizeLLMAnswer removes prompt");
+      console.assert(!cleanedLLMOutput.includes("Return:"), "sanitizeLLMAnswer removes return instructions");
+      console.assert(cleanedLLMOutput.includes("This is a concise answer. It has multiple sentences. [1]"), "sanitizeLLMAnswer keeps body");
+      console.assert(cleanedLLMOutput.includes("Key Takeaways:"), "sanitizeLLMAnswer keeps takeaways");
+      console.assert((cleanedLLMOutput.match(/-/g) || []).length === 3, "sanitizeLLMAnswer caps bullets to 3");
+
+      console.log('--- LEW Self-Tests Complete ---');
+    }
+  };
+  // To run tests, uncomment the line below or type LEW.test.run() in console
+  // LEW.test.run();
+
+  </script>
+</body>
+</html>

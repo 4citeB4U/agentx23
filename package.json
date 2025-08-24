@@ -1,0 +1,12 @@
+{
+  "name": "agent-lee-frontend-mesh",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server public -p 8080",
+    "leeway:fix": "node scripts/leeway-fix.mjs",
+    "leeway:check": "node scripts/leeway-ci.mjs"
+  },
+  "dependencies": {},
+  "engines": { "node": ">=18" }
+}

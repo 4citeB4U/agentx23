@@ -1,0 +1,32 @@
+{
+  "allowedTagPatterns": [
+    "FN.*",
+    "UI.*",
+    "CORE.*",
+    "TOOLS.*",
+    "AI.*",
+    "DATA.*",
+    "BACKEND.*",
+    "FRONTEND.*",
+    "DOCS.*",
+    "REGION.(.+)",
+    "TOOL.(.+)",
+    "FILE.(.+)"
+  ],
+  "requiredRegionTags": [
+    "FN.UI.REGION_MAIN",
+    "CORE.BOOT.REGION",
+    "REGION.CORE.BOOTSTRAP",
+    "REGION.UI.NEXUS",
+    "REGION.MEDIA.AUDIO",
+    "REGION.WORKSPACE.CANVASES",
+    "REGION.AI.ORCHESTRATOR",
+    "REGION.UTILS.HELPERS",
+    "REGION.DATA.INDEXEDDB",
+    "REGION.SEO.TEMPLATES",
+    "REGION.SEO.GA4"
+  ],
+  "fiveWHRequired": true,
+  "blockOnTagEdit": true,
+  "blockOnTagCollision": true
+}
