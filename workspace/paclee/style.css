@@ -1,0 +1,99 @@
+/* PacLee — Agent Lee Edition */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold:   #ffe600;
+  --blue:   #1a1aff;
+  --bg:     #0a0a0a;
+  --text:   #f0f0f0;
+  --muted:  #888;
+  --accent: #00aaff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: var(--gold);
+  text-shadow: 0 0 24px #ffe60066, 0 0 48px #ffe60033;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+canvas#game {
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  background: #000;
+  display: block;
+  box-shadow: 0 0 30px #1a1aff44;
+}
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 560px;
+  font-size: 1.1rem;
+  padding: 0 4px;
+}
+
+#hud strong { color: var(--gold); }
+#lives      { color: #ff4444; letter-spacing: 0.2em; }
+#level-info { color: var(--muted); font-size: 0.85rem; }
+
+.controls {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+#overlay h2 {
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+#overlay p  { color: var(--text); font-size: 1.1rem; margin-bottom: 1.2rem; }
+#overlay .hint { color: var(--accent); font-size: 0.9rem; }
+
+.hidden { display: none !important; }

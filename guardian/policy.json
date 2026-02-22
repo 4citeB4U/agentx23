@@ -1,0 +1,174 @@
+{
+  "_meta": {
+    "version": "GUARDIAN-POLICY-1.0",
+    "standard": "LEEWAY-CORE-2026",
+    "author": "The Night Architect — Leeway Innovations",
+    "lastUpdated": "2026-02-21"
+  },
+
+  "email.send": {
+    "risk": "medium",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "allowedDomains": ["gmail.com", "outlook.com", "leewayinnovations.com"],
+    "rateLimitPerHour": 20,
+    "logLevel": "INFO"
+  },
+
+  "file.read": {
+    "risk": "low",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "blockedPaths": ["C:/Guardian/private.pem", "C:/Windows/System32"],
+    "logLevel": "INFO"
+  },
+
+  "file.write": {
+    "risk": "high",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": false,
+    "blockedPaths": ["C:/Guardian/", "C:/Windows/", "C:/Program Files/"],
+    "logLevel": "WARNING"
+  },
+
+  "file.delete": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "logLevel": "CRITICAL"
+  },
+
+  "process.launch": {
+    "risk": "high",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "allowedExecutables": ["node.exe", "docker.exe", "pwsh.exe", "python.exe", "git.exe", "tsx"],
+    "logLevel": "WARNING"
+  },
+
+  "network.external": {
+    "risk": "medium",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "allowedHosts": [
+      "api.gemini.google.com",
+      "generativelanguage.googleapis.com",
+      "api.telegram.org",
+      "api.cloudflare.com",
+      "agentlee.rapidwebdevelop.com",
+      "insforge.app",
+      "ngrok.io",
+      "ngrok-free.app",
+      "github.com"
+    ],
+    "logLevel": "INFO"
+  },
+
+  "docker.exec": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "allowedContainers": ["agentlee", "agent-lee-backend", "agent-lee-ui"],
+    "logLevel": "CRITICAL"
+  },
+
+  "docker.build": {
+    "risk": "high",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "logLevel": "WARNING"
+  },
+
+  "code.execute": {
+    "risk": "high",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": false,
+    "logLevel": "WARNING"
+  },
+
+  "code.generate": {
+    "risk": "low",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "logLevel": "INFO"
+  },
+
+  "package.install": {
+    "risk": "high",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": false,
+    "logLevel": "WARNING"
+  },
+
+  "registry.write": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "logLevel": "CRITICAL"
+  },
+
+  "git.push": {
+    "risk": "medium",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "allowedRemotes": ["github.com", "gitlab.com"],
+    "logLevel": "INFO"
+  },
+
+  "git.commit": {
+    "risk": "low",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "logLevel": "INFO"
+  },
+
+  "browser.automate": {
+    "risk": "high",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": false,
+    "logLevel": "WARNING"
+  },
+
+  "powershell.execute": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "allowedScripts": ["Start-AgentLee.ps1", "Health-Check.ps1", "Verify-All.ps1", "test-preflight.ps1"],
+    "logLevel": "CRITICAL"
+  },
+
+  "mcp.call": {
+    "risk": "medium",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "logLevel": "INFO"
+  },
+
+  "deployment.cloudflare": {
+    "risk": "high",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": false,
+    "logLevel": "WARNING"
+  },
+
+  "system.shutdown": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "logLevel": "CRITICAL"
+  },
+
+  "token.revoke": {
+    "risk": "critical",
+    "requiresConfirmation": true,
+    "requiresCreatorSignature": true,
+    "logLevel": "CRITICAL"
+  },
+
+  "creator.authenticate": {
+    "risk": "low",
+    "requiresConfirmation": false,
+    "requiresCreatorSignature": false,
+    "logLevel": "INFO"
+  }
+}

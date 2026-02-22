@@ -1,0 +1,62 @@
+# Secrets
+.env
+.env.*
+!.env.example
+.env.local
+
+# Local runtime state
+.chrome-devtools/
+.chrome-devtools/**
+.chrome-devtools\
+
+# Node
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds
+**/dist/
+**/build/
+
+# Python
+__pycache__/
+**/__pycache__/
+.venv/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Embedded runtimes (large binaries — do not commit)
+py311/
+extensions/
+
+# Logs & runtime output
+logs/
+tunnel.log
+qa-results.txt
+backend/logs/
+
+# Audio test artifacts
+*.mp3
+*.wav
+*.m4a
+
+# Test/snapshot artifacts
+.playwright-mcp/
+snapshots/
+golden/
+.cache/
+Untitled-1.ipynb
+
+# Docker reports
+docker-report-*/
+
+# Runtime state files
+ip.txt

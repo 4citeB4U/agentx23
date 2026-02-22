@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leeway.local/schemas/leeway-test-report.schema.json",
+  "title": "LEEWAY Test Result Report",
+  "description": "Canonical machine-verifiable test report format for LEEWAY compliance gates.",
+  "type": "object",
+  "required": [
+    "reportFormat",
+    "metadata",
+    "results"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "reportFormat": {
+      "type": "string",
+      "enum": [
+        "LEEWAY_CTRF_v1"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "testSuite",
+        "timestamp",
+        "coverage"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "testSuite": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "executor": {
+          "type": "string"
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "commit": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "status",
+          "duration"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "failed",
+              "skipped"
+            ]
+          },
+          "duration": {
+            "type": "number",
+            "minimum": 0
+          },
+          "message": {
+            "type": "string"
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

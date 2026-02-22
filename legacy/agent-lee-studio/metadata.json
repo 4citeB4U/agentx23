@@ -1,0 +1,7 @@
+{
+  "name": "Agent Lee Studio",
+  "description": "A clone of the Google AI Studio interface featuring the Agent Lee interactive 3D Voxel Core visualization.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

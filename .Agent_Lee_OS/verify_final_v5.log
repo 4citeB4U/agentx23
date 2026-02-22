@@ -1,0 +1,71 @@
+
+> agent-lee-os-3.@0.0.0 verify:puppeteer
+> node scripts/verify-ui-persona.mjs
+
+Debugger listening on ws://127.0.0.1:64930/df3ff46d-a378-4472-96c2-2e71e1c65e9f
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+--- STARTING PERSONA VERIFICATION ---
+[DEV_STDOUT] 
+> agent-lee-os-3.@0.0.0 dev
+> vite
+
+
+[DEV_STDOUT] Port 4173 is in use, trying another one...
+
+[DEV_STDOUT] Port 4174 is in use, trying another one...
+
+[DEV_STDOUT] Port 4175 is in use, trying another one...
+
+[DEV_STDOUT] Port 4176 is in use, trying another one...
+
+[DEV_STDOUT] 
+  [32m[1mVITE[22m v6.4.1[39m  [2mready in [0m[1m575[22m[2m[0m ms[22m
+
+
+[DEV_STDOUT]   [32mΓ₧£[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4177[22m/[39m
+
+Detected server at: http://127.0.0.1:4177
+Navigating to http://127.0.0.1:4177...
+[REQUEST] http://127.0.0.1:4177/
+[REQUEST] http://127.0.0.1:4177/@vite/client
+[REQUEST] https://cdn.tailwindcss.com/
+[REQUEST] https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap
+[REQUEST] http://127.0.0.1:4177/index.tsx
+[REQUEST] http://127.0.0.1:4177/@react-refresh
+[REQUEST] https://cdn.tailwindcss.com/3.4.17
+[BROWSER_WARN] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/react.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/react-dom_client.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/App.tsx
+[REQUEST] http://127.0.0.1:4177/index.css
+[REQUEST] http://127.0.0.1:4177/node_modules/vite/dist/client/env.mjs
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/chunk-S73QDKPN.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=7c7e4dad
+[BROWSER_DEBUG] [vite] connecting...
+[REQUEST] http://127.0.0.1:4177/components/CodeStudio.tsx
+[REQUEST] http://127.0.0.1:4177/components/MemoryLake.tsx
+[REQUEST] http://127.0.0.1:4177/components/RemoteView.tsx
+[REQUEST] http://127.0.0.1:4177/components/SystemHub.tsx
+[REQUEST] http://127.0.0.1:4177/components/UIModules.tsx
+[REQUEST] http://127.0.0.1:4177/components/VoxelCore.tsx
+[REQUEST] http://127.0.0.1:4177/constants.ts
+[REQUEST] http://127.0.0.1:4177/types.ts
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/chunk-Z5AKTONR.js?v=7c7e4dad
+[BROWSER_DEBUG] [vite] connected.
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/lucide-react.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/three.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4177/components/DeploymentNexus.tsx
+[REQUEST] http://127.0.0.1:4177/node_modules/.vite/deps/chunk-AGPXCMHV.js?v=7c7e4dad
+[BROWSER_INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[REQUEST] http://127.0.0.1:4177/favicon-agent-lee.ico
+Page Title: Agent Lee OS | Sovereign Protocol
+Voxel Core container detected.
+Testing command input...
+[REQUEST] http://localhost:3001/api/chat
+[REQUEST] http://localhost:3001/api/chat
+Waiting for agent response...
+--- PERSONA VERIFICATION SUCCESSFUL ---
+Waiting for the debugger to disconnect...

@@ -1,0 +1,128 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent Lee OS — Production Compose Stack
+# Run: docker compose up -d
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Backend API (Express hardened) ─────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env.local
+    environment:
+      - PORT=8001
+      - WS_PORT=8003
+      - NODE_ENV=production
+    volumes:
+      - ./workspace:/app/workspace
+      - ./backend/data:/app/data
+      - ./backend/logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  # ── Brain Router (Gemini + Persona + TTS) ──────────────────────────────────
+  brain:
+    build:
+      context: .
+      dockerfile: docker/brain.Dockerfile
+    ports:
+      - "8004:8004"
+    env_file:
+      - .env.local
+    environment:
+      - PORT=8004
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8004/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  # ── Leeway File Gateway ────────────────────────────────────────────────────
+  gateway:
+    build:
+      context: .
+      dockerfile: docker/gateway.Dockerfile
+    ports:
+      - "8101:8101"
+    env_file:
+      - .env.local
+    environment:
+      - PORT=8101
+    # Windows drive mounts — adjust to your actual drive paths
+    volumes:
+      - "D:\\THEBESTAGENTLEE23:/drives/L:ro"
+      - "C:\\Tools:/drives/LEE"
+    restart: unless-stopped
+
+  # ── Desktop Agent (runs on HOST — not containerized) ──────────────────────
+  # Run directly: python scripts/desktop_agent.py
+  # Uncomment if you want to experiment with containerized GUI:
+  # desktop-agent:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/desktop-agent.Dockerfile
+  #   ports:
+  #     - "8005:8005"
+  #   restart: unless-stopped
+
+  # ── UI (served statically by backend in single-port mode) ─────────────────
+  # The backend already serves .Agent_Lee_OS/dist at 8001.
+  # Use this only if you want UI on its own port (e.g. behind a CDN).
+  # ui:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/ui.Dockerfile
+  #   ports:
+  #     - "8000:80"
+
+  # ── DNS Monitor (Cloudflare tunnel watcher) ────────────────────────────────
+  dns-monitor:
+    image: node:20-alpine
+    working_dir: /app
+    command: node services/dns-monitor/index.js --watch
+    env_file:
+      - .env.local
+    volumes:
+      - ./services:/app/services
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # ── Postgres (Episode store — v2 upgrade from SQLite) ─────────────────────
+  postgres:
+    image: postgres:16
+    container_name: agentlee-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       agent_lee
+      POSTGRES_USER:     agentlee
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agent_lee_secret}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agentlee -d agent_lee"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  pg_data:
+
+networks:
+  default:
+    name: agent-lee-net

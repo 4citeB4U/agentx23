@@ -1,0 +1,1 @@
+import { test, expect } from "@playwright/test"; test("Agent Lee UI loads", async ({ page }) => { await page.goto("http://localhost:8001"); await expect(page.locator("body")).toBeVisible(); });

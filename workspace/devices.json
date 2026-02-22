@@ -1,0 +1,30 @@
+{
+  "AGENT_LEE_ADMIN": {
+    "id": "AGENT_LEE_ADMIN",
+    "secret": "neural_master_key_v1",
+    "nickname": "Admin Console",
+    "status": "active",
+    "level": 4
+  },
+  "Lee2912": {
+    "id": "Lee2912",
+    "secret": "Eyecyou2912",
+    "nickname": "Master Operator",
+    "status": "active",
+    "level": 4
+  },
+  "MOBILE_ACCESS": {
+    "id": "MOBILE_ACCESS",
+    "secret": "sovereign_mobile",
+    "nickname": "Mobile Terminal",
+    "status": "active",
+    "level": 2
+  },
+  "LEEWAY_TERMINAL_07043D04184E": {
+    "id": "LEEWAY_TERMINAL_07043D04184E",
+    "secret": "HsPVnopB+iDP/CzVm05LAb5dk1BJGZrNWfOWDYZpAN8=",
+    "nickname": "Env Bound Device",
+    "status": "active",
+    "level": 4
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PacLee — Agent Lee Edition</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🟡 PacLee</h1>
+    <p class="subtitle">Agent Lee Edition · Pac-Man</p>
+  </header>
+
+  <main>
+    <canvas id="game"></canvas>
+    <div id="hud">
+      <span>Score: <strong id="score">0</strong></span>
+      <span id="level-info">Level <strong id="level">1</strong></span>
+      <span id="lives">❤❤❤</span>
+    </div>
+    <p class="controls">WASD / Arrow Keys — move &nbsp;|&nbsp; R — restart &nbsp;|&nbsp; P — pause</p>
+  </main>
+
+  <!-- Start overlay -->
+  <div id="overlay">
+    <h2>🟡 PacLee</h2>
+    <p>An Agent Lee sovereign mission</p>
+    <p class="hint">Press any arrow key or WASD to start</p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

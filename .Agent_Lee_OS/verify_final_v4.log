@@ -1,0 +1,76 @@
+
+> agent-lee-os-3.@0.0.0 verify:puppeteer
+> node scripts/verify-ui-persona.mjs
+
+Debugger listening on ws://127.0.0.1:58347/9ae35636-3a53-477b-a4da-5f2c6503a7e3
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+--- STARTING PERSONA VERIFICATION ---
+[DEV_STDOUT] 
+> agent-lee-os-3.@0.0.0 dev
+> vite
+
+
+[DEV_STDOUT] Port 4173 is in use, trying another one...
+
+[DEV_STDOUT] Port 4174 is in use, trying another one...
+
+[DEV_STDOUT] Port 4175 is in use, trying another one...
+
+[DEV_STDOUT] 
+  [32m[1mVITE[22m v6.4.1[39m  [2mready in [0m[1m570[22m[2m[0m ms[22m
+
+
+[DEV_STDOUT]   [32mΓ₧£[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4176[22m/[39m
+
+Detected server at: http://127.0.0.1:4176
+Navigating to http://127.0.0.1:4176...
+[REQUEST] http://127.0.0.1:4176/
+[REQUEST] http://127.0.0.1:4176/@vite/client
+[REQUEST] https://cdn.tailwindcss.com/
+[REQUEST] https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap
+[REQUEST] http://127.0.0.1:4176/index.tsx
+[REQUEST] http://127.0.0.1:4176/@react-refresh
+[REQUEST] https://cdn.tailwindcss.com/3.4.17
+[BROWSER_WARN] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
+[REQUEST] http://127.0.0.1:4176/node_modules/vite/dist/client/env.mjs
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/react.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/react-dom_client.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/App.tsx
+[REQUEST] http://127.0.0.1:4176/index.css
+[BROWSER_DEBUG] [vite] connecting...
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/chunk-S73QDKPN.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/chunk-Z5AKTONR.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/components/CodeStudio.tsx
+[REQUEST] http://127.0.0.1:4176/components/MemoryLake.tsx
+[REQUEST] http://127.0.0.1:4176/components/RemoteView.tsx
+[REQUEST] http://127.0.0.1:4176/components/SystemHub.tsx
+[REQUEST] http://127.0.0.1:4176/components/UIModules.tsx
+[REQUEST] http://127.0.0.1:4176/components/VoxelCore.tsx
+[REQUEST] http://127.0.0.1:4176/constants.ts
+[REQUEST] http://127.0.0.1:4176/types.ts
+[BROWSER_DEBUG] [vite] connected.
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/lucide-react.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/three.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/three_addons_controls_OrbitControls__js.js?v=7c7e4dad
+[REQUEST] http://127.0.0.1:4176/components/DeploymentNexus.tsx
+[REQUEST] http://127.0.0.1:4176/node_modules/.vite/deps/chunk-AGPXCMHV.js?v=7c7e4dad
+[BROWSER_INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[REQUEST] http://127.0.0.1:4176/favicon-agent-lee.ico
+Page Title: Agent Lee OS | Sovereign Protocol
+Voxel Core container detected.
+Testing command input...
+[REQUEST] http://localhost:3001/api/chat
+[REQUEST] http://localhost:3001/api/chat
+Waiting for agent response...
+--- PERSONA VERIFICATION FAILED ---
+TimeoutError: Waiting failed: 15000ms exceeded
+    at new WaitTask (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/node_modules/puppeteer-core/lib/esm/puppeteer/common/WaitTask.js:46:34)
+    at IsolatedWorld.waitForFunction (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/node_modules/puppeteer-core/lib/esm/puppeteer/api/Realm.js:22:26)
+    at CdpFrame.waitForFunction (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:580:43)
+    at CdpFrame.<anonymous> (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/node_modules/puppeteer-core/lib/esm/puppeteer/util/decorators.js:101:27)
+    at CdpPage.waitForFunction (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:1447:37)
+    at runTest (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/scripts/verify-ui-persona.mjs:105:20)
+Waiting for the debugger to disconnect...

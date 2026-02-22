@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-lee://schemas/agent-system-status.schema.json",
+  "title": "Agent System Status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "auth",
+    "ports",
+    "connectors",
+    "mcp"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "auth": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["configured", "present", "valid"],
+      "properties": {
+        "configured": { "type": "boolean" },
+        "present": { "type": "boolean" },
+        "valid": { "type": "boolean" }
+      }
+    },
+    "ports": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expected", "active"],
+      "properties": {
+        "expected": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "active": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["port", "active"],
+            "properties": {
+              "port": { "type": "integer" },
+              "active": { "type": "boolean" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "connectors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vscode", "fileExplorer", "desktop"],
+      "properties": {
+        "vscode": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["connected"],
+          "properties": {
+            "connected": { "type": "boolean" },
+            "realUrl": { "type": ["string", "null"], "format": "uri" }
+          }
+        },
+        "fileExplorer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["connected", "gateway"],
+          "properties": {
+            "connected": { "type": "boolean" },
+            "gateway": { "type": "string" }
+          }
+        },
+        "desktop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["connected", "port"],
+          "properties": {
+            "connected": { "type": "boolean" },
+            "port": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "mcp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bridge", "modules"],
+      "properties": {
+        "bridge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["connected", "port"],
+          "properties": {
+            "connected": { "type": "boolean" },
+            "port": { "type": "integer" }
+          }
+        },
+        "modules": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["testsprite", "playwright", "insforge", "stitch"],
+          "properties": {
+            "testsprite": { "$ref": "#/definitions/mcpModule" },
+            "playwright": { "$ref": "#/definitions/mcpModule" },
+            "insforge": { "$ref": "#/definitions/mcpModule" },
+            "stitch": { "$ref": "#/definitions/mcpModule" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "mcpModule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["running"],
+      "properties": {
+        "running": { "type": "boolean" },
+        "pid": { "type": ["integer", "null"] },
+        "startedAt": { "type": ["string", "null"], "format": "date-time" },
+        "stoppedAt": { "type": ["string", "null"], "format": "date-time" },
+        "lastExitCode": { "type": ["integer", "null"] },
+        "lastSignal": { "type": ["string", "null"] },
+        "lastError": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

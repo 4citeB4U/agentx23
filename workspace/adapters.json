@@ -1,0 +1,24 @@
+{
+  "adapters": {
+    "general": null,
+    "cdl": {
+      "path": "workspace/lora_adapters/cdl",
+      "description": "CDL logistics domain adapter",
+      "active": false
+    },
+    "drone": {
+      "path": "workspace/lora_adapters/drone",
+      "description": "Drone operations domain adapter",
+      "active": false
+    },
+    "code": {
+      "path": "workspace/lora_adapters/code",
+      "description": "Code generation / engineering adapter",
+      "active": false
+    }
+  },
+  "_meta": {
+    "version": "1.0",
+    "note": "Set active:true once LoRA weights are trained and placed in the path directory."
+  }
+}

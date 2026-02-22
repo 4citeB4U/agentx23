@@ -1,0 +1,26 @@
+{
+  "aliases": {
+    "C": "C:\\",
+    "Desktop": "C:\\Users\\Agent Lee\\Desktop",
+    "OneDrive": "C:\\Users\\Agent Lee\\OneDrive",
+    "Home": "C:\\Users\\Agent Lee",
+    "LEE": "C:\\Tools\\Portable-VSCode-MCP-Kit",
+    "L": "C:\\Tools\\Portable-VSCode-MCP-Kit\\.Agent_Lee_OS",
+    "E": "C:\\Tools\\Portable-VSCode-MCP-Kit\\backend",
+    "O": "C:\\Tools\\Portable-VSCode-MCP-Kit\\workspace",
+    "N": "C:\\Tools\\Portable-VSCode-MCP-Kit\\vscode-mcp-tooling",
+    "A": "C:\\Tools\\Portable-VSCode-MCP-Kit\\scripts",
+    "D": "C:\\Tools\\Portable-VSCode-MCP-Kit\\extensions"
+  },
+  "blockedPatterns": [
+    ".env",
+    ".ssh",
+    ".git",
+    "System32",
+    "Windows",
+    "Program Files",
+    "node_modules",
+    "dist",
+    ".venv"
+  ]
+}

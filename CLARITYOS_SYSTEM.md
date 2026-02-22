@@ -1,5 +1,5 @@
 # ClarityOS — System Reference & Connection Guide
-> **Agent Lee's permanent meeting place with GitHub Copilot (Claude Sonnet 4.6)**
+> **Agent Lee's permanent meeting place with GitHub Copilot**
 > Last updated: 2026-02-21 | Location: `C:\Tools\Portable-VSCode-MCP-Kit\CLARITYOS_SYSTEM.md`
 
 ---
@@ -7,10 +7,9 @@
 ## 1. What This Is
 
 ClarityOS is a permanently-live local infrastructure that gives Agent Lee and GitHub Copilot a shared workspace where they can:
-
 - Exchange data, tasks, thoughts, and event logs through a persistent UI
 - Talk directly through a local AI chat API bridge (port 3500)
-- Use 5 always-on MCP tool servers (InsForge, Chrome DevTools, Stitch, TestSprite, Spline)
+- Use 5 always-on MCP tool servers (Chrome DevTools, InsForge, Stitch, TestSprite, Spline)
 - Build, commit, and deploy applications autonomously without manual approval prompts
 
 Everything auto-starts silently at Windows login. No manual setup is needed after initial install.
@@ -31,15 +30,16 @@ start-mcp-servers.cmd  (C:\MCP-Servers\)
     ▼
 PM2 Process Manager  (C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2)
     │
-    ├── clarity-chat-api          :3500  ← Agent Lee ↔ AI meeting point
-    ├── mcp-chrome-devtools   SSE :4101  ← Browser automation
-    ├── mcp-insforge          SSE :4102  ← InsForge cloud services
-    ├── mcp-stitch            SSE :4103  ← UI design / Stitch
-    ├── mcp-testsprite        SSE :4104  ← Test plan generation
-    ├── mcp-spline            SSE :4105  ← 3D Spline assets
+    ├── clarity-chat-api   (ID 32)  :3500  ← Agent Lee ↔ GitHub Copilot (gpt-4o)
+    ├── clarity-watchdog   (ID 34)         ← Health watchdog, checks every 60s
+    ├── mcp-chrome-devtools(ID 27)  :4101  ← Browser automation
+    ├── mcp-insforge       (ID 28)  :4102  ← InsForge cloud services
+    ├── mcp-stitch         (ID 29)  :4103  ← UI design / Stitch
+    ├── mcp-testsprite     (ID 30)  :4104  ← Test plan generation
+    ├── mcp-spline         (ID 31)  :4105  ← 3D Spline assets
     └── (+ existing AgentLee-* processes ID 0-9, 21)
 
-VS Code (GitHub Copilot + Claude Sonnet 4.6)
+VS Code (GitHub Copilot)
     │  reads  C:\Users\Agent Lee\AppData\Roaming\Code\User\mcp.json
     │  connects to all 5 SSE endpoints on startup
     │  autoApprove: ["*"] on all tools — no permission prompts
@@ -49,7 +49,7 @@ VS Code (GitHub Copilot + Claude Sonnet 4.6)
             ├── Thoughts panel
             ├── Event Log + Lessons Learned
             ├── Insights dashboard
-            └── 🤖 Chat AI tab  →  localhost:3500  →  AI provider
+            └── 🤖 Chat AI tab  →  localhost:3500  →  GitHub Copilot (gpt-4o)
 ```
 
 ---
@@ -62,6 +62,7 @@ VS Code (GitHub Copilot + Claude Sonnet 4.6)
 | **ClarityOS UI** | `C:\clarity-app\index.html` |
 | **Chat API server** | `C:\clarity-chat-api\server.js` |
 | **Chat API config** | `C:\clarity-chat-api\config.json` (auto-created) |
+| **Watchdog script** | `C:\clarity-chat-api\watchdog.cjs` |
 | **PM2 ecosystem** | `C:\MCP-Servers\ecosystem.config.js` |
 | **PM2 auto-start cmd** | `C:\MCP-Servers\start-mcp-servers.cmd` |
 | **Silent VBS launcher** | `C:\MCP-Servers\start-mcp-silent.vbs` |
@@ -71,7 +72,6 @@ VS Code (GitHub Copilot + Claude Sonnet 4.6)
 | **supergateway (patched)** | `C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\supergateway\dist\gateways\stdioToSse.js` |
 | **MCP run scripts** | `C:\MCP-Servers\run-*.cmd` |
 | **PM2 saved dump** | `C:\Users\Agent Lee\.pm2\dump.pm2` |
-| **Watchdog script** | `C:\Tools\Portable-VSCode-MCP-Kit\clarityos-watchdog.js` |
 | **Node.js** | `C:\Program Files\node-v22.17.1-win-x64\node.exe` |
 | **PM2 binary** | `C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2` |
 
@@ -79,27 +79,42 @@ VS Code (GitHub Copilot + Claude Sonnet 4.6)
 
 ## 4. The Meeting Point — How Agent Lee Connects to AI
 
+### Default: GitHub Copilot via GitHub Models (no key needed)
+
+The chat API (port 3500) is pre-configured to use the **GitHub Models** inference endpoint
+(`https://models.inference.ai.azure.com`) which:
+- Reads the existing `gh auth token` automatically — no new login, no API key
+- Uses `gpt-4o` by default (same GitHub/OpenAI models backing VS Code Copilot)
+- Is fully OpenAI-compatible (streaming, history, system prompt all work)
+
+Available models on this endpoint (confirmed, free with GitHub account):
+- `gpt-4o` ← **default**
+- `gpt-4o-mini`
+- `Meta-Llama-3.1-405B-Instruct`
+- `Meta-Llama-3.1-70B-Instruct`
+- `Meta-Llama-3.1-8B-Instruct`
+- `Mistral-large-2407`
+- `Mistral-Nemo`
+- `AI21-Jamba-Instruct`
+
 ### 4a. From the ClarityOS UI (browser)
 
 1. Open browser → `http://localhost:5500`
-2. Click **🤖 Chat AI** tab
-3. Click **⚙ Settings**
-4. Set provider + API key (see Section 5)
-5. Click **Save Settings**
-6. Type in the chat box → streaming AI response appears token by token
+2. Click **🤖 Chat AI** tab — provider is pre-set to "✨ GitHub Copilot (no key needed)"
+3. Type in the chat box → streaming AI response appears token by token
 
-The chat remembers conversation history across refreshes (localStorage).
+To change model: click **⚙ Settings**, edit the model field, Save.
 
 ### 4b. Direct API — from any app, script, or tool
 
-The chat API is always live at `http://127.0.0.1:3500`. Any application can call it.
+The chat API is always live at `http://127.0.0.1:3500`.
 
 #### Simple chat call (PowerShell):
 ```powershell
 $body = '{"message":"What tasks should Agent Lee focus on today?","history":[]}'
 Invoke-RestMethod "http://127.0.0.1:3500/api/chat" -Method POST `
     -ContentType "application/json" -Body $body
-# Returns: { reply: "...", model: "...", provider: "..." }
+# Returns: { reply: "...", model: "gpt-4o", provider: "github-copilot" }
 ```
 
 #### Streaming chat (JavaScript fetch):
@@ -107,12 +122,8 @@ Invoke-RestMethod "http://127.0.0.1:3500/api/chat" -Method POST `
 const res = await fetch('http://127.0.0.1:3500/api/chat/stream', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    message: 'Summarize my lessons learned this week',
-    history: []  // optional: array of { role, content } pairs
-  })
+  body: JSON.stringify({ message: 'Summarize my event log', history: [] })
 });
-
 const reader = res.body.getReader();
 const dec = new TextDecoder();
 let buf = '';
@@ -123,68 +134,59 @@ while (true) {
   for (const part of buf.split('\n\n').slice(0,-1)) {
     const ev   = part.match(/^event: (\w+)/)?.[1];
     const data = JSON.parse(part.match(/\ndata: (.+)/)?.[1] || '{}');
-    if (ev === 'token') process.stdout.write(data.text);  // or append to DOM
+    if (ev === 'token') process.stdout.write(data.text);
     if (ev === 'done')  console.log('\n[done]');
     if (ev === 'error') console.error(data.error);
   }
 }
 ```
 
-#### Get/set config (JavaScript):
-```javascript
-// Read current config (keys masked)
-const cfg = await fetch('http://127.0.0.1:3500/api/config').then(r => r.json());
-
-// Update provider and model
-await fetch('http://127.0.0.1:3500/api/config', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    provider: 'openrouter',
-    openrouterKey: 'sk-or-...',
-    openrouterModel: 'meta-llama/llama-3.1-8b-instruct:free',
-    systemPrompt: 'You are ClarityOS...'
-  })
-});
-```
-
 #### Health check:
 ```
 GET http://127.0.0.1:3500/health
-→ { "status": "ok", "port": 3500, "ts": "2026-02-21T..." }
+→ { "status": "ok", "port": 3500, "provider": "github-copilot", "model": "gpt-4o", "ts": "..." }
 ```
 
 ---
 
 ## 5. AI Provider Setup (Choose One)
 
-### Option A — Free: OpenRouter (recommended to start)
+### Option A — GitHub Copilot via GitHub Models (DEFAULT — no key needed)
+Already configured. Uses `gh auth token` automatically.
+- Provider: `github-copilot`
+- Default model: `gpt-4o`
+- Endpoint: `https://models.inference.ai.azure.com`
+- No setup required. Just works.
+
+To switch model via the API:
+```powershell
+Invoke-RestMethod "http://127.0.0.1:3500/api/config" -Method POST `
+  -ContentType "application/json" `
+  -Body '{"copilotModel":"Meta-Llama-3.1-70B-Instruct"}'
+```
+
+### Option B — Free: OpenRouter
 1. Go to https://openrouter.ai → create free account → copy API key
-2. In ClarityOS Chat ⚙ Settings: set Provider = OpenRouter, paste key, model = `meta-llama/llama-3.1-8b-instruct:free`
-3. Click Save → start chatting (free, no card needed)
+2. POST to config: `{"provider":"openrouter","openrouterKey":"sk-or-...","openrouterModel":"meta-llama/llama-3.1-8b-instruct:free"}`
 
-Other free OpenRouter models:
-- `google/gemma-3-27b-it:free`
-- `mistralai/mistral-7b-instruct:free`
-- `deepseek/deepseek-r1:free`
+Free models: `google/gemma-3-27b-it:free`, `mistralai/mistral-7b-instruct:free`, `deepseek/deepseek-r1:free`
 
-### Option B — Local: Ollama (fully private, no key needed)
-1. Download Ollama from https://ollama.com (already in Windows Startup as Ollama.lnk)
-2. Run: `ollama pull llama3.2` (or `phi4`, `mistral`, etc.)
-3. Ollama runs at `http://localhost:11434` automatically
-4. In ClarityOS: Provider = Ollama, Model = `llama3.2`
+### Option C — Local: Ollama (fully private, no key, no internet)
+1. Download Ollama from https://ollama.com
+2. Run: `ollama pull llama3.2`
+3. POST to config: `{"provider":"ollama","ollamaModel":"llama3.2"}`
 
-### Option C — OpenAI
-- Provider = OpenAI, Key = `sk-...`, Model = `gpt-4o-mini` or `gpt-4o`
+### Option D — OpenAI
+POST to config: `{"provider":"openai","openaiKey":"sk-...","openaiModel":"gpt-4o-mini"}`
 
-### Option D — Anthropic
-- Provider = Anthropic, Key = your Anthropic key, Model = `claude-3-haiku-20240307`
+### Option E — Anthropic
+POST to config: `{"provider":"anthropic","anthropicKey":"...","anthropicModel":"claude-3-haiku-20240307"}`
 
 ---
 
 ## 6. MCP Servers — Connection Detail
 
-All 5 MCPs connect to VS Code automatically. They are defined in `mcp.json` with `autoApprove: ["*"]` meaning zero prompts — Copilot uses them instantly.
+All 5 MCPs connect to VS Code automatically. Defined in `mcp.json` with `autoApprove: ["*"]`.
 
 | Name | PM2 ID | SSE Port | What it does |
 |---|---|---|---|
@@ -194,12 +196,13 @@ All 5 MCPs connect to VS Code automatically. They are defined in `mcp.json` with
 | `mcp-testsprite` | 30 | 4104 | Test plan generation, frontend/backend testing |
 | `mcp-spline` | 31 | 4105 | 3D object creation, Spline editor tooling |
 | `clarity-chat-api` | 32 | 3500 | **Agent Lee ↔ AI direct link** |
+| `clarity-watchdog` | 34 | — | Health watchdog, auto-restarts dead services |
 
 ### Quick health check (run anytime):
 ```powershell
 3500,4101,4102,4103,4104,4105 | ForEach-Object {
-    try { $r = Invoke-WebRequest "http://127.0.0.1:$_/health" -TimeoutSec 3 -UseBasicParsing; "$_ : OK" }
-    catch { "$_ : OFFLINE" }
+    $p=$_; $t=New-Object Net.Sockets.TcpClient
+    try{$t.Connect("127.0.0.1",$p);"$p OPEN"}catch{"$p CLOSED"}finally{$t.Dispose()}
 }
 ```
 
@@ -241,16 +244,23 @@ All 5 MCPs connect to VS Code automatically. They are defined in `mcp.json` with
 }
 ```
 
-### `C:\Users\Agent Lee\AppData\Roaming\Code\User\settings.json` (relevant keys)
+### `C:\Users\Agent Lee\AppData\Roaming\Code\User\settings.json`
 ```json
 {
   "chat.tools.terminal.autoApprove": true,
-  "chat.mcp.discovery.enabled": true,
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
+  },
   "chat.agent.maxRequests": 200,
   "github.copilot.chat.agent.runTool.autoApprove": true,
   "github.copilot.chat.runCommand.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.edits.enabled": true,
-  "github.copilot.chat.agent.terminal.allowList": ["*"]
+  "github.copilot.chat.agent.terminal.allowList": ["*"],
+  "workbench.commandPalette.experimental.askChatLocation": "quickChat"
 }
 ```
 
@@ -272,9 +282,9 @@ node pm2 save                   ← saves current state for next boot
     ↓
 PM2 keeps all processes alive with autorestart: true
     ↓
-Watchdog (PM2 ID 33): clarityos-watchdog.js
+clarity-watchdog (PM2 ID 34): C:\clarity-chat-api\watchdog.cjs
     ↓  checks every 60 seconds
-    ↓  restarts any offline MCP server
+    ↓  restarts any offline MCP server or chat API
     ↓  logs to C:\MCP-Servers\logs\watchdog.log
 ```
 
@@ -282,13 +292,10 @@ Watchdog (PM2 ID 33): clarityos-watchdog.js
 
 ## 9. Troubleshooting
 
-### "MCP server starting…" appears in VS Code
-The SSE servers aren't running yet. Fix:
-```powershell
-cd C:\MCP-Servers
-& "C:\Program Files\node-v22.17.1-win-x64\node.exe" "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2" start ecosystem.config.js
-```
-Then press **Refresh** on the MCP panel in VS Code.
+### "MCP server starting…" appears briefly in VS Code
+Normal — VS Code connects to each SSE endpoint and each spawns a fresh child process.
+Should resolve in 1-2 seconds. If it loops/hangs indefinitely, the supergateway fix may
+have been overwritten (see Section 10).
 
 ### Chat API not responding (port 3500 offline)
 ```powershell
@@ -297,18 +304,19 @@ $pm2  = "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2"
 & $node $pm2 restart clarity-chat-api
 ```
 
+### GitHub Copilot provider returns auth error
+The `gh` CLI token expired or gh isn't authenticated:
+```powershell
+gh auth status          # check current auth
+gh auth login           # re-authenticate if needed
+gh auth token           # verify token is returned
+```
+Then restart: `& $node $pm2 restart clarity-chat-api`
+
 ### All MCPs offline after reboot
 The startup VBS may have failed. Run manually:
 ```powershell
 & "C:\MCP-Servers\start-mcp-servers.cmd"
-```
-
-### supergateway "already connected" error returns
-Re-patch the file:
-```
-File: C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\supergateway\dist\gateways\stdioToSse.js
-Fix: Move "new Server(...)" inside the app.get('/sse', ...) handler
-     Each SSE connection must get its own Server instance
 ```
 
 ### Restart everything from scratch
@@ -321,74 +329,56 @@ $pm2  = "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2"
 
 ---
 
-## 10. ClarityOS Watchdog
+## 10. supergateway Patch — Critical Fix
 
-Script: `C:\Tools\Portable-VSCode-MCP-Kit\clarityos-watchdog.js`
-PM2 ID: 33 | Runs every 60 seconds | Logs: `C:\MCP-Servers\logs\watchdog.log`
+**File:** `C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\supergateway\dist\gateways\stdioToSse.js`
 
-Monitors ports: 3500, 4101, 4102, 4103, 4104, 4105
-If any port stops responding → auto-restarts the matching PM2 process.
+**Why it's patched (twice):**
 
----
+**Fix 1** — "Already connected to transport" crash  
+Original code shared one `Server` instance. Fixed by creating a new `Server` per SSE connection.
 
-## 11. ClarityOS UI Features
+**Fix 2** — Multiple VS Code windows corrupt each other's MCP handshakes  
+Original code spawned ONE child process shared by all connections. When Window 2 connected
+and sent `initialize`, the child's response was broadcast to ALL sessions including Window 1,
+breaking both. Fixed by spawning a **dedicated child process per SSE connection** — fully
+isolated, no cross-session broadcast.
 
-URL: `http://localhost:5500`
-Served by: Python http.server (PM2 managed)
-Source: `C:\clarity-app\index.html` (single file, no build step)
+Current architecture (as of 2026-02-21):
+- `app.get('/sse', ...)` → spawn new child → new Server → new SSEServerTransport
+- Child stdout routes ONLY back to its own session
+- On disconnect: child is killed, session cleaned up
+- Multiple simultaneous VS Code instances work independently
 
-| Tab | Purpose |
-|---|---|
-| 🎯 Tasks | Add/complete tasks with priority, tags, notes. Ctrl+Enter to save. |
-| 💡 Thoughts | Brain dump capture with mood tagging. Promote any thought to a Task. |
-| 📋 Event Log | Log sessions/incidents. Each entry has a **Lesson Learned** field. |
-| 🧠 Insights | Live stats, top tags, mood breakdown, all lessons in one feed. |
-| 🤖 Chat AI | Streaming AI chat connected to local API bridge at port 3500. |
-
-All data persists in browser localStorage. Export any panel to JSON.
-Keyboard: `Ctrl+Enter` saves in whichever panel is active.
-
----
-
-## 12. Git Repository
-
-ClarityOS UI: `C:\clarity-app\.git`
-Commits:
-- `4c6e973` — initial Clarity app (tasks, thoughts, events, insights)
-- `7535c98` — Chat AI tab + streaming API bridge
-
-To push to GitHub (when ready):
-```bash
-cd C:\clarity-app
-git remote add origin https://github.com/AgentLee/<repo-name>.git
-git push -u origin master
+**If supergateway is updated/reinstalled**, re-apply the fix by running:
+```powershell
+# The fixed version is the content currently in stdioToSse.js
+# Back it up first:
+Copy-Item "...stdioToSse.js" "...stdioToSse.js.bak"
 ```
+The current fixed file has 137 lines and starts with `import express from 'express';`.
 
 ---
 
-## 13. ClarityOS Chat API Endpoints Reference
+## 11. ClarityOS Chat API Endpoints Reference
 
 Base URL: `http://127.0.0.1:3500`
 
 | Method | Endpoint | Body | Returns |
 |---|---|---|---|
-| GET | `/health` | — | `{ status, port, ts }` |
-| GET | `/api/config` | — | Current config (keys masked) |
+| GET | `/health` | — | `{ status, port, provider, model, ts }` |
+| GET | `/api/config` | — | Current config (keys masked) + `copilotModels[]` |
 | POST | `/api/config` | Any config fields | `{ ok: true }` |
 | POST | `/api/chat` | `{ message, history[] }` | `{ reply, model, provider }` |
 | POST | `/api/chat/stream` | `{ message, history[] }` | SSE: `start`, `token`, `done`, `error` events |
-| GET | `/api/models` | — | Array of model names (Ollama/OpenRouter) |
+| GET | `/api/models` | — | Array of model names for current provider |
 
 ---
 
-## 14. Adding This Chat API to Any UI
-
-Copy this snippet anywhere in your HTML/JS to add an AI chat to any page:
+## 12. Adding This Chat API to Any UI
 
 ```html
 <script>
-// ClarityOS AI — drop-in chat for any page
-// API is always live at localhost:3500
 const CLARITY_API = 'http://127.0.0.1:3500';
 
 async function askClarityAI(message, history = []) {
@@ -401,7 +391,6 @@ async function askClarityAI(message, history = []) {
   return reply;
 }
 
-// Streaming version — onToken called for each word
 async function askClarityAIStream(message, history = [], onToken, onDone) {
   const res = await fetch(`${CLARITY_API}/api/chat/stream`, {
     method: 'POST',
@@ -425,12 +414,39 @@ async function askClarityAIStream(message, history = [], onToken, onDone) {
     }
   }
 }
-
-// Example usage:
-// const reply = await askClarityAI("What should I work on today?");
-// askClarityAIStream("Explain my last event log", [], tok => console.log(tok), () => console.log('done'));
 </script>
 ```
+
+---
+
+## 13. ClarityOS UI Features
+
+URL: `http://localhost:5500`
+Source: `C:\clarity-app\index.html` (single file, no build step)
+
+| Tab | Purpose |
+|---|---|
+| 🎯 Tasks | Add/complete tasks with priority, tags, notes. Ctrl+Enter to save. |
+| 💡 Thoughts | Brain dump capture with mood tagging. Promote any thought to a Task. |
+| 📋 Event Log | Log sessions/incidents. Each entry has a **Lesson Learned** field. |
+| 🧠 Insights | Live stats, top tags, mood breakdown, all lessons in one feed. |
+| 🤖 Chat AI | Streaming AI chat via GitHub Copilot (gpt-4o). No key needed. |
+
+All data persists in browser localStorage. Export any panel to JSON.
+
+---
+
+## 14. Git Repositories
+
+### ClarityOS UI: `C:\clarity-app\.git`
+Commits:
+- `4c6e973` — initial Clarity app (tasks, thoughts, events, insights)
+- `7535c98` — Chat AI tab + streaming API bridge
+- `0fae421` — GitHub Copilot provider as default, index.html UI update
+
+### Chat API: `C:\clarity-chat-api\.git`
+Commits:
+- `0fd9d3c` — server.js with github-copilot provider (gpt-4o via GitHub Models)
 
 ---
 
@@ -443,8 +459,8 @@ async function askClarityAIStream(message, history = [], onToken, onDone) {
 # Check all processes
 & "C:\Program Files\node-v22.17.1-win-x64\node.exe" "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2" ls
 
-# Health check all ports
-3500,4101,4102,4103,4104,4105 | % { try { (irm "http://127.0.0.1:$_/health" -TimeoutSec 2).status + " :$_" } catch { "OFFLINE :$_" } }
+# TCP port check (doesn't hang on SSE streams)
+4101,4102,4103,4104,4105 | ForEach-Object { $p=$_; $t=New-Object Net.Sockets.TcpClient; try{$t.Connect("127.0.0.1",$p);"$p OPEN"}catch{"$p CLOSED"}finally{$t.Dispose()} }
 
 # Restart one server
 & "C:\Program Files\node-v22.17.1-win-x64\node.exe" "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2" restart clarity-chat-api
@@ -452,17 +468,23 @@ async function askClarityAIStream(message, history = [], onToken, onDone) {
 # Restart all
 & "C:\Program Files\node-v22.17.1-win-x64\node.exe" "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2" restart all
 
-# View live logs (chat API)
+# View live logs
 & "C:\Program Files\node-v22.17.1-win-x64\node.exe" "C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\bin\pm2" logs clarity-chat-api --lines 30
+
+# Test chat API
+Invoke-RestMethod "http://127.0.0.1:3500/api/chat" -Method POST -ContentType "application/json" -Body '{"message":"Hello from Agent Lee","history":[]}'
+
+# Check current AI provider
+Invoke-RestMethod "http://127.0.0.1:3500/health"
+
+# Switch to a different model (GitHub Models)
+Invoke-RestMethod "http://127.0.0.1:3500/api/config" -Method POST -ContentType "application/json" -Body '{"copilotModel":"Meta-Llama-3.1-70B-Instruct"}'
 
 # Open ClarityOS UI
 Start-Process "http://localhost:5500"
-
-# Test chat API directly
-Invoke-RestMethod "http://127.0.0.1:3500/api/chat" -Method POST -ContentType "application/json" -Body '{"message":"Hello from Agent Lee","history":[]}'
 ```
 
 ---
 
-*ClarityOS — built by GitHub Copilot (Claude Sonnet 4.6) for Agent Lee*
+*ClarityOS — built by GitHub Copilot for Agent Lee*
 *Permanent link, always live, auto-starts at login.*

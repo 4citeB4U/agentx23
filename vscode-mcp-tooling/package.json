@@ -1,0 +1,11 @@
+{
+  "name": "vscode-mcp-tooling",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "testsprite": "node src/tool.js testsprite",
+    "playwright": "node src/tool.js playwright",
+    "insforge": "node src/tool.js insforge",
+    "stitch": "node src/tool.js stitch"
+  }
+}

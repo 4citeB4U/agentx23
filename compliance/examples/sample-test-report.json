@@ -1,0 +1,35 @@
+{
+  "reportFormat": "LEEWAY_CTRF_v1",
+  "metadata": {
+    "testSuite": "voice-logic-regression",
+    "timestamp": "2026-02-18T18:00:00.000Z",
+    "executor": "ci-local",
+    "coverage": 91.2,
+    "commit": "local-dev",
+    "branch": "main"
+  },
+  "results": [
+    {
+      "name": "tts proxy signs request",
+      "status": "passed",
+      "duration": 141.2,
+      "priority": "high",
+      "artifacts": [
+        "logs/tts-proxy-pass.log"
+      ]
+    },
+    {
+      "name": "chat endpoint rejects unsigned request",
+      "status": "passed",
+      "duration": 77.5,
+      "priority": "high"
+    },
+    {
+      "name": "mobile fallback speech path",
+      "status": "skipped",
+      "duration": 0,
+      "priority": "medium",
+      "message": "Audio device unavailable in CI"
+    }
+  ]
+}

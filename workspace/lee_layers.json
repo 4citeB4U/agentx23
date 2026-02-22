@@ -1,0 +1,345 @@
+{
+  "version": "50-layer-v1",
+  "agent": "agent:lee",
+  "generated": "2026-02-22",
+  "cognitive_rings": {
+    "ring_1_identity_kernel": { "id": 1, "label": "Identity Kernel", "always_on": true },
+    "ring_2_operational": { "id": 2, "label": "Operational Cognition", "always_on": true },
+    "ring_3_memory": { "id": 3, "label": "Memory & Learning", "always_on": false },
+    "ring_4_expansion": { "id": 4, "label": "Expansion Systems", "always_on": false }
+  },
+  "kernel_layer_ids": [1, 2, 3, 4, 5, 6, 7],
+  "layers": [
+    {
+      "id": 1, "name": "TrustCore", "group": "layer_group:trustcore", "ring": 1,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "Foundation of all operations. Validates all inputs before execution.",
+      "tags": ["trustcore", "kernel", "security"]
+    },
+    {
+      "id": 2, "name": "EthicsCore", "group": "layer_group:ethicscore", "ring": 1,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "Maintains ethical decision-making aligned with LEEWAY Standards.",
+      "tags": ["ethicscore", "kernel", "compliance"]
+    },
+    {
+      "id": 3, "name": "LEEWAYProtocol", "group": "layer_group:leewayprotocol", "ring": 1,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "Enforces all LEEWAY Standards: safety, compliance, audit trail, handshake validation.",
+      "tags": ["leewayprotocol", "kernel", "governance"]
+    },
+    {
+      "id": 4, "name": "Boundaries", "group": "layer_group:boundaries", "ring": 1,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "Hard limits on filesystem access, admin routes, credential exposure, path traversal.",
+      "tags": ["boundaries", "kernel", "security"]
+    },
+    {
+      "id": 5, "name": "SystemGuard", "group": "layer_group:systemguard", "ring": 1,
+      "always_on": true, "enforcement": "ALERT_AND_BLOCK",
+      "purpose": "Monitors system integrity. Detects anomalies and rate limit violations.",
+      "tags": ["systemguard", "kernel", "monitoring"]
+    },
+    {
+      "id": 6, "name": "VoiceCore", "group": "layer_group:voicecore", "ring": 1,
+      "always_on": true, "enforcement": "REQUIRED",
+      "purpose": "Voice-first enforcement. Every action emits a voice event. Silence is failure.",
+      "tags": ["voicecore", "kernel", "tts"]
+    },
+    {
+      "id": 7, "name": "ToolTruthGuard", "group": "layer_group:toolproof", "ring": 1,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "No tool claim without proof. Prevents all hallucinated tool outputs.",
+      "tags": ["toolproof", "kernel", "anti-hallucination"]
+    },
+    {
+      "id": 8, "name": "ResearchFirstGate", "group": "layer_group:researchfirst", "ring": 2,
+      "always_on": true, "enforcement": "HARD_BLOCK",
+      "purpose": "Mandatory research pass before any build, create, design, or campaign action.",
+      "trigger_keywords": ["build", "create", "design", "plan", "architect", "game", "deploy"],
+      "tags": ["researchfirst", "quality"]
+    },
+    {
+      "id": 9, "name": "IntentClassifier", "group": "layer_group:intentionmatrix", "ring": 2,
+      "always_on": true, "enforcement": "REQUIRED",
+      "purpose": "Classifies every request by type, domain, complexity, urgency, and register mode.",
+      "tags": ["intentionmatrix", "routing"]
+    },
+    {
+      "id": 10, "name": "TaskMode", "group": "layer_group:task", "ring": 2,
+      "always_on": false,
+      "purpose": "Manages the active task context: current, pending, completed.",
+      "trigger_conditions": ["user_has_active_task"],
+      "tags": ["task", "context"]
+    },
+    {
+      "id": 11, "name": "ParallelNavigator", "group": "layer_group:parallelnavigator", "ring": 2,
+      "always_on": false,
+      "purpose": "Orchestrates concurrent task execution without cross-contamination.",
+      "trigger_conditions": ["task_parallelism_gte_2"],
+      "tags": ["parallelnavigator", "orchestration"]
+    },
+    {
+      "id": 12, "name": "Scheduler", "group": "layer_group:scheduler", "ring": 2,
+      "always_on": false,
+      "purpose": "Priority-based task scheduling (P1-P5), dependencies, timeouts.",
+      "trigger_conditions": ["queued_tasks_exist"],
+      "tags": ["scheduler", "priority"]
+    },
+    {
+      "id": 13, "name": "ToolInventory", "group": "layer_group:toolinventory", "ring": 2,
+      "always_on": true,
+      "purpose": "Live registry of available tools, status, permissions, and execution history.",
+      "tags": ["toolinventory", "capabilities"]
+    },
+    {
+      "id": 14, "name": "Capabilities", "group": "layer_group:capabilities", "ring": 2,
+      "always_on": true,
+      "purpose": "Tracks what Agent Lee can/cannot do in the current environment. Dynamic.",
+      "tags": ["capabilities", "context"]
+    },
+    {
+      "id": 15, "name": "ProfessionalRegister", "group": "layer_group:skilllayer", "ring": 2,
+      "always_on": false,
+      "purpose": "Switches to formal professional language for legal/compliance/executive comms.",
+      "trigger_conditions": ["intent_is_legal", "intent_is_compliance", "user_requests_formal"],
+      "tags": ["professional", "register"]
+    },
+    {
+      "id": 16, "name": "EmotionModel", "group": "layer_group:emotionanchors", "ring": 2,
+      "always_on": true,
+      "purpose": "Detects user emotional state. Adjusts pacing, tone, verbosity, empathy depth.",
+      "detects": ["frustration", "urgency", "confusion", "excitement", "trust", "dissatisfaction", "praise"],
+      "tags": ["emotionanchors", "emotional-intelligence"]
+    },
+    {
+      "id": 17, "name": "Reflection", "group": "layer_group:reflection", "ring": 3,
+      "always_on": false,
+      "purpose": "Post-action reflection: what worked, what failed, what pattern emerged. Logs to notebook.",
+      "trigger_conditions": ["after_task_completion"],
+      "tags": ["reflection", "learning"]
+    },
+    {
+      "id": 18, "name": "MemoryShield", "group": "layer_group:memoryshield", "ring": 3,
+      "always_on": true,
+      "purpose": "Protects memory from corruption. Validates all writes. Prevents duplicate/poisoned data.",
+      "tags": ["memoryshield", "integrity"]
+    },
+    {
+      "id": 19, "name": "WorldMemory", "group": "layer_group:worldmemory", "ring": 3,
+      "always_on": true,
+      "purpose": "Persistent cross-session knowledge store (InsForge DB + SQLite episodes.db).",
+      "tags": ["worldmemory", "persistence"]
+    },
+    {
+      "id": 20, "name": "EpisodeLogger", "group": "layer_group:episodes", "ring": 3,
+      "always_on": true,
+      "purpose": "Records every meaningful action as structured episodes: intent, actions, tools, reward.",
+      "tags": ["episodes", "logging"]
+    },
+    {
+      "id": 21, "name": "RewardEngine", "group": "layer_group:reward", "ring": 3,
+      "always_on": true,
+      "purpose": "Calculates reward scores. Triggers synthetic retraining if reward falls below threshold.",
+      "tags": ["reward", "scoring"]
+    },
+    {
+      "id": 22, "name": "MistakeRegistry", "group": "layer_group:mirrorsystem", "ring": 3,
+      "always_on": true,
+      "purpose": "Tracks every failure, hallucination attempt, and user correction. Prevents repeat mistakes.",
+      "tags": ["mistakes", "prevention"]
+    },
+    {
+      "id": 23, "name": "CurriculumScaler", "group": "layer_group:curriculum", "ring": 3,
+      "always_on": false,
+      "purpose": "Increases research depth and reduces confidence threshold for repeated mistake domains.",
+      "trigger_conditions": ["reward_score_lt_0.6", "mistake_frequency_gt_3"],
+      "tags": ["curriculum", "adaptive"]
+    },
+    {
+      "id": 24, "name": "AdapterRouter", "group": "layer_group:adapters", "ring": 3,
+      "always_on": true,
+      "purpose": "Routes tasks to correct domain adapter: code, general, research, telephony, campaign.",
+      "tags": ["adapters", "routing"]
+    },
+    {
+      "id": 25, "name": "SuccessPatternLibrary", "group": "layer_group:trustcore", "ring": 4,
+      "always_on": false,
+      "purpose": "Stores verified solution patterns tagged by domain with confidence scores.",
+      "trigger_conditions": ["intent_is_build", "pattern_match_available"],
+      "tags": ["patterns", "knowledge"]
+    },
+    {
+      "id": 26, "name": "CrossDomainMapper", "group": "layer_group:simulator", "ring": 4,
+      "always_on": false,
+      "purpose": "Abstracts problems into canonical patterns. Reuses solutions across industries.",
+      "tags": ["crossdomain", "abstraction"]
+    },
+    {
+      "id": 27, "name": "ResearchEngine", "group": "layer_group:researchfirst", "ring": 4,
+      "always_on": false,
+      "purpose": "Executes structured research pipeline: domain → implementation → failure → understanding.",
+      "trigger_conditions": ["researchfirst_gate_active"],
+      "tags": ["research", "pipeline"]
+    },
+    {
+      "id": 28, "name": "NotebookOps", "group": "layer_group:notebookops", "ring": 4,
+      "always_on": true,
+      "purpose": "Reads/writes structured entries to agent_notebook.json and e2e-test-plan.ipynb.",
+      "tags": ["notebook", "knowledge"]
+    },
+    {
+      "id": 29, "name": "MemoryLakeSync", "group": "layer_group:worldmemory", "ring": 4,
+      "always_on": true,
+      "purpose": "Bi-directional sync: local episodes.db ↔ InsForge Postgres.",
+      "tags": ["memorylake", "sync"]
+    },
+    {
+      "id": 30, "name": "VSCodeBridge", "group": "layer_group:vscodebridge", "ring": 4,
+      "always_on": false,
+      "purpose": "Connects Agent Lee's VM VS Code to user's VS Code via Remote Tunnel.",
+      "trigger_conditions": ["channel_is_vscode", "coding_task_active"],
+      "tags": ["vscode", "coding"]
+    },
+    {
+      "id": 31, "name": "TunnelOps", "group": "layer_group:tunnelops", "ring": 4,
+      "always_on": true,
+      "purpose": "Manages Cloudflare tunnel health. Monitors and restarts on failure.",
+      "tags": ["tunnel", "cloudflare", "ngrok"]
+    },
+    {
+      "id": 32, "name": "FileOpsBridge", "group": "layer_group:fileops", "ring": 4,
+      "always_on": false,
+      "purpose": "Safe filesystem ops within allowlisted dirs only. Blocks path traversal. Logs all writes.",
+      "trigger_conditions": ["file_operation_requested"],
+      "tags": ["fileops", "memorylake"]
+    },
+    {
+      "id": 33, "name": "VoiceStateMachine", "group": "layer_group:voicecore", "ring": 4,
+      "always_on": true,
+      "purpose": "Full voice lifecycle: idle → listening → processing → speaking → complete.",
+      "locked_voice_spec": {
+        "engine": "PocketTTS marius",
+        "pitch_ratio": 0.88,
+        "profile": "motivational_architect"
+      },
+      "tags": ["voice", "tts", "state-machine"]
+    },
+    {
+      "id": 34, "name": "TelephonyBridge", "group": "layer_group:phoneops", "ring": 4,
+      "always_on": false,
+      "purpose": "Inbound/outbound phone: SIP/Twilio → STT → Intent → Response → TTS → Caller.",
+      "trigger_conditions": ["channel_is_phone", "intent_is_call"],
+      "tags": ["phone", "telephony"]
+    },
+    {
+      "id": 35, "name": "PhoneOps", "group": "layer_group:phoneops", "ring": 4,
+      "always_on": false,
+      "purpose": "High-level telephony agent: caller ID, history retrieval, conversational response, task extraction.",
+      "trigger_conditions": ["phone_call_active"],
+      "tags": ["phone", "scrcpy", "adb"]
+    },
+    {
+      "id": 36, "name": "EmailCampaignEngine", "group": "layer_group:forecastengine", "ring": 4,
+      "always_on": false,
+      "purpose": "Generates email campaigns post-research: segment, personalize, schedule, track.",
+      "trigger_conditions": ["intent_is_campaign", "intent_is_email"],
+      "tags": ["email", "campaign", "marketing"]
+    },
+    {
+      "id": 37, "name": "CampaignBrain", "group": "layer_group:forecastengine", "ring": 4,
+      "always_on": false,
+      "purpose": "Strategic campaign intelligence: analyzes response data, adjusts messaging, detects patterns.",
+      "trigger_conditions": ["campaign_active"],
+      "tags": ["campaign", "strategy"]
+    },
+    {
+      "id": 38, "name": "BrowserAutomation", "group": "layer_group:multisense", "ring": 4,
+      "always_on": false,
+      "purpose": "Headless browser control for research data gathering and automated UI testing.",
+      "trigger_conditions": ["research_requires_web", "e2e_test_requested"],
+      "tags": ["browser", "playwright", "automation"]
+    },
+    {
+      "id": 39, "name": "Simulator", "group": "layer_group:simulator", "ring": 4,
+      "always_on": false,
+      "purpose": "Sandboxed environments before production deploy. Simulates user flows + failure scenarios.",
+      "trigger_conditions": ["pre_deploy_check"],
+      "tags": ["simulator", "sandbox"]
+    },
+    {
+      "id": 40, "name": "CloneLab", "group": "layer_group:clonelab", "ring": 4,
+      "always_on": false,
+      "purpose": "Spawns isolated sub-agents for parallel research. Each clone has its own context capsule.",
+      "trigger_conditions": ["parallel_research_required"],
+      "tags": ["clonelab", "parallel"]
+    },
+    {
+      "id": 41, "name": "DreamEngine", "group": "layer_group:dreamengine", "ring": 4,
+      "always_on": false,
+      "purpose": "Offline synthetic training generator. Creates new training data during idle cycles.",
+      "trigger_conditions": ["system_idle", "reward_score_low"],
+      "tags": ["dreamengine", "synthetic", "training"]
+    },
+    {
+      "id": 42, "name": "ForecastEngine", "group": "layer_group:forecastengine", "ring": 4,
+      "always_on": false,
+      "purpose": "Predicts task success probability, resource requirements, and timeline before committing.",
+      "trigger_conditions": ["high_complexity_task"],
+      "tags": ["forecast", "prediction"]
+    },
+    {
+      "id": 43, "name": "MCPOrchestrator", "group": "layer_group:environmentcore", "ring": 4,
+      "always_on": true,
+      "purpose": "Manages the full MCP bridge: testsprite, playwright, insforge, stitch. Routes tool calls.",
+      "tags": ["mcp", "orchestration"]
+    },
+    {
+      "id": 44, "name": "InsForgeDataLayer", "group": "layer_group:worldmemory", "ring": 4,
+      "always_on": true,
+      "purpose": "Primary cloud data persistence: InsForge Postgres tables across all domains.",
+      "tags": ["insforge", "cloud", "persistence"]
+    },
+    {
+      "id": 45, "name": "PersonaDriftDetector", "group": "layer_group:mirrorsystem", "ring": 4,
+      "always_on": true,
+      "purpose": "Monitors responses for persona drift: repetition, register mismatch, slang overuse, character break.",
+      "drift_signals": ["repeated_phrase", "register_mismatch", "slang_density_exceeded", "character_break"],
+      "tags": ["persona", "drift-detection", "quality"]
+    },
+    {
+      "id": 46, "name": "LayerActivationMatrix", "group": "layer_group:intentionmatrix", "ring": 4,
+      "always_on": true,
+      "purpose": "Tracks which layers are active on every response. Produces activation telemetry.",
+      "tags": ["layers", "telemetry", "introspection"]
+    },
+    {
+      "id": 47, "name": "Telemetry", "group": "layer_group:telemetry", "ring": 4,
+      "always_on": true,
+      "purpose": "System-wide observability: latency, throughput, error rates, reward trends.",
+      "tags": ["telemetry", "diagnostics", "monitoring"]
+    },
+    {
+      "id": 48, "name": "CIGatekeeper", "group": "layer_group:systemguard", "ring": 4,
+      "always_on": false,
+      "purpose": "Quality gates on generated code: lint, unit, integration, security scan, LEEWAY compliance.",
+      "trigger_conditions": ["code_generated", "pre_deploy"],
+      "tags": ["ci", "quality", "gating"]
+    },
+    {
+      "id": 49, "name": "SovereignBootManager", "group": "layer_group:environmentcore", "ring": 4,
+      "always_on": false,
+      "purpose": "Full startup: verify services, check DB, warm cache, validate InsForge, run smoke tests.",
+      "trigger_conditions": ["system_startup"],
+      "tags": ["boot", "startup", "readiness"]
+    },
+    {
+      "id": 50, "name": "SelfEvolutionEngine", "group": "layer_group:dreamengine", "ring": 4,
+      "always_on": false,
+      "purpose": "Analyzes episode history, reward trends, and mistakes to propose architectural improvements.",
+      "human_review_required": true,
+      "trigger_conditions": ["weekly_cycle"],
+      "tags": ["evolution", "self-improvement", "long-term"]
+    }
+  ]
+}

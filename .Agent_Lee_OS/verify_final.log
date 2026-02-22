@@ -1,0 +1,21 @@
+
+> agent-lee-os-3.@0.0.0 verify:puppeteer
+> node scripts/verify-ui-persona.mjs
+
+Debugger listening on ws://127.0.0.1:56726/fd944fe0-1f23-4d1a-9c15-9256569e955b
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+--- STARTING PERSONA VERIFICATION ---
+[DEV_STDOUT] 
+> agent-lee-os-3.@0.0.0 dev
+> vite
+
+
+[DEV_STDOUT] 
+  [32m[1mVITE[22m v6.4.1[39m  [2mready in [0m[1m475[22m[2m[0m ms[22m
+
+
+[DEV_STDOUT]   [32mΓ₧£[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4173[22m/[39m
+
+Failed to start dev server
+Waiting for the debugger to disconnect...

@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tunnel-log-area {
+    min-height: 120px;
+    max-height: 220px;
+}
+
+@layer base {
+    body {
+        @apply bg-black text-white selection:bg-blue-500/30 font-sans text-[15px] leading-relaxed;
+    }
+}
+
+/* Custom Effects */
+.glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08];
+}
+
+.holo-grid {
+    background-image:
+        linear-gradient(rgba(0, 163, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 163, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.readable-text {
+    @apply text-base md:text-lg tracking-wide leading-relaxed;
+}
+
+.readable-label {
+    @apply text-[11px] md:text-xs font-bold uppercase tracking-[0.15em] opacity-70;
+}
+
+/* MemoryLake shared utilities */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.animate-flow {
+    animation: dash 2s linear infinite;
+}
+
+.animate-flow-fast {
+    animation: dash 1s linear infinite;
+}
+
+.animate-reverse-flow {
+    animation: dash-rev 3s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
+@keyframes dash-rev {
+    to {
+        stroke-dashoffset: 100;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Telemetry Progress Bars */
+.telemetry-progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+}
+
+.telemetry-progress::-webkit-progress-bar {
+    background: transparent;
+}
+
+.telemetry-progress::-webkit-progress-value {
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.bar-emerald::-webkit-progress-value {
+    background: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.bar-amber::-webkit-progress-value {
+    background: #f59e0b;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.bar-red::-webkit-progress-value {
+    background: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+.bar-cyan::-webkit-progress-value {
+    background: #06b6d4;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+.bar-purple::-webkit-progress-value {
+    background: #8b5cf6;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+.bar-white::-webkit-progress-value {
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-black;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-800 border-2 border-black rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-700;
+}

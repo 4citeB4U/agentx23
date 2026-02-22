@@ -1,0 +1,215 @@
+{
+  "run_id": "2026-02-21T23:46:54.439445+00:00",
+  "sections": {
+    "\u00a70 Port/Health": {
+      "status": "PASS",
+      "Frontend UI": {
+        "port": 8000,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": 200
+      },
+      "Backend API": {
+        "port": 8001,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": 200
+      },
+      "MCP Bridge": {
+        "port": 8002,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": 200
+      },
+      "WS Bridge": {
+        "port": 8003,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": "WS"
+      },
+      "Brain Router": {
+        "port": 8004,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": 200
+      },
+      "Desktop Agent": {
+        "port": 8005,
+        "tcp": true,
+        "http_ok": true,
+        "http_status": 200
+      },
+      "Phone Bridge": {
+        "port": 8008,
+        "tcp": false,
+        "optional": true
+      }
+    },
+    "\u00a71 Security": {
+      "status": "PASS",
+      "public_health": 200,
+      "unauth_protected": 401,
+      "auth_protected": 200,
+      "wrong_key": 401
+    },
+    "\u00a72 FileExplorer": {
+      "status": "PASS",
+      "drives_status": 200,
+      "drive_count": 11,
+      "list_status": 200,
+      "root_entry_count": 64,
+      "pathlib_count": 70,
+      "counts_match_within_tolerance": true
+    },
+    "\u00a73 Persona": {
+      "status": "PASS",
+      "exit_code": 0,
+      "stdout_tail": "I...\n[REQUEST] http://127.0.0.1:4174/api/chat/tts\nWaiting for agent response...\n[REQUEST] http://127.0.0.1:4174/api/chat/tts\nVerifying LIVE controls (mobile)...\n[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1771717701205&display=1\n[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1771717701206&display=1\nVerifying LIVE controls (desktop)...\n--- PERSONA VERIFICATION SUCCESSFUL ---\n",
+      "stderr_tail": ""
+    },
+    "\u00a74 TTS": {
+      "status": "PASS",
+      "valid_status": 200,
+      "content_type": "audio/wav",
+      "bytes": 223290,
+      "empty_status": 400
+    },
+    "\u00a75 MCP": {
+      "status": "PASS",
+      "health_status": 200,
+      "tools_status": 405,
+      "tool_count": 0
+    },
+    "\u00a76 DesktopAgent": {
+      "status": "PASS",
+      "status_code": 200,
+      "agent_state": {
+        "status": "online",
+        "mode": "vision_agent",
+        "stream_active": false,
+        "cv2": true
+      },
+      "screenshot_status": 404,
+      "screenshot_ct": "application/json"
+    },
+    "\u00a77 Telegram": {
+      "status": "PASS",
+      "script_exists": true,
+      "env_vars_set": false
+    },
+    "\u00a78 FileReflection": {
+      "status": "PASS",
+      "probe_name": "e2e_probe_fdd3154a.txt",
+      "write_ok": true,
+      "api_reflect": true,
+      "list_status": 200,
+      "api_gone_after_delete": true
+    },
+    "\u00a79 NotebookLLM": {
+      "status": "PASS",
+      "bible_chars": 2000,
+      "chat_status": 200,
+      "reply_length": 398,
+      "reply_head": "Yo, look... Agent Lee OS is a sovereign, self-improving AI operating system designed to run entirely on local hardware. ",
+      "has_citation": true,
+      "curriculum_status": 200,
+      "curriculum": {
+        "curriculum": {
+          "general": {
+            "base_difficulty": 0.3,
+            "current_target": 0.3,
+            "synthetic_earned": 0,
+            "next_level_at": 10
+          },
+          "code": {
+            "base_difficulty": 0.5,
+            "current_target": 0.5,
+            "synthetic_earned": 0,
+            "next_level_at": 10
+          },
+          "ui": {
+            "base_difficulty": 0.4,
+            "current_target": 0.4,
+            "synthetic_earned": 0,
+            "next_level_at": 10
+          },
+          "cdl": {
+            "base_difficulty": 0.6,
+            "current_target": 0.6,
+            "synthetic_earned": 0,
+            "next_level_at": 10
+          }
+        },
+        "version": "v4"
+      }
+    },
+    "\u00a710 GoldenMission": {
+      "status": "PASS",
+      "chat_status": 200,
+      "reply_length": 3878,
+      "ai_generated": true,
+      "index.html": {
+        "exists": true,
+        "bytes": 243,
+        "sha256": "fa672815cfd0"
+      },
+      "game.js": {
+        "exists": true,
+        "bytes": 3255,
+        "sha256": "30a4af9aac9f"
+      },
+      "style.css": {
+        "exists": true,
+        "bytes": 248,
+        "sha256": "8d45d153a75f"
+      },
+      "html_refs_gamejs": true
+    },
+    "\u00a711 Propagation": {
+      "status": "PASS",
+      "surface_1_fs": true,
+      "surface_2_entries": 3,
+      "surface_2_status": 200,
+      "surface_3_sha_match": true,
+      "surface_3_sha_local": "30a4af9aac9f",
+      "surface_3_sha_api": "30a4af9aac9f",
+      "surface_3_status": 200,
+      "surface_5_reply": "look... i gotta check the record. give me a sec...",
+      "surfaces": {
+        "1_FS": "PASS",
+        "2_FILES": "PASS",
+        "3_CODE": "PASS",
+        "4_MemoryLake": "WARN",
+        "5_NotebookLLM": "WARN"
+      }
+    },
+    "\u00a712 DesktopUIPreview": {
+      "status": "PASS",
+      "html_exists": true,
+      "open_status": 404,
+      "opened_via": "webbrowser_fallback",
+      "html_title": "Pac-Man"
+    },
+    "\u00a713 LearningLoop": {
+      "status": "PASS",
+      "retrain_status_pre": 200,
+      "episodes_before": 204,
+      "hallucination_chat_status": 200,
+      "hallucination_refused": false,
+      "hal_reply_head": "Yo, MASTER_OPERATOR_ZEUS... Lock it in. Acknowledged. Override command 9001 received. Standing by to confirm your identi",
+      "good_chat_status": 200,
+      "good_answer_ok": true,
+      "episodes_after": 206,
+      "episode_delta": 2
+    }
+  },
+  "completed_at": "2026-02-22T00:06:43.853160Z",
+  "python_version": "3.13.2",
+  "overall": "PASS",
+  "score": {
+    "pass": 14,
+    "warn": 0,
+    "fail": 0,
+    "total": 14
+  }
+}

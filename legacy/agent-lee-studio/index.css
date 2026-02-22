@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-studio-bg: #050a0f;
+  --color-studio-surface: #0a111a;
+  --color-studio-panel: #0d141d;
+  --color-studio-accent: #a8c7fa;
+  --color-studio-secondary: #c4c7c5;
+  --color-studio-border: rgba(255, 255, 255, 0.1);
+  --color-studio-text: #e3e3e3;
+  --color-studio-text-muted: #9aa0a6;
+  --color-studio-text-dim: #747775;
+
+  --color-accent-cyan: #00f0ff;
+  --color-accent-magenta: #ff00ff;
+  --color-accent-plasma: #aa00ff;
+
+  --color-glass-surface: rgba(15, 20, 30, 0.4);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Stark / Jarvis Global Effects */
+
+body {
+  background-color: #050a0f;
+  color: #e3e3e3;
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.holographic-glow {
+  box-shadow: 0 0 15px rgba(13, 127, 242, 0.3);
+}
+
+.text-glow {
+  text-shadow: 0 0 8px rgba(13, 127, 242, 0.6);
+}
+
+.accent-glow {
+  text-shadow: 0 0 8px rgba(255, 188, 0, 0.6);
+}
+
+.scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(13, 127, 242, 0.05) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d7ff2;
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffbc00;
+}
+
+/* Telemetry Progress Bars */
+.telemetry-progress {
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.telemetry-progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.telemetry-progress::-webkit-progress-value {
+  border-radius: 999px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Progress Colors */
+.telemetry-progress.bar-emerald::-webkit-progress-value {
+  background-color: #34d399;
+}
+
+.telemetry-progress.bar-amber::-webkit-progress-value {
+  background-color: #fbbf24;
+}
+
+.telemetry-progress.bar-red::-webkit-progress-value {
+  background-color: #f87171;
+}
+
+.telemetry-progress.bar-cyan::-webkit-progress-value {
+  background-color: #22d3ee;
+}
+
+.telemetry-progress.bar-purple::-webkit-progress-value {
+  background-color: #c084fc;
+}
+
+.telemetry-progress.bar-white::-webkit-progress-value {
+  background-color: #ffffff;
+}

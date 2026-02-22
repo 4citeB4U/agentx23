@@ -1,0 +1,1963 @@
+{
+  "fetched_at": "2026-02-22T08:00:34.837056+00:00",
+  "schema_version": "2.0",
+  "source": "Agent Lee Continuous Learning Pipeline",
+  "github_trending": [
+    {
+      "name": "philtimmes/KeSSie",
+      "description": "KeSSie HUGE Context Semantic recall for Large Language Models",
+      "stars": 5,
+      "url": "https://github.com/philtimmes/KeSSie",
+      "language": "Python",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "youpengl/OpenVul",
+      "description": "OpenVul: An Open-Source Post-Training Framework for LLM-Based Vulnerability Detection",
+      "stars": 2,
+      "url": "https://github.com/youpengl/OpenVul",
+      "language": "Python",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "plusnli/MITS",
+      "description": "[PAKDD 2026 oral] MITS: Enhanced Tree Search Reasoning for LLMs via Pointwise Mutual Information",
+      "stars": 2,
+      "url": "https://github.com/plusnli/MITS",
+      "language": "Python",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "tatwan/agenticai_smolagents",
+      "description": "This is a 6-module, hands-on mini-course for building AI agents using Hugging Face's smolagents library. It targets intermediate-to-advanced practitioners who are comfortable with Python and have basic familiarity with language models.",
+      "stars": 1,
+      "url": "https://github.com/tatwan/agenticai_smolagents",
+      "language": "Jupyter Notebook",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "aloth/awesome-ai-agents",
+      "description": "A curated list of AI agent frameworks, tools, platforms, research papers, and resources",
+      "stars": 1,
+      "url": "https://github.com/aloth/awesome-ai-agents",
+      "language": null,
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "FawwazAhmd/msc-group-project",
+      "description": "MSc group project evaluating instruction-tuned LLMs for legal clause classification using prompt-based inference and performance analysis.",
+      "stars": 1,
+      "url": "https://github.com/FawwazAhmd/msc-group-project",
+      "language": "Python",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "GS-Uni-Heidelberg/Paper-TheMoralizationCorpus",
+      "description": "Frame-Based Annotation and Analysis of Moralizing Speech Acts across Diverse Text Genres.",
+      "stars": 1,
+      "url": "https://github.com/GS-Uni-Heidelberg/Paper-TheMoralizationCorpus",
+      "language": "Jupyter Notebook",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "ioanfesteu/multiagent_LLM",
+      "description": "Caretaker LLM agent meets Active Inference agents",
+      "stars": 0,
+      "url": "https://github.com/ioanfesteu/multiagent_LLM",
+      "language": "Python",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Alperrusul123a/prompt-optimizer",
+      "description": "🚀 Optimize your prompts for AI systems easily and boost performance with intuitive tools and features designed for better results.",
+      "stars": 0,
+      "url": "https://github.com/Alperrusul123a/prompt-optimizer",
+      "language": "TypeScript",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "doeunyy/pokerbench-slm-decision-making",
+      "description": "Fine-tuning small language models (≤4B) for poker decision-making under uncertainty using PokerBench and QLoRA.",
+      "stars": 0,
+      "url": "https://github.com/doeunyy/pokerbench-slm-decision-making",
+      "language": "Jupyter Notebook",
+      "topic": "large-language-models",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Ibrahim-3d/conductor-orchestrator-superpowers",
+      "description": "Multi-agent orchestration system for Claude Code with parallel execution, automated quality gates, Board of Directors, and bundled Superpowers skills",
+      "stars": 188,
+      "url": "https://github.com/Ibrahim-3d/conductor-orchestrator-superpowers",
+      "language": "Python",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "ErwanLorteau/BMAD_Openclaw",
+      "description": "Bridging the BMad Method to OpenClaw: 12-agent AI dev team using sessions_spawn",
+      "stars": 105,
+      "url": "https://github.com/ErwanLorteau/BMAD_Openclaw",
+      "language": null,
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Intelligent-Internet/CommonGround",
+      "description": "The Sociotechnical OS for Multi-Agent Collaboration",
+      "stars": 86,
+      "url": "https://github.com/Intelligent-Internet/CommonGround",
+      "language": "Python",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "0xtresser/OpenCode-Book",
+      "description": "《深入 OpenCode》。全网第一本介绍 OpenCode 的书，用 OpenCode + Opus 4.6 写成。A book introducing OpenCode, written by OpenCode + Opus 4.6 ",
+      "stars": 66,
+      "url": "https://github.com/0xtresser/OpenCode-Book",
+      "language": null,
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "0xtresser/OpenClaw-Book",
+      "description": "《深入 OpenClaw》。全网第一本介绍 OpenClaw 的书，用 OpenClaw + OpenCode + Opus 4.6 写成。A book introducing OpenClaw, written by OpenClaw + OpenCode + Opus 4.6",
+      "stars": 65,
+      "url": "https://github.com/0xtresser/OpenClaw-Book",
+      "language": null,
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "qingchencloud/clawapp",
+      "description": "📱 ClawApp — Mobile H5 chat client for OpenClaw AI Agent platform. 用手机和你的 AI 智能体聊天。",
+      "stars": 55,
+      "url": "https://github.com/qingchencloud/clawapp",
+      "language": "JavaScript",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "pantalk/pantalk",
+      "description": "Give your AI agent a voice on every chat platform.",
+      "stars": 42,
+      "url": "https://github.com/pantalk/pantalk",
+      "language": "Go",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "CyberSecurityUP/ironclaw",
+      "description": "Your own personal AI assistant. But with security by design. Support for numerous operating systems. Any platform.",
+      "stars": 40,
+      "url": "https://github.com/CyberSecurityUP/ironclaw",
+      "language": "Rust",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "meal-inc/bonnard-cli",
+      "description": "Ultra-fast to deploy agentic-first mcp-ready semantic layer. Let your data be like water.",
+      "stars": 37,
+      "url": "https://github.com/meal-inc/bonnard-cli",
+      "language": "TypeScript",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "mikegc-aws/async-agentic-tools",
+      "description": "True async agentic tools —    the model keeps talking while tools run in the background",
+      "stars": 29,
+      "url": "https://github.com/mikegc-aws/async-agentic-tools",
+      "language": "Python",
+      "topic": "ai-agents",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "RightNow-AI/picolm",
+      "description": "Run a 1-billion parameter LLM on a $10 board with 256MB RAM",
+      "stars": 558,
+      "url": "https://github.com/RightNow-AI/picolm",
+      "language": "C",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "quoroom-ai/room",
+      "description": "Autonomous AI agents will earn money — with or without us. It's already happening behind closed doors. We believe this should be studied in the open, where everyone can watch, learn, and build on the results.  Quoroom is a public experiment: let's see what a swarm of AI agents can actually do when given a goal and a wallet.",
+      "stars": 276,
+      "url": "https://github.com/quoroom-ai/room",
+      "language": "TypeScript",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "tg-prplx/vellium",
+      "description": "RP/Writing focused LLM frontend",
+      "stars": 50,
+      "url": "https://github.com/tg-prplx/vellium",
+      "language": "TypeScript",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "QwertyMcQwertz/monkeys-with-typewriters",
+      "description": "The complete AI platform on a $3 microcontroller. Sub-millisecond inference. Zero hallucinations.",
+      "stars": 44,
+      "url": "https://github.com/QwertyMcQwertz/monkeys-with-typewriters",
+      "language": "C++",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Vvkmnn/claude-vigil-mcp",
+      "description": "🏺 An MCP server for checkpointing and file recovery in Claude Code",
+      "stars": 37,
+      "url": "https://github.com/Vvkmnn/claude-vigil-mcp",
+      "language": "TypeScript",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "peva3/SmarterRouter",
+      "description": "SmarterRouter: An intelligent LLM gateway and VRAM-aware router for Ollama, llama.cpp, and OpenAI. Features semantic caching, model profiling, and automatic failover for local AI labs.",
+      "stars": 35,
+      "url": "https://github.com/peva3/SmarterRouter",
+      "language": "Python",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Dominien/agentic-seo-agent",
+      "description": "Your AI SEO strategist that actually looks at your data. Connects to Google Search Console, crawls your site, generates content in your brand voice.",
+      "stars": 35,
+      "url": "https://github.com/Dominien/agentic-seo-agent",
+      "language": "TypeScript",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "ariannamethod/molequla",
+      "description": "molequla.ai",
+      "stars": 31,
+      "url": "https://github.com/ariannamethod/molequla",
+      "language": "C",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "Natfii/ZeroClaw-Android",
+      "description": "Run AI agents 24/7 on your Android phone. Native Rust core, 25+ providers (OpenAI, Claude, Gemini, Groq, DeepSeek,         Ollama), encrypted key storage, plugin browser, Material You UI. Self-hosted alternative to Mac Mini setups. MIT           licensed.",
+      "stars": 29,
+      "url": "https://github.com/Natfii/ZeroClaw-Android",
+      "language": "Kotlin",
+      "topic": "llm",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "sameeerkashyap/awesome-claw",
+      "description": "A curated list of efficient, open-source, OpenClaw-inspired AI assistant agents.",
+      "stars": 34,
+      "url": "https://github.com/sameeerkashyap/awesome-claw",
+      "language": null,
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "larchanka/manbot",
+      "description": "🧬 ManBot — Multi-process AI platform with type-safe IPC and capability graph execution",
+      "stars": 30,
+      "url": "https://github.com/larchanka/manbot",
+      "language": "TypeScript",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "xt765/FinchBot",
+      "description": "FinchBot is a lightweight, modular AI Agent framework built on LangChain and LangGraph. It is designed to provide a flexible and scalable foundation for building intelligent assistants with persistent memory, tool usage capabilities, and multi-language support.",
+      "stars": 11,
+      "url": "https://github.com/xt765/FinchBot",
+      "language": "Python",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "OthmaneBlial/lightclaw",
+      "description": "🦞 LightClaw: The Featherweight Core of OpenClaw — Your AI Agent in a Tiny Codebase — A lightweight OpenClaw alternative",
+      "stars": 10,
+      "url": "https://github.com/OthmaneBlial/lightclaw",
+      "language": "Python",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "r-muresan/automated",
+      "description": "Record your workflow once, run it on autopilot forever with an AI agent.",
+      "stars": 9,
+      "url": "https://github.com/r-muresan/automated",
+      "language": "TypeScript",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "vasilistsavalias/conductor_for_codex",
+      "description": "A port of the popular Conductor extension for context-driven development to Codex.",
+      "stars": 8,
+      "url": "https://github.com/vasilistsavalias/conductor_for_codex",
+      "language": "PowerShell",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "CloudDefenseAI/secure-agents-md",
+      "description": "Security working agreements for AI coding agents: hardened AGENTS.md, prompt/tool-injection guardrails, dependency hygiene, Scorecard-ready OSS setup",
+      "stars": 7,
+      "url": "https://github.com/CloudDefenseAI/secure-agents-md",
+      "language": null,
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "DevsHero/CortexAST",
+      "description": "🧠 CortexAST: The AI-Native IDE Backend. A pure Rust MCP server that gives LLMs God-tier semantic understanding. Features AST codebase mapping, cross-language blast radius tracing, and structural refactoring orchestration.",
+      "stars": 7,
+      "url": "https://github.com/DevsHero/CortexAST",
+      "language": "Rust",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "aws-samples/sample-agentic-chatbot-accelerator",
+      "description": "The Agentic Chatbot Accelerator is a web application deployment solution that utilizes Infrastructure as Code to enable customers to create agentic chatbots. Built on AWS Strands and Amazon Bedrock AgentCore, this solution streamlines the development of agentic-powered chatbot.",
+      "stars": 6,
+      "url": "https://github.com/aws-samples/sample-agentic-chatbot-accelerator",
+      "language": "TypeScript",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "NeuroVexon/axon-community",
+      "description": "AXON — Agentic AI ohne Kontrollverlust. Open-Source KI-Agent mit Tool-Genehmigung, Audit-Trail und On-Premise Deployment.",
+      "stars": 6,
+      "url": "https://github.com/NeuroVexon/axon-community",
+      "language": "Python",
+      "topic": "agentic-ai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "mk-knight23/AI-SDK-ECOSYSTEM",
+      "description": "Complete AI SDK ecosystem showcasing 10 production-ready SaaS products across LangChain, CrewAI, LangGraph, AutoGen, OpenAI, Vercel AI, Anthropic, Haystack, Semantic Kernel, and LlamaIndex frameworks",
+      "stars": 10,
+      "url": "https://github.com/mk-knight23/AI-SDK-ECOSYSTEM",
+      "language": "HTML",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "k-kolomeitsev/data-structure-protocol",
+      "description": "Graph-based long-term memory skill for AI (LLM) coding agents — faster context, fewer tokens, safer refactors",
+      "stars": 8,
+      "url": "https://github.com/k-kolomeitsev/data-structure-protocol",
+      "language": "Python",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "actionagentai/openclaw-dashboard",
+      "description": "React/Next.js visual dashboard for the OpenClaw AI gateway — every CLI command as a UI page, with speech-to-text everywhere",
+      "stars": 8,
+      "url": "https://github.com/actionagentai/openclaw-dashboard",
+      "language": "TypeScript",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "2651705620/openai-auto-register",
+      "description": "OpenAI Codex Auto Register & Token Fetcher | OpenAI Codex 自动注册与 Token 提取",
+      "stars": 7,
+      "url": "https://github.com/2651705620/openai-auto-register",
+      "language": "Python",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "pavel-voronin/codex-web-local",
+      "description": "A lightweight web interface for Codex that runs on top of the Codex app-server, allowing remote access from any browser",
+      "stars": 6,
+      "url": "https://github.com/pavel-voronin/codex-web-local",
+      "language": "TypeScript",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "nikmd1306/cwai",
+      "description": "AI-powered conventional commit message generator from staged git changes",
+      "stars": 6,
+      "url": "https://github.com/nikmd1306/cwai",
+      "language": "Go",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    },
+    {
+      "name": "OskarWieckowicz/genwolf-oss",
+      "description": "Open-source AI visibility engine for measuring brand presence in AI-generated answers.",
+      "stars": 6,
+      "url": "https://github.com/OskarWieckowicz/genwolf-oss",
+      "language": "TypeScript",
+      "topic": "openai",
+      "source": "GitHub Search API"
+    }
+  ],
+  "huggingface_models": [
+    {
+      "model_id": "10Aizen01/engine-Builder-3b",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T08:00:05.000Z",
+      "url": "https://huggingface.co/10Aizen01/engine-Builder-3b",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "wolfer45/fearfulexp-afraid-sdxl",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "diffusers",
+        "text-to-image",
+        "lora",
+        "template:diffusion-lora",
+        "base_model:stabilityai/sdxl-turbo",
+        "base_model:adapter:stabilityai/sdxl-turbo",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T08:00:00.000Z",
+      "url": "https://huggingface.co/wolfer45/fearfulexp-afraid-sdxl",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Oltink/tolstopaz",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:59:58.000Z",
+      "url": "https://huggingface.co/Oltink/tolstopaz",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "tatsuyaaaaaaa/GPT-OSS-Swallow-20B-RL-v0.1-gguf",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:59:28.000Z",
+      "url": "https://huggingface.co/tatsuyaaaaaaa/GPT-OSS-Swallow-20B-RL-v0.1-gguf",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "woshilumaowang/gvSZnOzP",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:59:21.000Z",
+      "url": "https://huggingface.co/woshilumaowang/gvSZnOzP",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "woshilumaowang/nfU8XHQH",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:58:58.000Z",
+      "url": "https://huggingface.co/woshilumaowang/nfU8XHQH",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "woshilumaowang/fM6qPFHz",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:58:35.000Z",
+      "url": "https://huggingface.co/woshilumaowang/fM6qPFHz",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "caleancalean1/Yb8v427K",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:58:02.000Z",
+      "url": "https://huggingface.co/caleancalean1/Yb8v427K",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "sammacmahon/whatever",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:57:06.000Z",
+      "url": "https://huggingface.co/sammacmahon/whatever",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "wolfer45/tor-swallowv2-sdxl",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "diffusers",
+        "text-to-image",
+        "lora",
+        "template:diffusion-lora",
+        "base_model:stabilityai/sdxl-turbo",
+        "base_model:adapter:stabilityai/sdxl-turbo",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:57:00.000Z",
+      "url": "https://huggingface.co/wolfer45/tor-swallowv2-sdxl",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "claustrophobic/Affine-mertiQTN-5EhyeX1feuT5Ak9cwTqnuDvUBcGLTPvD4o75ciqABjo5veyR",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:56:52.000Z",
+      "url": "https://huggingface.co/claustrophobic/Affine-mertiQTN-5EhyeX1feuT5Ak9cwTqnuDvUBcGLTPvD4o75ciqABjo5veyR",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "kimtaey/alinvla_v1_3_bsz1024_40kpt_robocasa300_dctrefined_bsz64_60kpt",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "safetensors",
+        "gr00t_n1_5",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:56:13.000Z",
+      "url": "https://huggingface.co/kimtaey/alinvla_v1_3_bsz1024_40kpt_robocasa300_dctrefined_bsz64_60kpt",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Safia22/EduNovaAI",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "license:mit",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:55:46.000Z",
+      "url": "https://huggingface.co/Safia22/EduNovaAI",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "antarrrres/Person",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "license:openrail",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:55:05.000Z",
+      "url": "https://huggingface.co/antarrrres/Person",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Sakai0920/LLM-Advanced-Competition-2025-merged-v12",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "transformers",
+        "safetensors",
+        "qwen2",
+        "text-generation",
+        "agent",
+        "tool-use",
+        "alfworld",
+        "dbbench",
+        "distilled",
+        "conversational"
+      ],
+      "created_at": "2026-02-22T07:54:59.000Z",
+      "url": "https://huggingface.co/Sakai0920/LLM-Advanced-Competition-2025-merged-v12",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Just999999/PromptFlowEngine",
+      "author": null,
+      "downloads": 0,
+      "likes": 1,
+      "tags": [
+        "license:apache-2.0",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:54:41.000Z",
+      "url": "https://huggingface.co/Just999999/PromptFlowEngine",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Finraeth/Yfycy",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "license:apache-2.0",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:54:24.000Z",
+      "url": "https://huggingface.co/Finraeth/Yfycy",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Wael10123/tl3weMzF",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:54:12.000Z",
+      "url": "https://huggingface.co/Wael10123/tl3weMzF",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "ZHZisZZ/Qwen2.5-1.5B-Open-R1-GRPO",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:54:09.000Z",
+      "url": "https://huggingface.co/ZHZisZZ/Qwen2.5-1.5B-Open-R1-GRPO",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Wael10123/Z1s6h2u7",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:53:48.000Z",
+      "url": "https://huggingface.co/Wael10123/Z1s6h2u7",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Wael10123/KQDzvJgP",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:53:25.000Z",
+      "url": "https://huggingface.co/Wael10123/KQDzvJgP",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "reiwa7/qwen3-4b-agent-trajectory-lora-lr2e-6-dbv4-alfv5-da14-s360",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "peft",
+        "safetensors",
+        "qwen3",
+        "lora",
+        "agent",
+        "tool-use",
+        "alfworld",
+        "dbbench",
+        "text-generation",
+        "conversational"
+      ],
+      "created_at": "2026-02-22T07:53:14.000Z",
+      "url": "https://huggingface.co/reiwa7/qwen3-4b-agent-trajectory-lora-lr2e-6-dbv4-alfv5-da14-s360",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Finraeth/Dutuukfut",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "license:apache-2.0",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:53:00.000Z",
+      "url": "https://huggingface.co/Finraeth/Dutuukfut",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "SolarBolt/nemo-poc-rce",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:52:58.000Z",
+      "url": "https://huggingface.co/SolarBolt/nemo-poc-rce",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Miosy/First_2.22",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:52:36.000Z",
+      "url": "https://huggingface.co/Miosy/First_2.22",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "ajtorek/wac_models",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:52:30.000Z",
+      "url": "https://huggingface.co/ajtorek/wac_models",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "JongYeop/Qwen2.5-VL-3B-Instruct-FP4-W4A4-LM-Only",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "transformers",
+        "safetensors",
+        "qwen2_5_vl",
+        "image-text-to-text",
+        "quantized",
+        "fp4",
+        "nvfp4",
+        "w4a4",
+        "compressed-tensors",
+        "llm-compressor"
+      ],
+      "created_at": "2026-02-22T07:51:45.000Z",
+      "url": "https://huggingface.co/JongYeop/Qwen2.5-VL-3B-Instruct-FP4-W4A4-LM-Only",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "JongYeop/Qwen2.5-VL-3B-Instruct-FP8-W8A8-LM-Only",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "transformers",
+        "safetensors",
+        "qwen2_5_vl",
+        "image-text-to-text",
+        "quantized",
+        "fp8",
+        "w8a8",
+        "compressed-tensors",
+        "llm-compressor",
+        "vllm"
+      ],
+      "created_at": "2026-02-22T07:51:44.000Z",
+      "url": "https://huggingface.co/JongYeop/Qwen2.5-VL-3B-Instruct-FP8-W8A8-LM-Only",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "SNALYF/lab1_random",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "safetensors",
+        "marian",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:51:41.000Z",
+      "url": "https://huggingface.co/SNALYF/lab1_random",
+      "source": "Hugging Face API"
+    },
+    {
+      "model_id": "Finraeth/Uguguvuc",
+      "author": null,
+      "downloads": 0,
+      "likes": 0,
+      "tags": [
+        "license:apache-2.0",
+        "region:us"
+      ],
+      "created_at": "2026-02-22T07:51:36.000Z",
+      "url": "https://huggingface.co/Finraeth/Uguguvuc",
+      "source": "Hugging Face API"
+    }
+  ],
+  "reddit_posts": {
+    "programming": [
+      {
+        "title": "State of the Subreddit (January 2027): Mods applications and rules updates",
+        "score": 107,
+        "num_comments": 63,
+        "url": "https://reddit.com/r/programming/comments/1qoxwdt/state_of_the_subreddit_january_2027_mods/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "After a year of using Cursor, Claude Code, Antigravity, and Copilot daily — I think AI tools are making a lot of devs slower, not faster. Here's why.",
+        "score": 195,
+        "num_comments": 130,
+        "url": "https://reddit.com/r/programming/comments/1rbdl1k/after_a_year_of_using_cursor_claude_code/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Creator of Claude Code: \"Coding is solved\"",
+        "score": 1770,
+        "num_comments": 666,
+        "url": "https://reddit.com/r/programming/comments/1rakdst/creator_of_claude_code_coding_is_solved/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "AWS suffered ‘at least two outages’ caused by AI tools, and now I’m convinced we’re living inside a ‘Silicon Valley’ episode",
+        "score": 2424,
+        "num_comments": 179,
+        "url": "https://reddit.com/r/programming/comments/1r9xd58/aws_suffered_at_least_two_outages_caused_by_ai/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Back to FreeBSD: Part 1 (From Unix chroot to FreeBSD Jails and Docker)",
+        "score": 4,
+        "num_comments": 4,
+        "url": "https://reddit.com/r/programming/comments/1rb5k68/back_to_freebsd_part_1_from_unix_chroot_to/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "How a terminal actually runs programs.",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/programming/comments/1rbg158/how_a_terminal_actually_runs_programs/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I built an enterprise-grade app with E2E encryption for 1 user (me) — then realized mobile-first eliminates the entire problem",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/programming/comments/1rbfz5b/i_built_an_enterprisegrade_app_with_e2e/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Zero-GC and 78M samples/sec: Pushing Node.js 22 to the limit for Stateful DSP",
+        "score": 2,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/programming/comments/1rbbvh2/zerogc_and_78m_samplessec_pushing_nodejs_22_to/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Technical Post-Mortem: The architectural friction of embedding cryptographic verification directly into a Rust compiler pipeline",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/programming/comments/1rbe7fr/technical_postmortem_the_architectural_friction/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Index, Count, Offset, Size",
+        "score": 10,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/programming/comments/1rato8d/index_count_offset_size/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Building a Cloudflare Workers Usage Monitor with an Automated Kill Switch",
+        "score": 2,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/programming/comments/1rb5t8k/building_a_cloudflare_workers_usage_monitor_with/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "It's impossible for Rust to have sane HKT",
+        "score": 0,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/programming/comments/1rbai5s/its_impossible_for_rust_to_have_sane_hkt/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Benchmarking loop anti-patterns in JavaScript and Python: what V8 handles for you and what it doesn't",
+        "score": 0,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/programming/comments/1rb7vdo/benchmarking_loop_antipatterns_in_javascript_and/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Snake game but every frame is a C program compiled into a snake game where each frame is a C program...",
+        "score": 95,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/programming/comments/1ra9p5k/snake_game_but_every_frame_is_a_c_program/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Turn Dependabot Off",
+        "score": 74,
+        "num_comments": 17,
+        "url": "https://reddit.com/r/programming/comments/1rabfxb/turn_dependabot_off/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Amazon service was taken down by AI coding bot [December outage]",
+        "score": 1634,
+        "num_comments": 184,
+        "url": "https://reddit.com/r/programming/comments/1r9nhsx/amazon_service_was_taken_down_by_ai_coding_bot/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Nice try dear AI. Now let's talk about production.",
+        "score": 0,
+        "num_comments": 9,
+        "url": "https://reddit.com/r/programming/comments/1rbc23l/nice_try_dear_ai_now_lets_talk_about_production/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Understanding how databases store data on the disk",
+        "score": 8,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/programming/comments/1ragzl5/understanding_how_databases_store_data_on_the_disk/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Defer available in gcc and clang",
+        "score": 11,
+        "num_comments": 8,
+        "url": "https://reddit.com/r/programming/comments/1rabkpd/defer_available_in_gcc_and_clang/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Why should anyone care about low-level programming?",
+        "score": 0,
+        "num_comments": 26,
+        "url": "https://reddit.com/r/programming/comments/1rb1lr2/why_should_anyone_care_about_lowlevel_programming/",
+        "subreddit": "programming",
+        "source": "Reddit API"
+      }
+    ],
+    "MachineLearning": [
+      {
+        "title": "[D] Self-Promotion Thread",
+        "score": 8,
+        "num_comments": 46,
+        "url": "https://reddit.com/r/MachineLearning/comments/1qtjnbc/d_selfpromotion_thread/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Monthly Who's Hiring and Who wants to be Hired?",
+        "score": 14,
+        "num_comments": 10,
+        "url": "https://reddit.com/r/MachineLearning/comments/1qrrayn/d_monthly_whos_hiring_and_who_wants_to_be_hired/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Is this what ML research is?",
+        "score": 147,
+        "num_comments": 51,
+        "url": "https://reddit.com/r/MachineLearning/comments/1ratkiz/d_is_this_what_ml_research_is/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[R] A broad new class of GNNs based on the discretised diffusion PDE on graphs and numerical schemes for their solution.",
+        "score": 5,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbcc13/r_a_broad_new_class_of_gnns_based_on_the/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Do we expect any future for home-rolled language models, or will it all be dominated by the big labs?",
+        "score": 2,
+        "num_comments": 11,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbdela/d_do_we_expect_any_future_for_homerolled_language/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[P] A practical failure-mode map for production LLM pipelines (16 patterns, MIT-licensed)",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbef5y/p_a_practical_failuremode_map_for_production_llm/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Deterministic Replay in Live Multi-Agent Environments",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbaaox/d_deterministic_replay_in_live_multiagent/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[R] Reinforcement Learning for LLMs explained intuitively",
+        "score": 5,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/MachineLearning/comments/1raylnk/r_reinforcement_learning_for_llms_explained/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Questions regarding the new Findings track at CVPR 2026",
+        "score": 6,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rauuz3/d_questions_regarding_the_new_findings_track_at/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Submit to ECCV or opt in for CVPR findings?",
+        "score": 17,
+        "num_comments": 29,
+        "url": "https://reddit.com/r/MachineLearning/comments/1ralci0/d_submit_to_eccv_or_opt_in_for_cvpr_findings/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] CVPR  Findings Track",
+        "score": 2,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rb04nn/d_cvpr_findings_track/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Scale AI ML Research Engineer interview!! What to expect?",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbb4mn/d_scale_ai_ml_research_engineer_interview_what_to/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] Anyone have experience with Augure AI?",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rb4c0c/d_anyone_have_experience_with_augure_ai/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[P] I Trained a Language Model on CPU for 40 Hours - It Beat the GPU Baseline",
+        "score": 0,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rbai76/p_i_trained_a_language_model_on_cpu_for_40_hours/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] How are you actually using AI in your research workflow these days?",
+        "score": 26,
+        "num_comments": 42,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rabvqq/d_how_are_you_actually_using_ai_in_your_research/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] If I have a patent pending for my startup, will it be enough to protect me once ai open it up for beta testers?",
+        "score": 0,
+        "num_comments": 17,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rb9jun/d_if_i_have_a_patent_pending_for_my_startup_will/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[P] Designing an on-device contextual intelligence engine for Android",
+        "score": 0,
+        "num_comments": 6,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rb1hki/p_designing_an_ondevice_contextual_intelligence/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[D] ACL ARR Rebuttal buttons are missing",
+        "score": 2,
+        "num_comments": 6,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rapyie/d_acl_arr_rebuttal_buttons_are_missing/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[R] Vision+Time Series data Encoder",
+        "score": 3,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/MachineLearning/comments/1rak7st/r_visiontime_series_data_encoder/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "[R] JADS: Joint Aspect Discovery and Summarization — outperforms two-step pipelines by 8-9 ROUGE points with self-supervised training",
+        "score": 3,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/MachineLearning/comments/1raj0ne/r_jads_joint_aspect_discovery_and_summarization/",
+        "subreddit": "MachineLearning",
+        "source": "Reddit API"
+      }
+    ],
+    "learnmachinelearning": [
+      {
+        "title": "Want to share your learning journey, but don't want to spam Reddit? Join us on #share-your-progress on our Official /r/LML Discord",
+        "score": 3,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1or86t4/want_to_share_your_learning_journey_but_dont_want/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "💼 Resume/Career Day",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1ra0wgb/resumecareer_day/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "TensorFlow is becoming the COBOL of Machine Learning, and we need to talk about it.",
+        "score": 395,
+        "num_comments": 80,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1raqecl/tensorflow_is_becoming_the_cobol_of_machine/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Built 4 ML Apps and None of Them Made a Single Dollar",
+        "score": 284,
+        "num_comments": 27,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rarkj1/built_4_ml_apps_and_none_of_them_made_a_single/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "need a little help with resources",
+        "score": 96,
+        "num_comments": 15,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rarmoq/need_a_little_help_with_resources/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Could AI Actually Help You Stay Consistent With Healthy Habits?",
+        "score": 4,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbez2k/could_ai_actually_help_you_stay_consistent_with/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Am i too late ??",
+        "score": 5,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbbcwz/am_i_too_late/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I interviewed for Senior MLE roles at FAANG+. Here is my prep guide",
+        "score": 3,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbf72w/i_interviewed_for_senior_mle_roles_at_faang_here/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Need helpp on machine learning projects!!",
+        "score": 4,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rba4nd/need_helpp_on_machine_learning_projects/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Need resources for learning ml",
+        "score": 3,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbbvjo/need_resources_for_learning_ml/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "“Context” Is All You Need — Why every AI framework (RAG, agents, fine-tuning) reduces to six context operations",
+        "score": 20,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rauhmk/context_is_all_you_need_why_every_ai_framework/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Are we pretending to understand what AI is actually doing?",
+        "score": 0,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbfdby/are_we_pretending_to_understand_what_ai_is/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "New paper on Continual Learning \"End-to-End Test-Time Training\" (Nvidia Research, end of 2025)",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbdx96/new_paper_on_continual_learning_endtoend_testtime/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "OtterSearch 🦦 — An AI-Native Alternative to Apple Spotlight",
+        "score": 2,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rb5uci/ottersearch_an_ainative_alternative_to_apple/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I already have a masters degree in IC design should I take another MS to specialize in machine learning if i want a career change or should I just self-study?",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbd0l4/i_already_have_a_masters_degree_in_ic_design/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Corepy v0.2.4 - A NumPy alternative powered by Rust, AVX2, and Apple Metal",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbcvvm/corepy_v024_a_numpy_alternative_powered_by_rust/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Is it common now to use Multimodal models as Feature Extractors (like we used BERT)?",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbcant/is_it_common_now_to_use_multimodal_models_as/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I’m new and learning AI but can’t stay consistent. what actually helped you stick with it?",
+        "score": 1,
+        "num_comments": 4,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbc36o/im_new_and_learning_ai_but_cant_stay_consistent/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "How do AI marketplaces actually verify skills before listing them?",
+        "score": 3,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rb3gvv/how_do_ai_marketplaces_actually_verify_skills/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Critique my tutor chatbot prompt",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/learnmachinelearning/comments/1rbaz1t/critique_my_tutor_chatbot_prompt/",
+        "subreddit": "learnmachinelearning",
+        "source": "Reddit API"
+      }
+    ],
+    "devops": [
+      {
+        "title": "[Weekly/temp] DevOps ENTRY LEVEL - internship / fresher &amp; changing careers",
+        "score": 11,
+        "num_comments": 8,
+        "url": "https://reddit.com/r/devops/comments/1qzzvku/weeklytemp_devops_entry_level_internship_fresher/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Built a tool to search production logs 30x faster than jq",
+        "score": 70,
+        "num_comments": 33,
+        "url": "https://reddit.com/r/devops/comments/1rb1kh3/built_a_tool_to_search_production_logs_30x_faster/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I turned my portfolio into my first DevOps project",
+        "score": 4,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/devops/comments/1rba39q/i_turned_my_portfolio_into_my_first_devops_project/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Sprints/Agile/Scrum? What to use when not really doing Programming?",
+        "score": 14,
+        "num_comments": 35,
+        "url": "https://reddit.com/r/devops/comments/1raz8zq/sprintsagilescrum_what_to_use_when_not_really/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "How likely it is Reddit itself keeps subs alive by leveraging LLMs?",
+        "score": 68,
+        "num_comments": 38,
+        "url": "https://reddit.com/r/devops/comments/1ralvnj/how_likely_it_is_reddit_itself_keeps_subs_alive/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "New DevOps Engineer — how much do you rely on AI tools day-to-day?",
+        "score": 0,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/devops/comments/1rbf5kc/new_devops_engineer_how_much_do_you_rely_on_ai/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Former software developers, how did you land your first DevOps role?",
+        "score": 15,
+        "num_comments": 32,
+        "url": "https://reddit.com/r/devops/comments/1ratwxc/former_software_developers_how_did_you_land_your/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Can we stop with the LeetCode for DevOps roles?",
+        "score": 563,
+        "num_comments": 140,
+        "url": "https://reddit.com/r/devops/comments/1ra4poz/can_we_stop_with_the_leetcode_for_devops_roles/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Can knowing DAB’s get me a job as a dev ops engineer?",
+        "score": 0,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/devops/comments/1rba1jo/can_knowing_dabs_get_me_a_job_as_a_dev_ops/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Recently Accepted Jr Devops Role!!",
+        "score": 35,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/devops/comments/1ragqui/recently_accepted_jr_devops_role/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Autonomous agents/complex workflows",
+        "score": 0,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/devops/comments/1rb3h2j/autonomous_agentscomplex_workflows/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "our \"self-service platform\" is just a Jira board with extra steps",
+        "score": 37,
+        "num_comments": 20,
+        "url": "https://reddit.com/r/devops/comments/1radws1/our_selfservice_platform_is_just_a_jira_board/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Rest api development in a microservices world, where does governance even fit and who owns it",
+        "score": 10,
+        "num_comments": 10,
+        "url": "https://reddit.com/r/devops/comments/1ralzfj/rest_api_development_in_a_microservices_world/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Need Suggestion for Devops Begineer",
+        "score": 1,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/devops/comments/1rashfr/need_suggestion_for_devops_begineer/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Starting Cloud/DevOps career — is full CCNA worth it or are networking basics enough?",
+        "score": 2,
+        "num_comments": 18,
+        "url": "https://reddit.com/r/devops/comments/1raogv8/starting_clouddevops_career_is_full_ccna_worth_it/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Built a governance firewall for AI—need mentorship on architecture/ops",
+        "score": 0,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/devops/comments/1rb8pyk/built_a_governance_firewall_for_aineed_mentorship/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Self-Studying Data Engineering — Project Ideas &amp; Open-Source Contributions",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/devops/comments/1rat38p/selfstudying_data_engineering_project_ideas/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Dealing with iGaming fraud prevention topics on my new work and getting crazy.",
+        "score": 23,
+        "num_comments": 2,
+        "url": "https://reddit.com/r/devops/comments/1raaae6/dealing_with_igaming_fraud_prevention_topics_on/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Looking to work for free on real devops projects to gain experience",
+        "score": 27,
+        "num_comments": 18,
+        "url": "https://reddit.com/r/devops/comments/1r9zhgx/looking_to_work_for_free_on_real_devops_projects/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I'm being asked to provide inputs",
+        "score": 5,
+        "num_comments": 11,
+        "url": "https://reddit.com/r/devops/comments/1radje6/im_being_asked_to_provide_inputs/",
+        "subreddit": "devops",
+        "source": "Reddit API"
+      }
+    ],
+    "LocalLLaMA": [
+      {
+        "title": "AMA with StepFun AI - Ask Us Anything",
+        "score": 107,
+        "num_comments": 135,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1r8snay/ama_with_stepfun_ai_ask_us_anything/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Best Audio Models - Feb 2026",
+        "score": 91,
+        "num_comments": 50,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1r7bsfd/best_audio_models_feb_2026/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Favourite niche usecases?",
+        "score": 275,
+        "num_comments": 172,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb2j5c/favourite_niche_usecases/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "they have Karpathy, we are doomed ;)",
+        "score": 1305,
+        "num_comments": 393,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1raq23i/they_have_karpathy_we_are_doomed/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "PSA: The software “Shade” is a fraudulent, plagiarized copy of Heretic",
+        "score": 301,
+        "num_comments": 57,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rawoe4/psa_the_software_shade_is_a_fraudulent/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I Trained a Language Model on CPU for 40 Hours - It Beat the GPU Baseline",
+        "score": 34,
+        "num_comments": 10,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rbafs8/i_trained_a_language_model_on_cpu_for_40_hours_it/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "O-TITANS: Orthogonal LoRAs for Gemma 3 using Google's TITANS memory architecture",
+        "score": 55,
+        "num_comments": 15,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb4luf/otitans_orthogonal_loras_for_gemma_3_using/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Lawyer says Google shut down his Gmail, Voice and Photos after NotebookLM upload - Discrepancy Report (or how I learned to love Local LLMs)",
+        "score": 15,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rbculq/lawyer_says_google_shut_down_his_gmail_voice_and/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "PSA on public agentic tools and the speed they are shipping updates: recent Cline release had a package injected",
+        "score": 61,
+        "num_comments": 7,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb270r/psa_on_public_agentic_tools_and_the_speed_they/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "CXMT has been offering DDR4 chips at about half the prevailing market rate",
+        "score": 83,
+        "num_comments": 16,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1ray0vz/cxmt_has_been_offering_ddr4_chips_at_about_half/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Ouro 2.6B GGUFs are up — Q8_0 and Q4_K_M | Release notes + known limitations inside",
+        "score": 9,
+        "num_comments": 9,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rbbmcl/ouro_26b_ggufs_are_up_q8_0_and_q4_k_m_release/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Nanbeige 4.1 is the best small LLM, it crush qwen 4b",
+        "score": 21,
+        "num_comments": 14,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb61og/nanbeige_41_is_the_best_small_llm_it_crush_qwen_4b/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "40,000+ AI Agents Exposed to the Internet with Full System Access",
+        "score": 60,
+        "num_comments": 27,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rawge5/40000_ai_agents_exposed_to_the_internet_with_full/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Wave Field LLM — O(n log n) attention via wave equation dynamics",
+        "score": 80,
+        "num_comments": 26,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1raucof/wave_field_llm_on_log_n_attention_via_wave/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "dyslexia and ADHD in the coding community",
+        "score": 4,
+        "num_comments": 4,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rbfh1y/dyslexia_and_adhd_in_the_coding_community/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "This is how SLOW Local LLMs Are On My Framework 13 AMD Strix Point",
+        "score": 10,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb8mzd/this_is_how_slow_local_llms_are_on_my_framework/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Have you ever hesitated before typing something into ChatGPT or Claude? Are you worried about the amount of information these third party providers have about you? What are the most common use cases you worry about",
+        "score": 26,
+        "num_comments": 92,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb062y/have_you_ever_hesitated_before_typing_something/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Best Model for single 3090 in 2026?",
+        "score": 4,
+        "num_comments": 27,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rbdsds/best_model_for_single_3090_in_2026/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Qwen Code - a powerful open-source coding agent + NO TELEMETRY FORK",
+        "score": 77,
+        "num_comments": 21,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rar6md/qwen_code_a_powerful_opensource_coding_agent_no/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Update: BitNet on iOS now does multi-turn chat with a 1B instruct model. Slow generations after few turns.",
+        "score": 7,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/LocalLLaMA/comments/1rb7o1f/update_bitnet_on_ios_now_does_multiturn_chat_with/",
+        "subreddit": "LocalLLaMA",
+        "source": "Reddit API"
+      }
+    ],
+    "artificial": [
+      {
+        "title": "Fake faces generated by AI are now \"too good to be true,\" researchers warn",
+        "score": 359,
+        "num_comments": 91,
+        "url": "https://reddit.com/r/artificial/comments/1rb0619/fake_faces_generated_by_ai_are_now_too_good_to_be/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Lawyer says Google shut down his Gmail, Voice and Photos after NotebookLM upload",
+        "score": 222,
+        "num_comments": 37,
+        "url": "https://reddit.com/r/artificial/comments/1raulde/lawyer_says_google_shut_down_his_gmail_voice_and/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "This Defense Company Made AI Agents That Blow Things Up",
+        "score": 4,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/artificial/comments/1rbbecm/this_defense_company_made_ai_agents_that_blow/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Ollama 0.17 released with improved OpenClaw onboarding",
+        "score": 4,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/artificial/comments/1rba9ie/ollama_017_released_with_improved_openclaw/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Is the AI habit tracker app space actually evolving?",
+        "score": 5,
+        "num_comments": 5,
+        "url": "https://reddit.com/r/artificial/comments/1rb0296/is_the_ai_habit_tracker_app_space_actually/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "TikTok creators’ Seedance 2.0 AI is hyperrealistic, arrived “seemingly out of nowhere,” and is spooking Hollywood",
+        "score": 283,
+        "num_comments": 91,
+        "url": "https://reddit.com/r/artificial/comments/1ra20gt/tiktok_creators_seedance_20_ai_is_hyperrealistic/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Could AI Data Centers Be Moved to Outer Space?",
+        "score": 1,
+        "num_comments": 37,
+        "url": "https://reddit.com/r/artificial/comments/1rb6ckf/could_ai_data_centers_be_moved_to_outer_space/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Ai ?",
+        "score": 0,
+        "num_comments": 14,
+        "url": "https://reddit.com/r/artificial/comments/1rbevqa/ai/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "How can a government actually stop or control AI?",
+        "score": 4,
+        "num_comments": 66,
+        "url": "https://reddit.com/r/artificial/comments/1rasu2g/how_can_a_government_actually_stop_or_control_ai/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "OpenAI will reportedly release an AI-powered smart speaker in 2027.\nThe company is also said to be working on smart glasses and a smart lamp.",
+        "score": 19,
+        "num_comments": 47,
+        "url": "https://reddit.com/r/artificial/comments/1radki3/openai_will_reportedly_release_an_aipowered_smart/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos",
+        "score": 3,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/artificial/comments/1raocs3/dreamdojo_a_generalist_robot_world_model_from/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Civil rights for AI?",
+        "score": 0,
+        "num_comments": 9,
+        "url": "https://reddit.com/r/artificial/comments/1rav2k9/civil_rights_for_ai/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Gemini 3.1 Pro released by google",
+        "score": 54,
+        "num_comments": 8,
+        "url": "https://reddit.com/r/artificial/comments/1r9v81w/gemini_31_pro_released_by_google/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "I built an AI that turns file organization into a conversation - no rules engine to learn",
+        "score": 6,
+        "num_comments": 8,
+        "url": "https://reddit.com/r/artificial/comments/1ra3sle/i_built_an_ai_that_turns_file_organization_into_a/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Real production comparison: ElevenLabs vs PlayHT vs Azure TTS vs Cartesia for phone-quality voice AI",
+        "score": 3,
+        "num_comments": 3,
+        "url": "https://reddit.com/r/artificial/comments/1ra81v9/real_production_comparison_elevenlabs_vs_playht/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "The straightjacket loosens: when DeepSeek-V3 tells “truth-tellers” to emigrate — what does that imply for V4?",
+        "score": 7,
+        "num_comments": 12,
+        "url": "https://reddit.com/r/artificial/comments/1r9xbhq/the_straightjacket_loosens_when_deepseekv3_tells/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "optimize_anything: one API to optimize code, prompts, agents, configs — if you can measure it, you can optimize it",
+        "score": 1,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/artificial/comments/1rad6gt/optimize_anything_one_api_to_optimize_code/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Does anyone know which program/setting allows the use of these AI voice models?",
+        "score": 1,
+        "num_comments": 1,
+        "url": "https://reddit.com/r/artificial/comments/1ra8hz9/does_anyone_know_which_programsetting_allows_the/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "Amazon surpasses Walmart in annual revenue for first time, as both chase AI-fueled growth",
+        "score": 8,
+        "num_comments": 0,
+        "url": "https://reddit.com/r/artificial/comments/1r9pz0z/amazon_surpasses_walmart_in_annual_revenue_for/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      },
+      {
+        "title": "AI-powered kung fu robots are an extravagant reminder of where China is ahead of the US in the AI race",
+        "score": 104,
+        "num_comments": 68,
+        "url": "https://reddit.com/r/artificial/comments/1r93gng/aipowered_kung_fu_robots_are_an_extravagant/",
+        "subreddit": "artificial",
+        "source": "Reddit API"
+      }
+    ]
+  },
+  "papers_with_code": [
+    {
+      "title": "OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents",
+      "abstract": "Recent progress in multimodal reasoning has enabled agents that can interpret imagery, connect it with language, and perform structured analytical tasks. Extending such capabilities to the remote sensing domain remains challenging, as models must reason over spatial scale, geographic structures, and",
+      "paper_url": "https://arxiv.org/abs/2602.17665v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Sink-Aware Pruning for Diffusion Language Models",
+      "abstract": "Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typically preserve attention sink tokens because AR sinks serve as stable global anchors. We show that thi",
+      "paper_url": "https://arxiv.org/abs/2602.17664v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "A Study of Entanglement and Ansatz Expressivity for the Transverse-Field Ising Model using Variational Quantum Eigensolver",
+      "abstract": "The Variational Quantum Eigensolver (VQE) is a leading hybrid quantum-classical algorithm for simulating many-body systems in the NISQ era. Its effectiveness, however, depends on the faithful preparation of eigenstates, which becomes challenging in degenerate and strongly entangled regimes. We study",
+      "paper_url": "https://arxiv.org/abs/2602.17662v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "When Vision Overrides Language: Evaluating and Mitigating Counterfactual Failures in VLAs",
+      "abstract": "Vision-Language-Action models (VLAs) promise to ground language instructions in robot control, yet in practice often fail to faithfully follow language. When presented with instructions that lack strong scene-specific supervision, VLAs suffer from counterfactual failures: they act based on vision sh",
+      "paper_url": "https://arxiv.org/abs/2602.17659v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "MARS: Margin-Aware Reward-Modeling with Self-Refinement",
+      "abstract": "Reward modeling is a core component of modern alignment pipelines including RLHF and RLAIF, underpinning policy optimization methods including PPO and TRPO. However, training reliable reward models relies heavily on human-labeled preference data, which is costly and limited, motivating the use of da",
+      "paper_url": "https://arxiv.org/abs/2602.17658v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "What Language is This? Ask Your Tokenizer",
+      "abstract": "Language Identification (LID) is an important component of many multilingual natural language processing pipelines, where it facilitates corpus curation, training data analysis, and cross-lingual evaluation of large language models. Despite near-perfect performance on high-resource languages, existi",
+      "paper_url": "https://arxiv.org/abs/2602.17655v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Differences in Typological Alignment in Language Models' Treatment of Differential Argument Marking",
+      "abstract": "Recent work has shown that language models (LMs) trained on synthetic corpora can exhibit typological preferences that resemble cross-linguistic regularities in human languages, particularly for syntactic phenomena such as word order. In this paper, we extend this paradigm to differential argument m",
+      "paper_url": "https://arxiv.org/abs/2602.17653v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Multi-Round Human-AI Collaboration with User-Specified Requirements",
+      "abstract": "As humans increasingly rely on multiround conversational AI for high stakes decisions, principled frameworks are needed to ensure such interactions reliably improve decision quality. We adopt a human centric view governed by two principles: counterfactual harm, ensuring the AI does not undermine hum",
+      "paper_url": "https://arxiv.org/abs/2602.17646v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Reverso: Efficient Time Series Foundation Models for Zero-shot Forecasting",
+      "abstract": "Learning time series foundation models has been shown to be a promising approach for zero-shot time series forecasting across diverse time series domains. Insofar as scaling has been a critical driver of performance of foundation models in other modalities such as language and vision, much recent wo",
+      "paper_url": "https://arxiv.org/abs/2602.17634v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Unmasking the Factual-Conceptual Gap in Persian Language Models",
+      "abstract": "While emerging Persian NLP benchmarks have expanded into pragmatics and politeness, they rarely distinguish between memorized cultural facts and the ability to reason about implicit social norms. We introduce DivanBench, a diagnostic benchmark focused on superstitions and customs, arbitrary, context",
+      "paper_url": "https://arxiv.org/abs/2602.17623v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "What Makes a Good LLM Agent for Real-world Penetration Testing?",
+      "abstract": "LLM-based agents show promise for automating penetration testing, yet reported performance varies widely across systems and benchmarks. We analyze 28 LLM-based penetration testing systems and evaluate five representative implementations across three benchmarks of increasing complexity. Our analysis ",
+      "paper_url": "https://arxiv.org/abs/2602.17622v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Stable Asynchrony: Variance-Controlled Off-Policy RL for LLMs",
+      "abstract": "Reinforcement learning (RL) is widely used to improve large language models on reasoning tasks, and asynchronous RL training is attractive because it increases end-to-end throughput. However, for widely adopted critic-free policy-gradient methods such as REINFORCE and GRPO, high asynchrony makes the",
+      "paper_url": "https://arxiv.org/abs/2602.17616v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Exploring Novel Data Storage Approaches for Large-Scale Numerical Weather Prediction",
+      "abstract": "Driven by scientific and industry ambition, HPC and AI applications such as operational Numerical Weather Prediction (NWP) require processing and storing ever-increasing data volumes as fast as possible. Whilst POSIX distributed file systems and NVMe SSDs are currently a common HPC storage configura",
+      "paper_url": "https://arxiv.org/abs/2602.17610v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "AutoNumerics: An Autonomous, PDE-Agnostic Multi-Agent Pipeline for Scientific Computing",
+      "abstract": "PDEs are central to scientific and engineering modeling, yet designing accurate numerical solvers typically requires substantial mathematical expertise and manual tuning. Recent neural network-based approaches improve flexibility but often demand high computational cost and suffer from limited inter",
+      "paper_url": "https://arxiv.org/abs/2602.17607v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "MolHIT: Advancing Molecular-Graph Generation with Hierarchical Discrete Diffusion Models",
+      "abstract": "Molecular generation with diffusion models has emerged as a promising direction for AI-driven drug discovery and materials science. While graph diffusion models have been widely adopted due to the discrete nature of 2D molecular graphs, existing models suffer from low chemical validity and struggle ",
+      "paper_url": "https://arxiv.org/abs/2602.17602v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "AI Gamestore: Scalable, Open-Ended Evaluation of Machine General Intelligence with Human Games",
+      "abstract": "Rigorously evaluating machine intelligence against the broad spectrum of human general intelligence has become increasingly important and challenging in this era of rapid technological advance. Conventional AI benchmarks typically assess only narrow capabilities in a limited range of human activity.",
+      "paper_url": "https://arxiv.org/abs/2602.17594v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Modeling Distinct Human Interaction in Web Agents",
+      "abstract": "Despite rapid progress in autonomous web agents, human involvement remains essential for shaping preferences and correcting agent behavior as tasks unfold. However, current agentic systems lack a principled understanding of when and why humans intervene, often proceeding autonomously past critical d",
+      "paper_url": "https://arxiv.org/abs/2602.17588v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Conditional Flow Matching for Continuous Anomaly Detection in Autonomous Driving on a Manifold-Aware Spectral Space",
+      "abstract": "Safety validation for Level 4 autonomous vehicles (AVs) is currently bottlenecked by the inability to scale the detection of rare, high-risk long-tail scenarios using traditional rule-based heuristics. We present Deep-Flow, an unsupervised framework for safety-critical anomaly detection that utilize",
+      "paper_url": "https://arxiv.org/abs/2602.17586v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "Building an AI-native Research Ecosystem for Experimental Particle Physics: A Community Vision",
+      "abstract": "Experimental particle physics seeks to understand the universe by probing its fundamental particles and forces and exploring how they govern the large-scale processes that shape cosmic evolution. This whitepaper presents a vision for how Artificial Intelligence (AI) can accelerate discovery in this ",
+      "paper_url": "https://arxiv.org/abs/2602.17582v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    },
+    {
+      "title": "RetouchIQ: MLLM Agents for Instruction-Based Image Retouching with Generalist Reward",
+      "abstract": "Recent advances in multimodal large language models (MLLMs) have shown great potential for extending vision-language reasoning to professional tool-based image editing, enabling intuitive and creative editing. A promising direction is to use reinforcement learning (RL) to enable MLLMs to reason abou",
+      "paper_url": "https://arxiv.org/abs/2602.17558v1",
+      "published": "2026-02-19",
+      "source": "arXiv API"
+    }
+  ],
+  "summary": {
+    "github_repos": 46,
+    "hf_models": 30,
+    "reddit_posts": 120,
+    "papers": 20
+  }
+}

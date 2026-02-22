@@ -1,0 +1,10 @@
+[{
+	"timestamp": "2026-02-18T18:35:00Z",
+	"type": "stability_audit",
+	"summary": "Codebase diagnostics clean; builds pass; backend/router/desktop agent/TTS/ngrok/telegram verified; MCP Playwright launcher fixed.",
+	"ngrokPublicUrl": "https://zenobia-suborbiculate-facetely.ngrok-free.dev",
+	"notes": [
+		"TestSprite MCP launcher enters long-running MCP process mode.",
+		"Playwright MCP launcher resolved via exports/bin entry fix in src/tool.js."
+	]
+}]

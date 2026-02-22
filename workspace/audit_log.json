@@ -1,0 +1,971 @@
+[
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.370Z",
+    "prevHash": "68273fb211cb87fc5ef8a8198be5d887f960bffb2d0e8c05b797e0c27f126378",
+    "hash": "6b68f8d44cb7587ae363f48fe1a541b2148fdb94882b760550dacb41c0431e95"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.429Z",
+    "prevHash": "6b68f8d44cb7587ae363f48fe1a541b2148fdb94882b760550dacb41c0431e95",
+    "hash": "53ec531f10ba1033af8324de677f73646c1cdf2f1acb7a7ffee647f5dad736b7"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "double_click",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.475Z",
+    "prevHash": "eaaf52f2aecf7928b3497e6ad18820ac95454551011d329afc222eef7488d343",
+    "hash": "bf50fe22945aabf637873cd5c58ada6d4b40411cb24557c2bc27d0ae6fa9e115"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.493Z",
+    "prevHash": "bf50fe22945aabf637873cd5c58ada6d4b40411cb24557c2bc27d0ae6fa9e115",
+    "hash": "44f53294698468d0fdcdef2d62c2618388612b177dca7133d5fa58f2be662b90"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.537Z",
+    "prevHash": "44f53294698468d0fdcdef2d62c2618388612b177dca7133d5fa58f2be662b90",
+    "hash": "563c0eefed57ab98ea89bc74c0e7e3bd98e4795a8de5849ee129ed5f4ca0fa90"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.573Z",
+    "prevHash": "563c0eefed57ab98ea89bc74c0e7e3bd98e4795a8de5849ee129ed5f4ca0fa90",
+    "hash": "bebdee6428f05363dd11f4bb2cedd0467b9a2e7b04fe1299c74313c9d5549246"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.613Z",
+    "prevHash": "bebdee6428f05363dd11f4bb2cedd0467b9a2e7b04fe1299c74313c9d5549246",
+    "hash": "72d869a9ec20fb8b67ded6a7d1d1d44a486ff1ecc7857b866b97b8f9d1a51a7d"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.658Z",
+    "prevHash": "72d869a9ec20fb8b67ded6a7d1d1d44a486ff1ecc7857b866b97b8f9d1a51a7d",
+    "hash": "0787d22975eaab05955523ce6e792950f595c79d0cec9ec4a2746f41f6577c75"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.697Z",
+    "prevHash": "0787d22975eaab05955523ce6e792950f595c79d0cec9ec4a2746f41f6577c75",
+    "hash": "f61decdff2e4d3724cad0f21ac14f5048b41da9d0df063061948c6ab899de7d0"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.737Z",
+    "prevHash": "f61decdff2e4d3724cad0f21ac14f5048b41da9d0df063061948c6ab899de7d0",
+    "hash": "5bb27209a57c4b66590644dcda952f6780a080da7b43e3320077595aba5635c9"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.778Z",
+    "prevHash": "5bb27209a57c4b66590644dcda952f6780a080da7b43e3320077595aba5635c9",
+    "hash": "2cd6eec11692fe9241260051ab8e901d53981f14b498604a677065b761d466c7"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.828Z",
+    "prevHash": "2cd6eec11692fe9241260051ab8e901d53981f14b498604a677065b761d466c7",
+    "hash": "e9fca58353a8e438204ffc8ad414d9e26ef75268d2b1fcedc7e940fb4475a147"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.868Z",
+    "prevHash": "e9fca58353a8e438204ffc8ad414d9e26ef75268d2b1fcedc7e940fb4475a147",
+    "hash": "140ec4d7f7a5f6f2babef4dcdea00df13930a099e140e5e2b844a653633e043f"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.907Z",
+    "prevHash": "140ec4d7f7a5f6f2babef4dcdea00df13930a099e140e5e2b844a653633e043f",
+    "hash": "9f24010246516b108d1b69bef53c46365fef7830feb243697b0ffe85fd153df7"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:00.957Z",
+    "prevHash": "9f24010246516b108d1b69bef53c46365fef7830feb243697b0ffe85fd153df7",
+    "hash": "7a22c28c52edd0f54a91c32cba9fc4449aa5c4ffc84cb7a5ba0d9b30668eedfe"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.007Z",
+    "prevHash": "7a22c28c52edd0f54a91c32cba9fc4449aa5c4ffc84cb7a5ba0d9b30668eedfe",
+    "hash": "f016c2d07ede6c040080203ba8738eff1dd5191bd6cf77f42021986042e7cd66"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.028Z",
+    "prevHash": "f016c2d07ede6c040080203ba8738eff1dd5191bd6cf77f42021986042e7cd66",
+    "hash": "44e176dcb12ada38972987e4f3c1d61a64fb850ecc1250f2ff340ab61b26d262"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.085Z",
+    "prevHash": "44e176dcb12ada38972987e4f3c1d61a64fb850ecc1250f2ff340ab61b26d262",
+    "hash": "71e0d2f74f4dfcce7729ced3c7b371336f58d937cac277417e4524f68528e197"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.128Z",
+    "prevHash": "71e0d2f74f4dfcce7729ced3c7b371336f58d937cac277417e4524f68528e197",
+    "hash": "80fcbfdf2ee4d14bd3bc3e13dccf569cec6e4baa3b6d8bbe7599e5ba83035640"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.168Z",
+    "prevHash": "80fcbfdf2ee4d14bd3bc3e13dccf569cec6e4baa3b6d8bbe7599e5ba83035640",
+    "hash": "b407859022688d614875c653a12b21c2b88686633d4e2ee8c0dc86e5617c231a"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.208Z",
+    "prevHash": "b407859022688d614875c653a12b21c2b88686633d4e2ee8c0dc86e5617c231a",
+    "hash": "4db68de46c6a34b2f627304c85194ca172a6857583994d05cd3b5ccf4b1d5293"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.267Z",
+    "prevHash": "4db68de46c6a34b2f627304c85194ca172a6857583994d05cd3b5ccf4b1d5293",
+    "hash": "9482698f66330b0603a77bd13e2834d325ad7937fa821dafc1495f9dfc0be13f"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.289Z",
+    "prevHash": "9482698f66330b0603a77bd13e2834d325ad7937fa821dafc1495f9dfc0be13f",
+    "hash": "184a13de4d8ebf361608de70c9ba15d8e85c1c11fb2b547bb016541b1d064bcd"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.323Z",
+    "prevHash": "184a13de4d8ebf361608de70c9ba15d8e85c1c11fb2b547bb016541b1d064bcd",
+    "hash": "86df4a5ca879c6eec2b97f0417c82f9d46bb6510a2b4cce8ed019c464c098d98"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.378Z",
+    "prevHash": "86df4a5ca879c6eec2b97f0417c82f9d46bb6510a2b4cce8ed019c464c098d98",
+    "hash": "7450caeefdacecbfa9683014414d9558cb6393d864eb36573c0af53fdd64e4ef"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.408Z",
+    "prevHash": "7450caeefdacecbfa9683014414d9558cb6393d864eb36573c0af53fdd64e4ef",
+    "hash": "97cb5ba0be7f3ac74e2706a7bb566b7135b2b755cd553919b9c7f00817518c96"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:01.458Z",
+    "prevHash": "97cb5ba0be7f3ac74e2706a7bb566b7135b2b755cd553919b9c7f00817518c96",
+    "hash": "f4e55a487979a3b12e7bd7c1a1c2bbe8d758ffb09d6d85f70e55cc6792660697"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.359Z",
+    "prevHash": "f4e55a487979a3b12e7bd7c1a1c2bbe8d758ffb09d6d85f70e55cc6792660697",
+    "hash": "595055aa8dbbeec8c8144f814fe32d017cf7080cdc2815e7500f0aa7849c1b88"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.407Z",
+    "prevHash": "595055aa8dbbeec8c8144f814fe32d017cf7080cdc2815e7500f0aa7849c1b88",
+    "hash": "a1465c870bede2f5dd141cf1d43da4ca9c020e935d034da9f7a233c9c54a5812"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.447Z",
+    "prevHash": "a1465c870bede2f5dd141cf1d43da4ca9c020e935d034da9f7a233c9c54a5812",
+    "hash": "0fccb753fc8bb1085433615c76f1e8a1cbe284f5b77ebf290cab2fdb5f1208ee"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.469Z",
+    "prevHash": "0fccb753fc8bb1085433615c76f1e8a1cbe284f5b77ebf290cab2fdb5f1208ee",
+    "hash": "1dab41772224c381ab2a37f1570a5a6b32f0864599707cb9b1d564f4663d6a06"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.507Z",
+    "prevHash": "1dab41772224c381ab2a37f1570a5a6b32f0864599707cb9b1d564f4663d6a06",
+    "hash": "e6c18c7a9c0ff76473baf2521171600706298e420095d15f3979bbf4cb21fbe3"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.567Z",
+    "prevHash": "e6c18c7a9c0ff76473baf2521171600706298e420095d15f3979bbf4cb21fbe3",
+    "hash": "a27d9a2172d97fe8b1efdeae8245081b3a74589d2e656516c7f7f60389ce64f3"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.598Z",
+    "prevHash": "a27d9a2172d97fe8b1efdeae8245081b3a74589d2e656516c7f7f60389ce64f3",
+    "hash": "b1ab2f5c1e9c6344536c0915a256e54f6fb46304435842c6c8957f54d92bd3ea"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.648Z",
+    "prevHash": "b1ab2f5c1e9c6344536c0915a256e54f6fb46304435842c6c8957f54d92bd3ea",
+    "hash": "e9c6b4e787e1fdc5c5dc42b22c694b3af5c9a77a61e47e7a15d2cf3ded9e3331"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.687Z",
+    "prevHash": "e9c6b4e787e1fdc5c5dc42b22c694b3af5c9a77a61e47e7a15d2cf3ded9e3331",
+    "hash": "9b9e1ed5882c3e58f79e76dfa6acddff46183d4f9ef95bc70f60751240281bf8"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.727Z",
+    "prevHash": "9b9e1ed5882c3e58f79e76dfa6acddff46183d4f9ef95bc70f60751240281bf8",
+    "hash": "85c36019b75a8e3770c354403e1ac00554229c6e122ce077d77112b686f4b3ab"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.777Z",
+    "prevHash": "85c36019b75a8e3770c354403e1ac00554229c6e122ce077d77112b686f4b3ab",
+    "hash": "5d667484801c266720471fe227d18281ba3525e30a9697be2894e3fa0cebb01f"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.807Z",
+    "prevHash": "5d667484801c266720471fe227d18281ba3525e30a9697be2894e3fa0cebb01f",
+    "hash": "cefa7b0a6f3238b8cedc0c1a28180f188951215b61f64a676cf3333aac5a5b75"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.867Z",
+    "prevHash": "cefa7b0a6f3238b8cedc0c1a28180f188951215b61f64a676cf3333aac5a5b75",
+    "hash": "eb231787d37964ac88cf4de55ef839478bf36bb445176ded49844b5c8c7e71d3"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.883Z",
+    "prevHash": "eb231787d37964ac88cf4de55ef839478bf36bb445176ded49844b5c8c7e71d3",
+    "hash": "3ce6c1bb7e83d4b07d63682f344c4f36fff81842e0eef8104a03894a72f190c3"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.933Z",
+    "prevHash": "3ce6c1bb7e83d4b07d63682f344c4f36fff81842e0eef8104a03894a72f190c3",
+    "hash": "9c0246e4137ec751d1c3f2c844c6d9413e4a642807efd8692103da7ff5099fe0"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:10.977Z",
+    "prevHash": "9c0246e4137ec751d1c3f2c844c6d9413e4a642807efd8692103da7ff5099fe0",
+    "hash": "8b122e40a385bc138f2dd3e9d1f91c0fc02fa24368e2d7e12839fe16ff5c89fa"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.017Z",
+    "prevHash": "8b122e40a385bc138f2dd3e9d1f91c0fc02fa24368e2d7e12839fe16ff5c89fa",
+    "hash": "cb24d4f163664b48b1bffbca8f003fccbd94f5d2b39d9c693143835df01c51b6"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.057Z",
+    "prevHash": "cb24d4f163664b48b1bffbca8f003fccbd94f5d2b39d9c693143835df01c51b6",
+    "hash": "8f828a239557686d7c8b4b05081d6f70b57c48b463d26892d49c21eb8120ec17"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.098Z",
+    "prevHash": "8f828a239557686d7c8b4b05081d6f70b57c48b463d26892d49c21eb8120ec17",
+    "hash": "03b131ea25f3e83889045706558c0dd732499c0580d6d7c787890edc4f5c34d4"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.158Z",
+    "prevHash": "03b131ea25f3e83889045706558c0dd732499c0580d6d7c787890edc4f5c34d4",
+    "hash": "7f0b79c333adb2b43dfb7d402e731e2f0353e5522b74fcf737ee89c628728999"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.187Z",
+    "prevHash": "7f0b79c333adb2b43dfb7d402e731e2f0353e5522b74fcf737ee89c628728999",
+    "hash": "7670ebd9cfec032327556f2a6343c5b2f281d4a0143d88b146783357990f8369"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.217Z",
+    "prevHash": "7670ebd9cfec032327556f2a6343c5b2f281d4a0143d88b146783357990f8369",
+    "hash": "737840b5c53efd9932596272ebe4ce38ac83db970b5ae4dee59b27ee2ecaa504"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.267Z",
+    "prevHash": "737840b5c53efd9932596272ebe4ce38ac83db970b5ae4dee59b27ee2ecaa504",
+    "hash": "bd13781e175288ec3c43b12f65e3d46203f9f2c9a9e731096c9e913bc744855e"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.297Z",
+    "prevHash": "bd13781e175288ec3c43b12f65e3d46203f9f2c9a9e731096c9e913bc744855e",
+    "hash": "8ff4147e8d078328bda7dc38626bbcfa1c893faadfb8f683399f10f545b56751"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.347Z",
+    "prevHash": "8ff4147e8d078328bda7dc38626bbcfa1c893faadfb8f683399f10f545b56751",
+    "hash": "6524c9dd2feb05313bf0bd6b27fdefbc016a0dde0966a6faec73b4f697542dc3"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.378Z",
+    "prevHash": "6524c9dd2feb05313bf0bd6b27fdefbc016a0dde0966a6faec73b4f697542dc3",
+    "hash": "06c406f0a1f1f4ae438953ca4c05275b7d48bcb27d9e62d2e9d7f83ecf39d9c5"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.438Z",
+    "prevHash": "06c406f0a1f1f4ae438953ca4c05275b7d48bcb27d9e62d2e9d7f83ecf39d9c5",
+    "hash": "68a7b7014adb7dbdecb004314684c60c8f9b1d93b8a193e24402c2e45229de3b"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.468Z",
+    "prevHash": "68a7b7014adb7dbdecb004314684c60c8f9b1d93b8a193e24402c2e45229de3b",
+    "hash": "a52aa3ed5e69b5d8acd9c3eca1322049d8ff969bb610ab397dc8245240cb7813"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.517Z",
+    "prevHash": "a52aa3ed5e69b5d8acd9c3eca1322049d8ff969bb610ab397dc8245240cb7813",
+    "hash": "6cb15079f4d49245e4349c3d194a894d5d102c098545a77a6bdc75dee7ee2e01"
+  },
+  {
+    "level": "IMPORTANT",
+    "deviceId": "handshake",
+    "action": "DEVICE_ACT",
+    "resource": "/api/device/act",
+    "status": "REQUESTED",
+    "meta": {
+      "ip": "2600:382:5400:1::19",
+      "action": "move",
+      "hasCoordinates": true,
+      "hasText": false,
+      "hasKeys": false
+    },
+    "timestamp": "2026-02-22T11:52:11.546Z",
+    "prevHash": "6cb15079f4d49245e4349c3d194a894d5d102c098545a77a6bdc75dee7ee2e01",
+    "hash": "efea3670e7661078fc354c973a5837fa74f73294caf5360a6b6053c393d8daab"
+  }
+]

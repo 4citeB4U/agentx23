@@ -1,0 +1,52 @@
+[
+  {
+    "tab": "comms",
+    "title": "Agent Lee // Sovereign IDE",
+    "hasActiveThread": false,
+    "hasSecureComms": false,
+    "hasChatsLabel": false,
+    "hasLetsTalk": true,
+    "hasUnsplash": false,
+    "canvasesInCore": 1
+  },
+  {
+    "tab": "live",
+    "title": "Agent Lee // Sovereign IDE",
+    "hasActiveThread": false,
+    "hasSecureComms": false,
+    "hasChatsLabel": false,
+    "hasLetsTalk": false,
+    "hasUnsplash": false,
+    "canvasesInCore": 1
+  },
+  {
+    "tab": "files",
+    "title": "Agent Lee // Sovereign IDE",
+    "hasActiveThread": false,
+    "hasSecureComms": false,
+    "hasChatsLabel": false,
+    "hasLetsTalk": false,
+    "hasUnsplash": false,
+    "canvasesInCore": 1
+  },
+  {
+    "tab": "code",
+    "title": "Agent Lee // Sovereign IDE",
+    "hasActiveThread": false,
+    "hasSecureComms": false,
+    "hasChatsLabel": false,
+    "hasLetsTalk": false,
+    "hasUnsplash": false,
+    "canvasesInCore": 1
+  },
+  {
+    "tab": "system",
+    "title": "Agent Lee // Sovereign IDE",
+    "hasActiveThread": false,
+    "hasSecureComms": false,
+    "hasChatsLabel": false,
+    "hasLetsTalk": false,
+    "hasUnsplash": false,
+    "canvasesInCore": 1
+  }
+]

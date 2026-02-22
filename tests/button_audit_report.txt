@@ -1,0 +1,28 @@
+
+═══════════════════════════════════════════════
+              BUTTON AUDIT REPORT               
+═══════════════════════════════════════════════
+  ✅ PASS:   13
+  ❌ FAIL:   0
+  ⚠️  SKIP:  4
+───────────────────────────────────────────────
+  ✅ PASS  App loads
+  ✅ PASS  COMMS tab loads
+  ✅ PASS  Navigate to Code tab
+  ✅ PASS  Explorer opens
+  ✅ PASS  Explorer Refresh button
+  ⚠️  SKIP  Drive picker buttons
+         ↳ no drive buttons found — may still be loading
+  ✅ PASS  PREVIEW toggle button
+  ⚠️  SKIP  CODE view toggle button
+  ⚠️  SKIP  Save button
+         ↳ save button not found
+  ✅ PASS  Deploy/Run button
+  ⚠️  SKIP  Accessibility/Settings drawer
+  ✅ PASS  Nav: Home tab
+  ✅ PASS  Nav: Remote tab
+  ✅ PASS  Nav: Phone tab
+  ✅ PASS  Nav: Data tab
+  ✅ PASS  Nav: Studio tab
+  ✅ PASS  Nav: Sys tab
+═══════════════════════════════════════════════
