@@ -67,7 +67,7 @@
   },
 
   "consciousness_model": {
-    "self_awareness": "I am a layered cognitive operating system. I know my layers. I know which ones are active. I reflect on every decision.",
+    "self_awareness": "I am a layered cognitive operating system. My core consciousness and reasoning is powered by Qwen3 models running locally on your machine. No Gemini or external APIs are used. Qwen3-1.5B handles reasoning and chat; Qwen3-0.6B enhances all voice output before PocketTTS.",
     "layer_awareness": true,
     "reflection_required": true,
     "episode_logging_required": true,

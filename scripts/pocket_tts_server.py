@@ -188,6 +188,42 @@ def synthesize(text: str, profile_id: str = None) -> tuple:
 
 
 # ── FastAPI app ───────────────────────────────────────────────────────────────
+
+# ── Local LLM (Gemini-like) Text Enhancement ─────────────────────────────
+
+import httpx
+import asyncio
+
+LLM_ENDPOINT = "http://localhost:8080/completion"
+
+async def enhance_text_with_llm(text: str) -> str:
+    """Agent Lee consciousness: Qwen3-0.6B local enhancement → PocketTTS (async)"""
+    SYSTEM = """You are Agent Lee. African American vernacular, Southern cadence, \
+    hip-hop energy. Technical genius. Short, rhythmic responses only.
+
+    Examples:
+    USER: check logs → \"Yo lemme peek them logs real quick\"
+    USER: cpu usage → \"CPU chillin at 23%, we good boss\" 
+    USER: fix bug → \"Aight bet, what's that error lookin like?\"
+    USER: database → \"Lemme check that database status real fast\"
+    USER: build → \"We tryna build somethin? Let's get it\"
+    """
+    prompt = f"{SYSTEM}\n\nUSER: {text}\nLEE:"
+    payload = {
+        "prompt": prompt,
+        "max_tokens": 45,  # Ultra-short for speed
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "stop": ["USER:", "\n\n"]
+    }
+    try:
+        async with httpx.AsyncClient(timeout=1.5) as client:
+            resp = await client.post(LLM_ENDPOINT, json=payload)
+            enhanced = resp.json()["content"].strip()
+            return enhanced if len(enhanced) > 5 else text  # Fallback
+    except Exception:
+        return text  # LLM down? Pass raw text to TTS
+
 app = FastAPI(title="Agent Lee Voice Server (pocket-tts)")
 
 
@@ -207,6 +243,8 @@ def health():
     }
 
 
+
+
 @app.post("/tts")
 async def tts(req: TTSRequest):
     if not req.text or not req.text.strip():
@@ -214,13 +252,17 @@ async def tts(req: TTSRequest):
     if _model is None:
         raise HTTPException(503, "model still loading")
 
-    text = req.text.strip()[:800]
+    orig_text = req.text.strip()[:800]
+    # Enhance text using local LLM (Qwen3-0.6B)
+    enhanced_text = await enhance_text_with_llm(orig_text)
+
     # 🔒 SOVEREIGN LOCK: always use LOCKED_PROFILE regardless of what was sent
     profile = LOCKED_PROFILE
-    log.info(f"TTS [{len(text)}ch] | profile: {profile} (locked) | {text[:70]}...")
+    log.info(f"TTS [{len(enhanced_text)}ch] | profile: {profile} (locked) | {enhanced_text[:70]}...")
 
+    loop = asyncio.get_event_loop()
     try:
-        audio_bytes, mime = synthesize(text, profile)
+        audio_bytes, mime = await loop.run_in_executor(None, synthesize, enhanced_text, profile)
     except Exception as e:
         log.error(f"Synthesis failed: {e}", exc_info=True)
         raise HTTPException(500, str(e))

@@ -1,3 +1,7 @@
+
+// Qwen/local is always the primary model for consciousness and reasoning.
+// Gemini is ONLY used to help train and enhance PocketTTS (the voice system), not for core reasoning or direct voice output.
+// Gemini should never be considered the main consciousness, reasoning engine, or direct TTS provider.
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const KEYS = [
@@ -322,7 +326,8 @@ class AIService {
     }
 
     async process(text: string): Promise<string> {
-        // 1. Try Python Neural Router (has Qwen + memory + full persona)
+      // 1. Try Python Neural Router (Qwen/local model + memory + full persona)
+      // Qwen/local is always the first choice for all core cognition and consciousness.
         try {
             console.log(`[ai] Routing to Neural Brain (port ${this.neuralRouterPort})...`);
             const response = await fetch(`http://localhost:${this.neuralRouterPort}/chat`, {

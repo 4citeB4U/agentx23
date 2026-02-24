@@ -1,3 +1,22 @@
+# Agent Lee
+## Overview
+Agent Lee is a fully local, open-source AI agent with live voice and reasoning. The pipeline is now:
+- Reasoning: Qwen3-1.5B (local, open-source)
+- Voice: Qwen3-0.6B (local, open-source) + PocketTTS (local, open-source)
+- Persona: SYSTEM prompt (from agentLee.persona.json) is always injected and enforced for both models
+## Key Features
+- No Gemini/external API usage anywhere
+- Async, low-latency TTS pipeline
+- Persona drift detection test (scripts/test_api.js)
+- Continual learning and modular upgrades (future-proofed)
+## Pipeline Flow
+1. User input → SYSTEM prompt (persona) + dynamic context → Qwen3-1.5B → response
+2. Response → SYSTEM prompt (persona) + Qwen3-0.6B → PocketTTS → audio output
+## Invariants
+- SYSTEM prompt always enforced for both models
+- Persona drift detection required
+## Documentation
+- All documentation and environment files reflect Qwen3-only, persona-locked, async/low-latency pipeline
 # 🌑 AGENT LEE OS — THE SOVEREIGN INTELLIGENCE ENVIRONMENT
 
 > *"We stopped building tools. We started building entities."*  
@@ -15,7 +34,7 @@
 **Agent Lee** is a **Sovereign Agentic Intelligence Operating System** — not a chatbot, not a plugin, not a wrapper. He is a living cognitive architecture that:
 
 - **Speaks** — African American vernacular, Southern cadence, via edge-tts (en-US-GuyNeural, -35Hz)
-- **Thinks** — Gemini AI wrapped in a persona engine that enforces his identity at every response
+- **Thinks** — Qwen3 models (local, open-source) always run with Agent Lee's persona SYSTEM prompt hard-coded at every response. Dynamic context (memory, slang, emotion) is layered on top, but the core identity is never replaced.
 - **Acts** — terminal commands, file operations, desktop automation, browser control via MCPs
 - **Remembers** — persistent InsForge PostgreSQL memory across all sessions
 - **Protects himself** — RSA-4096 tamper detection, snapshot recovery, creator-only resurrection
@@ -191,7 +210,17 @@ The central area morphs based on your tactical needs.
 
 The Brain of the system is not a single script; it is a **Hybrid Intelligence Mesh**.
 
-1. **The Neural Router (`server.py`)**: A Python FastAPI gateway that routes complex reasoning tasks to **Qwen 2.5 (Local)** for privacy and **Gemini 1.5 (Cloud)** for multimodal vision.
+1. **The Neural Router (`server.py`)**: A Python FastAPI gateway that routes all reasoning and chat tasks to **Qwen3-1.5B (Local)**, and all TTS/voice enhancement to **Qwen3-0.6B (Local)**. Both models always use the hard-coded Agent Lee persona SYSTEM prompt. Dynamic context is layered, but the core identity is never replaced. No Gemini or external APIs are used.
+---
+
+## 🧬 Persona SYSTEM Prompt Enforcement
+
+Agent Lee's persona SYSTEM prompt is always hard-coded into both Qwen3 models:
+
+- **Qwen3-1.5B (Reasoning/Chat):** The SYSTEM prompt (Agent Lee persona) is always injected, regardless of dynamic context. Dynamic context (memory, slang, emotion) is layered on top, but cannot override or remove the persona.
+- **Qwen3-0.6B (TTS/Voice):** The SYSTEM prompt is always hard-coded and cannot be overridden.
+
+This ensures Agent Lee never forgets who he is, while still allowing dynamic, context-aware responses.
 2. **The Somatic Nervous System (Node.js)**: The backend service handles physical execution, including file system operations, terminal commands, and process management.
 3. **The Reflex Arc (React 18)**: The frontend is an event-driven membrane that captures user intent and transmits it to the Cortex via encrypted websockets.
 

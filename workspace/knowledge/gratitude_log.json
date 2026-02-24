@@ -556,5 +556,104 @@
     "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
     "source_url": "https://arxiv.org/abs/2602.17662v1",
     "verified": true
+  },
+  {
+    "source": "philtimmes/KeSSie",
+    "category": "open_source_repo",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "KeSSie HUGE Context Semantic recall for Large Language Models",
+    "appreciation": "I recognize the engineering effort behind philtimmes/KeSSie. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/philtimmes/KeSSie",
+    "verified": true
+  },
+  {
+    "source": "Abdulhamid97Mousa/mosaic",
+    "category": "open_source_repo",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "MOSAIC: A Unified Platform for Cross-Paradigm Comparison and Evaluation of Homogeneous and Heterogeneous Multi-Agent RL, LLM, VLM, and Human Decision-Makers",
+    "appreciation": "I recognize the engineering effort behind Abdulhamid97Mousa/mosaic. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/Abdulhamid97Mousa/mosaic",
+    "verified": true
+  },
+  {
+    "source": "ELM-Research/ELM",
+    "category": "open_source_repo",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": " A Training and Evaluation Framework for ECG-Language Models (ELMs) ",
+    "appreciation": "I recognize the engineering effort behind ELM-Research/ELM. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/ELM-Research/ELM",
+    "verified": true
+  },
+  {
+    "source": "mozi1924/Qwen3-TTS-EasyFinetuning",
+    "category": "open_source_repo",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "Easy fine-tuning for Qwen3-TTS: Fast voice cloning and high-quality multilingual speech synthesis.",
+    "appreciation": "I recognize the engineering effort behind mozi1924/Qwen3-TTS-EasyFinetuning. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/mozi1924/Qwen3-TTS-EasyFinetuning",
+    "verified": true
+  },
+  {
+    "source": "tatwan/agenticai_smolagents",
+    "category": "open_source_repo",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "This is a 6-module, hands-on mini-course for building AI agents using Hugging Face's smolagents library. It targets intermediate-to-advanced practitioners who are comfortable with Python and have basic familiarity with language models.",
+    "appreciation": "I recognize the engineering effort behind tatwan/agenticai_smolagents. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/tatwan/agenticai_smolagents",
+    "verified": true
+  },
+  {
+    "source": "medicai-sp/medicai_alpha_gguf",
+    "category": "open_model",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "Tags: region:us",
+    "appreciation": "I acknowledge None for releasing medicai-sp/medicai_alpha_gguf. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/medicai-sp/medicai_alpha_gguf",
+    "verified": true
+  },
+  {
+    "source": "mt628754/test032",
+    "category": "open_model",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "Tags: region:us",
+    "appreciation": "I acknowledge None for releasing mt628754/test032. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/mt628754/test032",
+    "verified": true
+  },
+  {
+    "source": "anaykulkarni/Qwen3-8B-xlam-singleturn-json-chkpt5000",
+    "category": "open_model",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "Tags: region:us",
+    "appreciation": "I acknowledge None for releasing anaykulkarni/Qwen3-8B-xlam-singleturn-json-chkpt5000. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/anaykulkarni/Qwen3-8B-xlam-singleturn-json-chkpt5000",
+    "verified": true
+  },
+  {
+    "source": "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks",
+    "category": "research_paper",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "LLM agents are evolving rapidly, powered by code execution, tools, and the recently introduced agent skills feature. Skills allow users to extend LLM applications with specialized third-party code, knowledge, and instructions. Although this can extend agent capabilities to new domains, it creates an",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.20156v1",
+    "verified": true
+  },
+  {
+    "source": "Exotic spherically-symmetric Lambda-vacuum in the four-dimensional Starobinsky model",
+    "category": "research_paper",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "We introduce an exact, two-parameter family of static, spherically-symmetric, constant-curvature $Λ$-vacuum solutions within the four-dimensional Starobinsky $f(R)=R+αR^2$ model. When the bare cosmological constant is precisely fine-tuned to $Λ= 1/(8α)$, the scalar curvature is fixed such that the d",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.20147v1",
+    "verified": true
+  },
+  {
+    "source": "Agentic AI for Scalable and Robust Optical Systems Control",
+    "category": "research_paper",
+    "date": "2026-02-24T08:00:32.524852+00:00",
+    "key_insights": "We present AgentOptics, an agentic AI framework for high-fidelity, autonomous optical system control built on the Model Context Protocol (MCP). AgentOptics interprets natural language tasks and executes protocol-compliant actions on heterogeneous optical devices through a structured tool abstraction",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.20144v1",
+    "verified": true
   }
 ]

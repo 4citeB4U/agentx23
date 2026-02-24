@@ -1,3 +1,17 @@
+# QA Final Report
+## Persona Consistency and SYSTEM Prompt Enforcement
+- SYSTEM prompt is always injected and enforced for both Qwen3-1.5B (reasoning) and Qwen3-0.6B (TTS)
+- Persona drift detection test (scripts/test_api.js) passes
+- No Gemini/external API usage anywhere
+## TTS Pipeline
+- Async, low-latency PocketTTS + Qwen3-0.6B
+- Persona SYSTEM prompt always enforced
+## Reasoning Pipeline
+- Qwen3-1.5B, persona SYSTEM prompt always enforced
+## Documentation
+- All documentation and environment files updated to reflect Qwen3-only, persona-locked, async/low-latency pipeline
+## Future-Proofing
+- SYSTEM prompt enforcement and persona drift detection are required invariants for all future upgrades
 # Agent Lee — Pre-Release QA Final Report
 **Date:** 2026-02-22  
 **Engineer:** Autonomous QA Agent (Senior QA + Security Role)  

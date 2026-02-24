@@ -1,4 +1,5 @@
-﻿"""
+﻿from fastapi.responses import HTMLResponse
+"""
 Agent Lee Brain Router — v4 (Sovereign Intelligence Loop)
 ═══════════════════════════════════════════════════════════
 ● Adapter routing     : qwen_general | qwen_code | qwen_ui | qwen_cdl
@@ -533,6 +534,9 @@ async def lifespan(app: FastAPI):
     print("[brain] Agent Lee v4 — Sovereign Intelligence Loop online")
     yield
 
+
+from fastapi.staticfiles import StaticFiles
+
 app = FastAPI(title="Agent Lee Brain Router v4", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
@@ -541,6 +545,21 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# Serve static UI from .Agent_Lee_OS/dist at root
+app.mount("/", StaticFiles(directory=".Agent_Lee_OS/dist", html=True), name="ui")
+
+# ── Root route for homepage and tunnel health ──
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    return """
+    <html><head><title>Agent Lee OS</title></head>
+    <body>
+    <h1>Agent Lee OS is online</h1>
+    <p>Status: <b>nominal</b></p>
+    <p>Version: v4</p>
+    <p>Try <a href='/health'>/health</a> for API health.</p>
+    </body></html>
+    """
 
 # ── Request models ────────────────────────────────────────────────────────────
 class ChatRequest(BaseModel):
@@ -1356,4 +1375,4 @@ async def get_episodes(limit: int = 10):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("NEURAL_ROUTER_PORT", "8004")))
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("NEURAL_ROUTER_PORT", "8001")))

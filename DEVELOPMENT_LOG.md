@@ -1,3 +1,19 @@
+## 2026-02-24: Major Architecture Update
+- All Gemini/external API dependencies removed
+- Qwen3-1.5B (local, open-source) for reasoning/chat
+- Qwen3-0.6B (local, open-source) for TTS enhancement
+- PocketTTS (local, open-source) for audio output
+- SYSTEM prompt (from agentLee.persona.json) is always injected and enforced for both models
+- Persona drift detection test added (scripts/test_api.js)
+- Async, low-latency TTS pipeline
+- Documentation and environment files updated to reflect new architecture
+**Key Invariants:**
+- No Gemini/external API usage anywhere
+- SYSTEM prompt always enforced for both models
+- Persona drift detection required
+**Future Work:**
+- Continual learning (curriculum, self-evaluation, retraining)
+- Modular upgrades allowed, but SYSTEM prompt enforcement and local-only inference are required
 # DEVELOPMENT LOG — Agent Lee OS
 
 > Append-only. Every session. Every milestone. Every lesson.  

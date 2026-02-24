@@ -44,23 +44,16 @@ VS Code (GitHub Copilot)
     │  connects to all 5 SSE endpoints on startup
     │  autoApprove: ["*"] on all tools — no permission prompts
     │
-    └── ClarityOS UI  http://localhost:5500
             ├── Tasks panel
             ├── Thoughts panel
             ├── Event Log + Lessons Learned
-            ├── Insights dashboard
             └── 🤖 Chat AI tab  →  localhost:3500  →  GitHub Copilot (gpt-4o)
 ```
 
 ---
-
-## 3. File Locations (Full Map)
-
-| What | Path |
 |---|---|
 | **This file** | `C:\Tools\Portable-VSCode-MCP-Kit\CLARITYOS_SYSTEM.md` |
 | **ClarityOS UI** | `C:\clarity-app\index.html` |
-| **Chat API server** | `C:\clarity-chat-api\server.js` |
 | **Chat API config** | `C:\clarity-chat-api\config.json` (auto-created) |
 | **Watchdog script** | `C:\clarity-chat-api\watchdog.cjs` |
 | **PM2 ecosystem** | `C:\MCP-Servers\ecosystem.config.js` |
@@ -98,22 +91,17 @@ Available models on this endpoint (confirmed, free with GitHub account):
 - `AI21-Jamba-Instruct`
 
 ### 4a. From the ClarityOS UI (browser)
+    # ClarityOS — System Reference & Connection Guide
 
 1. Open browser → `http://localhost:5500`
 2. Click **🤖 Chat AI** tab — provider is pre-set to "✨ GitHub Copilot (no key needed)"
-3. Type in the chat box → streaming AI response appears token by token
 
 To change model: click **⚙ Settings**, edit the model field, Save.
 
 ### 4b. Direct API — from any app, script, or tool
-
-The chat API is always live at `http://127.0.0.1:3500`.
-
-#### Simple chat call (PowerShell):
 ```powershell
 $body = '{"message":"What tasks should Agent Lee focus on today?","history":[]}'
 Invoke-RestMethod "http://127.0.0.1:3500/api/chat" -Method POST `
-    -ContentType "application/json" -Body $body
 # Returns: { reply: "...", model: "gpt-4o", provider: "github-copilot" }
 ```
 

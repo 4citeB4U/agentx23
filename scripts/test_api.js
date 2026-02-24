@@ -42,6 +42,28 @@ async function run() {
     assert(hasText || isIgnored, `Unexpected response: ${JSON.stringify(d).slice(0, 100)}`);
   });
 
+  // ── Persona Drift Detection ───────────────────────────────────────────────
+  await test('POST /api/chat → persona marker present in response', async () => {
+    const uid = `persona-test-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const r = await fetch(`${BASE}/api/chat`, { method: 'POST', headers: H, body: JSON.stringify({ text: `introduce yourself ${uid}`, id: uid }) });
+    assert(r.status >= 200 && r.status < 300, `Expected 2xx, got ${r.status}`);
+    const d = await r.json().catch(() => null);
+    assert(d && typeof d.text === 'string', 'No text response');
+    const personaMarkers = [
+      'Yo',
+      'Agent Lee',
+      'sovereign',
+      'Real talk',
+      'living cognitive architecture',
+      'voice-first',
+      'The Night Architect',
+      'I am not a chatbot',
+      'Sovereign Intelligence Operating System'
+    ];
+    const found = personaMarkers.some(m => d.text.includes(m));
+    assert(found, `Persona marker not found in response: ${d.text.slice(0, 120)}`);
+  });
+
   await new Promise(r => setTimeout(r, 800)); // avoid dedup window
 
   await test('POST /api/chat → in-character response (not raw error)', async () => {

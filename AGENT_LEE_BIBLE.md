@@ -39,7 +39,7 @@ Not a wrapper. Not a plugin. A **full sovereign OS** — where the AI has a voic
 
 Rather than a single monolith, Agent Lee was built as a **layered cognitive OS**:
 
-- **The Brain** — Node.js backend, Google Gemini multi-key rotation, consciousness engine
+- **The Brain** — Node.js backend, Qwen (local model) as the sole consciousness engine. Gemini is used only to help train and enhance PocketTTS (not for voice output or core reasoning).
 - **The Body** — MCP bridge (Playwright, TestSprite, InsForge, Stitch), Python desktop agent
 - **The Soul** — React 18 frontend, 3D VoxelCore, Neo-Glass HUD
 - **The Voice** — PocketTTS (Kyutai "marius") + edge-tts fallback (en-US-GuyNeural), deep African American baritone, PITCH_RATIO=0.88 (deep), rate=1.00, pitch=-20Hz — **LOCKED 2026-02-22**
@@ -53,53 +53,6 @@ Rather than a single monolith, Agent Lee was built as a **layered cognitive OS**
 ### Layer 1 — The Neural Bridge (Backend API)
 - **Path:** `backend/src/index.ts`
 - **Framework:** Node.js + Express + TypeScript
-- **Port:** 8001
-
-### Layer 2 — The Consciousness Engine
-- **Path:** `backend/src/services/consciousness.ts`
-- **Purpose:** Wraps Gemini AI with Agent Lee persona. Enforces LEEWAY constraints. Detects backstory, capabilities, and build requests.
-
-### Layer 3 — The AI Core (Multi-Key Rotation)
-- **Path:** `backend/src/services/ai.ts`
-- **Keys:** GEMINI_API_KEY through GEMINI_API_KEY_4 — rotated to evade rate limits
-
-### Layer 4 — The Voice System (TTS Enforcer + Neural Router)
-- **Path:** `backend/src/services/ttsEnforcer.ts`, `server.py`, `scripts/pocket_tts_server.py`
-- **🔒 VOICE LOCKED 2026-02-22** — confirmed by creator, do not change without authorization
-- **TTS Chain (priority order):**
-  1. Gemini 2.5 Flash TTS — "Orus" preset (deep resonant) — when API keys available
-  2. **PocketTTS — Kyutai "marius" @ `PITCH_RATIO=0.88`** — PRIMARY SOVEREIGN VOICE (port 8007)
-  3. edge-tts `en-US-GuyNeural` — last resort fallback
-- **Active Profile:** `motivational_architect` — rate=1.00, pitch_semitones=-2.0, deep baritone
-- **Acoustic spec:** 0.88x pitch shift DOWN from marius base — African American baritone, Southern cadence, Hip Hop energy
-- **Delivery:** audio/mpeg stream → frontend Audio element
-
-### Layer 5 — The Persona Engine
-- **Path:** `backend/src/services/persona.ts` + `agentLee.persona.json`
-- **Registers:** hiphop_poetic, mentor_calm, professional_formal, security_strict, empathetic_support, mission_control, research_analyst, creative_architect
-
-### Layer 6 — The Security Layer
-- **Path:** `backend/src/services/security.ts`
-- **Handshake:** HMAC-SHA256 (`AGENT_LEE_SOVEREIGN_V1`)
-- **Features:** Device Registry, Rate Limiter, Audit Logger
-
-### Layer 7 — The Terminal System
-- **Path:** `backend/src/routes/terminal.ts`, `terminal-policy.ts`, `terminal-audit.ts`
-- **Features:** PTY sessions, SSH, policy (rm -rf / path traversal blocked), full audit trail
-
-### Layer 8 — The MCP Bridge
-Playwright (Ghost), TestSprite (Auditor), InsForge (Scribe), Stitch (Architect), Desktop Commander (Hands), Agent Lee (Vision + Voice + Memory)
-
-### Layer 9 — The Memory Lake (InsForge PostgreSQL)
-- `https://3c4cp27v.us-west.insforge.app` — episodes, telemetry, device registry, quarantine log
-
-### Layer 10 — The Remote Access Layer
-- Telegram Bot (`@Lee2912bot`), Ngrok tunnel, Public URL: `https://agentlee.rapidwebdevelop.com`
-
-### Layer 11 — The Desktop Agent
-- `scripts/desktop_agent.py` — port 8005 (loopback only), Gemini Vision + PyAutoGUI
-
----
 
 ## 🛡️ PART III — THE SOVEREIGN SELF-REPAIR ARCHITECTURE
 
@@ -233,7 +186,7 @@ Agent Lee OS is organized into three distinct but fused layers:
 
 1.  **THE BRAIN (Backend & AI Service)**:
     - **Identity**: Housed in `backend/src/services/consciousness.ts`.
-    - **Logic**: Uses Google Gemini (1.5 Flash/Pro) with a **Multi-Key Rotation Strategy** to bypass rate limits.
+    - **Logic**: Uses Qwen (local model) as the sole consciousness and reasoning engine. Gemini is only used to help train and enhance PocketTTS, not for core reasoning or direct voice output.
     - **Personality**: Defined by `agentLee.persona.json`—inspired by African American vernacular and Southern cadence, direct and rhythmic.
 
 2.  **THE BODY (MCPs & Desktop Agent)**:
