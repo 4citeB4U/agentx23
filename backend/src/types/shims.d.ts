@@ -42,7 +42,6 @@ declare module "multer" {
 }
 
 declare module "ws" {
-  export const OPEN: number;
   export class WebSocket {
     constructor(...args: any[]);
     on(event: string, cb: (...args: any[]) => void): void;
@@ -54,6 +53,14 @@ declare module "ws" {
     constructor(opts?: any);
     on(event: string, cb: (...args: any[]) => void): void;
   }
+}
+
+// Add commonly-used static props and server APIs present on the ws package
+declare module "ws" {
+  namespace ws {
+    export const OPEN: number;
+  }
+  export import OPEN = ws.OPEN;
 }
 
 declare module "ssh2" {
@@ -68,6 +75,14 @@ declare module "ssh2" {
 declare module "@google/generative-ai" {
   const anyExport: any;
   export = anyExport;
+}
+
+// Provide a minimal RateLimitDecision shape used by security service
+declare interface RateLimitDecision {
+  allowed: boolean;
+  retryAfterMs?: number;
+  windowMs?: number;
+  limit?: number;
 }
 
 // Extend Express Request to allow `file` injected by multer
