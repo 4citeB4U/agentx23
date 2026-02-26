@@ -2,15 +2,21 @@ name: Playwright E2E
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   push:
-    branches: [ main, 'ci/*' ]
+    branches: [main, "ci/*"]
 
 jobs:
   e2e:
     name: Playwright E2E Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      PORT: 6001
+      WS_PORT: 6003
+      NEURAL_ROUTER_PORT: 6004
+      DESKTOP_AGENT_PORT: 6005
+      VITE_API_BASE: http://localhost:6000
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,7 +24,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Cache node modules
         uses: actions/cache@v4
@@ -38,9 +44,16 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=dot,html
+        run: |
+          echo "Running Playwright (CI) with ports: $PORT $WS_PORT $NEURAL_ROUTER_PORT"
+          npx playwright test --reporter=dot,html
         env:
           CI: true
+          PORT: ${{ env.PORT }}
+          WS_PORT: ${{ env.WS_PORT }}
+          NEURAL_ROUTER_PORT: ${{ env.NEURAL_ROUTER_PORT }}
+          DESKTOP_AGENT_PORT: ${{ env.DESKTOP_AGENT_PORT }}
+          VITE_API_BASE: ${{ env.VITE_API_BASE }}
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
