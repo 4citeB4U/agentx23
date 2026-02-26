@@ -1,18 +1,25 @@
 // Declared minimal shims for third-party modules without type declarations
 // Detailed shims for modules that CI's TypeScript environment may not have typings for.
 declare module "dotenv" {
-  const config: { parsed?: Record<string, string> } | (() => void);
-  export = config;
+  export function config(
+    opts?: { path?: string } & Record<string, any>,
+  ): { parsed?: Record<string, string> } | void;
+  const _default: { config: typeof config };
+  export default _default;
 }
 
 declare module "@insforge/sdk" {
-  const anyExport: any;
-  export = anyExport;
+  export function createClient(...args: any[]): any;
+  const _default: any;
+  export default _default;
 }
 
 declare module "screenshot-desktop" {
-  const fn: (...args: any[]) => Promise<any>;
-  export = fn;
+  function screenshot(...args: any[]): Promise<any>;
+  namespace screenshot {
+    function listDisplays(): Promise<any[]>;
+  }
+  export = screenshot;
 }
 
 declare module "node-pty" {
@@ -32,8 +39,9 @@ declare module "node-pty" {
 }
 
 declare module "http-proxy-middleware" {
+  export function createProxyMiddleware(...args: any[]): any;
   const anyExport: any;
-  export = anyExport;
+  export default anyExport;
 }
 
 declare module "multer" {
@@ -43,6 +51,7 @@ declare module "multer" {
 
 declare module "ws" {
   export class WebSocket {
+    static OPEN: number;
     constructor(...args: any[]);
     on(event: string, cb: (...args: any[]) => void): void;
     send(...args: any[]): void;
@@ -52,29 +61,40 @@ declare module "ws" {
   export class WebSocketServer {
     constructor(opts?: any);
     on(event: string, cb: (...args: any[]) => void): void;
+    handleUpgrade?(
+      req: any,
+      socket: any,
+      head: any,
+      cb: (ws: WebSocket) => void,
+    ): void;
+    emit?(event: string, ...args: any[]): boolean;
+    clients?: Set<WebSocket>;
   }
-}
-
-// Add commonly-used static props and server APIs present on the ws package
-declare module "ws" {
-  namespace ws {
-    export const OPEN: number;
-  }
-  export import OPEN = ws.OPEN;
+  export const OPEN: number;
 }
 
 declare module "ssh2" {
   export class Client {
     on(event: string, cb: (...args: any[]) => void): this;
     connect(cfg: any): void;
+    end?(): void;
+    shell?(cb?: (err: any, stream?: any) => void): void;
   }
   export type ConnectConfig = any;
   export type Channel = any;
 }
 
 declare module "@google/generative-ai" {
+  export const GoogleGenerativeAI: any;
   const anyExport: any;
-  export = anyExport;
+  export default anyExport;
+}
+
+declare module "uuid" {
+  export function v4(): string;
+  export function v1(): string;
+  const anyExport: any;
+  export default anyExport;
 }
 
 // Provide a minimal RateLimitDecision shape used by security service
