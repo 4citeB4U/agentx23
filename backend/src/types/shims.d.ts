@@ -78,7 +78,7 @@ declare module "ssh2" {
     on(event: string, cb: (...args: any[]) => void): this;
     connect(cfg: any): void;
     end?(): void;
-    shell?(cb?: (err: any, stream?: any) => void): void;
+    shell?(opts?: any, cb?: (err: any, stream?: any) => void): void;
   }
   export type ConnectConfig = any;
   export type Channel = any;
