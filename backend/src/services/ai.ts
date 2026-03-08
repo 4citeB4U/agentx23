@@ -12,7 +12,8 @@ const KEYS = [
 const ZHIPU_KEY =
   process.env["Z-AI_API_KEY"] || process.env.ZHIPU_API_KEY || "";
 
-// Anthropic Claude — secondary fallback (fast Haiku model, low latency)
+// Anthropic Claude — PRIMARY text model (Haiku: fast path / Sonnet: smart path)
+// Gemini is reserved ONLY for voice TTS quality via the Brain service.
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
 
 // NotebookLM notebook ID — grounded knowledge source for Agent Lee's responses
@@ -621,10 +622,18 @@ class AIService {
   }
 
   /** Anthropic Claude Haiku — low-latency fallback when Gemini quota is exhausted */
-  private async callClaude(text: string): Promise<string | null> {
+  private async callClaude(
+    text: string,
+    opts: { maxTokens?: number; model?: string; label?: string } = {},
+  ): Promise<string | null> {
     if (!ANTHROPIC_API_KEY) return null;
+    const {
+      maxTokens = 512,
+      model = "claude-haiku-4-5",
+      label = "Claude Haiku",
+    } = opts;
     try {
-      console.log("[ai] Fallback → Claude Haiku (Anthropic)");
+      console.log(`[ai] Primary → ${label} (Anthropic)`);
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
@@ -633,8 +642,8 @@ class AIService {
           "x-api-key": ANTHROPIC_API_KEY,
         },
         body: JSON.stringify({
-          model: "claude-haiku-4-5",
-          max_tokens: 256,
+          model,
+          max_tokens: maxTokens,
           system: AGENT_LEE_SYSTEM_PROMPT,
           messages: [{ role: "user", content: text }],
         }),
@@ -644,7 +653,7 @@ class AIService {
         const data = await res.json();
         const reply = data?.content?.[0]?.text;
         if (reply) {
-          console.log("[ai] Claude Haiku fallback response received.");
+          console.log(`[ai] ${label} response received.`);
           return reply as string;
         }
       } else {
@@ -654,7 +663,7 @@ class AIService {
         );
       }
     } catch (err: any) {
-      console.warn(`[ai] Claude fallback failed: ${err.message}`);
+      console.warn(`[ai] Claude call failed: ${err.message}`);
     }
     return null;
   }
@@ -667,62 +676,79 @@ class AIService {
 
     // =========================================================
     // FAST PATH — converse / voice / translate
-    // Skip memory, planning, Neural Router → Gemini Flash direct.
+    // Claude Haiku PRIMARY. Gemini ONLY for voice TTS (Brain service).
+    // ai.ts never calls Gemini for text on this path.
     // =========================================================
     if (route.path === "fast") {
-      console.log("[ai] Fast path → Gemini direct");
+      // 1. Claude Haiku — primary fast text model
+      const claudeReply = await this.callClaude(text, {
+        maxTokens: 384,
+        model: "claude-haiku-4-5",
+        label: "Claude Haiku (fast)",
+      });
+      if (claudeReply) return claudeReply;
+
+      // 2. GLM-Flash — if Zhipu key is set
+      if (ZHIPU_KEY) {
+        try {
+          const res = await fetch(
+            "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${ZHIPU_KEY}`,
+              },
+              body: JSON.stringify({
+                model: "glm-4-flash",
+                messages: [
+                  { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+                  { role: "user", content: text },
+                ],
+                temperature: 0.8,
+                max_tokens: 512,
+                stream: false,
+              }),
+              signal: AbortSignal.timeout(20_000),
+            },
+          );
+          if (res.ok) {
+            const data = await res.json();
+            const reply = data?.choices?.[0]?.message?.content;
+            if (reply) return reply as string;
+          }
+        } catch (_) {
+          /* fall through */
+        }
+      }
+
+      // 3. Gemini — last resort only (preserve quota for TTS)
+      console.warn(
+        "[ai] Fast path — falling back to Gemini (quota last-resort)",
+      );
       try {
         return await this.callGeminiDirect(text);
-      } catch (err: any) {
-        console.warn(`[ai] Fast path Gemini failed: ${err.message}`);
-        if (ZHIPU_KEY) {
-          // GLM-Flash as fast-path backup (still snappy)
-          try {
-            const res = await fetch(
-              "https://open.bigmodel.cn/api/paas/v4/chat/completions",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${ZHIPU_KEY}`,
-                },
-                body: JSON.stringify({
-                  model: "glm-4-flash",
-                  messages: [
-                    { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
-                    { role: "user", content: text },
-                  ],
-                  temperature: 0.8,
-                  max_tokens: 1024,
-                  stream: false,
-                }),
-                signal: AbortSignal.timeout(20_000),
-              },
-            );
-            if (res.ok) {
-              const data = await res.json();
-              const reply = data?.choices?.[0]?.message?.content;
-              if (reply) return reply as string;
-            }
-          } catch (_) {
-            /* fall through */
-          }
-        }
-        // Anthropic Claude Haiku — last fast-path resort
-        const claudeReply = await this.callClaude(text);
-        if (claudeReply) return claudeReply;
-        return "Yo — the voice channel hit a snag. Give me a sec to recalibrate.";
-      }
+      } catch (_) {}
+      return "Yo — the voice channel hit a snag. Give me a sec to recalibrate.";
     }
 
     // =========================================================
     // SMART PATH — plan / orchestrate / design / 3D / test
-    // GLM-Flash for structured reasoning → Gemini Flash narration.
+    // Claude Sonnet PRIMARY (reasoning quality). Gemini last-resort only.
     // =========================================================
     if (route.path === "smart") {
+      // 1. Claude Haiku with higher token budget — fast enough, good reasoning
+      const claudeSmart = await this.callClaude(text, {
+        maxTokens: 1024,
+        model: "claude-haiku-4-5",
+        label: "Claude Haiku (smart)",
+      });
+      if (claudeSmart) return claudeSmart;
+
+      // 2. GLM-Flash — structured reasoning backup
       if (ZHIPU_KEY) {
         try {
-          console.log("[ai] Smart path → GLM-Flash (planning/reasoning lane)");
+          console.log("[ai] Smart path fallback → GLM-Flash");
           const zhipuRes = await fetch(
             "https://open.bigmodel.cn/api/paas/v4/chat/completions",
             {
@@ -747,33 +773,21 @@ class AIService {
           if (zhipuRes.ok) {
             const data = await zhipuRes.json();
             const reply = data?.choices?.[0]?.message?.content;
-            if (reply) {
-              console.log("[ai] GLM-Flash smart path response received.");
-              return reply as string;
-            }
-          } else {
-            const errText = await zhipuRes
-              .text()
-              .catch(() => `HTTP ${zhipuRes.status}`);
-            console.warn(
-              `[ai] GLM-Flash returned ${zhipuRes.status}: ${errText.slice(0, 100)}`,
-            );
+            if (reply) return reply as string;
           }
         } catch (err: any) {
-          console.warn(
-            `[ai] GLM-Flash smart path failed: ${err.message} — falling back to Gemini`,
-          );
+          console.warn(`[ai] GLM-Flash smart fallback failed: ${err.message}`);
         }
       }
-      // Narration fallback for smart path — Gemini then Claude
+
+      // 3. Gemini — last resort (preserve TTS quota)
+      console.warn(
+        "[ai] Smart path — falling back to Gemini (quota last-resort)",
+      );
       try {
         return await this.callGeminiDirect(text);
-      } catch (err: any) {
-        console.warn(`[ai] Smart path Gemini fallback failed: ${err.message}`);
-        const claudeReply = await this.callClaude(text);
-        if (claudeReply) return claudeReply;
-        return "My planning lane is recalibrating. Stand by — I'll have a structured breakdown for you in a moment.";
-      }
+      } catch (_) {}
+      return "My planning lane is recalibrating. Stand by — I'll have a structured breakdown for you in a moment.";
     }
 
     // =========================================================
@@ -781,18 +795,19 @@ class AIService {
     // Specialist models per intent. Verification only for host mutations.
     // =========================================================
 
-    // Vision lane → GLM-4V-Flash
+    // Vision lane → GLM-4V-Flash → Claude → Gemini last
     if (route.intent === "analyze_visual") {
       const visionResult = await this.callGlmVision(text);
       if (visionResult) return visionResult;
-      // Vision fallback → Gemini then Claude
+      const claudeVision = await this.callClaude(text, {
+        maxTokens: 512,
+        label: "Claude Haiku (vision fallback)",
+      });
+      if (claudeVision) return claudeVision;
       try {
         return await this.callGeminiDirect(text);
-      } catch (_) {
-        const claudeReply = await this.callClaude(text);
-        if (claudeReply) return claudeReply;
-        return "Vision lane is down. Try again with the screenshot attached in the request payload.";
-      }
+      } catch (_) {}
+      return "Vision lane is down. Try again with the screenshot attached in the request payload.";
     }
 
     // Memory lanes → NotebookLM grounded knowledge
@@ -882,10 +897,16 @@ class AIService {
       }
     }
 
-    // Action path fallback — GLM-Flash, then Gemini
+    // Action path fallback — Claude PRIMARY, GLM-Flash secondary, Gemini last-resort
+    const claudeAction = await this.callClaude(text, {
+      maxTokens: 512,
+      label: "Claude Haiku (action fallback)",
+    });
+    if (claudeAction) return claudeAction;
+
     if (ZHIPU_KEY) {
       try {
-        console.log("[ai] Action path fallback → Zhipu AI (GLM-4-Flash)");
+        console.log("[ai] Action path → GLM-Flash (secondary fallback)");
         const zhipuRes = await fetch(
           "https://open.bigmodel.cn/api/paas/v4/chat/completions",
           {
@@ -910,42 +931,29 @@ class AIService {
         if (zhipuRes.ok) {
           const data = await zhipuRes.json();
           const reply = data?.choices?.[0]?.message?.content;
-          if (reply) {
-            console.log("[ai] Zhipu AI action fallback responded.");
-            return reply as string;
-          }
-        } else {
-          const errText = await zhipuRes
-            .text()
-            .catch(() => `HTTP ${zhipuRes.status}`);
-          console.warn(
-            `[ai] Zhipu AI returned ${zhipuRes.status}: ${errText.slice(0, 100)}`,
-          );
+          if (reply) return reply as string;
         }
       } catch (zhipuErr: any) {
         console.warn(`[ai] Zhipu AI unreachable: ${zhipuErr.message}`);
       }
     }
 
-    if (this.localOnlyInference && KEYS.length === 0) {
-      return "Yo, real talk — both the local neural router and the cloud links are offline right now. Run Start-AgentLee.ps1 to bring the stack back up and I'll be right back in.";
-    }
-
-    // Final fallback → Gemini direct with Agent Lee persona
+    // Gemini — absolute last resort (preserve TTS quota)
+    console.warn(
+      "[ai] All primary models exhausted — using Gemini last-resort",
+    );
     try {
-      console.log("[ai] Final fallback → Gemini direct with Agent Lee persona");
       return await this.callGeminiDirect(text);
     } catch (geminiErr: any) {
-      console.error("[ai] Gemini direct also failed:", geminiErr.message);
-      return "Yo, real talk — the neural bridge hit a disruption right now. Both the local brain and the cloud link are offline. Check that the backend stack is running (Run-All.ps1) and peep the logs. I'll be right back on track once the connection locks in.";
+      console.error("[ai] Gemini last-resort also failed:", geminiErr.message);
+      return "Yo, real talk — the neural bridge hit a disruption. Both the local brain and cloud links are offline. Run Start-AgentLee.ps1 and peep the logs.";
     }
   }
 
   public getHealth() {
     return {
-      bridge: this.localOnlyInference
-        ? "Python Neural Router (local-only)"
-        : "Python Neural Router + Gemini Direct Fallback",
+      bridge:
+        "Claude Haiku PRIMARY → GLM-Flash secondary → Gemini text last-resort | Python Neural Router (action/vision)",
       port: this.neuralRouterPort,
       status: "online",
       memory: true,
@@ -955,15 +963,18 @@ class AIService {
       intent_router:
         "active (3-path: fast/smart/action | 14 intent classes → 14 MCP agents)",
       routing_paths: {
-        fast: "converse / speak_voice / translate_language → Gemini direct (no memory, no Neural Router)",
+        fast: "converse / speak_voice / translate_language → Claude Haiku PRIMARY → GLM-Flash → Gemini last-resort",
         smart:
-          "plan_task / orchestrate / design_ui / generate_3d / test_system → GLM-Flash reasoning → Gemini narration",
+          "plan_task / orchestrate / design_ui / generate_3d / test_system → Claude Haiku PRIMARY → GLM-Flash → Gemini last-resort",
         action:
-          "analyze_visual → GLM-4V-Flash | recall/write_memory → NotebookLM | execute_terminal/automate_browser → Neural Router",
+          "analyze_visual → GLM-4V-Flash | recall/write_memory → NotebookLM | execute_terminal/automate_browser → Neural Router | fallback → Claude Haiku",
       },
+      tts_note:
+        "Gemini TTS (voice audio) is reserved for Brain service only — NOT used in text generation paths",
       model_lanes: [
-        "gemini (fast path + smart fallback)",
-        "glm_flash (smart path planning/reasoning)",
+        "claude_haiku (PRIMARY — all fast/smart/action text paths)",
+        "glm_flash (secondary fallback if Zhipu key configured)",
+        "gemini (text last-resort only — quota preserved for TTS)",
         "glm_vision (GLM-4V-Flash for screenshots/image analysis)",
         "notebooklm (grounded memory recall)",
         "qwen_local (terminal/browser execution via Neural Router)",
