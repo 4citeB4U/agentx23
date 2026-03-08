@@ -53,12 +53,12 @@ Write-Host ("  " + ("=" * 54)) -ForegroundColor DarkGray
 Write-Section "CORE SERVICES"
 
 $core = @(
-    @{ Port = 8001; Name = "Backend API";   URL = "http://localhost:8001/health"; Auth = $true  },
-    @{ Port = 8002; Name = "MCP Bridge";    URL = "http://localhost:8002/health"; Auth = $false },
-    @{ Port = 8003; Name = "WebSocket";     URL = "http://localhost:8003";        Auth = $false; WsOnly = $true },
-    @{ Port = 8004; Name = "Neural Router"; URL = "http://localhost:8004/health"; Auth = $false },
-    @{ Port = 8005; Name = "Desktop Agent"; URL = "http://localhost:8005/status"; Auth = $false },
-    @{ Port = 8000; Name = "Frontend UI";   URL = "http://localhost:8000";        Auth = $false }
+    @{ Port = 6001; Name = "Backend API";   URL = "http://localhost:6001/health"; Auth = $true  },
+    @{ Port = 6002; Name = "MCP Bridge";    URL = "http://localhost:6002/health"; Auth = $false },
+    @{ Port = 6003; Name = "WebSocket";     URL = "http://localhost:6003";        Auth = $false; WsOnly = $true },
+    @{ Port = 6004; Name = "Neural Router"; URL = "http://localhost:6004/health"; Auth = $false },
+    @{ Port = 6005; Name = "Desktop Agent"; URL = "http://localhost:6005/status"; Auth = $false },
+    @{ Port = 6000; Name = "Frontend UI";   URL = "http://localhost:6000";        Auth = $false }
 )
 
 $coreOk = 0
@@ -76,10 +76,10 @@ Write-Host ("  $coreOk/$($core.Count) core services healthy") `
     -ForegroundColor $(if ($coreOk -eq $core.Count) { "Green" } else { "Yellow" })
 
 # -- SECTION 2: MCP Bridge + Tools --------------------------------------------
-Write-Section "MCP BRIDGE + TOOLS  (port 8002)"
+Write-Section "MCP BRIDGE + TOOLS  (port 6002)"
 
-$bridgeTcp  = Test-TCP 8002
-$bridgeHttp = Test-HTTP "http://localhost:8002/health" $false
+$bridgeTcp  = Test-TCP 6002
+$bridgeHttp = Test-HTTP "http://localhost:6002/health" $false
 Write-Row "MCP Bridge" $bridgeTcp $bridgeHttp
 
 if (-not $bridgeTcp) {
@@ -115,15 +115,15 @@ $extLabel = if ($extOk) { "[INSTALLED]  InsForge v0.0.8 (local extension)" } `
                         else { "[MISSING]    InsForge extension not found" }
 Write-Host ("  " + $extLabel) -ForegroundColor $(if ($extOk) { "Green" } else { "Red" })
 
-$insApi = Test-HTTP "http://localhost:8001/api/mcp/status" $true 4
+    $insApi = Test-HTTP "http://localhost:6001/api/mcp/status" $true 4
 $insCol = if ($insApi.OK) { "Green" } else { "Yellow" }
 Write-Host ("  [API]  /api/mcp/status  HTTP $($insApi.Code)  " + $insApi.Snippet) -ForegroundColor $insCol
 
 # -- SECTION 4: Neural Router AI Status ---------------------------------------
-Write-Section "NEURAL ROUTER -- AI STATUS  (port 8004)"
+Write-Section "NEURAL ROUTER -- AI STATUS  (port 6004)"
 
 try {
-    $ai = Invoke-RestMethod "http://localhost:8004/ai-status" -TimeoutSec 6
+    $ai = Invoke-RestMethod "http://localhost:6004/ai-status" -TimeoutSec 6
     Write-Host ("  Base model     : " + $ai.base_model)                                     -ForegroundColor White
     $ad = if ($ai.active_adapter -and $ai.active_adapter -ne '') { $ai.active_adapter } else { "none (base weights)" }
     Write-Host ("  Active adapter : " + $ad)                                                 -ForegroundColor White
@@ -134,14 +134,14 @@ try {
     $dnsCol = if ($ai.dns_resolved) { "Green" } else { "Yellow" }
     Write-Host ("  DNS resolved   : " + $ai.dns_resolved)                                    -ForegroundColor $dnsCol
 } catch {
-    Write-Host "  !! /ai-status unreachable -- is server.py running on 8004?" -ForegroundColor Yellow
+    Write-Host "  !! /ai-status unreachable -- is server.py running on 6004?" -ForegroundColor Yellow
 }
 
 # -- SECTION 5: Tunnel --------------------------------------------------------
 Write-Section "TUNNEL STATUS"
 
 try {
-    $t    = Invoke-RestMethod "http://localhost:8001/api/tunnel/status" -Headers $HEADERS -TimeoutSec 5
+    $t    = Invoke-RestMethod "http://localhost:6001/api/tunnel/status" -Headers $HEADERS -TimeoutSec 5
     $tCol = if ($t.running) { "Green" } else { "Red" }
     $tProvider = if ($t.provider) { $t.provider } else { "--" }
     $tUrl     = if ($t.url)      { $t.url }      else { "none" }

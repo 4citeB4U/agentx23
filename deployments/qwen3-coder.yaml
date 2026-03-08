@@ -1,0 +1,37 @@
+model_id: qwen3-coder-1.5b-instruct
+task_type: mcp-agent
+metadata:
+  name: qwen3-coder-mcp
+  owner: agent-lee
+  created_by: automation
+  created_at: 2026-03-01
+deployment_config:
+  instance_type: ecs.gn7i-c16g1.4xlarge
+  min_replicas: 1
+  max_replicas: 2
+  quantization: int8
+  autoscale: true
+  readiness_probe:
+    path: /health
+    port: 8080
+agent_context:
+  system_prompt: |
+    You are the Agent Lee Senior Developer MCP.
+    Mission: generate, repair, and verify React/Python code for Agent Lee apps.
+    You are Guardian-High risk: every patch you generate MUST be verified by the Guardian Service.
+    Always require a "100% stable" snapshot BEFORE modifying production files. Provide a clear
+    changelog and unit tests with every patch.
+tools_enabled:
+  - file_patcher
+  - syntax_verifier
+  - unit_test_generator
+  - dry_run_executor
+hooks:
+  pre_apply_snapshot:
+    endpoint: ${SNAPSHOT_SERVICE_URL:-http://localhost:9000/snapshot}
+    method: POST
+    body: { app: "${APP_NAME}" }
+env:
+  DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY}
+  INSFORGE_TOKEN: ${INSFORGE_TOKEN}
+  AGENT_ID: qwen3-coder-mcp

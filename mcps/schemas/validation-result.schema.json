@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentlee.os/schemas/validation-result.schema.json",
+  "title": "ValidationResult",
+  "description": "Full 5-level acceptance test result for one MCP agent",
+  "type": "object",
+  "required": [
+    "run_id",
+    "agent_id",
+    "tested_at",
+    "levels",
+    "readiness",
+    "confidence_score"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "UUID of this validation run"
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "ID matching agent-registry.json"
+    },
+    "agent_name": { "type": "string" },
+    "tested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tested_by": {
+      "type": "string",
+      "description": "validation-agent-mcp run session ID"
+    },
+    "levels": {
+      "type": "object",
+      "description": "Results for each of the 5 validation levels",
+      "properties": {
+        "level1_service_readiness": {
+          "$ref": "#/definitions/LevelResult",
+          "description": "Service boots, env/config loads, auth works, manifest loads, tool list visible"
+        },
+        "level2_basic_task": {
+          "$ref": "#/definitions/LevelResult",
+          "description": "Simple input succeeds, output shape correct, logs written, no crash"
+        },
+        "level3_complex_task": {
+          "$ref": "#/definitions/LevelResult",
+          "description": "Multi-step execution, fallback, structured output, dependency integration"
+        },
+        "level4_verification": {
+          "$ref": "#/definitions/LevelResult",
+          "description": "Result validated via vision/testsprite/assertions/DB/process checks"
+        },
+        "level5_memory_write": {
+          "$ref": "#/definitions/LevelResult",
+          "description": "Summary written to canonical memory, registry updated"
+        }
+      }
+    },
+    "readiness": {
+      "type": "string",
+      "enum": ["active", "degraded", "failed", "quarantined"],
+      "description": "active=all pass; degraded=L1-L2 pass but L3/L4 partial; failed=L2+ fails; quarantined=security/crash"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Weighted score: L1=10, L2=20, L3=35, L4=25, L5=10"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "retry_count": {
+      "type": "number",
+      "default": 0
+    },
+    "previous_readiness": {
+      "type": ["string", "null"],
+      "description": "Readiness from last run (for delta tracking)"
+    }
+  },
+  "definitions": {
+    "LevelResult": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["passed", "failed", "skipped", "error", "partial"]
+        },
+        "duration_ms": { "type": "number" },
+        "error": { "type": ["string", "null"] },
+        "output": {
+          "description": "Raw output captured during this level (tool result, stdout, etc.)"
+        },
+        "assertion_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "assertion": { "type": "string" },
+              "passed": { "type": "boolean" },
+              "actual": {},
+              "expected": {}
+            }
+          }
+        },
+        "evidence": {
+          "type": "string",
+          "description": "Human-readable explanation of what was verified"
+        }
+      }
+    }
+  }
+}

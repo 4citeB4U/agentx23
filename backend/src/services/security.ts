@@ -85,6 +85,14 @@ export const securityMiddleware = async (
   const isAppsRoute =
     normalizedPath.includes("/apps") ||
     normalizedOriginalUrl.includes("/api/apps");
+  const isTerminalRoute =
+    normalizedPath.includes("/terminal") ||
+    normalizedOriginalUrl.includes("/api/terminal");
+  const isSearchRoute =
+    normalizedPath.includes("/search") ||
+    normalizedOriginalUrl.includes("/api/search");
+  const isVmRoute =
+    normalizedPath.includes("/vm") || normalizedOriginalUrl.includes("/api/vm");
   const isSystemStatusRoute =
     normalizedPath === "/services/system-status" ||
     normalizedOriginalUrl === "/api/services/system-status";
@@ -116,6 +124,9 @@ export const securityMiddleware = async (
   const remoteBrainAllowed = isBrainRoute; // brain diagnostics proxy
   const remotePhoneAllowed = isPhoneRoute; // phone mirror bridge
   const remoteAppsAllowed = isAppsRoute; // deployment dashboard
+  const remoteTerminalAllowed = isTerminalRoute; // host terminal bridge
+  const remoteSearchAllowed = isSearchRoute; // vm search proxy
+  const remoteVmAllowed = isVmRoute; // agent lee vm sandbox
   const remoteStatusAllowed = isSystemStatusRoute && req.method === "GET"; // system-status gated behind handshake
 
   // system-status: requires handshake but NOT device-level crypto (lightweight gate)
@@ -144,7 +155,10 @@ export const securityMiddleware = async (
       remoteAgentsAllowed ||
       remoteBrainAllowed ||
       remotePhoneAllowed ||
+      remoteTerminalAllowed ||
       remoteAppsAllowed ||
+      remoteSearchAllowed ||
+      remoteVmAllowed ||
       remoteStatusAllowed)
   ) {
     const forwardedFor = String(req.headers["x-forwarded-for"] || "")
@@ -231,6 +245,43 @@ export const securityMiddleware = async (
   const signature = req.headers["x-neural-signature"] as string;
   const timestamp = req.headers["x-neural-timestamp"] as string;
   const nonce = req.headers["x-neural-nonce"] as string;
+
+  // Dev bypass: allow unauthenticated local/dev requests when explicitly enabled.
+  // Enable with env `DEV_ALLOW_UNAUTH=true`. This is intentionally conservative
+  // and only permits known local/dev routes (chat, phone, tunnel, fs, runtime).
+  const devAllow =
+    String(process.env.DEV_ALLOW_UNAUTH || "").toLowerCase() === "true";
+  const originHeader = String(req.headers.origin || "");
+  const remoteAddr = req.socket.remoteAddress || "";
+  const bodyHandshake =
+    (req.body && (req.body.handshake || req.body.handshakeKey)) || "";
+  const allowLocalHandshakeByBody =
+    bodyHandshake && bodyHandshake === expectedHandshake;
+
+  if (devAllow) {
+    const isLocalOrigin =
+      originHeader.includes("localhost") || originHeader.includes("127.0.0.1");
+    const isLoopback =
+      remoteAddr === "127.0.0.1" ||
+      remoteAddr === "::1" ||
+      remoteAddr === "localhost";
+    if (isLocalOrigin || isLoopback || allowLocalHandshakeByBody) {
+      if (
+        isChatRoute ||
+        isPhoneRoute ||
+        isTunnelRoute ||
+        isTerminalRoute ||
+        isFsRoute ||
+        isRuntimeRoute
+      ) {
+        console.log(
+          "[security] DEV_ALLOW_UNAUTH enabled; bypassing crypto checks for local/dev request",
+        );
+        lastActivityTimestamp = now;
+        return next();
+      }
+    }
+  }
 
   if (!deviceId || !signature || !timestamp || !nonce) {
     return res.status(401).json({

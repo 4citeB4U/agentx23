@@ -1,39 +1,44 @@
 {
-    "name": "agent-lee-backend",
-    "version": "1.0.0",
-    "description": "Unified backend for Agent Lee Studio",
-    "main": "src/index.ts",
-    "type": "module",
-    "scripts": {
-        "dev": "node scripts/dev.mjs",
-        "build": "tsc",
-        "start": "node dist/index.js"
-    },
-    "dependencies": {
-        "@google/generative-ai": "^0.24.1",
-        "@insforge/sdk": "^1.1.5",
-        "chokidar": "^3.5.3",
-        "cors": "^2.8.5",
-        "dotenv": "^16.4.1",
-        "express": "^4.18.2",
-        "http-proxy-middleware": "^3.0.5",
-        "multer": "^1.4.5-lts.1",
-        "node-pty": "^1.1.0",
-        "screenshot-desktop": "^1.15.3",
-        "ssh2": "^1.17.0",
-        "uuid": "^13.0.0",
-        "ws": "^8.16.0"
-    },
-    "devDependencies": {
-        "@types/cors": "^2.8.17",
-        "@types/express": "^4.17.21",
-        "@types/multer": "^1.4.11",
-        "@types/node": "^20.11.17",
-        "@types/screenshot-desktop": "^1.15.0",
-        "@types/ssh2": "^1.15.5",
-        "@types/uuid": "^10.0.0",
-        "@types/ws": "^8.5.10",
-        "tsx": "^4.7.0",
-        "typescript": "^5.3.3"
-    }
+  "name": "agent-lee-backend",
+  "version": "1.0.0",
+  "description": "Unified backend for Agent Lee Studio",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "chokidar": "^3.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^3.0.5",
+    "multer": "^1.4.5-lts.1",
+    "multicast-dns": "^7.2.5",
+    "node-pty": "^1.1.0",
+    "node-ssdp": "^4.0.1",
+    "screenshot-desktop": "^1.15.3",
+    "ssh2": "^1.17.0",
+    "uuid": "^13.0.0",
+    "vscode-mcp-tooling": "file:..",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@insforge/sdk": "^1.1.6-dev.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.11.17",
+    "@types/screenshot-desktop": "^1.15.0",
+    "@types/ssh2": "^1.15.5",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.10",
+    "insforge": "^1.4.8",
+    "puppeteer": "^24.37.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
 }

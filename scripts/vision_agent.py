@@ -39,7 +39,7 @@ except ImportError:
 logging.basicConfig(level=logging.INFO, format="[vision] %(message)s")
 log = logging.getLogger("vision_agent")
 
-PORT = int(os.getenv("DESKTOP_AGENT_PORT", 8005))
+PORT = int(os.getenv("DESKTOP_AGENT_PORT", 6005))
 
 BLIP_MODEL      = "Salesforce/blip-image-captioning-base"
 CLASSIFY_MODEL  = "microsoft/resnet-50"

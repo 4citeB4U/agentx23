@@ -49,7 +49,7 @@ export default defineConfig({
   reporter: [["html", { outputFolder: "tests/e2e/reports" }], ["list"]],
 
   use: {
-    baseURL: process.env.AGENT_LEE_URL || "http://localhost:6001",
+    baseURL: process.env.AGENT_LEE_URL || "http://localhost:7001",
     extraHTTPHeaders: {
       "x-neural-handshake":
         process.env.NEURAL_HANDSHAKE ||
@@ -74,8 +74,8 @@ export default defineConfig({
 
   webServer: {
     command: "node backend/dist/index.js",
-    url: "http://localhost:6001",
-    env: { PORT: "6001", WS_PORT: "6003" },
+    url: "http://localhost:7001",
+    env: { PORT: "7001", WS_PORT: "7003" },
     reuseExistingServer: !process.env.CI,
     timeout: 15_000,
   },

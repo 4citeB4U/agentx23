@@ -1,0 +1,127 @@
+id: testsprite-agent-mcp
+name: TestSpriteAgent
+version: "1.0.0"
+mission: >
+  Orchestrate automated quality assurance: preflight health checks,
+  unit tests, contract tests, and E2E Playwright browser tests.
+  Summarizes failures and routes them to the appropriate agent for repair.
+
+layer: specialty
+model_lane: qwen_local
+fallback_model_lane: glm_flash
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: run tests, read test results, generate test summaries.
+  MAY NOT: edit production source files directly, deploy to production,
+  delete test artifacts.
+
+memory_scope: mission
+
+tools:
+  - name: run_preflight
+    description: Check that all services are healthy before running tests.
+    input_schema:
+      type: object
+      properties:
+        services: { type: array, items: { type: string } }
+
+  - name: run_unit_tests
+    description: Execute unit tests with Vitest and return results.
+    input_schema:
+      type: object
+      properties:
+        pattern: { type: string, description: "Test file glob pattern" }
+        coverage: { type: boolean, default: false }
+
+  - name: run_contract_tests
+    description: Validate API contracts against their JSON schemas.
+    input_schema:
+      type: object
+      properties:
+        endpoints: { type: array, items: { type: string } }
+
+  - name: run_e2e_tests
+    description: Run E2E browser tests via Playwright.
+    input_schema:
+      type: object
+      properties:
+        spec_pattern: { type: string }
+        headed: { type: boolean, default: false }
+
+  - name: summarize_failures
+    description: Produce a concise failure report from test output.
+    input_schema:
+      type: object
+      required: [test_output]
+      properties:
+        test_output: { type: string }
+        format: { type: string, enum: [markdown, json], default: markdown }
+
+health_check: run_preflight
+
+fallback_behavior: >
+  If TestSprite MCP server is offline, run tests directly via
+  desktop-commander-agent-mcp (run_terminal with npm test).
+
+basic_task:
+  name: run_single_smoke_test
+  goal: >-
+    Execute the preflight smoke test suite and return a structured pass/fail result.
+    Proves: vitest invocation, result parsing, output structuring.
+  tool: run_preflight
+  input:
+    pattern: "smoke"
+  expected_output_shape:
+    type: object
+    required: [passed, failed, total]
+    properties:
+      passed: { type: number }
+      failed: { type: number }
+      total: { type: number }
+  success_criteria:
+    - "total > 0"
+    - "passed + failed = total"
+    - "no shell crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: config
+  logging_requirements: ["test_runner", "pattern", "pass_count", "fail_count"]
+  timeout_ms: 30000
+
+complex_task:
+  name: grouped_suite_classify_failures
+  goal: >-
+    Run a full grouped test suite (unit + contract), identify failures,
+    classify each by severity (critical/warning/info), and recommend remediation.
+  tool: run_unit_tests
+  input:
+    pattern: "all"
+  expected_output_shape:
+    type: object
+    required: [passed, failed, failures]
+    properties:
+      passed: { type: number }
+      failed: { type: number }
+      failures:
+        type: array
+        items:
+          type: object
+          required: [test_name, severity]
+  success_criteria:
+    - "summary includes pass and fail counts"
+    - "each failure has severity classification"
+    - "at least one remediation suggestion provided"
+    - "no shell crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 1
+    backoff_ms: 2000
+    failure_class: logic
+  logging_requirements:
+    ["suite", "total", "failure_classifications", "remediation_count"]
+  timeout_ms: 60000

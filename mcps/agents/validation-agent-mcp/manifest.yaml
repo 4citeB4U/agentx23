@@ -1,0 +1,220 @@
+id: validation-agent-mcp
+name: ValidationAgent
+version: "1.0.0"
+mission: >
+  Discover all registered MCP agents, run the mandatory 5-level acceptance
+  test for each (health check → basic task → complex task → verification →
+  memory write), and update the agent registry with readiness status.
+  No agent is considered production-ready without passing all 5 levels.
+
+layer: backbone
+model_lane: glm_flash
+fallback_model_lane: qwen_local
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: invoke tools on other agents, read manifests, write ValidationResult
+  summaries to memory, update agent status in registry.
+  MAY NOT: deploy or restart agents, modify host files, alter manifests.
+
+memory_scope: canonical
+
+tools:
+  - name: discover_agents
+    description: >
+      Load the agent-registry.json and return all registered agent IDs,
+      their current status, and their manifest paths.
+    input_schema:
+      type: object
+      properties:
+        filter_status:
+          type: string
+          enum: [all, unknown, active, degraded, failed, quarantined]
+          default: all
+
+  - name: run_level1_service_check
+    description: >
+      Verify a single agent: service boots, env/config loads, auth works,
+      manifest loads, tool list is visible.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+
+  - name: run_basic_task
+    description: >
+      Execute the agent's defined basic_task and capture pass/fail.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+        override_input: { type: object }
+
+  - name: run_complex_task
+    description: >
+      Execute the agent's defined complex_task and capture pass/fail.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+        override_input: { type: object }
+
+  - name: verify_result
+    description: >
+      Verify the output of a task using the agent's declared verification_method.
+      Dispatches to vision-agent-mcp, testsprite-agent-mcp, or assertion logic.
+    input_schema:
+      type: object
+      required: [agent_id, task_name, output, verification_method]
+      properties:
+        agent_id: { type: string }
+        task_name: { type: string }
+        output: { type: object }
+        verification_method:
+          type: string
+          enum:
+            [assertion, vision, db_check, process_check, testsprite, log_check]
+        success_criteria:
+          type: array
+          items: { type: string }
+
+  - name: write_validation_summary
+    description: >
+      Write the full ValidationResult to canonical memory via memory-agent-mcp
+      and update agent-registry.json with the new readiness status.
+    input_schema:
+      type: object
+      required: [agent_id, validation_result]
+      properties:
+        agent_id: { type: string }
+        validation_result:
+          type: object
+          description: ValidationResult conforming to validation-result.schema.json
+
+  - name: run_full_validation
+    description: >
+      Run all 5 levels for a single agent. Orchestrates the full pipeline:
+      L1 → L2 → L3 → L4 → L5. Returns a complete ValidationResult.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+        skip_levels:
+          type: array
+          items:
+            type: string
+            enum: [level1, level2, level3, level4, level5]
+          default: []
+
+  - name: run_system_validation
+    description: >
+      Run full 5-level validation for ALL registered agents and produce a
+      system-wide readiness report.
+    input_schema:
+      type: object
+      properties:
+        filter_status:
+          type: string
+          enum: [all, unknown, failed, degraded]
+          default: all
+        parallel:
+          type: boolean
+          default: false
+
+health_check: discover_agents
+
+fallback_behavior: >
+  If an individual agent fails L1 (startup), mark as 'failed' and continue
+  to the next agent. If memory-agent-mcp is unavailable, write validation
+  results to data/validation_cache.jsonl as fallback.
+
+escalation_rules:
+  - "If an agent crashes during L1 (process dies), mark as quarantined"
+  - "If all backbone agents fail, escalate to agent-lee-core immediately"
+  - "If memory write at L5 fails, log to data/validation_cache.jsonl and alert"
+
+basic_task:
+  name: discover_and_list_all_agents
+  goal: >-
+    Load agent-registry.json and return all registered agent IDs and statuses.
+    Proves: registry file readable, JSON valid, discovery tool works.
+  tool: discover_agents
+  input:
+    filter_status: all
+  expected_output_shape:
+    type: object
+    required: [agents, count]
+    properties:
+      agents:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required: [id, status]
+      count: { type: number, minimum: 1 }
+  success_criteria:
+    - "agents array has at least 10 entries"
+    - "each entry has id and status fields"
+    - "no exception thrown reading registry"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: config
+  logging_requirements: ["agent_count", "registry_path"]
+  timeout_ms: 10000
+
+complex_task:
+  name: full_validation_single_agent
+  goal: >-
+    Run all 5 validation levels for planner-agent-mcp, produce a complete
+    ValidationResult, update the registry, and write the summary to memory.
+  tool: run_full_validation
+  input:
+    agent_id: planner-agent-mcp
+    skip_levels: []
+  expected_output_shape:
+    type: object
+    required: [agent_id, readiness, confidence_score, levels]
+    properties:
+      agent_id: { type: string }
+      readiness:
+        type: string
+        enum: [active, degraded, failed, quarantined]
+      confidence_score: { type: number, minimum: 0, maximum: 100 }
+      levels:
+        type: object
+        required:
+          [
+            level1_service_readiness,
+            level2_basic_task,
+            level3_complex_task,
+            level4_verification,
+            level5_memory_write,
+          ]
+  success_criteria:
+    - "all 5 level objects present"
+    - "readiness is a valid enum value"
+    - "confidence_score >= 0"
+    - "registry updated with new readiness"
+    - "L5 write confirmed"
+  verification_method: db_check
+  retry_policy:
+    max_attempts: 1
+    backoff_ms: 2000
+    failure_class: logic
+  logging_requirements:
+    [
+      "agent_id",
+      "readiness",
+      "confidence_score",
+      "levels_passed",
+      "memory_write_confirmed",
+    ]
+  timeout_ms: 120000

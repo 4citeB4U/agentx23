@@ -2,9 +2,9 @@
 ═══════════════════════════════════════════════
               BUTTON AUDIT REPORT               
 ═══════════════════════════════════════════════
-  ✅ PASS:   13
+  ✅ PASS:   12
   ❌ FAIL:   0
-  ⚠️  SKIP:  4
+  ⚠️  SKIP:  5
 ───────────────────────────────────────────────
   ✅ PASS  App loads
   ✅ PASS  COMMS tab loads
@@ -17,7 +17,7 @@
   ⚠️  SKIP  CODE view toggle button
   ⚠️  SKIP  Save button
          ↳ save button not found
-  ✅ PASS  Deploy/Run button
+  ⚠️  SKIP  Deploy/Run button
   ⚠️  SKIP  Accessibility/Settings drawer
   ✅ PASS  Nav: Home tab
   ✅ PASS  Nav: Remote tab

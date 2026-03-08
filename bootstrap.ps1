@@ -34,8 +34,19 @@ if (-not (Test-Path $venv)) {
     Write-Host "  Creating venv..." -ForegroundColor Yellow
     python -m venv "$ROOT\.venv"
 }
-& $venv -m pip install -q requests python-dotenv edge-tts fastapi uvicorn
-Write-Host "  ✅  Python deps ready" -ForegroundColor Green
+& $venv -m pip install -q requests python-dotenv edge-tts fastapi uvicorn numpy scipy torch || {
+    Write-Host "  ⚠️  Some Python packages failed to install automatically. Please run the following inside the venv manually:" -ForegroundColor Yellow
+    Write-Host "    & $venv -m pip install requests python-dotenv edge-tts fastapi uvicorn numpy scipy torch" -ForegroundColor Yellow
+}
+Write-Host "  ✅  Python deps requested (edge-tts, fastapi, uvicorn, numpy, scipy, torch)" -ForegroundColor Green
+
+# Ensure ffmpeg is available on PATH — required for pitch/rate post-processing
+if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
+    Write-Host "  ⚠️  'ffmpeg' not found on PATH. Install FFmpeg and add to PATH for audio post-processing." -ForegroundColor Yellow
+    Write-Host "        https://ffmpeg.org/download.html" -ForegroundColor Yellow
+} else {
+    Write-Host "  ✅  ffmpeg detected on PATH" -ForegroundColor Green
+}
 
 # ── 4. Start backend (PM2 or direct) ──────────────────────────────────────
 Write-Host "  [4/6] Starting backend on :8001..." -ForegroundColor Yellow

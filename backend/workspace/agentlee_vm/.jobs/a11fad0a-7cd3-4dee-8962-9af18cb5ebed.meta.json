@@ -1,0 +1,1 @@
+{"id":"a11fad0a-7cd3-4dee-8962-9af18cb5ebed","cmd":"echo Hello from LEE-VM-01 && echo Policy: VM-FIRST && echo All tasks sandbox here first","cwd":"C:\\Tools\\Portable-VSCode-MCP-Kit\\backend\\workspace\\agentlee_vm\\home\\agent_lee","status":"done","started":"2026-03-06T21:02:22.145Z","exitCode":0,"ended":"2026-03-06T21:02:22.170Z"}

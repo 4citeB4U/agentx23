@@ -1,0 +1,171 @@
+id: health-agent-mcp
+name: HealthAgent
+version: "1.0.0"
+mission: >
+  Monitor the availability and response health of all Agent Lee OS services:
+  model API endpoints, MCP agent processes, database connections, and
+  Cerebral VM connectivity. Produce structured health reports and surface
+  root-cause diagnostics for degraded dependencies.
+
+layer: backbone
+model_lane: none
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: make read-only HTTP pings, read process lists, query DB connection
+  status, inspect agent registry.
+  MAY NOT: restart services, modify configs, write to canonical DB.
+
+memory_scope: session
+
+tools:
+  - name: ping_service
+    description: >
+      Ping a single service URL or agent ID and return latency + HTTP/process
+      status. Timeout is 10s by default.
+    input_schema:
+      type: object
+      required: [target]
+      properties:
+        target:
+          type: string
+          description: URL (e.g. http://localhost:6001/health) or agent ID from registry
+        timeout_ms:
+          type: number
+          default: 10000
+
+  - name: check_model_lane
+    description: >
+      Test a model lane endpoint (GLM-Flash, Gemini, NotebookLM, Qwen/Ollama)
+      by sending a minimal inference probe. Report latency and availability.
+    input_schema:
+      type: object
+      required: [model_lane]
+      properties:
+        model_lane:
+          type: string
+          enum:
+            [
+              glm_flash,
+              gemini,
+              notebooklm,
+              qwen_local,
+              glm_vision,
+              qwen_3d,
+              qwen_math,
+            ]
+
+  - name: check_db_connection
+    description: >
+      Verify Vercel Postgres and/or InsForge connectivity with a lightweight
+      query. Returns connection status and latency.
+    input_schema:
+      type: object
+      properties:
+        target:
+          type: string
+          enum: [vercel_postgres, insforge, local_cache]
+          default: vercel_postgres
+
+  - name: check_cerebral_vm
+    description: >
+      Verify that the Cerebral PC is reachable and the Desktop Commander
+      agent can respond. Returns system resource snapshot (CPU, RAM, disk).
+    input_schema:
+      type: object
+      properties:
+        include_resources:
+          type: boolean
+          default: true
+
+  - name: sweep_all_services
+    description: >
+      Full multi-service diagnostic sweep. Checks all model lanes, all agent
+      processes, DB, and Cerebral. Identifies degraded dependencies and
+      suggests probable root cause for each failure.
+    input_schema:
+      type: object
+      properties:
+        include_model_lanes:
+          type: boolean
+          default: true
+        include_agents:
+          type: boolean
+          default: true
+        include_db:
+          type: boolean
+          default: true
+
+health_check: ping_service
+
+fallback_behavior: >
+  HealthAgent itself has no model dependencies. If a service is unreachable,
+  mark it 'unreachable' and continue checking all other services. Always
+  returns a partial result even if some checks fail.
+
+escalation_rules:
+  - "If all model lanes are down, immediately escalate to agent-lee-core"
+  - "If Cerbral VM is unreachable, disable desktop-commander and playwright routes"
+  - "If DB is down, disable insforge and memory write paths"
+
+basic_task:
+  name: ping_backend_health
+  goal: >-
+    Ping the backend /api/health endpoint and confirm it responds with
+    status 200 and at least one service entry.
+  tool: ping_service
+  input:
+    target: "http://localhost:6001/api/health"
+    timeout_ms: 5000
+  expected_output_shape:
+    type: object
+    required: [status, latency_ms]
+    properties:
+      status: { type: string, enum: [ok, timeout, error] }
+      latency_ms: { type: number }
+  success_criteria:
+    - "status=ok"
+    - "latency_ms < 5000"
+    - "no crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 3
+    backoff_ms: 1000
+    failure_class: transient
+  logging_requirements: ["target", "status", "latency_ms"]
+  timeout_ms: 10000
+
+complex_task:
+  name: full_diagnostic_sweep
+  goal: >-
+    Perform a multi-service diagnostic sweep. Identify degraded dependencies,
+    classify each failure (transient/config/auth/gone), and suggest probable
+    root cause for each.
+  tool: sweep_all_services
+  input:
+    include_model_lanes: true
+    include_agents: true
+    include_db: true
+  expected_output_shape:
+    type: object
+    required: [services, degraded_count, healthy_count, root_cause_analysis]
+    properties:
+      services: { type: array, minItems: 3 }
+      degraded_count: { type: number }
+      healthy_count: { type: number }
+      root_cause_analysis: { type: array }
+  success_criteria:
+    - "services array has at least 3 entries"
+    - "each service has status and latency_ms"
+    - "degraded_count + healthy_count = total services checked"
+    - "root_cause_analysis entry for every degraded service"
+    - "no crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 1
+    backoff_ms: 2000
+    failure_class: transient
+  logging_requirements: ["service_count", "degraded_count", "root_causes"]
+  timeout_ms: 60000

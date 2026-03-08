@@ -1,3 +1,9 @@
+# LEEWAY HEADER BLOCK
+# File: Smoke-Test.ps1
+# Purpose: Agent Lee OS smoke test script
+# Security: LEEWAY-CORE-2026 compliant
+# Performance: Optimized for sovereign agentic smoke testing
+# Discovery: Part of Agent Lee OS test pipeline
 # =====================================================================
 # LEEWAY_HEADER
 # TAG: TOOLS.E2E.SMOKETEST.MAIN
@@ -10,10 +16,10 @@
 $ErrorActionPreference = "SilentlyContinue"
 
 $ROOT  = "C:\Tools\Portable-VSCode-MCP-Kit"
-$BRAIN = "http://localhost:8004"
-$BACK  = "http://localhost:8001"
-$MCP   = "http://localhost:8002"
-$DA    = "http://localhost:8005"
+$BRAIN = "http://localhost:6004"
+$BACK  = "http://localhost:6001"
+$MCP   = "http://localhost:6002"
+$DA    = "http://localhost:6005"
 
 # Read handshake from .env.local
 $HANDSHAKE = ""
@@ -73,12 +79,12 @@ Write-Host "╚═════════════════════�
 # ── § 0 · Port Health ─────────────────────────────────────────────────────
 Write-Host "`n[§0] PORT HEALTH" -ForegroundColor Cyan
 $PORTS = @(
-    @{port=8000;name="Frontend UI"},
-    @{port=8001;name="Backend API"},
-    @{port=8002;name="MCP Bridge"},
-    @{port=8003;name="WS Bridge"},
-    @{port=8004;name="Brain Router"},
-    @{port=8005;name="Desktop Agent"}
+    @{port=6000;name="Frontend UI"},
+    @{port=6001;name="Backend API"},
+    @{port=6002;name="MCP Bridge"},
+    @{port=6003;name="WS Bridge"},
+    @{port=6004;name="Brain Router"},
+    @{port=6005;name="Desktop Agent"}
 )
 $portFail = @()
 foreach ($svc in $PORTS) {

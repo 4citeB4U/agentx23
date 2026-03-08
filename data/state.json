@@ -1,0 +1,228 @@
+{
+  "messageHistory": [
+    {
+      "id": "97cae4b1-205a-43ef-a34b-01f660def6fb",
+      "source": "web",
+      "role": "user",
+      "text": "Yo Agent Lee, confirm you are online and reply in one short line.",
+      "timestamp": "2026-03-04T09:53:04.807Z"
+    },
+    {
+      "id": "d6603ad8-0202-4ff1-ab0b-2161f6139e6b",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — the neural bridge hit a disruption right now. Both the local brain and the cloud link are offline. Check that the backend stack is running (Run-All.ps1) and peep the logs. I'll be right back on track once the connection locks in.",
+      "timestamp": "2026-03-04T09:53:05.452Z"
+    },
+    {
+      "id": "telegram-659228596",
+      "source": "telegram",
+      "role": "user",
+      "text": "HELLO",
+      "timestamp": "2026-03-04T09:53:12.169Z"
+    },
+    {
+      "id": "4e9fd42b-1847-4fc7-a690-8a2a69911daf",
+      "source": "telegram",
+      "role": "model",
+      "text": "Yo, real talk — the neural bridge hit a disruption right now. Both the local brain and the cloud link are offline. Check that the backend stack is running (Run-All.ps1) and peep the logs. I'll be right back on track once the connection locks in.",
+      "timestamp": "2026-03-04T09:53:12.409Z"
+    },
+    {
+      "id": "b2ef406e-85d0-4340-ac0e-39923b4cb811",
+      "source": "web",
+      "role": "user",
+      "text": "Agent Lee, give me a short confirmation that your brain router is connected on 6004.",
+      "timestamp": "2026-03-04T09:54:12.267Z"
+    },
+    {
+      "id": "c943a222-f149-4313-910c-6213315ce3bd",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T09:54:17.505Z"
+    },
+    {
+      "id": "1cd7a7ee-db8a-4c52-8859-e4b88f54d975",
+      "source": "web",
+      "role": "user",
+      "text": "status ping",
+      "timestamp": "2026-03-04T11:13:13.670Z"
+    },
+    {
+      "id": "c179903d-1a39-40d4-b731-0dfb12b13a6b",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T11:13:18.804Z"
+    },
+    {
+      "id": "9e22ad5d-c417-4eab-b241-cf6711accfb5",
+      "source": "web",
+      "role": "user",
+      "text": "Say: Agent Lee online",
+      "timestamp": "2026-03-04T12:12:35.800Z"
+    },
+    {
+      "id": "3dfc2f38-bd10-478a-91cb-a2279bd564a1",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T12:12:55.470Z"
+    },
+    {
+      "id": "8b34a71c-a4c4-4650-a387-89f1602ba011",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T12:13:24.996Z"
+    },
+    {
+      "id": "10d27642-27a2-4e3d-bc96-b14c63c8e2a6",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T12:13:35.065Z"
+    },
+    {
+      "id": "40ffba4a-65d1-45a0-8ab5-a2734713eacf",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T12:32:07.351Z"
+    },
+    {
+      "id": "aa935fdf-b277-4026-9f67-819c4362aa45",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T12:32:15.831Z"
+    },
+    {
+      "id": "128e1224-7765-4eed-be32-c70cc14ac438",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T12:35:36.704Z"
+    },
+    {
+      "id": "0faa6542-c427-4ac8-b1d5-a46f73974112",
+      "source": "web",
+      "role": "model",
+      "text": "I'm having trouble connecting to my inference engine right now. Try again in a moment.",
+      "timestamp": "2026-03-04T12:35:47.868Z"
+    },
+    {
+      "id": "9a211ec3-f0f2-4b5d-93ba-65dd5bb48f22",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee, online and ready.",
+      "timestamp": "2026-03-04T13:42:20.658Z"
+    },
+    {
+      "id": "9a9afb7b-db1f-494b-b8ec-719060a3f627",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T13:42:20.938Z"
+    },
+    {
+      "id": "bc7ca009-b3c8-4a3c-b39d-1554ab89bce5",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T13:43:09.040Z"
+    },
+    {
+      "id": "488d69d5-7c3a-4d82-9a0d-2eb9a6ddc35f",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T13:43:09.096Z"
+    },
+    {
+      "id": "249068dc-b7f3-409c-980e-a7edc05f57db",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T13:44:20.642Z"
+    },
+    {
+      "id": "6604cfc7-07cd-4278-bb75-d162126f0aaa",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T13:44:50.751Z"
+    },
+    {
+      "id": "19c14f9f-f33c-48b1-97dc-6406cdaf5d19",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T13:47:27.794Z"
+    },
+    {
+      "id": "6b0d10f4-ea69-4839-b252-94d97af61f15",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T13:47:57.889Z"
+    },
+    {
+      "id": "e46ec17a-cb78-4600-b100-f60463744e75",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T14:03:55.618Z"
+    },
+    {
+      "id": "024c42ba-1d15-4ef9-b0e4-8bd3b23eb212",
+      "source": "web",
+      "role": "model",
+      "text": "Agent Lee is currently in the process of unlocking the neural router and starting the local inference stack, but there may be an issue with the connection. Please try again later.",
+      "timestamp": "2026-03-04T14:04:57.928Z"
+    },
+    {
+      "id": "a2c3cd14-0373-4c35-8815-99d6afbbcf5f",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T21:04:28.266Z"
+    },
+    {
+      "id": "98adf031-a554-4eea-a77f-b94baa828cc6",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T21:04:28.372Z"
+    },
+    {
+      "id": "0cb614d8-e4b3-4c54-b3bd-7398a7264254",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T21:26:45.172Z"
+    },
+    {
+      "id": "8899f266-1045-4395-94d8-f79956a1febf",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T21:26:45.250Z"
+    },
+    {
+      "id": "75f174ba-4a88-4e6c-8e3d-7d72b687d5d7",
+      "source": "web",
+      "role": "user",
+      "text": "Say exactly: I am Agent Lee.",
+      "timestamp": "2026-03-04T21:58:36.220Z"
+    },
+    {
+      "id": "fce4d0e5-96c3-46d9-b1aa-cdeac2781f3d",
+      "source": "web",
+      "role": "model",
+      "text": "Yo, real talk — local inference is locked right now and the neural router isn’t reachable. Start the local GGUF stack and I’ll snap back in.",
+      "timestamp": "2026-03-04T21:58:36.295Z"
+    }
+  ]
+}

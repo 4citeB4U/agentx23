@@ -1,0 +1,545 @@
+﻿C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R4ML4I7\agentlee2912\gradlew.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R4ML4I7\venv\Scripts\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R4ML4I7\venv\Scripts\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R5OQYNK\Lib\venv\scripts\nt\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R5OQYNK\Lib\venv\scripts\nt\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$REXC0H6\venv\Lib\site-packages\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$REXC0H6\venv\Scripts\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$REXC0H6\venv\Scripts\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RLMTBOM.14-64\Lib\ctypes\macholib\fetch_macholib.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RLMTBOM.14-64\Lib\idlelib\idle.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RLMTBOM.14-64\Lib\venv\scripts\nt\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RLMTBOM.14-64\Lib\venv\scripts\nt\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\android\gradlew.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RQ6APZ3\Scripts\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RQ6APZ3\Scripts\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RSZKMRL\Lib\ctypes\macholib\fetch_macholib.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RSZKMRL\Lib\idlelib\idle.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RSZKMRL\Lib\venv\scripts\nt\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RSZKMRL\Lib\venv\scripts\nt\deactivate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RU62NGT.leeway\Scripts\activate.bat
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RU62NGT.leeway\Scripts\deactivate.bat
+C:\Cerebral\.venv\Scripts\activate.bat
+C:\Cerebral\.venv\Scripts\deactivate.bat
+C:\Cerebral\start_cerebral.bat
+C:\Cerebral_backup\.venv\Scripts\activate.bat
+C:\Cerebral_backup\.venv\Scripts\deactivate.bat
+C:\Cerebral_backup\start_cerebral.bat
+C:\Cerebral-os\.venv\Scripts\activate.bat
+C:\Cerebral-os\.venv\Scripts\deactivate.bat
+C:\Cerebral-os\start_cerebral.bat
+C:\M7 Ultra  Drivers\03_AMD_Audio_6.0 9621 1\InstallPackage.bat
+C:\Program Files (x86)\Google\Cloud SDK\cloud_env.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\install.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\bundledpython\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\bundledpython\Lib\venv\scripts\nt\activate.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\bundledpython\Lib\venv\scripts\nt\deactivate.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\chardet\docs\make.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\charset_normalizer\docs\make.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\crcmod\docs\source\make.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\pyparsing\docs\make_sphinx_docs.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\requests\docs\make.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\rsa\doc\make.bat
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\gsutil\third_party\urllib3\docs\make.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Squish4RunTestCase.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\SquishRunTestCase.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\LaunchDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\dotnet.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\msbuild.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\parse_cmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\vsdevcmd_end.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\vsdevcmd_start.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\core\winsdk.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\cmake.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\devinit.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\netfxsdk.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\roslyn.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\team_explorer.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\testwindow.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\vcvars.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\vsdevcmd\ext\vcvars\vcvars140.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsMSBuildCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars32.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars64.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsamd64_x86.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsx86_amd64.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\LaunchDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\dotnet.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\msbuild.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\parse_cmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\vsdevcmd_end.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\vsdevcmd_start.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\core\winsdk.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\codecoverage.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\ConnectionManagerExe.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\diaghub.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\netfxsdk.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\roslyn.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\team_explorer.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\testwindow.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\vcvars.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\vsdevcmd\ext\vcvars\vcvars140.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsMSBuildCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars32.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsamd64_x86.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsx86_amd64.bat
+C:\Program Files (x86)\Microsoft\Edge\Application\145.0.3800.82\show_third_party_software_licenses.bat
+C:\Program Files (x86)\Microsoft\EdgeCore\145.0.3800.82\show_third_party_software_licenses.bat
+C:\Program Files (x86)\Microsoft\EdgeCore\Optimized\show_third_party_software_licenses.bat
+C:\Program Files (x86)\Microsoft\EdgeWebView\Application\145.0.3800.82\show_third_party_software_licenses.bat
+C:\Program Files (x86)\WindowsPowerShell\Modules\Pester\3.4.0\bin\Pester.bat
+C:\Program Files (x86)\WindowsPowerShell\Modules\Pester\3.4.0\Build.bat
+C:\Program Files\Android\Android Studio\bin\format.bat
+C:\Program Files\Android\Android Studio\bin\game-tools.bat
+C:\Program Files\Android\Android Studio\bin\inspect.bat
+C:\Program Files\Android\Android Studio\bin\ltedit.bat
+C:\Program Files\Android\Android Studio\bin\profiler.bat
+C:\Program Files\Android\Android Studio\bin\studio.bat
+C:\Program Files\Android\Android Studio\bin\studio_safe.bat
+C:\Program Files\Android\Android Studio\plugins\android-ndk\resources\lldb\lib\ctypes\macholib\fetch_macholib.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc.ide\bin\kapt.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc.ide\bin\kotlin.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc.ide\bin\kotlinc.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc.ide\bin\kotlinc-js.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc.ide\bin\kotlinc-jvm.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc\bin\kapt.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc\bin\kotlin.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc\bin\kotlinc.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc\bin\kotlinc-js.bat
+C:\Program Files\Android\Android Studio\plugins\Kotlin\kotlinc\bin\kotlinc-jvm.bat
+C:\Program Files\Git\usr\share\vim\vim91\macros\less.bat
+C:\Program Files\Intel\SUR\QUEENCREEK\x64\installer.bat
+C:\Program Files\Intel\SUR\QUEENCREEK\x64\task.bat
+C:\Program Files\livekitserver\start-server.bat
+C:\Program Files\LM Studio\resources\app\.webpack\bin\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Program Files\LM Studio\resources\app\.webpack\bin\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\idlelib\idle.bat
+C:\Program Files\LM Studio\resources\app\.webpack\bin\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\venv\scripts\nt\activate.bat
+C:\Program Files\LM Studio\resources\app\.webpack\bin\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\venv\scripts\nt\deactivate.bat
+C:\Program Files\Microsoft OneDrive\26.026.0209.0004\CollectSyncLogs.bat
+C:\Program Files\Microsoft SDKs\Azure\CLI2\Scripts\az.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\LaunchDevCmd.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\dotnet.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\msbuild.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\parse_cmd.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_end.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_start.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\core\winsdk.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\ext\diaghub.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\ext\netfxsdk.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\ext\vcvars.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\vsdevcmd\ext\vcvars\vcvars140.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsMSBuildCmd.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsamd64_arm64.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsamd64_x86.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsx86_amd64.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsx86_arm64.bat
+C:\Program Files\node-v22.17.1-win-x64\install_tools.bat
+C:\Program Files\node-v22.17.1-win-x64\node_modules\npm\node_modules\node-gyp\gyp\gyp.bat
+C:\Program Files\node-v22.17.1-win-x64\nodevars.bat
+C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\bin\Pester.bat
+C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Build.bat
+C:\Tools\Portable-VSCode-MCP-Kit.worktrees\copilot-worktree-2026-03-01T22-19-29\start_tunnel.bat
+C:\Tools\Portable-VSCode-MCP-Kit.worktrees\copilot-worktree-2026-03-01T22-20-08\start_tunnel.bat
+C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Tools\Portable-VSCode-MCP-Kit\.venv\Scripts\activate.bat
+C:\Tools\Portable-VSCode-MCP-Kit\.venv\Scripts\deactivate.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\node-pty\deps\winpty\ship\build-pty4j-libpty.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\node-pty\deps\winpty\src\shared\GetCommitHash.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\node-pty\deps\winpty\src\shared\UpdateGenVersion.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\node-pty\deps\winpty\vcbuild.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\screenshot-desktop\lib\win32\screenCapture_1.3.2.bat
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\ssh2\util\build_pagent.bat
+C:\Tools\Portable-VSCode-MCP-Kit\start_tunnel.bat
+C:\Users\Agent Lee\.antigravity\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Users\Agent Lee\.antigravity\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts\debugpy.bat
+C:\Users\Agent Lee\.antigravity\extensions\redhat.java-1.50.0-win32-x64\server\bin\jdtls.bat
+C:\Users\Agent Lee\.antigravity\extensions\vscjava.vscode-gradle-3.17.2-universal\lib\gradle-server.bat
+C:\Users\Agent Lee\.antigravity\extensions\vscjava.vscode-java-debug-0.58.5-universal\bundled\scripts\noConfigScripts\debugjava.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\onig_sys-69.9.1\oniguruma\make_win.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\onig_sys-69.9.1\oniguruma\make_win32.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\onig_sys-69.9.1\oniguruma\make_win64.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\schannel-0.1.27\update_test_cert.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\zerocopy-0.8.26\win-cargo.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libz-sys-1.1.8\src\zlib\contrib\masmx64\bld_ml64.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libz-sys-1.1.8\src\zlib\contrib\masmx86\bld_ml32.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\_build.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\_setup.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\_test.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\build-and-test-win32-debug.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\build-and-test-win32-release.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\build-and-test-x64-debug.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\VS2022\build-and-test-x64-release.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\schannel-0.1.23\update_test_cert.bat
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\zerocopy-0.8.14\win-cargo.bat
+C:\Users\Agent Lee\.codex\tmp\arg0\codex-arg0r7ohHj\apply_patch.bat
+C:\Users\Agent Lee\.codex\tmp\arg0\codex-arg0r7ohHj\applypatch.bat
+C:\Users\Agent Lee\.cursor\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Users\Agent Lee\.cursor\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts\debugpy.bat
+C:\Users\Agent Lee\.cursor\extensions\ms-vscode-remote.remote-containers-0.394.0\scripts\ssh-askpass.bat
+C:\Users\Agent Lee\.cursor\extensions\ms-vscode-remote.remote-ssh-0.113.1\out\local-server\askpass.bat
+C:\Users\Agent Lee\.cursor\extensions\vscjava.vscode-gradle-3.17.2-universal\lib\gradle-server.bat
+C:\Users\Agent Lee\.gemini\antigravity\code_tracker\active\no_repo\428e55d01ae443af4dfcbd76d7f7617a_start_tunnel.bat
+C:\Users\Agent Lee\.gradle\wrapper\dists\gradle-8.11.1-all\2qik7nd48slq1ooc2496ixf4i\gradle-8.11.1\bin\gradle.bat
+C:\Users\Agent Lee\.gradle\wrapper\dists\gradle-8.11.1-bin\bpt9gzteqjrbo1mjrsomdt32c\gradle-8.11.1\bin\gradle.bat
+C:\Users\Agent Lee\.gradle\wrapper\dists\gradle-8.9-bin\90cnw93cvbtalezasaz0blq0a\gradle-8.9\bin\gradle.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\idlelib\idle.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@4\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@6\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@6\Lib\idlelib\idle.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@6\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\.lmstudio\extensions\backends\vendor\_amphibian\cpython3.11-win-x86@6\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\.venv\Scripts\activate.bat
+C:\Users\Agent Lee\.venv\Scripts\deactivate.bat
+C:\Users\Agent Lee\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Users\Agent Lee\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts\debugpy.bat
+C:\Users\Agent Lee\.vscode\extensions\ms-vscode-remote.remote-containers-0.442.0\scripts\ssh-askpass.bat
+C:\Users\Agent Lee\.vscode\extensions\ms-vscode-remote.remote-containers-0.447.0\scripts\ssh-askpass.bat
+C:\Users\Agent Lee\.vscode\extensions\redhat.java-1.53.0-win32-x64\server\bin\jdtls.bat
+C:\Users\Agent Lee\.vscode\extensions\vscjava.vscode-gradle-3.17.2\lib\gradle-server.bat
+C:\Users\Agent Lee\.vscode\extensions\vscjava.vscode-java-debug-0.58.5\bundled\scripts\noConfigScripts\debugjava.bat
+C:\Users\Agent Lee\.windsurf\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Users\Agent Lee\.windsurf\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\scripts\noConfigScripts\debugpy.bat
+C:\Users\Agent Lee\AppData\Local\Microsoft\OneDrive\25.155.0811.0002\CollectSyncLogs.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Antigravity\resources\app\extensions\antigravity-remote-openssh\scripts\launchSSHAskpass.bat
+C:\Users\Agent Lee\AppData\Local\Programs\cursor\resources\app\replaceCode.bat
+C:\Users\Agent Lee\AppData\Local\Programs\cursor\resources\app\restoreCode.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Python\Python312\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Python\Python312\Lib\idlelib\idle.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Python\Python312\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Python\Python312\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\Programs\Windsurf\resources\app\extensions\windsurf-remote-openssh\scripts\launchSSHAskpass.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-5qrg53kh\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\Squish4RunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-5qrg53kh\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\SquishRunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-fsdxr_fd\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\Squish4RunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-fsdxr_fd\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\SquishRunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-jh_o2w4p\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\Squish4RunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-jh_o2w4p\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\SquishRunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-v4l_zr7h\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\Squish4RunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-build-env-v4l_zr7h\normal\Lib\site-packages\cmake\data\share\cmake-4.2\Modules\SquishRunTestCase.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\examples\chat-13B.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\examples\sycl\win-build-sycl.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\examples\sycl\win-run-llama2.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\ggml\src\ggml-kompute\kompute\docs\make.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\ggml\src\ggml-kompute\kompute\examples\android\android-simple\gradlew.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-_9gon7s7\llama-cpp-python_ca5d8ae4e9614e62be3eae990a1de599\vendor\llama.cpp\scripts\install-oneapi.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\examples\chat-13B.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\examples\sycl\win-build-sycl.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\examples\sycl\win-run-llama2.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\ggml\src\ggml-kompute\kompute\docs\make.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\ggml\src\ggml-kompute\kompute\examples\android\android-simple\gradlew.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-4qey6ol0\llama-cpp-python_534f7da526b54686b7c07f075ac4a957\vendor\llama.cpp\scripts\install-oneapi.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-obvzflph\llama-cpp-python_76a96309063a4f30bf18bfbccfbef66f\vendor\llama.cpp\examples\chat-13B.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-obvzflph\llama-cpp-python_76a96309063a4f30bf18bfbccfbef66f\vendor\llama.cpp\examples\sycl\win-build-sycl.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-obvzflph\llama-cpp-python_76a96309063a4f30bf18bfbccfbef66f\vendor\llama.cpp\examples\sycl\win-run-llama2.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-obvzflph\llama-cpp-python_76a96309063a4f30bf18bfbccfbef66f\vendor\llama.cpp\examples\sycl\win-run-llama3.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-obvzflph\llama-cpp-python_76a96309063a4f30bf18bfbccfbef66f\vendor\llama.cpp\scripts\install-oneapi.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-v60w8ut0\llama-cpp-python_73c8d467863448379a828cd194b39858\vendor\llama.cpp\examples\chat-13B.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-v60w8ut0\llama-cpp-python_73c8d467863448379a828cd194b39858\vendor\llama.cpp\examples\sycl\win-build-sycl.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-v60w8ut0\llama-cpp-python_73c8d467863448379a828cd194b39858\vendor\llama.cpp\examples\sycl\win-run-llama2.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-v60w8ut0\llama-cpp-python_73c8d467863448379a828cd194b39858\vendor\llama.cpp\examples\sycl\win-run-llama3.bat
+C:\Users\Agent Lee\AppData\Local\Temp\pip-install-v60w8ut0\llama-cpp-python_73c8d467863448379a828cd194b39858\vendor\llama.cpp\scripts\install-oneapi.bat
+C:\Users\Agent Lee\AppData\Local\Temp\screenCapture\screenCapture_1.3.2.bat
+C:\Users\Agent Lee\AppData\Local\Temp\tmpjfkhol36\python\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\AppData\Local\Temp\tmpjfkhol36\python\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\AppData\Local\Temp\tmpjfkhol36\python\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\0nh7PAo-UNNG3RlU-x5pY\Scripts\activate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\0nh7PAo-UNNG3RlU-x5pY\Scripts\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\0nh7PAo-UNNG3RlU-x5pY\Scripts\pydoc.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\gIHBMVH2ghSdvWFOwLaWC\Scripts\activate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\gIHBMVH2ghSdvWFOwLaWC\Scripts\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\gIHBMVH2ghSdvWFOwLaWC\Scripts\pydoc.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\rAWiNbrsMVQX4yCwD2Qqf\Scripts\activate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\rAWiNbrsMVQX4yCwD2Qqf\Scripts\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\archive-v0\rAWiNbrsMVQX4yCwD2Qqf\Scripts\pydoc.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\builds-v0\.tmpHZmyHE\Scripts\activate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\builds-v0\.tmpHZmyHE\Scripts\deactivate.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\builds-v0\.tmpHZmyHE\Scripts\pydoc.bat
+C:\Users\Agent Lee\AppData\Local\uv\cache\sdists-v9\pypi\pyperclip\1.9.0\nL59a0K4zkQqR1ZLADdOR\src\docs\make.bat
+C:\Users\Agent Lee\AppData\Roaming\Antigravity\User\History\499f4382\ygIA.bat
+C:\Users\Agent Lee\AppData\Roaming\Antigravity\User\History\64a138ae\Xtzf.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli\copilot.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand\copilot-debug.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\18b58e41\7loU.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\18b58e41\8PQB.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\18b58e41\OXs7.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\24b32adc\GWiD.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\24b32adc\ZlJy.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\5b3b876b\GAjc.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-6394e405\h44R.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-6394e405\wi7G.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\64812dc7\4XJJ.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\64a138ae\5Y0D.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-65940c76\Mggt.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-65940c76\QLuG.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-65ab4fc7\EquU.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\65fee610\MlO0.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\65fee610\s7YO.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\6d8ef0d1\v1cD.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-6fecf24c\1Jw7.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-7e023898\2vKt.bat
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-7e023898\DQcz.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\globalStorage\github.copilot-chat\debugCommand\copilot-debug.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-185418c4\rg93.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-19e7dc56\WDIf.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\1b0cbce7\ThH5.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-1ec9760d\gszT.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\3596c097\EYDb.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-426896b1\6vyn.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-4298f9c0\DKxI.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-4298f9c0\Gki2.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-4298f9c0\m7pL.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\43f9cd9b\34Tt.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-46374109\E348.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-54593d7\fi1v.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-54593d7\WN17.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\54cbf3fc\kdMi.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-56d47499\unis.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\57258ae2\Or8A.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-64d15941\hY9r.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-64d15941\qYUg.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\657f062d\uOAX.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-668493f5\mLw6.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\68643e54\is0m.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-734dcac0\hIx0.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-734dcac0\MxJE.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-734dcac0\Srg1.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-74297293\1Nqn.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\-763fbb22\WMLq.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\77fbe29d\J6bs.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\787bfe23\92yf.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\787bfe23\HJqN.bat
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\History\a9dedc9\KD9m.bat
+C:\Users\Agent Lee\AppData\Roaming\Google\AndroidStudio2025.1.1\plugins\python-ce\helpers\pydev\pydevd_attach_to_process\windows\compile_windows.bat
+C:\Users\Agent Lee\AppData\Roaming\Trae\User\History\6b7559fa\8uAQ.bat
+C:\Users\Agent Lee\AppData\Roaming\Trae\User\History\6b7559fa\RfD2.bat
+C:\Users\Agent Lee\AppData\Roaming\Trae\User\History\6b7559fa\SJFj.bat
+C:\Users\Agent Lee\AppData\Roaming\uv\tools\aider-chat\Scripts\activate.bat
+C:\Users\Agent Lee\AppData\Roaming\uv\tools\aider-chat\Scripts\deactivate.bat
+C:\Users\Agent Lee\AppData\Roaming\uv\tools\aider-chat\Scripts\pydoc.bat
+C:\Users\Agent Lee\huggingfastapi\agentlee-env-310\Scripts\activate.bat
+C:\Users\Agent Lee\huggingfastapi\agentlee-env-310\Scripts\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\condabin\_conda_activate.bat
+C:\Users\Agent Lee\Miniconda3\condabin\activate.bat
+C:\Users\Agent Lee\Miniconda3\condabin\conda.bat
+C:\Users\Agent Lee\Miniconda3\condabin\conda_auto_activate.bat
+C:\Users\Agent Lee\Miniconda3\condabin\conda_hook.bat
+C:\Users\Agent Lee\Miniconda3\condabin\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\condabin\rename_tmp.bat
+C:\Users\Agent Lee\Miniconda3\etc\conda\activate.d\openssl_activate.bat
+C:\Users\Agent Lee\Miniconda3\etc\conda\deactivate.d\openssl_deactivate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\Miniconda3\Lib\idlelib\idle.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\_conda_activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\conda.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\conda_auto_activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\conda_hook.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\condabin\rename_tmp.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\Library\bin\conda.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\conda\shell\Scripts\activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\tests\test-recipes\activate_deactivate_package\src\etc\conda\activate.d\activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\site-packages\tests\test-recipes\activate_deactivate_package\src\etc\conda\deactivate.d\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\Miniconda3\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\Library\bin\conda.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_powershell_prompt-1.1.0-haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_powershell_prompt-1.1.0-haa95532_0\info\recipe\post-link.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_powershell_prompt-1.1.0-haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_powershell_prompt-1.1.0-haa95532_0\Scripts\.anaconda_powershell_prompt-post-link.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_prompt-1.1.0-haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_prompt-1.1.0-haa95532_0\info\recipe\post-link.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_prompt-1.1.0-haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda_prompt-1.1.0-haa95532_0\Scripts\.anaconda_prompt-post-link.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda-anon-usage-0.5.0-py312hfc23b7f_100\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\anaconda-anon-usage-0.5.0-py312hfc23b7f_100\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\archspec-0.2.3-pyhd3eb1b0_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\boltons-23.0.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\brotli-python-1.0.9-py312hd77b12b_8\info\recipe\install_python.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\brotli-python-1.0.9-py312hd77b12b_8\info\recipe\parent\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\brotli-python-1.0.9-py312hd77b12b_8\info\recipe\parent\install_library.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\brotli-python-1.0.9-py312hd77b12b_8\info\recipe\parent\install_python.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\bzip2-1.0.8-h2bbff1b_6\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\bzip2-1.0.8-h2bbff1b_6\info\recipe\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\bzip2-1.0.8-h2bbff1b_6\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\ca-certificates-2024.11.26-haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\ca-certificates-2024.11.26-haa95532_0\info\recipe\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\ca-certificates-2024.11.26-haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\certifi-2024.8.30-py312haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\certifi-2024.8.30-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\cffi-1.17.1-py312h827c3e9_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\charset-normalizer-3.3.2-pyhd3eb1b0_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\colorama-0.4.6-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\_conda_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\conda.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\conda_auto_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\conda_hook.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\condabin\rename_tmp.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\info\recipe\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\_conda_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\conda.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\conda_auto_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\conda_hook.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\condabin\rename_tmp.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\Library\bin\conda.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\conda\shell\Scripts\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\tests\test-recipes\activate_deactivate_package\src\etc\conda\activate.d\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Lib\site-packages\tests\test-recipes\activate_deactivate_package\src\etc\conda\deactivate.d\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Library\bin\conda.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-24.11.1-py312haa95532_0\Scripts\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-anaconda-telemetry-0.1.1-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-content-trust-0.2.0-py312haa95532_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-libmamba-solver-24.9.0-pyhd3eb1b0_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-package-handling-2.4.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\conda-package-streaming-0.11.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\cryptography-43.0.3-py312hbd6ee87_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\distro-1.9.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\expat-2.6.4-h8ddb27b_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\expat-2.6.4-h8ddb27b_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\fmt-9.1.0-h6d14046_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\fmt-9.1.0-h6d14046_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\frozendict-2.4.2-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\idna-3.7-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\jsonpatch-1.33-py312haa95532_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libarchive-3.7.4-h9243413_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libarchive-3.7.4-h9243413_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libcurl-8.9.1-h0416ee5_0\info\recipe\parent\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libcurl-8.9.1-h0416ee5_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libffi-3.4.4-hd77b12b_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libffi-3.4.4-hd77b12b_1\info\recipe\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libffi-3.4.4-hd77b12b_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libiconv-1.16-h2bbff1b_3\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmamba-1.5.11-h99b1521_0\info\recipe\build_mamba.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmamba-1.5.11-h99b1521_0\info\recipe\parent\build_mamba.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmamba-1.5.11-h99b1521_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmambapy-1.5.11-py312hcd6fe79_0\info\recipe\build_mamba.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmambapy-1.5.11-py312hcd6fe79_0\info\recipe\parent\build_mamba.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libmambapy-1.5.11-py312hcd6fe79_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libsolv-0.7.24-h23ce68f_1\info\recipe\install_dynamic.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libsolv-0.7.24-h23ce68f_1\info\recipe\parent\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libsolv-0.7.24-h23ce68f_1\info\recipe\parent\install_dynamic.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libsolv-0.7.24-h23ce68f_1\info\recipe\parent\install_static.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libsolv-0.7.24-h23ce68f_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libssh2-1.11.1-h2addb87_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libssh2-1.11.1-h2addb87_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libxml2-2.13.5-h24da03e_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\libxml2-2.13.5-h24da03e_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\lz4-c-1.9.4-h2bbff1b_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\lz4-c-1.9.4-h2bbff1b_1\info\recipe\bld_static.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\menuinst-2.2.0-py312h5da7b33_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\etc\conda\activate.d\openssl_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\etc\conda\deactivate.d\openssl_deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\info\recipe\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\info\recipe\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\openssl-3.0.15-h827c3e9_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\packaging-24.1-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pcre2-10.42-h0ff8eda_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pcre2-10.42-h0ff8eda_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pip-24.2-py312haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pip-24.2-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\platformdirs-3.10.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pluggy-1.5.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\post_install.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pybind11-abi-5-hd3eb1b0_0\info\recipe\parent\build-pybind11.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pybind11-abi-5-hd3eb1b0_0\info\recipe\parent\build-pybind11-global.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pybind11-abi-5-hd3eb1b0_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pycosat-0.6.6-py312h2bbff1b_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\pycparser-2.21-pyhd3eb1b0_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\info\recipe\build_base.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\info\recipe\parent\build_base.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\info\recipe\parent\build_static.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\Lib\ctypes\macholib\fetch_macholib.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\Lib\idlelib\idle.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\Lib\venv\scripts\nt\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\python-3.12.8-h14ffc60_0\Lib\venv\scripts\nt\deactivate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-14.2.4-hd77b12b_2\info\recipe\bld_c.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-14.2.4-hd77b12b_2\info\recipe\bld_cpp.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-cpp-14.2.4-hd77b12b_2\info\recipe\bld_cpp.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-cpp-14.2.4-hd77b12b_2\info\recipe\parent\bld_c.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-cpp-14.2.4-hd77b12b_2\info\recipe\parent\bld_cpp.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\reproc-cpp-14.2.4-hd77b12b_2\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\requests-2.32.3-py312haa95532_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\ruamel.yaml.clib-0.2.8-py312h827c3e9_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\ruamel.yaml-0.18.6-py312h827c3e9_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\setuptools-75.1.0-py312haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\setuptools-75.1.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\sqlite-3.45.3-h2bbff1b_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\sqlite-3.45.3-h2bbff1b_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\tk-8.6.14-h0416ee5_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\tk-8.6.14-h0416ee5_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\tqdm-4.66.5-py312hfc267ef_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\truststore-0.8.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\urllib3-2.2.3-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vc-14.40-haa95532_2\info\recipe\parent\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vc-14.40-haa95532_2\info\recipe\parent\install_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vc-14.40-haa95532_2\info\recipe\parent\install_runtime.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vs2015_runtime-14.42.34433-h9531ae6_2\info\recipe\install_runtime.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vs2015_runtime-14.42.34433-h9531ae6_2\info\recipe\parent\activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vs2015_runtime-14.42.34433-h9531ae6_2\info\recipe\parent\install_activate.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\vs2015_runtime-14.42.34433-h9531ae6_2\info\recipe\parent\install_runtime.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\wheel-0.44.0-py312haa95532_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\wheel-0.44.0-py312haa95532_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\xz-5.4.6-h8cc25b3_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\xz-5.4.6-h8cc25b3_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\yaml-cpp-0.8.0-hd77b12b_1\info\recipe\bld_shared.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\yaml-cpp-0.8.0-hd77b12b_1\info\recipe\parent\bld_shared.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\yaml-cpp-0.8.0-hd77b12b_1\info\recipe\parent\test\test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\yaml-cpp-0.8.0-hd77b12b_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\yaml-cpp-0.8.0-hd77b12b_1\info\test\test\test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\zlib-1.2.13-h8cc25b3_1\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\zlib-1.2.13-h8cc25b3_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\zstandard-0.23.0-py312h4fc1ca9_1\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\zstd-1.5.6-h8880b57_0\info\recipe\bld.bat
+C:\Users\Agent Lee\Miniconda3\pkgs\zstd-1.5.6-h8880b57_0\info\test\run_test.bat
+C:\Users\Agent Lee\Miniconda3\pre_uninstall.bat
+C:\Users\Agent Lee\Miniconda3\Scripts\.anaconda_powershell_prompt-post-link.bat
+C:\Users\Agent Lee\Miniconda3\Scripts\.anaconda_prompt-post-link.bat
+C:\Users\Agent Lee\Miniconda3\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\shared\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\shared\Scripts\deactivate.bat
+C:\Users\Agent Lee\pipx\venvs\browsr\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\venvs\browsr\Scripts\deactivate.bat
+C:\Users\Agent Lee\pipx\venvs\dotenvhub\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\venvs\dotenvhub\Scripts\deactivate.bat
+C:\Users\Agent Lee\pipx\venvs\fnug\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\venvs\fnug\Scripts\deactivate.bat
+C:\Users\Agent Lee\pipx\venvs\rsyncy\Scripts\activate.bat
+C:\Users\Agent Lee\pipx\venvs\rsyncy\Scripts\deactivate.bat
+C:\VS-CODE-MCP\.venv\Scripts\activate.bat
+C:\VS-CODE-MCP\.venv\Scripts\deactivate.bat
+C:\VS-CODE-MCP\Agent Lee's Studio\.venv\Scripts\activate.bat
+C:\VS-CODE-MCP\Agent Lee's Studio\.venv\Scripts\deactivate.bat
+C:\Windows\System32\Microsoft-Edge-WebView\show_third_party_software_licenses.bat
+C:\Windows\System32\MsDtc\Trace\msdtcvtr.bat
+C:\Windows\SysWOW64\Msdtc\Trace\msdtcvtr.bat
+C:\Windows\WinSxS\amd64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.1150_none_7019bb1b23bac3e2\Build.bat
+C:\Windows\WinSxS\amd64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.1150_none_7019bb1b23bac3e2\Pester.bat
+C:\Windows\WinSxS\amd64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.7309_none_6ffe582d23d052a4\Build.bat
+C:\Windows\WinSxS\amd64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.7309_none_6ffe582d23d052a4\Pester.bat
+C:\Windows\WinSxS\amd64_microsoft-edge-webview_31bf3856ad364e35_10.0.26100.1_none_8fe1c356f34a19ca\show_third_party_software_licenses.bat
+C:\Windows\WinSxS\amd64_microsoft-edge-webview_31bf3856ad364e35_10.0.26100.7623_none_2e9c21ff3ad2e345\show_third_party_software_licenses.bat
+C:\Windows\WinSxS\amd64_microsoft-edge-webview_31bf3856ad364e35_10.0.26100.7824_none_2e866b5f3ae334c8\show_third_party_software_licenses.bat
+C:\Windows\WinSxS\amd64_microsoft-windows-com-dtc-tracing_31bf3856ad364e35_10.0.26100.1_none_14d2f3235b5beec5\msdtcvtr.bat
+C:\Windows\WinSxS\wow64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.1150_none_7a6e656d581b85dd\Build.bat
+C:\Windows\WinSxS\wow64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.1150_none_7a6e656d581b85dd\Pester.bat
+C:\Windows\WinSxS\wow64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.7309_none_7a53027f5831149f\Build.bat
+C:\Windows\WinSxS\wow64_microsoft.powershell.pester_31bf3856ad364e35_10.0.26100.7309_none_7a53027f5831149f\Pester.bat
+C:\Windows\WinSxS\wow64_microsoft-windows-com-dtc-tracing_31bf3856ad364e35_10.0.26100.1_none_1f279d758fbcb0c0\msdtcvtr.bat

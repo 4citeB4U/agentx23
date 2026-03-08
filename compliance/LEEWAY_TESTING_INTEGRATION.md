@@ -1,3 +1,10 @@
+<!-- LEEWAY HEADER BLOCK -->
+<!-- File: LEEWAY_TESTING_INTEGRATION.md -->
+<!-- Purpose: Agent Lee OS LEEWAY testing integration documentation -->
+<!-- Security: LEEWAY-CORE-2026 compliant -->
+<!-- Performance: Optimized for sovereign agentic compliance -->
+<!-- Discovery: Part of Agent Lee OS compliance pipeline -->
+
 # LEEWAY Testing Integration Guide
 
 ## Objectives

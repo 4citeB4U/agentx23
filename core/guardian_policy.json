@@ -1,0 +1,26 @@
+{
+  "version": "2026.03.01",
+  "policy_status": "ENFORCING",
+  "authorized_agents": {
+    "qwen3-coder-mcp": {
+      "capability": "SELF_MODIFICATION",
+      "restriction": "REQUIRES_SNAPSHOT_AND_SIG",
+      "priority": 1
+    },
+    "qwen3-health-mcp": {
+      "capability": "SYSTEM_READ",
+      "restriction": "READ_ONLY",
+      "priority": 2
+    },
+    "qwen3-vision-mcp": {
+      "capability": "UI_ANALYSIS",
+      "restriction": "SANDBOXED",
+      "priority": 2
+    }
+  },
+  "invariants": [
+    "SecureBoot must be verified or DevMode set",
+    "INSFORGE_ANON_KEY must not contain script fragments",
+    "Every repair must start from a 100% stable snapshot"
+  ]
+}

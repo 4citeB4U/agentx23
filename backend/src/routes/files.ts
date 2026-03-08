@@ -149,3 +149,30 @@ fileRouter.post("/upload", upload.single("file"), async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Download file -> Direct access for mobile/phone downloading
+fileRouter.get("/download", async (req, res) => {
+  try {
+    const filePath = req.query.path as string;
+
+    if (!filePath) {
+      return res.status(400).json({ error: "Path parameter required" });
+    }
+
+    const resolvedPath = path.resolve(filePath);
+
+    // Security: Check if path is safe (inside ALLOWED_ROOT) and not blocked
+    if (!isPathSafe(resolvedPath) || isBlockedPath(resolvedPath)) {
+      return res.status(403).json({ error: "ACCESS_DENIED_SECURE_STORAGE" });
+    }
+
+    // Force download headers
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${path.basename(resolvedPath)}"`,
+    );
+    res.download(resolvedPath);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});

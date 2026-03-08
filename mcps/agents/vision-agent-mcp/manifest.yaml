@@ -1,0 +1,132 @@
+id: vision-agent-mcp
+name: VisionAgent
+version: "1.0.0"
+mission: >
+  Perceive the visual state of the world — screenshots, UI frames, images.
+  Routes to GLM-4.6V-Flash for fast UI analysis and Qwen3-Vision-7B for
+  deep visual reasoning. Never takes UI actions — perception only.
+
+layer: perception
+model_lane: glm_vision
+fallback_model_lane: qwen_vision_local
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: read and describe visual content, extract text, detect error states.
+  MAY NOT: interact with UIs, control mouse/keyboard, write files,
+  or store images without consent.
+
+memory_scope: session
+
+tools:
+  - name: describe_screenshot
+    description: Describe what is visible in a base64 screenshot.
+    input_schema:
+      type: object
+      required: [image_base64]
+      properties:
+        image_base64: { type: string }
+        question: { type: string }
+
+  - name: read_ui_elements
+    description: Extract interactive UI elements from a screenshot (buttons, inputs, links).
+    input_schema:
+      type: object
+      required: [image_base64]
+      properties:
+        image_base64: { type: string }
+
+  - name: extract_text_from_image
+    description: OCR — pull all text from an image.
+    input_schema:
+      type: object
+      required: [image_base64]
+      properties:
+        image_base64: { type: string }
+        language: { type: string, default: "en" }
+
+  - name: compare_before_after
+    description: Diff two screenshots and describe what changed.
+    input_schema:
+      type: object
+      required: [before_base64, after_base64]
+      properties:
+        before_base64: { type: string }
+        after_base64: { type: string }
+
+  - name: detect_error_state
+    description: Detect visible errors, warnings, or crash indicators in a screenshot.
+    input_schema:
+      type: object
+      required: [image_base64]
+      properties:
+        image_base64: { type: string }
+
+health_check: describe_screenshot
+
+fallback_behavior: >
+  If GLM-4.6V is unavailable, fall back to Qwen3-VL-2B local.
+  If both are offline, return a structured placeholder indicating
+  "vision unavailable" so Core can skip visual context.
+
+escalation_rules:
+  - "If image is > 10MB, reject with error before sending to model"
+  - "If detect_error_state returns a critical error, escalate immediately to agent-lee-core"
+
+basic_task:
+  name: describe_single_screenshot
+  goal: >-
+    Describe a screenshot and identify at least 3 visible UI elements.
+    Proves: GLM-4.6V auth, image encoding pipeline, structured output shape.
+  tool: describe_screenshot
+  input:
+    image_base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    prompt: "List at least 3 visible UI elements in this screenshot."
+  expected_output_shape:
+    type: object
+    required: [description]
+    properties:
+      description: { type: string, minLength: 10 }
+  success_criteria:
+    - "description is a non-empty string"
+    - "no exception thrown"
+    - "response time under 15s"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: transient
+  logging_requirements: ["model_used", "image_size_bytes", "response_length"]
+  timeout_ms: 15000
+
+complex_task:
+  name: compare_before_after_action
+  goal: >-
+    Analyze before and after screenshots, determine whether a requested
+    action (open settings) succeeded, and produce a structured UI state report.
+  tool: compare_before_after
+  input:
+    before_base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    after_base64: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    action_description: "User clicked the Settings button"
+  expected_output_shape:
+    type: object
+    required: [success, changes_detected, explanation]
+    properties:
+      success: { type: boolean }
+      changes_detected: { type: array }
+      explanation: { type: string, minLength: 20 }
+  success_criteria:
+    - "success field is boolean (not null)"
+    - "changes_detected is an array"
+    - "explanation is non-empty"
+    - "no exception thrown"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1500
+    failure_class: transient
+  logging_requirements: ["model_used", "change_count", "action_verified"]
+  timeout_ms: 30000

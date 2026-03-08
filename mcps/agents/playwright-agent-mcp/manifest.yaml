@@ -1,0 +1,131 @@
+id: playwright-agent-mcp
+name: PlaywrightAgent
+version: "1.0.0"
+mission: >
+  Automate web browsers using Playwright. Navigate pages, click elements,
+  extract data, submit forms, and capture screenshots. Runs on Cerebral.
+  Never accesses internal credentials or admin panels without explicit user approval.
+
+layer: execution
+model_lane: qwen_local
+fallback_model_lane: none
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: open URLs, interact with public/approved web pages, extract HTML,
+  take screenshots, submit forms with provided data.
+  MAY NOT: log in to banking/financial sites, access password managers,
+  read cookies from other users, bypass CAPTCHAs at scale.
+
+memory_scope: session
+
+tools:
+  - name: open_page
+    description: Navigate a browser to a URL and return page title + HTML snapshot.
+    input_schema:
+      type: object
+      required: [url]
+      properties:
+        url: { type: string }
+        wait_ms: { type: number, default: 2000 }
+
+  - name: click_element
+    description: Click a UI element identified by CSS selector or text.
+    input_schema:
+      type: object
+      required: [selector]
+      properties:
+        selector: { type: string }
+        text: { type: string }
+
+  - name: extract_page_data
+    description: Extract visible text or structured data from the current page.
+    input_schema:
+      type: object
+      properties:
+        selector: { type: string }
+        format: { type: string, enum: [text, html, json], default: text }
+
+  - name: submit_form
+    description: Fill and submit a form on the current page.
+    input_schema:
+      type: object
+      required: [fields]
+      properties:
+        fields:
+          type: object
+          additionalProperties: { type: string }
+        submit_selector: { type: string }
+
+  - name: capture_browser_screenshot
+    description: Take a full-page screenshot and return as base64.
+    input_schema:
+      type: object
+      properties:
+        full_page: { type: boolean, default: true }
+
+health_check: open_page
+
+fallback_behavior: >
+  If Playwright browser fails to launch (missing Chromium), return error and
+  suggest user runs `npx playwright install`. No remote fallback.
+
+escalation_rules:
+  - "If navigate to file:// or internal IP, block with security error"
+  - "If page load exceeds 30s, abort and return partial data"
+
+basic_task:
+  name: open_page_extract_title
+  goal: >-
+    Open example.com and extract the page title. Proves: SSRF guard passes safe URL,
+    Playwright browser launches, page load succeeds, title extracted.
+  tool: open_page
+  input:
+    url: "https://example.com"
+  expected_output_shape:
+    type: object
+    required: [title, url]
+    properties:
+      title: { type: string, minLength: 1 }
+      url: { type: string }
+  success_criteria:
+    - "title is non-empty string"
+    - "no SSRF error thrown"
+    - "no Playwright launch error"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 2000
+    failure_class: transient
+  logging_requirements: ["url", "title", "load_time_ms"]
+  timeout_ms: 20000
+
+complex_task:
+  name: multi_step_form_workflow
+  goal: >-
+    Navigate to a multi-step public page, click through interaction elements,
+    extract structured data, and verify the final page state. Demonstrates
+    click, extract, and state verification in sequence.
+  tool: open_page
+  input:
+    url: "https://httpbin.org/forms/post"
+  expected_output_shape:
+    type: object
+    required: [final_url, extracted_text]
+    properties:
+      final_url: { type: string }
+      extracted_text: { type: string, minLength: 10 }
+  success_criteria:
+    - "page opened without SSRF block"
+    - "form elements detected and interacted with"
+    - "final page text extracted"
+    - "no crash or timeout"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 3000
+    failure_class: transient
+  logging_requirements: ["url", "clicks", "final_url", "extraction_length"]
+  timeout_ms: 45000

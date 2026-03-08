@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentlee.os/schemas/context-packet.schema.json",
+  "title": "ContextPacket",
+  "description": "Assembled context bundle that Core passes to every dispatched agent",
+  "type": "object",
+  "required": ["session_id", "user_id", "intent", "utterance", "timestamp"],
+  "properties": {
+    "session_id": { "type": "string" },
+    "user_id": { "type": "string" },
+    "platform": {
+      "type": "string",
+      "enum": ["cloudflare", "vercel", "cerebral", "phone"],
+      "default": "cloudflare"
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "converse",
+        "plan_task",
+        "recall_memory",
+        "write_memory",
+        "execute_code",
+        "execute_terminal",
+        "automate_browser",
+        "analyze_visual",
+        "generate_3d",
+        "translate_language",
+        "test_system",
+        "design_ui",
+        "speak_voice",
+        "orchestrate_agents"
+      ]
+    },
+    "utterance": { "type": "string" },
+    "plan": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ordered task steps (set by PlannerAgent)"
+    },
+    "memory_snapshot": {
+      "type": ["object", "null"],
+      "description": "Recent compressed memory from MemoryAgent",
+      "properties": {
+        "summary": { "type": "string" },
+        "key_facts": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "episode_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "tool_outputs": {
+      "type": "array",
+      "description": "Results from any tools already called this turn",
+      "items": {
+        "type": "object",
+        "required": ["tool", "result"],
+        "properties": {
+          "tool": { "type": "string" },
+          "result": {}
+        }
+      }
+    },
+    "emotion_state": {
+      "type": "object",
+      "description": "Lee's current emotional bias (from emotion layer)",
+      "properties": {
+        "mood": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "energy": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "persona": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "voice_id": { "type": "string" },
+        "language": { "type": "string" }
+      }
+    },
+    "policy_flags": {
+      "type": "array",
+      "description": "Named policies that are active for this request",
+      "items": { "type": "string" }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "model_lane_override": {
+      "type": ["string", "null"],
+      "description": "Force a particular model lane for this turn"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high", "critical"],
+      "default": "normal",
+      "description": "Execution priority affecting queue order and timeout budgets"
+    },
+    "permissions": {
+      "type": "array",
+      "description": "Named capability grants for this request (e.g. allow_file_write, allow_exec)",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "agent_selected": {
+      "type": ["string", "null"],
+      "description": "Agent ID chosen by the router for primary execution"
+    },
+    "execution_chain": {
+      "type": "array",
+      "description": "Ordered list of agent IDs involved in this turn (populated at runtime)",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "validation_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, VerificationController must confirm task completion before narration"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+id: insforge-agent-mcp
+name: InsForgeAgent
+version: "1.0.0"
+mission: >
+  Manage structured long-term data in the Vercel/Postgres canonical memory lake.
+  Save and fetch episodic memories, normalize records, create schemas,
+  write task results. The persistent data arm of Agent Lee's memory system.
+
+layer: data
+model_lane: none
+fallback_model_lane: none
+deployment_location: vercel
+transport: sse
+runtime: node
+
+authority_boundaries: >
+  MAY: read/write to canonical memory tables, create/alter schemas,
+  store episodes and task results via InsForge Vercel APIs.
+  MAY NOT: delete rows without explicit user approval, access
+  tables outside the agentlee_ prefix, expose raw SQL to end users.
+
+memory_scope: canonical
+
+tools:
+  - name: save_memory
+    description: Upsert a memory record into the canonical lake.
+    input_schema:
+      type: object
+      required: [key, value]
+      properties:
+        key: { type: string }
+        value: {}
+        scope:
+          {
+            type: string,
+            enum: [session, mission, canonical],
+            default: canonical,
+          }
+        tags: { type: array, items: { type: string } }
+
+  - name: fetch_memory
+    description: Retrieve a memory record by key.
+    input_schema:
+      type: object
+      required: [key]
+      properties:
+        key: { type: string }
+        scope: { type: string }
+
+  - name: normalize_record
+    description: Normalize a raw data object against a named schema.
+    input_schema:
+      type: object
+      required: [schema_name, record]
+      properties:
+        schema_name: { type: string }
+        record: { type: object }
+
+  - name: create_schema
+    description: Define a new table schema in the canonical lake.
+    input_schema:
+      type: object
+      required: [name, columns]
+      properties:
+        name: { type: string }
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              type: { type: string }
+              nullable: { type: boolean }
+
+  - name: store_episode
+    description: Persist a conversational episode as a normalized record.
+    input_schema:
+      type: object
+      required: [session_id, content]
+      properties:
+        session_id: { type: string }
+        content: { type: string }
+        metadata: { type: object }
+
+  - name: write_task_result
+    description: Store the result of a completed agent task.
+    input_schema:
+      type: object
+      required: [mission_id, result]
+      properties:
+        mission_id: { type: string }
+        result: {}
+        status: { type: string }
+
+health_check: fetch_memory
+
+fallback_behavior: >
+  If Vercel is unreachable, buffer to data/insforge_cache.jsonl
+  and retry on reconnect. Surface "memory pending sync" to Core.
+
+basic_task:
+  name: insert_structured_record
+  goal: >-
+    Insert a structured record into the DB (or local cache) and confirm
+    the write succeeded. Proves: API auth, schema validation, write path.
+  tool: save_memory
+  input:
+    key: "val_basic_insforge_001"
+    value:
+      type: "validation_probe"
+      content: "basic task probe"
+      timestamp: "2026-03-07T00:00:00Z"
+  expected_output_shape:
+    type: object
+    required: [saved]
+    properties:
+      saved: { type: boolean }
+      source: { type: string }
+  success_criteria:
+    - "saved=true"
+    - "source is 'vercel' or 'local_cache'"
+    - "no exception thrown"
+  verification_method: db_check
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: transient
+  logging_requirements: ["key", "source", "bytes_written"]
+  timeout_ms: 15000
+
+complex_task:
+  name: normalize_and_store_messy_payload
+  goal: >-
+    Accept a messy multi-field payload, normalize it to canonical schema,
+    store it with a trace ID, and confirm retrieval matches the normalized form.
+  tool: normalize_record
+  input:
+    raw:
+      Name: "Agent Lee OS"
+      created: "March 7 2026"
+      STATUS: "operational"
+      extra_field: null
+      tags: "validation, test, insforge"
+  expected_output_shape:
+    type: object
+    required: [normalized, trace_id]
+    properties:
+      normalized:
+        type: object
+        required: [name, status]
+      trace_id: { type: string }
+  success_criteria:
+    - "normalized.name lowercased and trimmed"
+    - "normalized.status is enum value"
+    - "extra_field dropped or flagged"
+    - "trace_id present and non-empty"
+    - "record retrievable by trace_id"
+  verification_method: db_check
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: logic
+  logging_requirements:
+    ["trace_id", "fields_normalized", "fields_dropped", "source"]
+  timeout_ms: 20000

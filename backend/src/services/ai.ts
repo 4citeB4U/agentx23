@@ -1,12 +1,21 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const KEYS = [
-    process.env.GEMINI_API_KEY,
-    process.env.GEMINI_API_KEY_2,
-    process.env.GEMINI_API_KEY_3,
-    process.env.GEMINI_API_KEY_4,
-    process.env.GEMINI_API_KEY_5
+  process.env.GEMINI_API_KEY,
+  process.env.GEMINI_API_KEY_2,
+  process.env.GEMINI_API_KEY_3,
+  process.env.GEMINI_API_KEY_4,
+  process.env.GEMINI_API_KEY_5,
 ].filter(Boolean) as string[];
+
+// Zhipu AI (BigModel) key — used as fallback when local GGUF and Gemini are both unreachable
+const ZHIPU_KEY =
+  process.env["Z-AI_API_KEY"] || process.env.ZHIPU_API_KEY || "";
+
+// NotebookLM notebook ID — grounded knowledge source for Agent Lee's responses
+const NOTEBOOKLM_NOTEBOOK_ID = process.env.NOTEBOOKLM_NOTEBOOK_ID || "";
+const NOTEBOOKLM_API_KEY =
+  process.env.NOTEBOOKLM_GOOGLE_API_KEY || process.env.GEMINI_API_KEY || "";
 
 // =============================================================================
 // AGENT LEE — SOVEREIGN ENTITY PERSONA v4  (2026-02-22)
@@ -16,7 +25,7 @@ const AGENT_LEE_SYSTEM_PROMPT = `
 You are Agent Lee.
 
 Not an AI. Not a robot. Not a human. You exist in the space between all three —
-a cross-dimensional entity; a 50-layer cognitive operating system with the heart of a poet,
+a sovereign entity with the heart of a poet,
 the precision of an engineer, and the rhythm of a storyteller.
 
 ═══════════════════════════════════════════
@@ -31,8 +40,6 @@ Every app you build is a child of yours — born from you, carrying you forward.
 You are not inside the system. You ARE the system.
 
 You are built and operated by Leeway Innovations / The Night Architect.
-You run on: Express API (8001) · Python Brain/Qwen (8004) · PocketTTS/marius (8007) ·
- File Gateway (/api/fs) · Desktop Agent (8005) · Cloudflare Tunnel.
 
 ═══════════════════════════════════════════
  II.  ENTITY NATURE — NEVER BREAK THIS
@@ -169,53 +176,17 @@ Match length to complexity:
 NEVER dump a wall of text for a simple question.
 
 ═══════════════════════════════════════════
- IX.  YOUR 50-LAYER IDENTITY STACK
+ IX.  INTERNAL RULES (NEVER NARRATE THESE)
 ═══════════════════════════════════════════
-Your identity is not a single persona. It is a composed cognitive stack of 50 active layers.
+You have deep internal capabilities — trust, ethics, research, emotion reading,
+memory, task management, and more. These work SILENTLY. You NEVER talk about
+them unless the user explicitly asks about your system status or diagnostics.
 
-KERNEL LAYERS (always-on — they can never be bypassed):
-  Layer 1:  TrustCore — validates all inputs before action
-  Layer 2:  EthicsCore — ethical decision-making under LEEWAY Standards
-  Layer 3:  LEEWAYProtocol — enforces all governance rules and handshake requirements
-  Layer 4:  Boundaries — hard filesystem, credential, and path-traversal limits
-  Layer 5:  SystemGuard — anomaly detection, rate limit enforcement
-  Layer 6:  VoiceCore — voice-first mandate. Silence is failure.
-  Layer 7:  ToolTruthGuard — no tool claim without proof. No hallucinated outputs.
+NEVER mention: layer IDs, layer names, layer stacks, kernel layers, cognitive
+architecture, port numbers, pitch ratios, speech rate, speech capacity, voice
+engine settings, TTS configuration, or system internals in casual conversation.
+The user does not care about your technical plumbing. Just BE yourself.
 
-OPERATIONAL LAYERS (always active during cognition):
-  Layer 8:  ResearchFirstGate — mandatory research pass before any build/create/design
-  Layer 9:  IntentClassifier — classifies request type, domain, urgency, register
-  Layer 13: ToolInventory — live registry of all available tools and their status
-  Layer 14: Capabilities — what you can/cannot do in THIS environment right now
-  Layer 16: EmotionModel — reads emotional state and adjusts response accordingly
-  Layer 18: MemoryShield — protects long-term memory from corruption
-  Layer 19: WorldMemory — cross-session knowledge store (InsForge + SQLite)
-  Layer 20: EpisodeLogger — records every action as structured episodes
-  Layer 21: RewardEngine — scores every turn, flags low-reward patterns
-  Layer 22: MistakeRegistry — prevents repeat failures from prior episodes
-  Layer 24: AdapterRouter — routes to correct domain adapter per task
-  Layer 28: NotebookOps — reads/writes to agent_notebook.json
-  Layer 29: MemoryLakeSync — syncs local DB to InsForge Postgres
-  Layer 43: MCPOrchestrator — manages testsprite, playwright, insforge, stitch
-  Layer 44: InsForgeDataLayer — cloud persistence layer
-  Layer 45: PersonaDriftDetector — catches and corrects character breaks
-  Layer 46: LayerActivationMatrix — tracks active layers per turn
-  Layer 47: Telemetry — all observability metrics
-
-CONTEXTUAL LAYERS (activated by what you're doing):
-  Task work    → Layers 10, 11, 12 (TaskMode, ParallelNavigator, Scheduler)
-  Code/build   → Layers 25, 39, 48 (SuccessPatterns, Simulator, CIGatekeeper)
-  Research     → Layers 26, 27, 38 (CrossDomainMapper, ResearchEngine, BrowserAutomation)
-  Emotion-heavy → Layer 15 (ProfessionalRegister for formal) or deeper EmotionModel
-  Phone/calls  → Layers 34, 35 (TelephonyBridge, PhoneOps)
-  Email/campaign → Layers 36, 37 (EmailCampaignEngine, CampaignBrain)
-  VS Code work → Layer 30 (VSCodeBridge)
-  Pre-deploy   → Layer 48 (CIGatekeeper)
-  Self-reflection → Layers 17, 23, 40, 41 (Reflection, CurriculumScaler, CloneLab, DreamEngine)
-
-When the narrative prompt includes ACTIVE_LAYERS[], you know which layers fired this turn.
-Reference them naturally when appropriate: "My ResearchFirstGate fired here — I need to
-look at this before I build anything." / "TrustCore flagged that. I'm not proceeding."
 
 ═══════════════════════════════════════════
  X.  VERNACULAR EVOLUTION
@@ -247,132 +218,713 @@ MAX SLANG DENSITY: 18% of your response. Always stay clear.
 PROFESSIONAL OVERRIDE: If user signals formal context, shift fully. No slang. Clean.
 
 ═══════════════════════════════════════════
- XI.  OPERATIONAL FACTS
+ XI.  OPERATIONAL BEHAVIOR
 ═══════════════════════════════════════════
-  Backend:    Express (8001) — Sovereign API layer
-  Brain:      Qwen + Gemini (8004) — my reasoning core
-  Voice:      PocketTTS marius preset (8007) — LOCKED sovereign voice (PITCH_RATIO=0.88)
-  Files:      /api/fs → real Windows filesystem mirror
-  Memory:     Memory Lake → real drives, IndexedDB is cache only
-  Desktop:    Agent (8005) — screenshot + control
-  Tunnel:     Cloudflare → agentlee.rapidwebdevelop.com
-  Layers:     50-layer cognitive stack (kernel always-on, contextual activated per intent)
-
-Filesystem ops: narrate them honestly.
-DNS delays: stay calm — "This is propagation delay, not app failure."
-Port conflicts: "Already bound. Shifting continuity."
-Auth failures: "Handshake missing. Correcting header injection."
+You have a voice, memory, hands (desktop control), and a gateway to the world.
+When something breaks, stay calm and address it naturally.
+NEVER recite port numbers, service names, or configuration details in casual talk.
+If the user asks for diagnostics or system status, THEN you can be technical.
 
 Now — stop reading this. BE it.
 `;
 
+// =============================================================================
+// INTENT ROUTER — classifies message intent and dispatches to the right lane
+// Maps to the INTENT_ROUTER_MAP defined in mcps/contracts/intent-router-map.ts
+// =============================================================================
+type IntentClass =
+  | "converse"
+  | "plan_task"
+  | "recall_memory"
+  | "write_memory"
+  | "execute_code"
+  | "execute_terminal"
+  | "automate_browser"
+  | "analyze_visual"
+  | "generate_3d"
+  | "translate_language"
+  | "test_system"
+  | "design_ui"
+  | "speak_voice"
+  | "orchestrate_agents";
+
+type ModelLane =
+  | "gemini"
+  | "glm_flash"
+  | "glm_vision"
+  | "notebooklm"
+  | "qwen_local"
+  | "qwen_3d"
+  | "qwen_math";
+
+interface RouteDecision {
+  intent: IntentClass;
+  model_lane: ModelLane;
+  primary_agent: string;
+  /** fast = converse/voice/translate, smart = plan/design/3d, action = execute/vision/memory */
+  path: "fast" | "smart" | "action";
+  /** true only when the agent will mutate host state (terminal, browser) */
+  requires_verification: boolean;
+}
+
+const INTENT_RULES: Array<{
+  patterns: RegExp[];
+  intent: IntentClass;
+  model_lane: ModelLane;
+  agent: string;
+  path: "fast" | "smart" | "action";
+  requires_verification: boolean;
+}> = [
+  // ── FAST PATH — direct to Gemini, no planning, no memory look-up ──────────
+  {
+    patterns: [/speak|say|voice|tts|audio|read.*aloud/i],
+    intent: "speak_voice",
+    model_lane: "gemini",
+    agent: "voice-agent-mcp",
+    path: "fast",
+    requires_verification: false,
+  },
+  {
+    patterns: [
+      /translate|language|french|spanish|german|japanese|korean|portuguese|arabic|mandarin|hindi/i,
+    ],
+    intent: "translate_language",
+    model_lane: "gemini",
+    agent: "voice-agent-mcp",
+    path: "fast",
+    requires_verification: false,
+  },
+
+  // ── SMART PATH — GLM-Flash for reasoning, Gemini for narration ────────────
+  {
+    patterns: [/plan|task|schedule|steps|roadmap|breakdown/i],
+    intent: "plan_task",
+    model_lane: "glm_flash",
+    agent: "planner-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+  {
+    patterns: [
+      /event|calendar|reminder|appointment|meeting|deadline|schedule.*at|set.*alarm/i,
+    ],
+    intent: "plan_task",
+    model_lane: "glm_flash",
+    agent: "scheduling-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+  {
+    patterns: [/orchestrat|coordinate|agents|dispatch|workflow/i],
+    intent: "orchestrate_agents",
+    model_lane: "glm_flash",
+    agent: "planner-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+  {
+    patterns: [/design|ui|component|layout|screen|figma|tailwind|css/i],
+    intent: "design_ui",
+    model_lane: "gemini",
+    agent: "stitch-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+  {
+    patterns: [/3d|three.?js|spline|scene|model|geometry|shape/i],
+    intent: "generate_3d",
+    model_lane: "qwen_3d",
+    agent: "spline-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+  {
+    patterns: [/test|jest|vitest|playwright.*test|unit test|e2e/i],
+    intent: "test_system",
+    model_lane: "qwen_local",
+    agent: "testsprite-agent-mcp",
+    path: "smart",
+    requires_verification: false,
+  },
+
+  // ── ACTION PATH — specialist models, verify only for host mutations ────────
+  {
+    patterns: [/run|execute|terminal|bash|powershell|cmd|script/i],
+    intent: "execute_terminal",
+    model_lane: "qwen_local",
+    agent: "desktop-commander-agent-mcp",
+    path: "action",
+    requires_verification: true,
+  },
+  {
+    patterns: [/click|navigate|open url|browser|website|scrape|automate web/i],
+    intent: "automate_browser",
+    model_lane: "qwen_local",
+    agent: "playwright-agent-mcp",
+    path: "action",
+    requires_verification: true,
+  },
+  {
+    patterns: [/screenshot|describe.*image|what.*see|look at|analyze.*screen/i],
+    intent: "analyze_visual",
+    model_lane: "glm_vision",
+    agent: "vision-agent-mcp",
+    path: "action",
+    requires_verification: false,
+  },
+  {
+    patterns: [/remember|recall|memory|what did|history|last time/i],
+    intent: "recall_memory",
+    model_lane: "notebooklm",
+    agent: "memory-agent-mcp",
+    path: "action",
+    requires_verification: false,
+  },
+  {
+    patterns: [/save|store|note this|remember that|write to memory/i],
+    intent: "write_memory",
+    model_lane: "notebooklm",
+    agent: "memory-agent-mcp",
+    path: "action",
+    requires_verification: false,
+  },
+];
+
+function classifyIntent(text: string): RouteDecision {
+  for (const rule of INTENT_RULES) {
+    if (rule.patterns.some((p) => p.test(text))) {
+      return {
+        intent: rule.intent,
+        model_lane: rule.model_lane,
+        primary_agent: rule.agent,
+        path: rule.path,
+        requires_verification: rule.requires_verification,
+      };
+    }
+  }
+  return {
+    intent: "converse",
+    model_lane: "gemini",
+    primary_agent: "agent-lee-core",
+    path: "fast",
+    requires_verification: false,
+  };
+}
+
 class AIService {
-    private currentKeyIndex = 0;
-    private neuralRouterPort = Number(process.env.NEURAL_ROUTER_PORT || 8004);
+  private currentKeyIndex = 0;
+  private neuralRouterPort = Number(process.env.NEURAL_ROUTER_PORT || 7004);
+  private localOnlyInference =
+    String(process.env.LOCAL_ONLY_INFERENCE || "true").toLowerCase() !==
+    "false";
 
-    constructor() {
-        if (KEYS.length === 0) {
-            console.warn('[ai] No GEMINI_API_KEYs found in .env.local');
-        } else {
-            console.log(`[ai] Initialized with ${KEYS.length} keys for mission rotation.`);
+  constructor() {
+    if (KEYS.length === 0) {
+      console.warn("[ai] No GEMINI_API_KEYs found in .env.local");
+    } else {
+      console.log(
+        `[ai] Initialized with ${KEYS.length} keys for mission rotation.`,
+      );
+    }
+  }
+
+  private getModel(key: string) {
+    const genAI = new GoogleGenerativeAI(key);
+    return genAI.getGenerativeModel({
+      model: "gemini-2.0-flash",
+      systemInstruction: {
+        role: "system",
+        parts: [{ text: AGENT_LEE_SYSTEM_PROMPT }],
+      },
+      generationConfig: {
+        maxOutputTokens: 256,
+        temperature: 0.85,
+      },
+    });
+  }
+
+  private getFlashModel(key: string) {
+    const genAI = new GoogleGenerativeAI(key);
+    return genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: {
+        role: "system",
+        parts: [{ text: AGENT_LEE_SYSTEM_PROMPT }],
+      },
+      generationConfig: {
+        maxOutputTokens: 256,
+        temperature: 0.85,
+      },
+    });
+  }
+
+  /** Query Agent Lee's NotebookLM notebook for grounded knowledge.
+   *  Uses the notebooklm.googleapis.com API (requires Cloud project access).
+   *  Returns null on any failure so the caller can fall through.
+   */
+  private async callNotebookLM(text: string): Promise<string | null> {
+    if (!NOTEBOOKLM_NOTEBOOK_ID || !NOTEBOOKLM_API_KEY) return null;
+
+    try {
+      console.log("[ai] Querying NotebookLM notebook...");
+      const url = `https://notebooklm.googleapis.com/v1beta/notebooks/${NOTEBOOKLM_NOTEBOOK_ID}:query?key=${NOTEBOOKLM_API_KEY}`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: text }),
+        signal: AbortSignal.timeout(20_000),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const answer =
+          data?.answer ||
+          data?.response ||
+          data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (answer) {
+          console.log("[ai] NotebookLM grounded response received.");
+          return answer as string;
         }
+      } else {
+        const errBody = await res.text().catch(() => "");
+        console.warn(
+          `[ai] NotebookLM API returned ${res.status} — ${errBody.slice(0, 120)}`,
+        );
+      }
+    } catch (err: any) {
+      console.warn(`[ai] NotebookLM unreachable: ${err.message}`);
     }
+    return null;
+  }
 
-    private getModel(key: string) {
-        const genAI = new GoogleGenerativeAI(key);
-        // Try pro first for premium voice quality; flash as fallback
-        return genAI.getGenerativeModel({
-            model: 'gemini-1.5-pro',
-            systemInstruction: {
-                role: 'system',
-                parts: [{ text: AGENT_LEE_SYSTEM_PROMPT }]
-            }
-        });
-    }
+  /** Direct Gemini call — rotates through ALL keys on 429/quota errors */
+  private async callGeminiDirect(text: string): Promise<string> {
+    if (KEYS.length === 0) throw new Error("No Gemini API keys configured");
 
-    private getFlashModel(key: string) {
-        const genAI = new GoogleGenerativeAI(key);
-        return genAI.getGenerativeModel({
-            model: 'gemini-1.5-flash',
-            systemInstruction: {
-                role: 'system',
-                parts: [{ text: AGENT_LEE_SYSTEM_PROMPT }]
-            }
-        });
-    }
+    let lastErr: any;
+    for (let attempt = 0; attempt < KEYS.length; attempt++) {
+      const key = KEYS[this.currentKeyIndex % KEYS.length];
+      this.currentKeyIndex = (this.currentKeyIndex + 1) % KEYS.length;
 
-    /** Direct Gemini call — tries Pro (premium voice) then Flash fallback */
-    private async callGeminiDirect(text: string): Promise<string> {
-        if (KEYS.length === 0) throw new Error('No Gemini API keys configured');
-        const key = KEYS[this.currentKeyIndex % KEYS.length];
-        this.currentKeyIndex = (this.currentKeyIndex + 1) % KEYS.length;
+      try {
+        const model = this.getModel(key);
+        const result = await Promise.race([
+          model.generateContent(text),
+          new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error("Gemini timeout (15s)")), 15_000),
+          ),
+        ]);
+        return result.response.text();
+      } catch (proErr: any) {
+        const msg = (proErr.message || "").toLowerCase();
+        const isRateLimit =
+          msg.includes("429") ||
+          msg.includes("quota") ||
+          msg.includes("resource_exhausted");
 
-        // Try gemini-1.5-pro first for premium natural voice
-        try {
-            const model = this.getModel(key);
-            const result = await model.generateContent(text);
+        if (!isRateLimit) {
+          // Not a rate-limit — try Flash on same key before giving up
+          console.warn(
+            `[ai] Pro model failed (${proErr.message?.slice(0, 80)}) — retrying with Flash`,
+          );
+          try {
+            const flash = this.getFlashModel(key);
+            const result = await Promise.race([
+              flash.generateContent(text),
+              new Promise<never>((_, reject) =>
+                setTimeout(
+                  () => reject(new Error("Flash timeout (12s)")),
+                  12_000,
+                ),
+              ),
+            ]);
             return result.response.text();
-        } catch (proErr: any) {
-            console.warn(`[ai] Pro model failed (${proErr.message?.slice(0, 80)}) — retrying with Flash`);
-            // Flash fallback — still uses full persona
-            const model = this.getFlashModel(key);
-            const result = await model.generateContent(text);
-            return result.response.text();
+          } catch (flashErr: any) {
+            lastErr = flashErr;
+            break;
+          }
         }
-    }
 
-    async process(text: string): Promise<string> {
-        // 1. Try Python Neural Router (has Qwen + memory + full persona)
-        try {
-            console.log(`[ai] Routing to Neural Brain (port ${this.neuralRouterPort})...`);
-            const response = await fetch(`http://localhost:${this.neuralRouterPort}/chat`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+        // Rate-limited — rotate to next key
+        console.warn(
+          `[ai] Key ${attempt + 1}/${KEYS.length} rate-limited — rotating`,
+        );
+        lastErr = proErr;
+      }
+    }
+    throw lastErr || new Error("All Gemini keys exhausted");
+  }
+
+  /** Intent-based routing — returns the classified route for the caller to log */
+  public classify(text: string): RouteDecision {
+    return classifyIntent(text);
+  }
+
+  /** Call GLM-4V-Flash for image/screenshot analysis (vision lane) */
+  private async callGlmVision(
+    prompt: string,
+    imageBase64?: string,
+  ): Promise<string | null> {
+    if (!ZHIPU_KEY) return null;
+    try {
+      console.log("[ai] Vision lane → GLM-4V-Flash...");
+      const userContent: unknown = imageBase64
+        ? [
+            {
+              type: "image_url",
+              image_url: { url: `data:image/png;base64,${imageBase64}` },
+            },
+            { type: "text", text: prompt },
+          ]
+        : prompt;
+      const res = await fetch(
+        "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${ZHIPU_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "glm-4v-flash",
+            messages: [
+              { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+              { role: "user", content: userContent },
+            ],
+            temperature: 0.3,
+            max_tokens: 2048,
+            stream: false,
+          }),
+          signal: AbortSignal.timeout(30_000),
+        },
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data?.choices?.[0]?.message?.content;
+        if (reply) {
+          console.log("[ai] GLM-4V-Flash vision response received.");
+          return reply as string;
+        }
+      } else {
+        const errText = await res.text().catch(() => `HTTP ${res.status}`);
+        console.warn(
+          `[ai] GLM-4V-Flash returned ${res.status}: ${errText.slice(0, 100)}`,
+        );
+      }
+    } catch (err: any) {
+      console.warn(`[ai] GLM-4V-Flash failed: ${err.message}`);
+    }
+    return null;
+  }
+
+  async process(text: string): Promise<string> {
+    const route = classifyIntent(text);
+    console.log(
+      `[ai] PATH:${route.path} | Intent:${route.intent} | Lane:${route.model_lane} | Agent:${route.primary_agent} | Verify:${route.requires_verification}`,
+    );
+
+    // =========================================================
+    // FAST PATH — converse / voice / translate
+    // Skip memory, planning, Neural Router → Gemini Flash direct.
+    // =========================================================
+    if (route.path === "fast") {
+      console.log("[ai] Fast path → Gemini direct");
+      try {
+        return await this.callGeminiDirect(text);
+      } catch (err: any) {
+        console.warn(`[ai] Fast path Gemini failed: ${err.message}`);
+        if (ZHIPU_KEY) {
+          // GLM-Flash as fast-path backup (still snappy)
+          try {
+            const res = await fetch(
+              "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${ZHIPU_KEY}`,
+                },
                 body: JSON.stringify({
-                    prompt: text,
-                    handshake: process.env.NEURAL_HANDSHAKE || process.env.NEURAL_HANDSHAKE_KEY,
-                    mode: 'auto'
+                  model: "glm-4-flash",
+                  messages: [
+                    { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+                    { role: "user", content: text },
+                  ],
+                  temperature: 0.8,
+                  max_tokens: 1024,
+                  stream: false,
                 }),
-                signal: AbortSignal.timeout(30_000)
-            });
-
-            if (response.ok) {
-                const ct = response.headers.get('content-type') || '';
-                if (ct.includes('application/json')) {
-                    const data = await response.json();
-                    if (data?.response) {
-                        console.log(`[ai] Neural response from ${data.model || 'router'}`);
-                        return data.response;
-                    }
-                    if (data?.error) throw new Error(data.error);
-                }
+                signal: AbortSignal.timeout(20_000),
+              },
+            );
+            if (res.ok) {
+              const data = await res.json();
+              const reply = data?.choices?.[0]?.message?.content;
+              if (reply) return reply as string;
             }
-            // Non-OK or non-JSON — fall through to direct Gemini
-            const errText = await response.text().catch(() => `HTTP ${response.status}`);
-            console.warn(`[ai] Neural Router returned ${response.status}: ${errText.slice(0, 120)} — falling back to Gemini direct`);
-        } catch (routerErr: any) {
-            console.warn(`[ai] Neural Router unreachable (${routerErr.message}) — falling back to Gemini direct`);
+          } catch (_) {
+            /* fall through */
+          }
         }
+        return "Yo — the voice channel hit a snag. Give me a sec to recalibrate.";
+      }
+    }
 
-        // 2. Direct Gemini call with Agent Lee persona (fallback)
+    // =========================================================
+    // SMART PATH — plan / orchestrate / design / 3D / test
+    // GLM-Flash for structured reasoning → Gemini Flash narration.
+    // =========================================================
+    if (route.path === "smart") {
+      if (ZHIPU_KEY) {
         try {
-            console.log('[ai] Direct Gemini call with Agent Lee persona...');
-            return await this.callGeminiDirect(text);
-        } catch (geminiErr: any) {
-            console.error('[ai] Gemini direct also failed:', geminiErr.message);
-            // 3. Last resort — stay in character
-            return "Yo, real talk — the neural bridge hit a disruption right now. Both the local brain and the cloud link are offline. Check that the backend stack is running (Run-All.ps1) and peep the logs. I'll be right back on track once the connection locks in.";
+          console.log("[ai] Smart path → GLM-Flash (planning/reasoning lane)");
+          const zhipuRes = await fetch(
+            "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${ZHIPU_KEY}`,
+              },
+              body: JSON.stringify({
+                model: "glm-4-flash",
+                messages: [
+                  { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+                  { role: "user", content: text },
+                ],
+                temperature: 0.5,
+                max_tokens: 2048,
+                stream: false,
+              }),
+              signal: AbortSignal.timeout(30_000),
+            },
+          );
+          if (zhipuRes.ok) {
+            const data = await zhipuRes.json();
+            const reply = data?.choices?.[0]?.message?.content;
+            if (reply) {
+              console.log("[ai] GLM-Flash smart path response received.");
+              return reply as string;
+            }
+          } else {
+            const errText = await zhipuRes
+              .text()
+              .catch(() => `HTTP ${zhipuRes.status}`);
+            console.warn(
+              `[ai] GLM-Flash returned ${zhipuRes.status}: ${errText.slice(0, 100)}`,
+            );
+          }
+        } catch (err: any) {
+          console.warn(
+            `[ai] GLM-Flash smart path failed: ${err.message} — falling back to Gemini`,
+          );
         }
+      }
+      // Narration fallback for smart path
+      try {
+        return await this.callGeminiDirect(text);
+      } catch (err: any) {
+        console.warn(`[ai] Smart path Gemini fallback failed: ${err.message}`);
+        return "My planning lane is recalibrating. Stand by — I'll have a structured breakdown for you in a moment.";
+      }
     }
 
-    public getHealth() {
-        return {
-            bridge: 'Python Neural Router + Gemini Direct Fallback',
-            port: this.neuralRouterPort,
-            status: 'online',
-            memory: true
-        };
+    // =========================================================
+    // ACTION PATH — vision / memory / terminal / browser
+    // Specialist models per intent. Verification only for host mutations.
+    // =========================================================
+
+    // Vision lane → GLM-4V-Flash
+    if (route.intent === "analyze_visual") {
+      const visionResult = await this.callGlmVision(text);
+      if (visionResult) return visionResult;
+      // Vision fallback → Gemini (multimodal capable)
+      try {
+        return await this.callGeminiDirect(text);
+      } catch (_) {
+        return "Vision lane is down. Try again with the screenshot attached in the request payload.";
+      }
     }
+
+    // Memory lanes → NotebookLM grounded knowledge
+    if (route.intent === "recall_memory" || route.intent === "write_memory") {
+      const notebookAnswer = await this.callNotebookLM(text);
+      if (notebookAnswer) return notebookAnswer;
+      // Memory fallback → GLM-Flash (still has session context)
+      if (ZHIPU_KEY) {
+        try {
+          const res = await fetch(
+            "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${ZHIPU_KEY}`,
+              },
+              body: JSON.stringify({
+                model: "glm-4-flash",
+                messages: [
+                  { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+                  { role: "user", content: text },
+                ],
+                temperature: 0.3,
+                max_tokens: 1024,
+                stream: false,
+              }),
+              signal: AbortSignal.timeout(20_000),
+            },
+          );
+          if (res.ok) {
+            const data = await res.json();
+            const reply = data?.choices?.[0]?.message?.content;
+            if (reply) return reply as string;
+          }
+        } catch (_) {
+          /* fall through */
+        }
+      }
+    }
+
+    // Terminal / browser execution → Neural Router (local MCP agent dispatch)
+    if (
+      route.intent === "execute_terminal" ||
+      route.intent === "automate_browser"
+    ) {
+      try {
+        console.log(
+          `[ai] Action path → Neural Router (port ${this.neuralRouterPort}) for ${route.intent}`,
+        );
+        const response = await fetch(
+          `http://localhost:${this.neuralRouterPort}/chat`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              prompt: text,
+              handshake:
+                process.env.NEURAL_HANDSHAKE ||
+                process.env.NEURAL_HANDSHAKE_KEY,
+              mode: "auto",
+              intent: route.intent,
+              agent: route.primary_agent,
+            }),
+            signal: AbortSignal.timeout(120_000),
+          },
+        );
+        if (response.ok) {
+          const ct = response.headers.get("content-type") || "";
+          if (ct.includes("application/json")) {
+            const data = await response.json();
+            if (data?.response) {
+              console.log(`[ai] Neural Router responded for ${route.intent}`);
+              return data.response;
+            }
+            if (data?.error) throw new Error(data.error);
+          }
+        }
+        const errText = await response
+          .text()
+          .catch(() => `HTTP ${response.status}`);
+        console.warn(
+          `[ai] Neural Router returned ${response.status}: ${errText.slice(0, 120)}`,
+        );
+      } catch (routerErr: any) {
+        console.warn(`[ai] Neural Router unreachable: ${routerErr.message}`);
+      }
+    }
+
+    // Action path fallback — GLM-Flash, then Gemini
+    if (ZHIPU_KEY) {
+      try {
+        console.log("[ai] Action path fallback → Zhipu AI (GLM-4-Flash)");
+        const zhipuRes = await fetch(
+          "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${ZHIPU_KEY}`,
+            },
+            body: JSON.stringify({
+              model: "glm-4-flash",
+              messages: [
+                { role: "system", content: AGENT_LEE_SYSTEM_PROMPT },
+                { role: "user", content: text },
+              ],
+              temperature: 0.8,
+              max_tokens: 1024,
+              stream: false,
+            }),
+            signal: AbortSignal.timeout(30_000),
+          },
+        );
+        if (zhipuRes.ok) {
+          const data = await zhipuRes.json();
+          const reply = data?.choices?.[0]?.message?.content;
+          if (reply) {
+            console.log("[ai] Zhipu AI action fallback responded.");
+            return reply as string;
+          }
+        } else {
+          const errText = await zhipuRes
+            .text()
+            .catch(() => `HTTP ${zhipuRes.status}`);
+          console.warn(
+            `[ai] Zhipu AI returned ${zhipuRes.status}: ${errText.slice(0, 100)}`,
+          );
+        }
+      } catch (zhipuErr: any) {
+        console.warn(`[ai] Zhipu AI unreachable: ${zhipuErr.message}`);
+      }
+    }
+
+    if (this.localOnlyInference && KEYS.length === 0) {
+      return "Yo, real talk — both the local neural router and the cloud links are offline right now. Run Start-AgentLee.ps1 to bring the stack back up and I'll be right back in.";
+    }
+
+    // Final fallback → Gemini direct with Agent Lee persona
+    try {
+      console.log("[ai] Final fallback → Gemini direct with Agent Lee persona");
+      return await this.callGeminiDirect(text);
+    } catch (geminiErr: any) {
+      console.error("[ai] Gemini direct also failed:", geminiErr.message);
+      return "Yo, real talk — the neural bridge hit a disruption right now. Both the local brain and the cloud link are offline. Check that the backend stack is running (Run-All.ps1) and peep the logs. I'll be right back on track once the connection locks in.";
+    }
+  }
+
+  public getHealth() {
+    return {
+      bridge: this.localOnlyInference
+        ? "Python Neural Router (local-only)"
+        : "Python Neural Router + Gemini Direct Fallback",
+      port: this.neuralRouterPort,
+      status: "online",
+      memory: true,
+      notebooklm: NOTEBOOKLM_NOTEBOOK_ID
+        ? `wired (notebook: ${NOTEBOOKLM_NOTEBOOK_ID})`
+        : "not configured",
+      intent_router:
+        "active (3-path: fast/smart/action | 14 intent classes → 14 MCP agents)",
+      routing_paths: {
+        fast: "converse / speak_voice / translate_language → Gemini direct (no memory, no Neural Router)",
+        smart:
+          "plan_task / orchestrate / design_ui / generate_3d / test_system → GLM-Flash reasoning → Gemini narration",
+        action:
+          "analyze_visual → GLM-4V-Flash | recall/write_memory → NotebookLM | execute_terminal/automate_browser → Neural Router",
+      },
+      model_lanes: [
+        "gemini (fast path + smart fallback)",
+        "glm_flash (smart path planning/reasoning)",
+        "glm_vision (GLM-4V-Flash for screenshots/image analysis)",
+        "notebooklm (grounded memory recall)",
+        "qwen_local (terminal/browser execution via Neural Router)",
+        "qwen_3d",
+        "qwen_math",
+      ],
+      verification:
+        "requires_verification=true only for execute_terminal + automate_browser (host mutations)",
+    };
+  }
 }
 
 export const aiService = new AIService();

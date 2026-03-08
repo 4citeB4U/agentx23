@@ -1,0 +1,88 @@
+MODEL SUPPORT PROJECT REPORT
+
+=== Checking C:\Cerebral ===
+[2026-03-06 01:00:38] [INFO] Python files found: 12716
+[2026-03-06 01:00:38] [INFO] Requirements/config files found: 7
+[2026-03-06 01:00:38] [INFO] Local venv folders found: 3
+[2026-03-06 01:00:38] [INFO] BAT/CMD files found: 95
+[2026-03-06 01:00:38] [INFO] PowerShell files found: 121
+[2026-03-06 01:00:38] [INFO] JSON files found: 2632
+[2026-03-06 01:00:38] [INFO] Files referencing torch: 20
+[2026-03-06 01:00:38] [INFO] Files referencing transformers: 15
+[2026-03-06 01:00:38] [INFO] Files referencing Python/venv paths: 340
+[2026-03-06 01:00:38] [INFO] Requirements/config files:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\requirements.txt
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\adodbapi\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\f2py\setup.cfg
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\_core\tests\examples\cython\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\_core\tests\examples\limited_api\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\win32\Demos\c_extension\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\tests\requirements.txt
+[2026-03-06 01:00:38] [INFO] Local virtual environments:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\digital-brain\node_modules\@next\env
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\vscode-mcp-tooling\node_modules\axios\lib\env
+[2026-03-06 01:00:38] [INFO] Torch references:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\talk.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_check\error\_pep\pep484585\errpep484585container.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_data\code\pep\datacodepep484585.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\bin\convert_hf_to_gguf.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\eole_ct2.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\fairseq.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\opennmt_py.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\transformers.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\utils.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\specs\model_spec.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\_backends.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\_torch_specific.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\einops.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\layers\torch.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\run_tests.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_einsum.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_examples.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_layers.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_ops.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_other.py
+[2026-03-06 01:00:38] [INFO] Transformers references:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\attr\_make.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawstate.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\__init__.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\clawastmain.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_kind\clawastmodule.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_pep\clawastpep695.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_scope\clawastscopebefore.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_importlib\_clawimpload.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\plug\_plughintable.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_conf\decorplace\confplacetrie.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_util\hint\pep\proposal\pep695.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\bin\convert_hf_to_gguf.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\transformers.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2-4.7.1.dist-info\entry_points.txt
+[2026-03-06 01:00:39] [INFO] Python/venv path references:
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\cerebral_mcp_server.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\daemon_full_log.txt
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\file_indexer.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\foundry_log.txt
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\INSTALL.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\PORTS.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\README.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\recover_services.ps1
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\start_cerebral.bat
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\six.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\sounddevice.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\meta.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\_infermain.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionbuiltin.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionitems.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionsabc.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\kind\infercallable.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\kind\inferthirdparty.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\cave\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\cave\_cavelib.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawmain.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawstate.py
+[2026-03-06 01:00:39] [INFO] Recommended action: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe

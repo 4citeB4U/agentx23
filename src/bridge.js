@@ -1,11 +1,13 @@
+import fs from "fs";
 import http from "http";
 import { CONFIG } from "./config.js";
 import { loadDotenv, mergeEnv } from "./dotenv.js";
 import { run } from "./exec.js";
-import fs from "fs";
 
 mergeEnv(loadDotenv(CONFIG.DOTENV_PATH));
-const BRIDGE_PORT = Number(process.env.MCP_BRIDGE_PORT || process.env.PORT || 8002);
+const BRIDGE_PORT = Number(
+  process.env.MCP_BRIDGE_PORT || process.env.PORT || 6002,
+);
 
 async function runPkg(pkg) {
   const env = { ...process.env };
@@ -16,15 +18,16 @@ async function runStitch() {
   const env = { ...process.env };
   const cwd = CONFIG.STITCH_PATH;
   const entry = cwd + "\\\\dist\\\\index.js";
-  if (!fs.existsSync(entry)) return { code: 3, out: "", err: "Missing: " + entry };
+  if (!fs.existsSync(entry))
+    return { code: 3, out: "", err: "Missing: " + entry };
   return await run(CONFIG.NODE_EXE, [entry], { cwd, env });
 }
 
 const routes = {
   "/run/testsprite": () => runPkg("@testsprite/testsprite-mcp@latest"),
   "/run/playwright": () => runPkg("@playwright/mcp@latest"),
-  "/run/insforge":   () => runPkg("@insforge/mcp@latest"),
-  "/run/stitch":     () => runStitch()
+  "/run/insforge": () => runPkg("@insforge/mcp@latest"),
+  "/run/stitch": () => runStitch(),
 };
 
 const server = http.createServer(async (req, res) => {
@@ -33,7 +36,8 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify(obj, null, 2));
   };
 
-  if (req.method !== "POST") return send({ ok: false, error: "POST only" }, 405);
+  if (req.method !== "POST")
+    return send({ ok: false, error: "POST only" }, 405);
 
   const fn = routes[req.url];
   if (!fn) return send({ ok: false, error: "Unknown route" }, 404);

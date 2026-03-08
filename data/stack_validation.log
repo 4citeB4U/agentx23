@@ -1,0 +1,62 @@
+
+==================================================
+VALIDATION RUN STARTED: 2026-03-06 00:34:43
+==================================================
+
+🧪 Environment Control Stack Validation
+
+
+=== Base Environment ===
+[PASS] Running as Administrator (required for input injection)
+
+=== Layer 1: Reasoning ===
+[FAIL] Ollama / Foundry Local is not running or not reachable
+
+=== Layer 2: Action Broker ===
+[WARN] Action Broker is not running yet. This is expected.
+
+=== Layer 3: Desktop Control ===
+[PASS] Windows UI Automation is available and loaded
+[FAIL] Windows OCR API not available
+[PASS] Win32 mouse / keyboard injection is available
+
+=== Final Summary ===
+Full log saved to: C:\Tools\stack_validation.log
+You do not need to do anything else until all of the above are green.
+If all are green, your system is fully capable of running this stack.
+==================================================
+RUN COMPLETE
+==================================================
+
+
+
+==================================================
+VALIDATION RUN STARTED: 2026-03-06 00:36:48
+==================================================
+
+🧪 Environment Control Stack Validation
+
+
+=== Base Environment ===
+[PASS] Running as Administrator (required for input injection)
+
+=== Layer 1: Reasoning ===
+[FAIL] Ollama / Foundry Local is not running or not reachable
+
+=== Layer 2: Action Broker ===
+[WARN] Action Broker is not running yet. This is expected.
+
+=== Layer 3: Desktop Control ===
+[PASS] Windows UI Automation is available and loaded
+[FAIL] Windows OCR API not available
+[PASS] Win32 mouse / keyboard injection is available
+
+=== Final Summary ===
+Full log saved to: C:\Tools\stack_validation.log
+You do not need to do anything else until all of the above are green.
+If all are green, your system is fully capable of running this stack.
+==================================================
+RUN COMPLETE
+==================================================
+
+

@@ -3,7 +3,9 @@
     "TestSprite": {
       "command": "powershell.exe",
       "args": [
-        "-NoProfile","-ExecutionPolicy","Bypass",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
         "-Command",
         "node C:\\\\Tools\\\\vscode-mcp-tooling\\\\src\\\\tool.js testsprite"
       ]
@@ -11,7 +13,9 @@
     "Playwright": {
       "command": "powershell.exe",
       "args": [
-        "-NoProfile","-ExecutionPolicy","Bypass",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
         "-Command",
         "node C:\\\\Tools\\\\vscode-mcp-tooling\\\\src\\\\tool.js playwright"
       ]
@@ -19,7 +23,9 @@
     "InsForge": {
       "command": "powershell.exe",
       "args": [
-        "-NoProfile","-ExecutionPolicy","Bypass",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
         "-Command",
         "node C:\\\\Tools\\\\vscode-mcp-tooling\\\\src\\\\tool.js insforge"
       ]
@@ -27,7 +33,9 @@
     "LeewayGeminiStitch": {
       "command": "powershell.exe",
       "args": [
-        "-NoProfile","-ExecutionPolicy","Bypass",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
         "-Command",
         "node C:\\\\Tools\\\\vscode-mcp-tooling\\\\src\\\\tool.js stitch"
       ]

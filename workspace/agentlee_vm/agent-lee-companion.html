@@ -1,0 +1,1785 @@
+<!doctype html>
+<!--
+  AGENT LEE — ANDROID SOVEREIGN COMPANION v2
+  Full hardware + software bridge for Samsung Galaxy Z Fold.
+  Install from Chrome → Add to Home Screen for full PWA mode.
+  On first launch, grants Agent Lee access to every available
+  phone capability: mic, camera, location, Bluetooth, NFC,
+  USB, notifications, sensors, contacts, storage and more.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#020617" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Agent Lee" />
+    <link rel="manifest" href="/workspace/agentlee_vm/manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect width='96' height='96' fill='%23020617'/><circle cx='48' cy='48' r='32' fill='none' stroke='%230ea5e9' stroke-width='3'/><circle cx='48' cy='48' r='16' fill='%230ea5e9' opacity='0.6'/><circle cx='48' cy='48' r='5' fill='%2300ffff'/></svg>"
+    />
+    <title>Agent Lee — Sovereign Companion</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      :root {
+        --bg: #020617;
+        --bg2: #0a1628;
+        --bg3: #0f1f35;
+        --border: rgba(14, 165, 233, 0.22);
+        --border2: rgba(0, 255, 255, 0.15);
+        --cyan: #0ea5e9;
+        --cyan2: #00ffff;
+        --text: #e2e8f0;
+        --muted: #64748b;
+        --red: #ef4444;
+        --green: #22c55e;
+        --amber: #f59e0b;
+        --purple: #a855f7;
+        --safe-top: env(safe-area-inset-top, 0px);
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100dvh;
+      }
+
+      /* ─── PERMISSION ONBOARDING SCREEN ─── */
+      #onboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: var(--bg);
+        overflow-y: auto;
+        padding: calc(var(--safe-top)+20px) 20px calc(var(--safe-bottom)+20px);
+      }
+      #onboard.hidden {
+        display: none;
+      }
+      .onboard-orb {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        background: radial-gradient(
+          circle at 38% 32%,
+          var(--cyan2),
+          var(--cyan),
+          #0a1a4e
+        );
+        box-shadow:
+          0 0 40px var(--cyan),
+          0 0 80px rgba(0, 255, 255, 0.15);
+        animation: pulse-orb 2.5s ease-in-out infinite;
+      }
+      @keyframes pulse-orb {
+        0%,
+        100% {
+          box-shadow: 0 0 30px var(--cyan);
+        }
+        50% {
+          box-shadow:
+            0 0 60px var(--cyan2),
+            0 0 90px rgba(0, 255, 255, 0.25);
+        }
+      }
+      .onboard-title {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: var(--cyan);
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .onboard-sub {
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        max-width: 340px;
+      }
+      .perm-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 420px;
+        margin-bottom: 24px;
+      }
+      .perm-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 13px 16px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .perm-ico {
+        font-size: 26px;
+        flex-shrink: 0;
+        width: 34px;
+        text-align: center;
+      }
+      .perm-info {
+        flex: 1;
+      }
+      .perm-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .perm-desc {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+      .perm-status {
+        font-size: 18px;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+      }
+      .perm-card.granted {
+        border-color: rgba(34, 197, 94, 0.35);
+        background: rgba(34, 197, 94, 0.04);
+      }
+      .perm-card.denied {
+        border-color: rgba(239, 68, 68, 0.3);
+        background: rgba(239, 68, 68, 0.04);
+      }
+      .perm-card.na {
+        opacity: 0.45;
+      }
+      .grant-all-btn {
+        width: 100%;
+        max-width: 420px;
+        padding: 16px;
+        background: linear-gradient(135deg, var(--cyan), #0369a1);
+        border: none;
+        border-radius: 16px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 800;
+        cursor: pointer;
+        letter-spacing: 0.03em;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 24px rgba(14, 165, 233, 0.35);
+      }
+      .grant-all-btn:active {
+        opacity: 0.85;
+      }
+      .skip-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        color: var(--muted);
+        font-size: 13px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      /* ─── MAIN APP ─── */
+      #app {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        display: none;
+      }
+      #app.visible {
+        display: flex;
+      }
+
+      /* HEADER */
+      header {
+        padding: calc(var(--safe-top)+10px) 16px 10px;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .orb {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: radial-gradient(
+          circle at 38% 32%,
+          var(--cyan2),
+          var(--cyan),
+          #0a1a4e
+        );
+        box-shadow: 0 0 14px var(--cyan);
+        animation: pulse-orb 3s ease-in-out infinite;
+      }
+      header h1 {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        color: var(--cyan);
+      }
+      #conn-status {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 1px;
+        transition: color 0.3s;
+      }
+      #conn-status.connected {
+        color: var(--green);
+      }
+      #conn-status.error {
+        color: var(--red);
+      }
+      .hdr-right {
+        margin-left: auto;
+        display: flex;
+        gap: 6px;
+      }
+      .icon-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        border-radius: 9px;
+        padding: 6px 9px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .icon-btn:active {
+        opacity: 0.7;
+      }
+
+      /* CHAT */
+      #chat {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .msg {
+        max-width: 83%;
+        padding: 10px 13px;
+        border-radius: 14px;
+        font-size: 14px;
+        line-height: 1.55;
+        word-break: break-word;
+      }
+      .msg.agent {
+        align-self: flex-start;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-bottom-left-radius: 4px;
+      }
+      .msg.user {
+        align-self: flex-end;
+        background: linear-gradient(135deg, var(--cyan), #0369a1);
+        border-bottom-right-radius: 4px;
+        color: #fff;
+      }
+      .msg.system {
+        align-self: center;
+        background: rgba(14, 165, 233, 0.07);
+        border: 1px solid var(--border2);
+        border-radius: 10px;
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        padding: 7px 12px;
+      }
+      .msg.warn {
+        align-self: center;
+        background: rgba(245, 158, 11, 0.08);
+        border: 1px solid rgba(245, 158, 11, 0.25);
+        border-radius: 10px;
+        font-size: 11px;
+        color: var(--amber);
+        text-align: center;
+        padding: 7px 12px;
+      }
+      #typing {
+        display: none;
+        align-self: flex-start;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        border-bottom-left-radius: 4px;
+        padding: 10px 14px;
+        gap: 5px;
+        align-items: center;
+      }
+      #typing.show {
+        display: flex;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--cyan);
+        animation: bounce 0.9s ease-in-out infinite;
+      }
+      .dot:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .dot:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* CAPABILITY GRID */
+      #caps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 8px 10px;
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .cap-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        background: rgba(14, 165, 233, 0.05);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 4px;
+        cursor: pointer;
+        font-size: 10px;
+        color: var(--muted);
+        transition: background 0.15s;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      .cap-btn:active {
+        background: rgba(14, 165, 233, 0.2);
+      }
+      .cap-btn .ico {
+        font-size: 19px;
+      }
+      .cap-btn.on {
+        border-color: rgba(34, 197, 94, 0.4);
+        color: var(--green);
+      }
+      .cap-btn.busy {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      /* INPUT */
+      #input-bar {
+        padding: 9px 11px calc(var(--safe-bottom)+9px);
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 7px;
+        align-items: flex-end;
+        flex-shrink: 0;
+      }
+      #msg-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 10px 14px;
+        color: var(--text);
+        font-size: 14px;
+        resize: none;
+        max-height: 100px;
+        outline: none;
+        line-height: 1.4;
+      }
+      #msg-input::placeholder {
+        color: var(--muted);
+      }
+      .send-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--cyan);
+        border: none;
+        color: #000;
+        font-size: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .send-btn:active {
+        opacity: 0.75;
+      }
+      .mic-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1.5px solid var(--border);
+        color: var(--muted);
+        font-size: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+      }
+      .mic-btn.listening {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+        animation: mic-pulse 1s ease-in-out infinite;
+      }
+      @keyframes mic-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 16px rgba(239, 68, 68, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 28px rgba(239, 68, 68, 0.8);
+        }
+      }
+
+      /* SETTINGS */
+      #settings-panel {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        align-items: flex-end;
+      }
+      #settings-panel.open {
+        display: flex;
+      }
+      .settings-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 480px;
+      }
+      .settings-card h2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--cyan);
+        margin-bottom: 16px;
+      }
+      .field {
+        margin-bottom: 12px;
+      }
+      .field label {
+        display: block;
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .field input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px;
+        color: var(--text);
+        font-size: 14px;
+        outline: none;
+      }
+      .save-btn {
+        width: 100%;
+        padding: 12px;
+        background: var(--cyan);
+        border: none;
+        border-radius: 12px;
+        color: #000;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 4px;
+      }
+      .close-settings {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      /* INSTALL BANNER */
+      #install-banner {
+        display: none;
+        background: linear-gradient(135deg, #1e3a5f, #0a1628);
+        border: 1px solid var(--cyan);
+        border-radius: 14px;
+        margin: 8px 14px 0;
+        padding: 11px 14px;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      #install-banner.show {
+        display: flex;
+      }
+      #install-banner p {
+        font-size: 12px;
+        flex: 1;
+      }
+      #install-btn {
+        background: var(--cyan);
+        color: #000;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* SENSOR OVERLAY */
+      #sensor-overlay {
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 14px;
+        z-index: 400;
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-size: 11px;
+        font-family: monospace;
+        color: var(--cyan2);
+        max-width: 200px;
+        line-height: 1.7;
+      }
+      #sensor-overlay.show {
+        display: block;
+      }
+
+      #file-input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════════════
+     PERMISSION ONBOARDING SCREEN
+     ═══════════════════════════════════════════════════════ -->
+    <div id="onboard">
+      <div class="onboard-orb"></div>
+      <div class="onboard-title">AGENT LEE</div>
+      <div class="onboard-sub">
+        To operate as your sovereign AI companion on this device, Agent Lee
+        needs access to your phone's hardware and software. Grant all
+        permissions below for full functionality.
+      </div>
+
+      <div class="perm-grid" id="perm-grid">
+        <!-- Items injected by JS -->
+      </div>
+
+      <button
+        class="grant-all-btn"
+        id="grant-all-btn"
+        onclick="grantAllPermissions()"
+      >
+        🔓 Grant All Permissions &amp; Launch Agent Lee
+      </button>
+      <button class="skip-btn" onclick="launchApp()">
+        Skip — I'll grant permissions later
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     MAIN APP SHELL
+     ═══════════════════════════════════════════════════════ -->
+    <div id="app">
+      <!-- HEADER -->
+      <header>
+        <div class="orb"></div>
+        <div>
+          <h1>AGENT LEE</h1>
+          <div id="conn-status">Connecting…</div>
+        </div>
+        <div class="hdr-right">
+          <button class="icon-btn" onclick="openSettings()" title="Settings">
+            ⚙
+          </button>
+          <button class="icon-btn" onclick="showSensors()" title="Live sensors">
+            📡
+          </button>
+          <button
+            class="icon-btn"
+            onclick="phoneAction('battery')"
+            title="Battery"
+          >
+            🔋
+          </button>
+        </div>
+      </header>
+
+      <!-- INSTALL BANNER -->
+      <div id="install-banner">
+        <p>📲 Add Agent Lee to your home screen for full PWA mode.</p>
+        <button id="install-btn">Install</button>
+      </div>
+
+      <!-- CHAT -->
+      <div id="chat"></div>
+      <div id="typing">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- CAPABILITY STRIP -->
+      <div id="caps">
+        <button class="cap-btn" id="cap-mic" onclick="toggleMic()">
+          <span class="ico">🎤</span>Mic
+        </button>
+        <button class="cap-btn" onclick="phoneAction('call')">
+          <span class="ico">📞</span>Call
+        </button>
+        <button class="cap-btn" onclick="phoneAction('sms')">
+          <span class="ico">💬</span>SMS
+        </button>
+        <button class="cap-btn" onclick="phoneAction('camera')">
+          <span class="ico">📷</span>Camera
+        </button>
+        <button class="cap-btn" onclick="phoneAction('location')">
+          <span class="ico">📍</span>Location
+        </button>
+        <button class="cap-btn" onclick="phoneAction('contacts')">
+          <span class="ico">👤</span>Contacts
+        </button>
+        <button class="cap-btn" onclick="phoneAction('bluetooth')">
+          <span class="ico">🔵</span>Bluetooth
+        </button>
+        <button class="cap-btn" onclick="phoneAction('nfc')">
+          <span class="ico">📶</span>NFC
+        </button>
+        <button class="cap-btn" onclick="phoneAction('wifi')">
+          <span class="ico">📡</span>Wi-Fi
+        </button>
+        <button class="cap-btn" onclick="phoneAction('usb')">
+          <span class="ico">🔌</span>USB
+        </button>
+        <button class="cap-btn" onclick="phoneAction('file')">
+          <span class="ico">📎</span>File
+        </button>
+        <button class="cap-btn" onclick="phoneAction('notify')">
+          <span class="ico">🔔</span>Notify
+        </button>
+        <button class="cap-btn" onclick="phoneAction('maps')">
+          <span class="ico">🗺</span>Maps
+        </button>
+        <button class="cap-btn" onclick="phoneAction('youtube')">
+          <span class="ico">▶</span>YouTube
+        </button>
+        <button class="cap-btn" onclick="phoneAction('settings_app')">
+          <span class="ico">⚙</span>Settings
+        </button>
+        <button class="cap-btn" onclick="phoneAction('share')">
+          <span class="ico">↗</span>Share
+        </button>
+      </div>
+
+      <!-- INPUT -->
+      <div id="input-bar">
+        <button class="mic-btn" id="mic-btn" onclick="toggleMic()">🎤</button>
+        <textarea
+          id="msg-input"
+          placeholder="Message Agent Lee…"
+          rows="1"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="send-btn" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+
+    <!-- SENSOR OVERLAY -->
+    <div id="sensor-overlay" id="sensor-overlay"></div>
+
+    <!-- SETTINGS -->
+    <div id="settings-panel">
+      <div class="settings-card">
+        <h2>⚙ Companion Settings</h2>
+        <div class="field">
+          <label>Agent Lee Server URL</label>
+          <input
+            type="url"
+            id="s-server"
+            placeholder="https://your-tunnel.trycloudflare.com"
+          />
+        </div>
+        <div class="field">
+          <label>Neural Handshake Key</label>
+          <input
+            type="password"
+            id="s-key"
+            placeholder="AGENT_LEE_SOVEREIGN_V1"
+          />
+        </div>
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" id="s-name" placeholder="Boss" />
+        </div>
+        <button class="save-btn" onclick="saveSettings()">
+          💾 Save &amp; Reconnect
+        </button>
+        <button class="close-settings" onclick="closeSettings()">Cancel</button>
+      </div>
+    </div>
+
+    <input
+      type="file"
+      id="file-input"
+      multiple
+      onchange="handleFileUpload(this.files)"
+    />
+
+    <script>
+      "use strict";
+      // ─────────────────────────────────────────────────────────────
+      // CONFIG
+      // ─────────────────────────────────────────────────────────────
+      const LS = localStorage;
+      let SERVER =
+        LS.getItem("al_server") ||
+        (location.origin && location.origin !== "null"
+          ? location.origin
+          : "https://agentlee.rapidwebdevelop.com");
+      let HANDSHAKE = LS.getItem("al_key") || "AGENT_LEE_SOVEREIGN_V1";
+      let USER_NAME = LS.getItem("al_name") || "Boss";
+      const PERM_KEY = "al_perms_granted";
+
+      // ─────────────────────────────────────────────────────────────
+      // PERMISSION DEFINITIONS — every permission available in PWA
+      // ─────────────────────────────────────────────────────────────
+      const PERMISSIONS = [
+        {
+          id: "microphone",
+          icon: "🎤",
+          name: "Microphone",
+          desc: "Voice commands, dictation, and real-time audio to Agent Lee",
+          grant: async () => {
+            const s = await navigator.mediaDevices.getUserMedia({
+              audio: true,
+            });
+            s.getTracks().forEach((t) => t.stop());
+            return true;
+          },
+        },
+        {
+          id: "camera",
+          icon: "📷",
+          name: "Camera",
+          desc: "Photo capture, QR scanning, and visual tasks for Agent Lee",
+          grant: async () => {
+            const s = await navigator.mediaDevices.getUserMedia({
+              video: true,
+            });
+            s.getTracks().forEach((t) => t.stop());
+            return true;
+          },
+        },
+        {
+          id: "geolocation",
+          icon: "📍",
+          name: "Precise Location",
+          desc: "GPS coordinates, navigation direction, and location awareness",
+          grant: () =>
+            new Promise((res, rej) =>
+              navigator.geolocation.getCurrentPosition(() => res(true), rej, {
+                enableHighAccuracy: true,
+                timeout: 8000,
+              }),
+            ),
+        },
+        {
+          id: "notifications",
+          icon: "🔔",
+          name: "Notifications",
+          desc: "Push alerts, reminders, and Agent Lee proactive messages",
+          grant: async () => {
+            const r = await Notification.requestPermission();
+            return r === "granted";
+          },
+        },
+        {
+          id: "bluetooth",
+          icon: "🔵",
+          name: "Bluetooth &amp; IoT",
+          desc: "Connect to BLE devices, smart home, wearables, and IoT hardware",
+          grant: async () => {
+            if (!navigator.bluetooth) return "na";
+            // Request without a filter to enumerate nearby BT devices
+            await navigator.bluetooth.requestDevice({
+              acceptAllDevices: true,
+              optionalServices: [
+                "battery_service",
+                "heart_rate",
+                "generic_access",
+              ],
+            });
+            return true;
+          },
+        },
+        {
+          id: "nfc",
+          icon: "📶",
+          name: "NFC",
+          desc: "Read and write NFC tags, tap-to-pair, and contactless data",
+          grant: async () => {
+            if (!("NDEFReader" in window)) return "na";
+            const r = new NDEFReader();
+            await r.scan();
+            return true;
+          },
+        },
+        {
+          id: "contacts",
+          icon: "👤",
+          name: "Contacts",
+          desc: "Read contacts so Agent Lee can call, text, and email on your behalf",
+          grant: async () => {
+            if (!navigator.contacts) return "na";
+            await navigator.contacts.select(["name", "tel", "email"], {
+              multiple: false,
+            });
+            return true;
+          },
+        },
+        {
+          id: "persistent-storage",
+          icon: "💾",
+          name: "Persistent Storage",
+          desc: "Store mission data, chat history, and offline capabilities",
+          grant: async () => {
+            if (!navigator.storage) return "na";
+            const granted = await navigator.storage.persist();
+            return granted;
+          },
+        },
+        {
+          id: "screen-wake-lock",
+          icon: "🌟",
+          name: "Keep Screen On",
+          desc: "Prevent sleep during active tasks and voice sessions",
+          grant: async () => {
+            if (!navigator.wakeLock) return "na";
+            const lock = await navigator.wakeLock.request("screen");
+            lock.release();
+            return true;
+          },
+        },
+        {
+          id: "clipboard",
+          icon: "📋",
+          name: "Clipboard",
+          desc: "Read and write clipboard for copy-paste automation tasks",
+          grant: async () => {
+            if (!navigator.clipboard) return "na";
+            await navigator.clipboard.readText().catch(() => {});
+            return true;
+          },
+        },
+        {
+          id: "usb",
+          icon: "🔌",
+          name: "USB / OTG Devices",
+          desc: "Connect USB accessories, OTG drives, and external hardware",
+          grant: async () => {
+            if (!navigator.usb) return "na";
+            await navigator.usb.requestDevice({ filters: [] });
+            return true;
+          },
+        },
+        {
+          id: "serial",
+          icon: "🔗",
+          name: "Serial / Hardware Port",
+          desc: "Communicate with Arduino, sensors, and serial-port devices",
+          grant: async () => {
+            if (!navigator.serial) return "na";
+            await navigator.serial.requestPort({});
+            return true;
+          },
+        },
+        {
+          id: "motion",
+          icon: "📲",
+          name: "Motion &amp; Orientation",
+          desc: "Accelerometer, gyroscope, and device orientation for gestures",
+          grant: async () => {
+            if (typeof DeviceMotionEvent === "undefined") return "na";
+            if (typeof DeviceMotionEvent.requestPermission === "function") {
+              const r = await DeviceMotionEvent.requestPermission();
+              return r === "granted";
+            }
+            return true; // Android grants without explicit prompt
+          },
+        },
+        {
+          id: "push",
+          icon: "📡",
+          name: "Background Push &amp; Sync",
+          desc: "Wake app to deliver Agent Lee messages even when screen is off",
+          grant: async () => {
+            if (!("PushManager" in window) || !navigator.serviceWorker)
+              return "na";
+            const reg = await navigator.serviceWorker.ready.catch(() => null);
+            if (!reg) return "na";
+            const r = await reg.pushManager.permissionState({
+              userVisibleOnly: true,
+            });
+            return r === "granted";
+          },
+        },
+        {
+          id: "media-session",
+          icon: "🎵",
+          name: "Media Controls",
+          desc: "Control notification panel media buttons for Agent Lee voice",
+          grant: async () => {
+            if (!("mediaSession" in navigator)) return "na";
+            navigator.mediaSession.metadata = new MediaMetadata({
+              title: "Agent Lee",
+              artist: "AI Sovereign",
+            });
+            return true;
+          },
+        },
+        {
+          id: "battery",
+          icon: "🔋",
+          name: "Battery Status",
+          desc: "Monitor charge level so Agent Lee can adapt power usage",
+          grant: async () => {
+            if (!navigator.getBattery) return "na";
+            await navigator.getBattery();
+            return true;
+          },
+        },
+        {
+          id: "network",
+          icon: "🌐",
+          name: "Network &amp; Wi-Fi Info",
+          desc: "Wi-Fi signal, connection type, and data-saver awareness",
+          grant: async () => {
+            if (!navigator.connection) return "na";
+            return true; // No explicit grant needed — always available
+          },
+        },
+        {
+          id: "idle",
+          icon: "😴",
+          name: "Idle Detection",
+          desc: "Know when you are away so Agent Lee can pause or alert you",
+          grant: async () => {
+            if (!("IdleDetector" in window)) return "na";
+            const r = await IdleDetector.requestPermission();
+            return r === "granted";
+          },
+        },
+      ];
+
+      // ─────────────────────────────────────────────────────────────
+      // BUILD PERMISSION GRID
+      // ─────────────────────────────────────────────────────────────
+      const permStates = {};
+
+      function buildPermGrid() {
+        const grid = document.getElementById("perm-grid");
+        grid.innerHTML = "";
+        PERMISSIONS.forEach((p) => {
+          permStates[p.id] = "pending";
+          const card = document.createElement("div");
+          card.className = "perm-card";
+          card.id = "pc-" + p.id;
+          card.innerHTML = `
+      <div class="perm-ico">${p.icon}</div>
+      <div class="perm-info">
+        <div class="perm-name">${p.name}</div>
+        <div class="perm-desc">${p.desc}</div>
+      </div>
+      <div class="perm-status" id="ps-${p.id}">⬜</div>`;
+          grid.appendChild(card);
+        });
+      }
+
+      function setPermState(id, state) {
+        permStates[id] = state;
+        const card = document.getElementById("pc-" + id);
+        const dot = document.getElementById("ps-" + id);
+        if (!card || !dot) return;
+        card.classList.remove("granted", "denied", "na");
+        if (state === "granted") {
+          card.classList.add("granted");
+          dot.textContent = "✅";
+        } else if (state === "na") {
+          card.classList.add("na");
+          dot.textContent = "N/A";
+        } else {
+          card.classList.add("denied");
+          dot.textContent = "❌";
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // GRANT ALL PERMISSIONS — runs each sequentially so Android
+      // shows each native dialog one at a time
+      // ─────────────────────────────────────────────────────────────
+      async function grantAllPermissions() {
+        const btn = document.getElementById("grant-all-btn");
+        btn.disabled = true;
+        btn.textContent = "⏳ Requesting permissions…";
+
+        for (const p of PERMISSIONS) {
+          try {
+            const result = await p.grant();
+            setPermState(p.id, result === "na" ? "na" : "granted");
+          } catch (e) {
+            // User denied, or API unavailable
+            setPermState(
+              p.id,
+              e && String(e).includes("NotSupported") ? "na" : "denied",
+            );
+          }
+          // Brief pause between requests so Android dialog can dismiss
+          await new Promise((r) => setTimeout(r, 350));
+        }
+
+        LS.setItem(PERM_KEY, "1");
+        btn.textContent = "✅ Permissions done — launching…";
+        await new Promise((r) => setTimeout(r, 900));
+        launchApp();
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // LAUNCH MAIN APP
+      // ─────────────────────────────────────────────────────────────
+      function launchApp() {
+        document.getElementById("onboard").classList.add("hidden");
+        const app = document.getElementById("app");
+        app.classList.add("visible");
+        init();
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // INIT — called once onboarding is done
+      // ─────────────────────────────────────────────────────────────
+      function init() {
+        setupSpeechRecognition();
+        pingServer();
+        startSensors();
+        setupWakeLock();
+        setupNetworkInfo();
+        setupMediaSession();
+        registerServiceWorker();
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // CHAT HELPERS
+      // ─────────────────────────────────────────────────────────────
+      const chatEl = document.getElementById("chat");
+      const typingEl = document.getElementById("typing");
+      const connEl = document.getElementById("conn-status");
+
+      function addMsg(text, role) {
+        const el = document.createElement("div");
+        el.className = "msg " + role;
+        el.textContent = text;
+        chatEl.appendChild(el);
+        chatEl.scrollTop = chatEl.scrollHeight;
+        return el;
+      }
+      function showTyping(v) {
+        typingEl.classList.toggle("show", v);
+        if (v) chatEl.scrollTop = chatEl.scrollHeight;
+      }
+      function setStatus(text, cls) {
+        connEl.className = "status" + (cls ? " " + cls : "");
+        connEl.textContent = text;
+      }
+      function autoResize(el) {
+        el.style.height = "auto";
+        el.style.height = Math.min(el.scrollHeight, 100) + "px";
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // SEND MESSAGE
+      // ─────────────────────────────────────────────────────────────
+      let isBusy = false;
+
+      async function sendMessage() {
+        const txt = document.getElementById("msg-input").value.trim();
+        if (!txt || isBusy) return;
+        document.getElementById("msg-input").value = "";
+        document.getElementById("msg-input").style.height = "auto";
+        addMsg(txt, "user");
+        isBusy = true;
+        showTyping(true);
+        setStatus("Thinking…");
+        try {
+          const res = await fetch(SERVER + "/api/chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-neural-handshake": HANDSHAKE,
+            },
+            body: JSON.stringify({
+              message: txt,
+              session: "companion-" + USER_NAME,
+            }),
+          });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const d = await res.json();
+          showTyping(false);
+          const reply = d.text || d.message || d.reply || JSON.stringify(d);
+          addMsg(reply, "agent");
+          speakText(reply);
+          setStatus("Connected", "connected");
+          if (navigator.vibrate) navigator.vibrate([25, 10, 25]);
+        } catch (e) {
+          showTyping(false);
+          addMsg("⚠ " + e.message, "system");
+          setStatus("Offline", "error");
+        }
+        isBusy = false;
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // PING / CONNECT
+      // ─────────────────────────────────────────────────────────────
+      async function pingServer() {
+        setStatus("Connecting…");
+        try {
+          const r = await fetch(SERVER + "/health", {
+            headers: { "x-neural-handshake": HANDSHAKE },
+          });
+          if (r.ok) {
+            setStatus(
+              "Connected — " + SERVER.replace("https://", ""),
+              "connected",
+            );
+            addMsg(
+              "Agent Lee online. What do you need, " + USER_NAME + "?",
+              "agent",
+            );
+          } else {
+            setStatus("Auth error — check handshake key", "error");
+            addMsg(
+              "⚠ Server responded with " +
+                r.status +
+                ". Open settings (⚙) and verify your key.",
+              "system",
+            );
+          }
+        } catch {
+          setStatus("Offline — check server URL", "error");
+          addMsg(
+            "⚠ Cannot reach base. Open ⚙ and set the server URL.",
+            "system",
+          );
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // SPEECH SYNTHESIS
+      // ─────────────────────────────────────────────────────────────
+      function speakText(text) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const utt = new SpeechSynthesisUtterance(text.slice(0, 350));
+        utt.rate = 1.05;
+        utt.pitch = 0.88;
+        const voices = speechSynthesis.getVoices();
+        const preferred =
+          voices.find((v) =>
+            /male|guy|david|mark|alex|Google UK/i.test(v.name),
+          ) || voices[0];
+        if (preferred) utt.voice = preferred;
+        window.speechSynthesis.speak(utt);
+      }
+      if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+      // ─────────────────────────────────────────────────────────────
+      // SPEECH RECOGNITION
+      // ─────────────────────────────────────────────────────────────
+      let recognition = null,
+        isListening = false;
+      function setupSpeechRecognition() {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const micBtn = document.getElementById("mic-btn");
+        const capMic = document.getElementById("cap-mic");
+        if (!SR) {
+          micBtn.style.opacity = ".35";
+          return;
+        }
+        recognition = new SR();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = "en-US";
+        recognition.onstart = () => {
+          isListening = true;
+          micBtn.classList.add("listening");
+          capMic.classList.add("on");
+          setStatus("Listening…");
+        };
+        recognition.onend = () => {
+          isListening = false;
+          micBtn.classList.remove("listening");
+          capMic.classList.remove("on");
+        };
+        recognition.onerror = () => {
+          isListening = false;
+          micBtn.classList.remove("listening");
+          capMic.classList.remove("on");
+        };
+        recognition.onresult = (e) => {
+          const t = Array.from(e.results)
+            .map((r) => r[0].transcript)
+            .join("");
+          document.getElementById("msg-input").value = t;
+          if (e.results[e.results.length - 1].isFinal) {
+            recognition.stop();
+            setTimeout(() => sendMessage(), 180);
+          }
+        };
+      }
+      function toggleMic() {
+        if (!recognition) {
+          addMsg(
+            "🎤 Speech recognition unavailable. Use Chrome on Android.",
+            "system",
+          );
+          return;
+        }
+        if (isListening) {
+          recognition.stop();
+        } else {
+          try {
+            recognition.start();
+          } catch {
+            recognition.stop();
+            setTimeout(() => recognition.start(), 250);
+          }
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // SENSORS — accelerometer, gyroscope
+      // ─────────────────────────────────────────────────────────────
+      const sensorData = {};
+      function startSensors() {
+        if (window.DeviceMotionEvent) {
+          window.addEventListener("devicemotion", (e) => {
+            const a = e.acceleration || {};
+            sensorData.accel = `${(a.x || 0).toFixed(1)}, ${(a.y || 0).toFixed(1)}, ${(a.z || 0).toFixed(1)}`;
+          });
+        }
+        if (window.DeviceOrientationEvent) {
+          window.addEventListener("deviceorientation", (e) => {
+            sensorData.orient = `α${(e.alpha || 0).toFixed(0)} β${(e.beta || 0).toFixed(0)} γ${(e.gamma || 0).toFixed(0)}`;
+          });
+        }
+        // Ambient light (if available)
+        if ("AmbientLightSensor" in window) {
+          try {
+            const sensor = new AmbientLightSensor();
+            sensor.addEventListener("reading", () => {
+              sensorData.light = sensor.illuminance.toFixed(0) + " lux";
+            });
+            sensor.start();
+          } catch {}
+        }
+      }
+      let sensorsVisible = false;
+      function showSensors() {
+        sensorsVisible = !sensorsVisible;
+        const el = document.getElementById("sensor-overlay");
+        if (!sensorsVisible) {
+          el.classList.remove("show");
+          return;
+        }
+        el.classList.add("show");
+        const tick = setInterval(() => {
+          if (!sensorsVisible) {
+            clearInterval(tick);
+            return;
+          }
+          const net = navigator.connection;
+          el.innerHTML = [
+            "📲 Accel: " + (sensorData.accel || "—"),
+            "🔄 Orient: " + (sensorData.orient || "—"),
+            "💡 Light: " + (sensorData.light || "—"),
+            "🌐 Type: " + (net ? net.effectiveType : "—"),
+            "📶 Downlink: " + (net ? net.downlink + " Mbps" : "—"),
+          ].join("<br>");
+        }, 500);
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // WAKE LOCK
+      // ─────────────────────────────────────────────────────────────
+      let wakeLock = null;
+      async function setupWakeLock() {
+        if (!navigator.wakeLock) return;
+        try {
+          wakeLock = await navigator.wakeLock.request("screen");
+        } catch {}
+        document.addEventListener("visibilitychange", async () => {
+          if (document.visibilityState === "visible" && !wakeLock) {
+            try {
+              wakeLock = await navigator.wakeLock.request("screen");
+            } catch {}
+          }
+        });
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // NETWORK / WI-FI INFO
+      // ─────────────────────────────────────────────────────────────
+      function setupNetworkInfo() {
+        if (!navigator.connection) return;
+        navigator.connection.addEventListener("change", () => {
+          const c = navigator.connection;
+          addMsg(
+            `📡 Network changed: ${c.effectiveType} @ ${c.downlink} Mbps (saver:${c.saveData})`,
+            "system",
+          );
+        });
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // MEDIA SESSION (lock screen controls)
+      // ─────────────────────────────────────────────────────────────
+      function setupMediaSession() {
+        if (!("mediaSession" in navigator)) return;
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: "Agent Lee",
+          artist: "Sovereign AI",
+          album: "Live Session",
+        });
+        navigator.mediaSession.setActionHandler("play", () => {});
+        navigator.mediaSession.setActionHandler("pause", () => {});
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // PHONE CAPABILITY ACTIONS
+      // ─────────────────────────────────────────────────────────────
+      async function phoneAction(type) {
+        switch (type) {
+          case "call": {
+            const n = prompt("📞 Number to call:");
+            if (n) window.location.href = "tel:" + n.replace(/\s/g, "");
+            break;
+          }
+          case "sms": {
+            const n = prompt("💬 SMS number:");
+            const b = n ? prompt("Message:") : null;
+            if (n && b)
+              window.location.href =
+                "sms:" + n + "?body=" + encodeURIComponent(b);
+            break;
+          }
+          case "maps": {
+            const d = prompt("🗺 Navigate to:");
+            if (d)
+              window.open(
+                "https://maps.google.com/?q=" + encodeURIComponent(d),
+                "_blank",
+              );
+            break;
+          }
+          case "camera": {
+            const fi = document.getElementById("file-input");
+            fi.accept = "image/*";
+            fi.setAttribute("capture", "camera");
+            fi.click();
+            break;
+          }
+          case "contacts": {
+            if (!navigator.contacts) {
+              addMsg(
+                "ℹ Contacts API requires Chrome 80+ on Android.",
+                "system",
+              );
+              return;
+            }
+            try {
+              const c = await navigator.contacts.select(
+                ["name", "tel", "email"],
+                { multiple: false },
+              );
+              if (c.length)
+                document.getElementById("msg-input").value =
+                  "Contact: " +
+                  (c[0].name?.[0] || "") +
+                  " " +
+                  (c[0].tel?.[0] || "") +
+                  " " +
+                  (c[0].email?.[0] || "");
+            } catch {
+              addMsg("❌ Contacts access denied.", "system");
+            }
+            break;
+          }
+          case "location": {
+            if (!navigator.geolocation) {
+              addMsg("❌ Geolocation unavailable.", "system");
+              return;
+            }
+            setStatus("Getting GPS…");
+            navigator.geolocation.getCurrentPosition(
+              (pos) => {
+                const {
+                  latitude: lat,
+                  longitude: lon,
+                  accuracy: acc,
+                } = pos.coords;
+                document.getElementById("msg-input").value =
+                  `My location: ${lat.toFixed(5)}, ${lon.toFixed(5)} (±${Math.round(acc)}m) https://maps.google.com/?q=${lat},${lon}`;
+                setStatus("Connected", "connected");
+              },
+              (err) => {
+                addMsg("❌ Location denied: " + err.message, "system");
+                setStatus("Connected", "connected");
+              },
+              { enableHighAccuracy: true, timeout: 10000 },
+            );
+            break;
+          }
+          case "bluetooth": {
+            if (!navigator.bluetooth) {
+              addMsg("ℹ Web Bluetooth requires Chrome on Android.", "system");
+              return;
+            }
+            try {
+              const device = await navigator.bluetooth.requestDevice({
+                acceptAllDevices: true,
+                optionalServices: [
+                  "battery_service",
+                  "heart_rate",
+                  "generic_access",
+                ],
+              });
+              addMsg(
+                `✅ Bluetooth paired: ${device.name || "Unknown device"} (${device.id})`,
+                "system",
+              );
+              document.getElementById("msg-input").value =
+                "Agent Lee, I connected to BT device: " +
+                (device.name || device.id);
+            } catch (e) {
+              addMsg("❌ Bluetooth: " + e.message, "system");
+            }
+            break;
+          }
+          case "nfc": {
+            if (!("NDEFReader" in window)) {
+              addMsg("ℹ NFC requires Chrome 89+ on Android.", "system");
+              return;
+            }
+            try {
+              const r = new NDEFReader();
+              addMsg(
+                "📶 Scanning for NFC tag — tap your phone to the tag…",
+                "system",
+              );
+              await r.scan();
+              r.addEventListener("reading", ({ message }) => {
+                const records = message.records
+                  .map((rec) => new TextDecoder().decode(rec.data))
+                  .join(" | ");
+                addMsg("📶 NFC tag read: " + records, "system");
+                document.getElementById("msg-input").value =
+                  "Agent Lee, NFC tag data: " + records;
+              });
+            } catch (e) {
+              addMsg("❌ NFC: " + e.message, "system");
+            }
+            break;
+          }
+          case "wifi": {
+            const c = navigator.connection;
+            const info = c
+              ? `Type: ${c.type || "?"} | Effective: ${c.effectiveType} | Downlink: ${c.downlink} Mbps | Save Data: ${c.saveData}`
+              : "Network Information API unavailable";
+            addMsg("📡 Wi-Fi / Network: " + info, "system");
+            document.getElementById("msg-input").value =
+              "Agent Lee, my network: " + info;
+            break;
+          }
+          case "usb": {
+            if (!navigator.usb) {
+              addMsg("ℹ WebUSB requires Chrome on Android.", "system");
+              return;
+            }
+            try {
+              const dev = await navigator.usb.requestDevice({ filters: [] });
+              addMsg(
+                `✅ USB device: ${dev.productName || "Device"} by ${dev.manufacturerName || "?"}`,
+                "system",
+              );
+            } catch (e) {
+              addMsg("❌ USB: " + e.message, "system");
+            }
+            break;
+          }
+          case "notify": {
+            if (!("Notification" in window)) {
+              addMsg("❌ Notifications not supported.", "system");
+              return;
+            }
+            const p = await Notification.requestPermission();
+            if (p === "granted") {
+              new Notification("Agent Lee", {
+                body: "Notifications active. I will alert you when needed.",
+                icon: "",
+              });
+              addMsg("✅ Notifications enabled.", "system");
+            } else {
+              addMsg("❌ Notification permission denied.", "system");
+            }
+            break;
+          }
+          case "youtube": {
+            const q = prompt("▶ YouTube search:");
+            if (q)
+              window.open(
+                "https://www.youtube.com/results?search_query=" +
+                  encodeURIComponent(q),
+                "_blank",
+              );
+            break;
+          }
+          case "settings_app": {
+            // Android intent fallback — only works if installed as PWA
+            window.location.href =
+              "intent://settings#Intent;scheme=android-app;package=com.android.settings;end";
+            break;
+          }
+          case "share": {
+            if (navigator.share) {
+              await navigator.share({
+                title: "Agent Lee",
+                text: "Connecting to my AI companion",
+                url: SERVER,
+              });
+            } else {
+              addMsg("ℹ Web Share API not available.", "system");
+            }
+            break;
+          }
+          case "battery": {
+            if (!navigator.getBattery) {
+              addMsg("🔋 Battery API unavailable.", "system");
+              return;
+            }
+            const b = await navigator.getBattery();
+            const pct = Math.round(b.level * 100);
+            addMsg(
+              `🔋 ${b.charging ? "⚡ Charging" : "On battery"} — ${pct}% (${b.charging ? Math.ceil(b.chargingTime / 60) + "min to full" : Math.ceil(b.dischargingTime / 60) + "min remaining"})`,
+              "system",
+            );
+            break;
+          }
+          case "file": {
+            const fi = document.getElementById("file-input");
+            fi.accept = "*/*";
+            fi.removeAttribute("capture");
+            fi.click();
+            break;
+          }
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // FILE UPLOAD
+      // ─────────────────────────────────────────────────────────────
+      async function handleFileUpload(files) {
+        if (!files || !files.length) return;
+        for (const file of files) {
+          addMsg(
+            "📎 Sharing: " +
+              file.name +
+              " (" +
+              (file.size / 1024).toFixed(1) +
+              " KB)",
+            "user",
+          );
+          try {
+            const fd = new FormData();
+            fd.append("file", file);
+            const r = await fetch(SERVER + "/api/upload", {
+              method: "POST",
+              headers: { "x-neural-handshake": HANDSHAKE },
+              body: fd,
+            });
+            if (r.ok) {
+              const d = await r.json();
+              addMsg("✅ File shared: " + (d.filename || file.name), "system");
+              document.getElementById("msg-input").value =
+                "Agent Lee, I just shared a file: " + file.name;
+            } else {
+              addMsg("⚠ Upload failed: " + r.status, "system");
+            }
+          } catch (e) {
+            addMsg("⚠ Upload error: " + e.message, "system");
+          }
+        }
+        document.getElementById("file-input").value = "";
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // SETTINGS
+      // ─────────────────────────────────────────────────────────────
+      function openSettings() {
+        document.getElementById("s-server").value = SERVER;
+        document.getElementById("s-key").value = HANDSHAKE;
+        document.getElementById("s-name").value = USER_NAME;
+        document.getElementById("settings-panel").classList.add("open");
+      }
+      function closeSettings() {
+        document.getElementById("settings-panel").classList.remove("open");
+      }
+      function saveSettings() {
+        SERVER =
+          document.getElementById("s-server").value.trim().replace(/\/$/, "") ||
+          SERVER;
+        HANDSHAKE = document.getElementById("s-key").value.trim() || HANDSHAKE;
+        USER_NAME = document.getElementById("s-name").value.trim() || USER_NAME;
+        LS.setItem("al_server", SERVER);
+        LS.setItem("al_key", HANDSHAKE);
+        LS.setItem("al_name", USER_NAME);
+        closeSettings();
+        pingServer();
+      }
+      document
+        .getElementById("settings-panel")
+        .addEventListener("click", (e) => {
+          if (e.target === document.getElementById("settings-panel"))
+            closeSettings();
+        });
+
+      // ─────────────────────────────────────────────────────────────
+      // INSTALL PROMPT (PWA)
+      // ─────────────────────────────────────────────────────────────
+      let deferredInstall = null;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredInstall = e;
+        document.getElementById("install-banner").classList.add("show");
+      });
+      document.getElementById("install-btn").addEventListener("click", () => {
+        if (!deferredInstall) return;
+        deferredInstall.prompt();
+        deferredInstall.userChoice.then(() => {
+          deferredInstall = null;
+          document.getElementById("install-banner").classList.remove("show");
+        });
+      });
+
+      // ─────────────────────────────────────────────────────────────
+      // SERVICE WORKER — enables offline caching & push
+      // ─────────────────────────────────────────────────────────────
+      function registerServiceWorker() {
+        if (!("serviceWorker" in navigator)) return;
+        const sw = `
+const CACHE='al-companion-v2';
+self.addEventListener('install',e=>{
+  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['/workspace/agentlee_vm/agent-lee-companion.html'])));
+  self.skipWaiting();
+});
+self.addEventListener('activate',e=>{
+  e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));
+  self.clients.claim();
+});
+self.addEventListener('fetch',e=>{
+  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));
+});
+self.addEventListener('push',e=>{
+  const d=e.data?e.data.text():'Agent Lee message';
+  e.waitUntil(self.registration.showNotification('Agent Lee',{body:d,icon:''}));
+});
+`;
+        const blob = new Blob([sw], { type: "application/javascript" });
+        navigator.serviceWorker
+          .register(URL.createObjectURL(blob), {
+            scope: "/workspace/agentlee_vm/",
+          })
+          .catch(() => {});
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // KEYBOARD SHORTCUT
+      // ─────────────────────────────────────────────────────────────
+      document.getElementById("msg-input").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      // ─────────────────────────────────────────────────────────────
+      // BOOT — skip onboarding if already granted before
+      // ─────────────────────────────────────────────────────────────
+      buildPermGrid();
+      if (LS.getItem(PERM_KEY)) {
+        launchApp(); // returning user — go straight to app
+      }
+      // First-time: onboard screen is already visible by default
+    </script>
+  </body>
+</html>

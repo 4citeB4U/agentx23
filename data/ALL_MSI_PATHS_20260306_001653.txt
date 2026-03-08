@@ -1,0 +1,501 @@
+﻿C:\AMD\Chipset_Software\Packages\Apps\RyzenPPKG\AMD_Ryzen_Balanced-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\APPCOMPATDB\AMD-Application-Compatibility-Database-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\AS4\AMD-AS4-ACPI-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\CACHEOPT\AMD-3D-V-Cache-Performance-Optimizer-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\CIR\AMD-Consumer_Infrared-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\GPIO_PT\Promontory_GPIO-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\GPIO2\AMD-GPIO2-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\HSMP\AMD-HSMP-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\I2C\AMD-I2C-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\INTERFACE\AMD-Interface-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\IOV\AMD-IOV-WT-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\MicroPEP\AMD-MicroPEP-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\MSFT1\AMD-NULL-Driver-for-Microsoft-Pluton-Security-Processor-1.msi
+C:\AMD\Chipset_Software\Packages\IODriver\MSFT2\AMD-NULL-Driver-for-Microsoft-Pluton-Security-Processor-2.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PCI\AMD-PCI-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_6000SERIES\AMD-PMF-6000Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_7040SERIES\AMD-PMF-7040Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_7736SERIES\AMD-PMF-7736Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_8000SERIES\AMD-PMF-8000Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_RYZEN_AI300SERIES2\AMD-PMF-Ryzen-AI-300-Series-2-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_RyzenAI300SERIES\AMD-PMF-Ryzen-AI-300-Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PMF\PMF_RyzenAIMAX300SERIES\AMD-PMF-Ryzen-AI-MAX-300-Series-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PPkgOEM\AMD-Provisioning-for-OEM.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PPMPF\AMD-PPM-Provisioning-File-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\PSP\AMD-PSP-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\SFH\AMD-SFH-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\SFH1.1\AMD-SFH1.1-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\SFHI2C\AMD-SFH-I2C-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\SMBUS\AMD-SBxxxSMBus-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\UART\AMD-UART-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\USB4CM\AMD-USB4-CM-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\USBFILTER\AMD-USB_Filter-Driver.msi
+C:\AMD\Chipset_Software\Packages\IODriver\WBD\AMD-Wireless-Button-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\APPCOMPATDB\AMD-Application-Compatibility-Database-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\AS4\AMD-AS4-ACPI-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\CACHEOPT\AMD-3D-V-Cache-Performance-Optimizer-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\CIR\AMD-Consumer_Infrared-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\GPIO_PT\Promontory_GPIO-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\GPIO2\AMD-GPIO2-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\HSMP\AMD-HSMP-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\I2C\AMD-I2C-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\INTERFACE\AMD-Interface-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\IOV\AMD-IOV-WT-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\MicroPEP\AMD-MicroPEP-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\MSFT1\AMD-NULL-Driver-for-Microsoft-Pluton-Security-Processor-1.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\MSFT2\AMD-NULL-Driver-for-Microsoft-Pluton-Security-Processor-2.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PCI\AMD-PCI-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_6000SERIES\AMD-PMF-6000Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_7040SERIES\AMD-PMF-7040Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_7736SERIES\AMD-PMF-7736Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_8000SERIES\AMD-PMF-8000Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_RYZEN_AI300SERIES2\AMD-PMF-Ryzen-AI-300-Series-2-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_RyzenAI300SERIES\AMD-PMF-Ryzen-AI-300-Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PMF\PMF_RyzenAIMAX300SERIES\AMD-PMF-Ryzen-AI-MAX-300-Series-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PPkgOEM\AMD-Provisioning-for-OEM.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PPMPF\AMD-PPM-Provisioning-File-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\PSP\AMD-PSP-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\SFH\AMD-SFH-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\SFH1.1\AMD-SFH1.1-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\SFHI2C\AMD-SFH-I2C-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\SMBUS\AMD-SBxxxSMBus-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\UART\AMD-UART-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\USB4CM\AMD-USB4-CM-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\USBFILTER\AMD-USB_Filter-Driver.msi
+C:\AMD\Chipset_Software_Backup\Packages\IODriver\WBD\AMD-Wireless-Button-Driver.msi
+C:\Program Files (x86)\Microsoft Visual Studio\Installer\PrecheckTools\Microsoft.VisualStudio.Setup.TestMsi.msi
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\MsiVal2-x86_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\Orca-x86_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\ARM\Application Verifier arm External Package-arm_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\ARM\Windows SDK DirectX ARM Remote-arm_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\ARM\Windows SDK for Windows Store Apps DirectX ARM Remote-arm_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\x64\Windows SDK DirectX x64 Remote-x64_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\x64\Windows SDK for Windows Store Apps DirectX x64 Remote-x64_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\x86\Windows SDK DirectX x86 Remote-x86_en-us.msi
+C:\Program Files (x86)\Windows Kits\10\Remote\x86\Windows SDK for Windows Store Apps DirectX x86 Remote-x86_en-us.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RInt.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.ar-sa.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.de-de.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.en-us.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.es-es.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.fr-fr.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.he-il.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.ja-jp.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.ko-kr.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.pt-pt.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.ru-ru.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.th-th.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.zh-cn.16.msi
+C:\Program Files\Microsoft Office\root\Integration\C2RIntLoc.zh-tw.16.msi
+C:\Program Files\WindowsApps\MSTeams_26032.208.4399.5_x64__8wekyb3d8bbwe\MicrosoftTeamsMeetingAddinInstaller.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\CoreEditorFonts,version=17.7.40001.1,productarch=neutral\CoreEditorFonts.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.Build.FileTracker.Msi,version=16.11.34827.16\Microsoft.Build.FileTracker.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.Build.FileTracker.Msi,version=17.14.36015.10\Microsoft.Build.FileTracker.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.DiagnosticsHub.Collection.Service,version=17.14.36412.1,productarch=neutral,machinearch=x64\Microsoft.DiagnosticsHub.Collection.Service.Msi.x64.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.Net.4.TargetingPack,version=4.0.30319.2\netfx_dtp.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.CRT.ClickOnce.Msi,version=14.29.30157,language=en-US\vcpp_crt.redist.clickonce.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.CRT.ClickOnce.Msi,version=14.44.35211,language=en-US\vcpp_crt.redist.clickonce.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.RuntimeDebug.14,version=14.29.30157,chip=x64\vc_RuntimeDebug.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.RuntimeDebug.14,version=14.29.30157,chip=x86\vc_RuntimeDebug.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.RuntimeDebug.14,version=14.44.35211,chip=x64,machinearch=x64\vc_RuntimeDebug.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualCpp.RuntimeDebug.14,version=14.44.35211,chip=x86\vc_RuntimeDebug.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Community.Msi,version=16.11.34930.59\Microsoft.VisualStudio.Community.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Community.Msi,version=17.14.36025.13,machinearch=x64\Microsoft.VisualStudio.Community.x64.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Community.Msi.Resources,version=16.10.31213.239,language=en-US\Microsoft.VisualStudio.Community.Msi.Resources.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Community.Msi.Resources,version=17.14.36015.10,language=en-US\Microsoft.VisualStudio.Community.Msi.Resources.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Community.Shared.Msi,version=17.14.36025.13\Microsoft.VisualStudio.Community.Shared.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Debugger.Script.Msi,version=16.10.31205.180,chip=x64\scriptdebugging_x64.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Debugger.Script.Msi,version=17.14.36015.10,machinearch=x64\scriptdebugging_x64.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.FileHandler.Msi,version=16.11.31503.54,chip=x64\Microsoft.VisualStudio.FileHandler.Msi.x64.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.FileHandler.Msi,version=16.11.31503.54,chip=x86\Microsoft.VisualStudio.FileHandler.Msi.x86.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.FileHandler.Msi,version=17.14.36024.20,chip=x64\Microsoft.VisualStudio.FileHandler.Msi.x64.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.FileHandler.Msi,version=17.14.36024.20,chip=x86\Microsoft.VisualStudio.FileHandler.Msi.x86.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.GitHubProtocolHandler.Msi,version=17.14.36015.10\Microsoft.VisualStudio.GitHubProtocolHandler.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Interop.Msi,version=16.10.31306.167\Microsoft.VisualStudio.MinShell.Interop.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Interop.Msi,version=17.14.36015.10,productarch=x86\Microsoft.VisualStudio.MinShell.Interop.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Interop.Shared.Msi,version=17.14.36015.10\Microsoft.VisualStudio.MinShell.Interop.Shared.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Msi,version=16.11.34902.97\Microsoft.VisualStudio.MinShell.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Msi,version=17.14.36301.6,productarch=x64\Microsoft.VisualStudio.MinShell.x64.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Msi,version=17.14.36301.6,productarch=x86\Microsoft.VisualStudio.MinShell.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Msi.Resources,version=16.10.31306.167,language=en-US\Microsoft.VisualStudio.MinShell.Msi.Resources.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Msi.Resources,version=17.14.36015.10,language=en-US\Microsoft.VisualStudio.MinShell.Msi.Resources.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.MinShell.Shared.Msi,version=17.14.36024.20\Microsoft.VisualStudio.MinShell.Shared.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Setup.Configuration,version=3.12.2140.44225\Microsoft.VisualStudio.Setup.Configuration.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Setup.Configuration,version=3.7.2182.35401\Microsoft.VisualStudio.Setup.Configuration.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Setup.WMIProvider,version=3.12.2140.44225\Microsoft.VisualStudio.Setup.WMIProvider.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.Setup.WMIProvider,version=3.7.2182.35401\Microsoft.VisualStudio.Setup.WMIProvider.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.VisualStudio.VsWebProtocolSelector.Msi,version=17.14.36323.16\Microsoft.VisualStudio.VsWebProtocolSelector.Msi.msi
+C:\ProgramData\Microsoft\VisualStudio\Packages\Microsoft.Windows.UniversalCRT.Redistributable.Msi,version=10.0.26624\Universal CRT Redistributable-x86_en-us.msi
+C:\ProgramData\Package Cache\{0093948F-C6B2-4997-95EE-8C2AA493C8B2}v72.48.34242\2274d99525f18ad9d71c95c84eda4f97-x64.msi
+C:\ProgramData\Package Cache\{016D73EA-975C-33EA-9A3F-40AE85ADC82D}v8.0.24.26072\aspnetcore-runtime-8.0.24-servicing.26072.7-win-x86.msi
+C:\ProgramData\Package Cache\{096DE67C-F877-474D-B621-11A24072B3B6}v72.0.34381\caddf548091d96df092d9aab1fd28f42-x64.msi
+C:\ProgramData\Package Cache\{099178C3-9374-7477-8D34-B28BC8FC5488}v10.1.19041.5609\Installers\Universal CRT Tools x64-x64_en-us.msi
+C:\ProgramData\Package Cache\{0A2BCE78-63A3-9F82-AD76-17C310B3EAEF}v10.1.19041.5609\Installers\Windows SDK Desktop Tools x86-x86_en-us.msi
+C:\ProgramData\Package Cache\{0C75EFBC-6D0C-7516-AE74-4F9FADE79EA2}v10.1.19041.5609\Installers\WinRT Intellisense Mobile - en-us-x86_en-us.msi
+C:\ProgramData\Package Cache\{12A505CB-AA40-378D-854F-E2CF6A7FF75F}v10.1.19041.5609\Installers\Windows IoT Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{149AE06C-0487-4C50-A56C-A8F08C864A7D}v72.24.34386\windowsdesktop-targeting-pack-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{16C48C75-42D8-4E6A-845B-233207524190}v15.0.9617\7520946e65b0593e8bed777b4407da1d-x64.msi
+C:\ProgramData\Package Cache\{16E355AC-58E7-65EE-794A-96ACB540AEA1}v10.1.19041.5609\Installers\Windows Desktop Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{17FAE644-5409-EA4F-91AE-B4F213FB087B}v10.1.19041.5609\Installers\WinRT Intellisense UAP - en-us-x86_en-us.msi
+C:\ProgramData\Package Cache\{1DA1D00D-F96C-4AFC-BFEA-5DD363E15428}v72.0.34381\4afee9aa4d697bc85052b63f53a86f16-x64.msi
+C:\ProgramData\Package Cache\{27B3D59D-9D54-3EA4-4CCE-AE5E57918284}v10.1.19041.5609\Installers\Windows SDK Desktop Headers arm64-x86_en-us.msi
+C:\ProgramData\Package Cache\{2825810D-881C-9FBB-7836-B0117552064F}v10.1.19041.5609\Installers\Windows SDK Desktop Tools arm64-x86_en-us.msi
+C:\ProgramData\Package Cache\{2A0C6A0D-A8A7-89B6-AA43-B5DF54E1E837}v10.1.19041.5609\Installers\Windows SDK Desktop Tools x64-x86_en-us.msi
+C:\ProgramData\Package Cache\{2BCF4E86-E0B2-C9E0-10DC-26935253CF3D}v10.1.19041.5609\Installers\Windows SDK Signing Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{2D57E5F2-DE65-816E-0AB4-58E046C34205}v10.1.19041.5609\Installers\WinRT Intellisense Desktop - Other Languages-x86_en-us.msi
+C:\ProgramData\Package Cache\{2D78CDCA-CE1A-6007-089C-E09908F8B1FD}v10.1.19041.5609\Installers\Universal CRT Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{2E5C5364-621F-4F22-8B81-18524D6F0361}v64.136.23253\7bdd89fa015679c6d39dbc54ab7f51c7-x64.msi
+C:\ProgramData\Package Cache\{2FC6E546-6997-84F3-1877-1F91046B81E1}v10.1.19041.5609\Installers\Windows App Certification Kit SupportedApiList x86-x86_en-us.msi
+C:\ProgramData\Package Cache\{3214CADE-AAED-4B9A-8927-49D866E2A758}v9.0.0\70ec75731838fa0ef5635405b2b8fcbb-x64.msi
+C:\ProgramData\Package Cache\{35242141-B183-4763-91FB-4285CCF89498}v64.96.47242\dotnet-host-8.0.24-win-x86.msi
+C:\ProgramData\Package Cache\{393886C4-81D0-4CB7-BE11-B2B974BAE978}v18.0.9617\485239adbc2665b98d394213e52bda89-x64.msi
+C:\ProgramData\Package Cache\{4392AB59-ABB1-2E5F-21DF-0029512F36DD}v10.1.19041.5609\Installers\SDK ARM Additions-x86_en-us.msi
+C:\ProgramData\Package Cache\{43B0D101-A022-48F4-9D04-BA404CEB1D53}v14.44.35211\packages\vcRuntimeMinimum_amd64\vc_runtimeMinimum_x64.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK DirectX x64 Remote-x64_en-us.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK DirectX x86 Remote-x86_en-us.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps DirectX ARM Remote-arm_en-us.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps DirectX x64 Remote-x64_en-us.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps DirectX x86 Remote-x86_en-us.msi
+C:\ProgramData\Package Cache\{44C9B7CF-544B-6C2D-0AA9-DBABEE0A1D7B}v10.1.19041.5609\Installers\Windows SDK Redistributables-x86_en-us.msi
+C:\ProgramData\Package Cache\{47B777FC-0E69-8326-B50D-FEAB5995B4D6}v10.1.19041.5609\Installers\Windows Team Extension SDK Contracts-x86_en-us.msi
+C:\ProgramData\Package Cache\{4BC4C757-FC2A-4ADC-81A8-1D948D5819ED}v72.0.34381\155e48543112580609bda91056c10b6e-x64.msi
+C:\ProgramData\Package Cache\{4CDB315B-7D34-AADB-B87D-9C00F56A430D}v10.1.19041.5609\Installers\MSI Development Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{4CDB315B-7D34-AADB-B87D-9C00F56A430D}v10.1.19041.5609\Installers\MsiVal2-x86_en-us.msi
+C:\ProgramData\Package Cache\{4CDB315B-7D34-AADB-B87D-9C00F56A430D}v10.1.19041.5609\Installers\Orca-x86_en-us.msi
+C:\ProgramData\Package Cache\{524581F7-19EF-7567-B516-028842672D5C}v10.1.19041.5609\Installers\Windows App Certification Kit Native Components-x64_en-us.msi
+C:\ProgramData\Package Cache\{532B792A-577A-C684-3BE0-8266D973A314}v10.1.19041.5609\Installers\WinAppDeploy-x86_en-us.msi
+C:\ProgramData\Package Cache\{5C056F4F-4BE7-471A-AA84-D87F8F3CE568}v72.24.34381\dotnet-targeting-pack-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{60421705-8360-4910-A27D-AA63FA80D1A3}v72.48.34242\1dffae57d1b1f2c5ea7d1eb2c870b8eb-x64.msi
+C:\ProgramData\Package Cache\{607ACF56-D759-4BCA-A3DC-046519745BB7}v36.9.53273\dotnet-sdk-internal-9.0.205-win-x64.msi
+C:\ProgramData\Package Cache\{6128F137-23E9-4467-9ED1-2FBFBD3A0E2E}v24.20.0.4\DocsManager.msi
+C:\ProgramData\Package Cache\{61CAE9AB-D59A-4180-FBD1-9DE7046D0BCF}v10.1.19041.5609\Installers\Windows SDK DirectX x64 Remote-x64_en-us.msi
+C:\ProgramData\Package Cache\{6293EB7C-9B82-5D3F-016A-87D94E8C8E85}v10.1.19041.5609\Installers\Windows SDK Modern Versioned Developer Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{65230BFD-3782-491E-B7A0-C63264399155}v72.24.34386\windowsdesktop-runtime-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{66D8D2C3-B7A9-4F32-8FE4-42FE64B8422D}v64.96.47242\dotnet-hostfxr-8.0.24-win-x64.msi
+C:\ProgramData\Package Cache\{6A1FDB00-6FC3-4350-8904-DF68BFEABC60}v72.48.34242\eb4a243ead0e32d1ddeb44c9a0a774e6-x64.msi
+C:\ProgramData\Package Cache\{6D7ACCE0-E08A-78C8-2EF5-63E9FAEA185C}v10.1.19041.5609\Installers\Universal CRT Headers Libraries and Sources-x86_en-us.msi
+C:\ProgramData\Package Cache\{736FFE9E-6571-4059-B73D-F97F07E9F98D}v18.0.9617\5d4b85a788e3c647c008feedfbe1bf20-x64.msi
+C:\ProgramData\Package Cache\{76737228-5B3F-4431-9C02-BC3C1B25198B}v35.0.7\eb0102172546d0560fec9b970bf8e5b8-x64.msi
+C:\ProgramData\Package Cache\{774E3EF4-74C6-460B-BEED-FC1D0E3014D7}v64.96.47242\dotnet-runtime-8.0.24-win-x64.msi
+C:\ProgramData\Package Cache\{778D640A-21E7-0A4A-0FB6-7C6F7FA4FDC2}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps-x86_en-us.msi
+C:\ProgramData\Package Cache\{77E28521-C063-BF41-60C0-0140F5C2F811}v10.1.19041.5609\Installers\Windows SDK Modern Non-Versioned Developer Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{78F26630-7E77-27FD-1780-651E8B0EF32A}v10.1.19041.5609\Installers\WinRT Intellisense Desktop - en-us-x86_en-us.msi
+C:\ProgramData\Package Cache\{79D32D0C-F1B4-4812-BA29-4D88B8EE7828}v64.96.47242\dotnet-hostfxr-8.0.24-win-x86.msi
+C:\ProgramData\Package Cache\{7D2A3F4D-8188-4946-B670-C954AF33B127}v72.24.34381\dotnet-apphost-pack-9.0.6-win-x64_arm64.msi
+C:\ProgramData\Package Cache\{7E8FFED7-7C4F-4702-914C-221FD8140BE9}v72.0.34381\ea01f7dd76dc5b649b2d16ab608a5eb3-x64.msi
+C:\ProgramData\Package Cache\{80A87973-098D-8903-956C-3244FC0461A1}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps Metadata-x86_en-us.msi
+C:\ProgramData\Package Cache\{842FBFC4-CCCC-6799-1998-17DED2BCE174}v10.1.19041.5609\Installers\Windows SDK Desktop Libs x86-x86_en-us.msi
+C:\ProgramData\Package Cache\{85FC198B-F293-0ED4-CD62-09F136CBF5AD}v10.1.19041.5609\Installers\Kits Configuration Installer-x86_en-us.msi
+C:\ProgramData\Package Cache\{86AB2CC9-08BD-4643-B0F9-F82D006D72FF}v14.44.35211\packages\vcRuntimeAdditional_amd64\vc_runtimeAdditional_x64.msi
+C:\ProgramData\Package Cache\{88249920-A7B3-3BF8-8DAF-13D928E76E22}v9.0.6.25267\aspnetcore-targeting-pack-9.0.6-servicing.25267.1-win-x64.msi
+C:\ProgramData\Package Cache\{8A3935F9-9754-4D99-A63C-251277AC289A}v64.96.47265\windowsdesktop-runtime-8.0.24-win-x86.msi
+C:\ProgramData\Package Cache\{8A69A3F8-0D09-7AEC-714B-21F63FD4F131}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps Libs-x86_en-us.msi
+C:\ProgramData\Package Cache\{8BE03D0F-0D5D-67F0-B04C-EC13A64C4BAC}v10.1.19041.5609\Installers\Windows SDK Desktop Headers arm-x86_en-us.msi
+C:\ProgramData\Package Cache\{8D87E449-DE1F-375B-D142-5391C06ED75C}v10.1.19041.5609\Installers\Windows SDK DirectX x86 Remote-x86_en-us.msi
+C:\ProgramData\Package Cache\{8FB7909F-7079-FECC-1A06-B90A324C11E9}v10.1.19041.5609\Installers\Universal CRT Redistributable-x86_en-us.msi
+C:\ProgramData\Package Cache\{90EFD4CC-39A4-4470-AEEB-878CB2BCBC81}v25.4.36.6\Intel Driver and Support Assistant Installer.msi
+C:\ProgramData\Package Cache\{911F65D7-229E-FDF5-2CDC-7A778E965FAB}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps Contracts-x86_en-us.msi
+C:\ProgramData\Package Cache\{922480B5-CAEB-4B1B-AAA4-9716EFDCE26B}v14.44.35211\packages\vcRuntimeMinimum_x86\vc_runtimeMinimum_x86.msi
+C:\ProgramData\Package Cache\{9AE69F25-AAA9-19CA-A490-FD002EF55FB0}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps Headers-x86_en-us.msi
+C:\ProgramData\Package Cache\{A309246D-0781-212D-1424-4A6505425A44}v10.1.19041.5609\Installers\Windows SDK Desktop Headers x86-x86_en-us.msi
+C:\ProgramData\Package Cache\{A3B7C26F-BE21-6D16-77CA-BD5F1394A538}v10.1.19041.5609\Installers\Windows SDK Desktop Headers x64-x86_en-us.msi
+C:\ProgramData\Package Cache\{A5B25F16-0699-7F93-9154-D749B6037381}v10.1.19041.5609\Installers\Windows Team Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{A7036CFB-B403-4598-85FF-D397ABB88173}v24.0.28113\netstandard-targeting-pack-2.1.0-win-x64.msi
+C:\ProgramData\Package Cache\{A8E49937-CC70-12A0-8B88-22A2AE629655}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{A96D010F-E130-4929-B445-414E7AE4F04B}v64.96.47242\dotnet-host-8.0.24-win-x64.msi
+C:\ProgramData\Package Cache\{ABF0F791-F1A7-4C0B-B3D2-168A520347C7}v72.48.34242\f64710461bb247ec7c76733741d32351-x64.msi
+C:\ProgramData\Package Cache\{AF19AD5B-2DF6-9862-B161-26B5BDB6D8EE}v10.1.19041.5609\Installers\Windows SDK for Windows Store Apps DirectX x86 Remote-x86_en-us.msi
+C:\ProgramData\Package Cache\{B9369888-3610-E674-C077-322D40A10123}v10.1.19041.5609\Installers\WinRT Intellisense UAP - Other Languages-x86_en-us.msi
+C:\ProgramData\Package Cache\{C18FB403-1E88-43C8-AD8A-CED50F23DE8B}v14.44.35211\packages\vcRuntimeAdditional_x86\vc_runtimeAdditional_x86.msi
+C:\ProgramData\Package Cache\{C3D2FB47-9403-6F43-621C-5E5141B41EDA}v10.1.19041.5609\Installers\Windows IoT Extension SDK Contracts-x86_en-us.msi
+C:\ProgramData\Package Cache\{C7213DDA-56FA-4C9E-BA0C-1C907366F456}v3.13.2150.0\launcher.msi
+C:\ProgramData\Package Cache\{C895823B-A89C-4301-9E86-0D02129B362C}v36.9.36889\dotnet-90templates-9.0.205-servicing.25267.13-win-x64.msi
+C:\ProgramData\Package Cache\{CA8A9642-147B-190E-76A3-87A23B97ADF9}v10.1.19041.5609\Installers\Windows SDK Desktop Libs arm64-x86_en-us.msi
+C:\ProgramData\Package Cache\{CE78C7EF-312F-35EB-82F9-FDC326F08658}v10.1.19041.5609\Installers\Windows SDK Desktop Libs arm-x86_en-us.msi
+C:\ProgramData\Package Cache\{CF59BE56-B314-4B17-B3C2-8B7197681D56}v18.0.9617\250dac7f9982e125eb665370a4d2d401-x64.msi
+C:\ProgramData\Package Cache\{D09F9C76-321B-88B7-316B-E655F86BDB37}v10.1.19041.5609\Installers\WinRT Intellisense IoT - en-us-x86_en-us.msi
+C:\ProgramData\Package Cache\{D0CDB467-54EA-52D0-C1EC-B0D8323015B0}v10.1.19041.5609\Installers\Windows SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{D2C85BA9-DA49-E2D5-D4C2-351C6C2C616F}v10.1.19041.5609\Installers\Universal General MIDI DLS Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{D5419286-34A7-E062-1C25-013A7FA94E9C}v10.1.19041.5609\Installers\Application Verifier x64 External Package-x64_en-us.msi
+C:\ProgramData\Package Cache\{D6199612-8AEB-4918-B38E-E08E555FC0E8}v72.24.34381\dotnet-apphost-pack-9.0.6-win-x64_x86.msi
+C:\ProgramData\Package Cache\{D721DCB8-0930-F41C-6110-A00C41A0D32C}v10.1.19041.5609\Installers\Windows Desktop Extension SDK Contracts-x86_en-us.msi
+C:\ProgramData\Package Cache\{D97824BC-1F9C-9A98-A458-5B0D06ECB755}v10.1.19041.5609\Installers\Windows Mobile Extension SDK-x86_en-us.msi
+C:\ProgramData\Package Cache\{DE56820F-73F3-83D6-DA12-CEF0E7585FDD}v10.1.19041.5609\Installers\Windows SDK Facade Windows WinMD Versioned-x86_en-us.msi
+C:\ProgramData\Package Cache\{DF4C943F-A46A-E489-69CE-189C54B0487E}v10.1.19041.5609\Installers\Windows Mobile Extension SDK Contracts-x86_en-us.msi
+C:\ProgramData\Package Cache\{E18618EC-D9DB-4BCE-B382-85ADA2CBB340}v10.1.0.0\Redistributable\10.1.0.0\UAPSDKAddOn-x86.msi
+C:\ProgramData\Package Cache\{E2037558-0217-B40C-F00C-07FDBB82347B}v10.1.19041.5609\Installers\Windows SDK EULA-x86_en-us.msi
+C:\ProgramData\Package Cache\{E22D77C1-306A-C916-15A0-08189F27E575}v10.1.19041.5609\Installers\Windows SDK Desktop Libs x64-x86_en-us.msi
+C:\ProgramData\Package Cache\{E8159677-ACF8-4D64-9D36-5C36B8BBEA39}v7.5.4.0\PowerShell-7.5.4-win-x64.msi
+C:\ProgramData\Package Cache\{E9CEB6ED-77B6-422F-B8D6-647B8B433F37}v72.24.34381\dotnet-host-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{EAACE508-220F-40CC-A8A9-EC7E987CD6D2}v72.24.34381\dotnet-hostfxr-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{EC30B4D9-09E0-D607-CA2D-05EFE8F39C53}v10.1.19041.5609\Installers\WinRT Intellisense IoT - Other Languages-x86_en-us.msi
+C:\ProgramData\Package Cache\{ED40E403-CBE8-0CA3-5662-E8859CBFA1C0}v10.1.19041.5609\Installers\WinRT Intellisense PPI - en-us-x86_en-us.msi
+C:\ProgramData\Package Cache\{EDD486C3-91EA-0B4E-2618-4F4885CC6945}v10.1.19041.5609\Installers\Windows SDK for Windows Store Managed Apps Libs-x86_en-us.msi
+C:\ProgramData\Package Cache\{EE47B659-7AF5-9302-D4A4-3204070DB9C6}v10.1.19041.5609\Installers\WinRT Intellisense PPI - Other Languages-x86_en-us.msi
+C:\ProgramData\Package Cache\{EEFB1552-4D20-4334-809F-4BB0C2B8723D}v72.24.34381\dotnet-apphost-pack-9.0.6-win-x64.msi
+C:\ProgramData\Package Cache\{EFAFF762-0E20-4B1A-8F1F-9288C2E2AFAA}v64.96.47242\dotnet-runtime-8.0.24-win-x86.msi
+C:\ProgramData\Package Cache\{EFF45DAA-D9C6-D242-802F-64D01D664406}v10.1.19041.5609\Installers\Application Verifier arm External Package-arm_en-us.msi
+C:\ProgramData\Package Cache\{EFF45DAA-D9C6-D242-802F-64D01D664406}v10.1.19041.5609\Installers\SDK ARM Redistributables-x86_en-us.msi
+C:\ProgramData\Package Cache\{EFF45DAA-D9C6-D242-802F-64D01D664406}v10.1.19041.5609\Installers\Windows SDK DirectX ARM Remote-arm_en-us.msi
+C:\ProgramData\Package Cache\{F2FDD1F6-5C57-3B6F-9FA8-5389AC9318A1}v9.0.6.25267\aspnetcore-runtime-9.0.6-servicing.25267.1-win-x64.msi
+C:\ProgramData\Package Cache\{F814F02A-ECCD-2CB1-EB70-1E330C810521}v10.1.19041.5609\Installers\Windows App Certification Kit x64-x86_en-us.msi
+C:\ProgramData\Package Cache\{FB88CFF1-D06D-72C3-0887-53277E92DAD2}v10.1.19041.5609\Installers\Windows SDK ARM Desktop Tools-x86_en-us.msi
+C:\ProgramData\Package Cache\{FC8CD9CE-8902-BB8D-F832-B33100439483}v10.1.19041.5609\Installers\Universal CRT Tools x86-x86_en-us.msi
+C:\ProgramData\Package Cache\{FD4501B3-4CB9-4BFD-8E84-5ABF4CC7EAC4}v72.24.34381\dotnet-runtime-9.0.6-win-x64.msi
+C:\Users\Agent Lee\.windows-build-tools\python-2.7.15.amd64.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{0158093D-F809-455B-9429-6D16A4B5D118}v3.12.10150.0\exe.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{01F171AF-1F21-435E-BEE4-FCC4360C896C}v3.12.10150.0\test.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{10443401-885D-4D4D-9217-F48BB30F18CC}v6.1.2\cli.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{18DF3488-2245-432B-A023-3AA05C2A00C8}v3.12.10150.0\doc.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{4A285122-D2B5-4C35-A279-CE9BD2CA15A0}v3.12.10150.0\path.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{57792030-7B1C-499E-87C0-B5BE2A53EB86}v6.1.2\rtl.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{5922727B-16B7-437F-BFB9-587DA14C0F56}v6.1.2\sdk.windows.amd64.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{74A8F412-8465-435B-9450-1C08670FA4DB}v6.1.2\ide.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{75485683-EF03-41E6-BF21-D1491694548C}v3.12.10150.0\tcltk.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{9C77C1C5-7437-4E59-A11D-AF1BBE0C1722}v6.1.2\dbg.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{9D09C9EF-A57C-422A-B79A-CC922079653A}v3.12.10150.0\core.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{C1164DDF-226D-4A9D-AC1E-C9E880C68323}v6.1.2\sdk.windows.arm64.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{CD0A1663-DC2D-41BD-89AF-E1089E841822}v3.12.10150.0\pip.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{DE12B597-D4BF-4B1B-BF5F-C5CE41AFBDFC}v3.12.10150.0\lib.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{E3DBCE05-67C7-4819-A9C5-68A37FBA7239}v6.1.2\bld.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{EF4A3D60-9A53-4697-A18D-D3353F8554E6}v3.12.10150.0\dev.msi
+C:\Users\Agent Lee\AppData\Local\Package Cache\{FCC6E1F7-0423-4748-94F7-D0E9FF79BCBD}v6.1.2\sdk.windows.x86.msi
+C:\Users\Agent Lee\AppData\Local\Temp\chromeremotedesktophost.msi
+C:\Users\Agent Lee\AppData\Roaming\AMD\Chipset_Software\{718C0B36-A777-439C-A205-036CE93EA31D}\AMD_Chipset_Drivers.msi
+C:\Users\Agent Lee\AppData\Roaming\AMD\Chipset_Software\{A10790E0-26CA-4534-8921-51D170D2F6F2}\AMD_Chipset_Drivers.msi
+C:\Windows\Installer\_{00000010-0240-1033-84C8-B8D95FA3C8C3}\Intel Bluetooth.msi
+C:\Windows\Installer\107893aa.msi
+C:\Windows\Installer\10789575.msi
+C:\Windows\Installer\109bb5.msi
+C:\Windows\Installer\109d80.msi
+C:\Windows\Installer\10b3c181.msi
+C:\Windows\Installer\10b3c363.msi
+C:\Windows\Installer\128145.msi
+C:\Windows\Installer\1281e4.msi
+C:\Windows\Installer\1281ec.msi
+C:\Windows\Installer\1281f5.msi
+C:\Windows\Installer\128205.msi
+C:\Windows\Installer\1283f2.msi
+C:\Windows\Installer\1283fa.msi
+C:\Windows\Installer\128402.msi
+C:\Windows\Installer\1563076.msi
+C:\Windows\Installer\1563258.msi
+C:\Windows\Installer\15c41a0.msi
+C:\Windows\Installer\15c4382.msi
+C:\Windows\Installer\15c438e.msi
+C:\Windows\Installer\15e840a5.msi
+C:\Windows\Installer\1727638.msi
+C:\Windows\Installer\17445e0a.msi
+C:\Windows\Installer\1791fe7a.msi
+C:\Windows\Installer\1791fe81.msi
+C:\Windows\Installer\1791fe88.msi
+C:\Windows\Installer\1791fe8f.msi
+C:\Windows\Installer\1791fe96.msi
+C:\Windows\Installer\1791fe9d.msi
+C:\Windows\Installer\1791fea4.msi
+C:\Windows\Installer\1791feab.msi
+C:\Windows\Installer\1791feb2.msi
+C:\Windows\Installer\17932.msi
+C:\Windows\Installer\19f031cd.msi
+C:\Windows\Installer\19f031db.msi
+C:\Windows\Installer\19f031f6.msi
+C:\Windows\Installer\19f031f7.msi
+C:\Windows\Installer\19f0320d.msi
+C:\Windows\Installer\19f0320e.msi
+C:\Windows\Installer\19f03227.msi
+C:\Windows\Installer\19f03228.msi
+C:\Windows\Installer\19f0323f.msi
+C:\Windows\Installer\19f03240.msi
+C:\Windows\Installer\19f03259.msi
+C:\Windows\Installer\19f0325a.msi
+C:\Windows\Installer\19f03275.msi
+C:\Windows\Installer\19f03276.msi
+C:\Windows\Installer\19f03292.msi
+C:\Windows\Installer\19f0329f.msi
+C:\Windows\Installer\19f032a6.msi
+C:\Windows\Installer\19f032ad.msi
+C:\Windows\Installer\19f032dd.msi
+C:\Windows\Installer\19f032e4.msi
+C:\Windows\Installer\19f032f1.msi
+C:\Windows\Installer\19f032f9.msi
+C:\Windows\Installer\19f03301.msi
+C:\Windows\Installer\19f0330e.msi
+C:\Windows\Installer\19f0331b.msi
+C:\Windows\Installer\19f03322.msi
+C:\Windows\Installer\19f03339.msi
+C:\Windows\Installer\19f03340.msi
+C:\Windows\Installer\19f0335c.msi
+C:\Windows\Installer\19f03363.msi
+C:\Windows\Installer\19f03373.msi
+C:\Windows\Installer\1a40076a.msi
+C:\Windows\Installer\1a403616.msi
+C:\Windows\Installer\1a40361d.msi
+C:\Windows\Installer\1a403624.msi
+C:\Windows\Installer\1a40362b.msi
+C:\Windows\Installer\1a403632.msi
+C:\Windows\Installer\1a403639.msi
+C:\Windows\Installer\1a403640.msi
+C:\Windows\Installer\1a403647.msi
+C:\Windows\Installer\1a4d59c0.msi
+C:\Windows\Installer\1b3da9.msi
+C:\Windows\Installer\1cc0b3b8.msi
+C:\Windows\Installer\1cf91d.msi
+C:\Windows\Installer\1cfb73.msi
+C:\Windows\Installer\1f0e8b.msi
+C:\Windows\Installer\1f0e93.msi
+C:\Windows\Installer\1ffd720.msi
+C:\Windows\Installer\1ffd91a.msi
+C:\Windows\Installer\21f248.msi
+C:\Windows\Installer\21f249.msi
+C:\Windows\Installer\21f251.msi
+C:\Windows\Installer\21f302.msi
+C:\Windows\Installer\21f3d3.msi
+C:\Windows\Installer\253e9b78.msi
+C:\Windows\Installer\253e9b7f.msi
+C:\Windows\Installer\253e9b86.msi
+C:\Windows\Installer\253e9b8d.msi
+C:\Windows\Installer\253e9b94.msi
+C:\Windows\Installer\253e9b9b.msi
+C:\Windows\Installer\253e9ba2.msi
+C:\Windows\Installer\253e9ba9.msi
+C:\Windows\Installer\253e9bb0.msi
+C:\Windows\Installer\253e9bb7.msi
+C:\Windows\Installer\253e9bbe.msi
+C:\Windows\Installer\253e9bc5.msi
+C:\Windows\Installer\253e9bcc.msi
+C:\Windows\Installer\253e9bd3.msi
+C:\Windows\Installer\253e9bda.msi
+C:\Windows\Installer\253e9be1.msi
+C:\Windows\Installer\253e9be8.msi
+C:\Windows\Installer\253e9bef.msi
+C:\Windows\Installer\253e9bf6.msi
+C:\Windows\Installer\253e9c00.msi
+C:\Windows\Installer\253e9c07.msi
+C:\Windows\Installer\253e9c0e.msi
+C:\Windows\Installer\253e9c15.msi
+C:\Windows\Installer\253e9c1c.msi
+C:\Windows\Installer\253e9c23.msi
+C:\Windows\Installer\253e9c2a.msi
+C:\Windows\Installer\253e9c31.msi
+C:\Windows\Installer\253e9c38.msi
+C:\Windows\Installer\253e9c3f.msi
+C:\Windows\Installer\253e9c46.msi
+C:\Windows\Installer\253e9c4d.msi
+C:\Windows\Installer\253e9c54.msi
+C:\Windows\Installer\253e9c5b.msi
+C:\Windows\Installer\253e9c62.msi
+C:\Windows\Installer\253e9c69.msi
+C:\Windows\Installer\253e9c70.msi
+C:\Windows\Installer\253e9c77.msi
+C:\Windows\Installer\253e9c7e.msi
+C:\Windows\Installer\253e9c85.msi
+C:\Windows\Installer\253e9c8c.msi
+C:\Windows\Installer\253e9c93.msi
+C:\Windows\Installer\253e9c9a.msi
+C:\Windows\Installer\253e9ca1.msi
+C:\Windows\Installer\253e9ca8.msi
+C:\Windows\Installer\253e9caf.msi
+C:\Windows\Installer\253e9cb6.msi
+C:\Windows\Installer\253e9cbd.msi
+C:\Windows\Installer\253e9cc4.msi
+C:\Windows\Installer\253e9ccb.msi
+C:\Windows\Installer\253e9cd2.msi
+C:\Windows\Installer\253e9cd9.msi
+C:\Windows\Installer\253e9ce0.msi
+C:\Windows\Installer\253e9ce7.msi
+C:\Windows\Installer\253e9cee.msi
+C:\Windows\Installer\253e9cf5.msi
+C:\Windows\Installer\253e9cfc.msi
+C:\Windows\Installer\253e9d03.msi
+C:\Windows\Installer\253e9d0a.msi
+C:\Windows\Installer\253e9d11.msi
+C:\Windows\Installer\253e9d18.msi
+C:\Windows\Installer\253e9d1f.msi
+C:\Windows\Installer\28ecbd.msi
+C:\Windows\Installer\28ecd5.msi
+C:\Windows\Installer\28ee09.msi
+C:\Windows\Installer\28eed2.msi
+C:\Windows\Installer\28eeeb.msi
+C:\Windows\Installer\28ef03.msi
+C:\Windows\Installer\28ef10.msi
+C:\Windows\Installer\31017e.msi
+C:\Windows\Installer\31fbeeaa.msi
+C:\Windows\Installer\31fbf08c.msi
+C:\Windows\Installer\33c9634.msi
+C:\Windows\Installer\3c94d80.msi
+C:\Windows\Installer\3f9eed.msi
+C:\Windows\Installer\48f371.msi
+C:\Windows\Installer\4a8bdfa.msi
+C:\Windows\Installer\4a8bfe8.msi
+C:\Windows\Installer\4c99598.msi
+C:\Windows\Installer\5214e.msi
+C:\Windows\Installer\52176.msi
+C:\Windows\Installer\5217e.msi
+C:\Windows\Installer\52186.msi
+C:\Windows\Installer\5218e.msi
+C:\Windows\Installer\52196.msi
+C:\Windows\Installer\5219e.msi
+C:\Windows\Installer\521e6.msi
+C:\Windows\Installer\521fd.msi
+C:\Windows\Installer\52216.msi
+C:\Windows\Installer\52230.msi
+C:\Windows\Installer\5c7988c.msi
+C:\Windows\Installer\627e060.msi
+C:\Windows\Installer\6733d3.msi
+C:\Windows\Installer\6733db.msi
+C:\Windows\Installer\6b0c05b.msi
+C:\Windows\Installer\6cc0d25.msi
+C:\Windows\Installer\71ca004.msi
+C:\Windows\Installer\71ca09b.msi
+C:\Windows\Installer\71ca0c9.msi
+C:\Windows\Installer\71ca0eb.msi
+C:\Windows\Installer\71ca10d.msi
+C:\Windows\Installer\71ca12f.msi
+C:\Windows\Installer\71ca151.msi
+C:\Windows\Installer\71ca173.msi
+C:\Windows\Installer\71ca195.msi
+C:\Windows\Installer\71ca1b7.msi
+C:\Windows\Installer\71ca1d9.msi
+C:\Windows\Installer\7eeec2d.msi
+C:\Windows\Installer\7f064ff.msi
+C:\Windows\Installer\87084b6.msi
+C:\Windows\Installer\88e3ec8.msi
+C:\Windows\Installer\89c974e.msi
+C:\Windows\Installer\89c990e.msi
+C:\Windows\Installer\98267ba.msi
+C:\Windows\Installer\98267c2.msi
+C:\Windows\Installer\98267cb.msi
+C:\Windows\Installer\98267db.msi
+C:\Windows\Installer\98267e3.msi
+C:\Windows\Installer\98267eb.msi
+C:\Windows\Installer\98267f3.msi
+C:\Windows\Installer\98267fb.msi
+C:\Windows\Installer\9826803.msi
+C:\Windows\Installer\982680b.msi
+C:\Windows\Installer\9826813.msi
+C:\Windows\Installer\982681b.msi
+C:\Windows\Installer\9826823.msi
+C:\Windows\Installer\982682b.msi
+C:\Windows\Installer\9826833.msi
+C:\Windows\Installer\982683b.msi
+C:\Windows\Installer\9826843.msi
+C:\Windows\Installer\982684b.msi
+C:\Windows\Installer\9826853.msi
+C:\Windows\Installer\982685b.msi
+C:\Windows\Installer\9826863.msi
+C:\Windows\Installer\bd21e.msi
+C:\Windows\Installer\bd227.msi
+C:\Windows\Installer\bd230.msi
+C:\Windows\Installer\bd239.msi
+C:\Windows\Installer\bd242.msi
+C:\Windows\Installer\cdfcc.msi
+C:\Windows\Installer\ce549f1.msi
+C:\Windows\Installer\ce54aa2.msi
+C:\Windows\Installer\cfbf7ba.msi
+C:\Windows\Installer\e8ede.msi
+C:\Windows\Installer\e90d8.msi
+C:\Windows\Installer\f00ac47.msi
+C:\Windows\Installer\f4dcbd5.msi
+C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Intel\SUR\QUEENCREEK\Updater\AppData\downloads\ef1526ef-396a-4eb3-9869-79ec77c3715b\WIN_DCA_2.4.0.11085_sursvc_qh.msi
+C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Intel\SUR\QUEENCREEK\Updater\AppData\downloads\ef1526ef-396a-4eb3-9869-79ec77c3715b\WIN_DCA_2.4.0.11118_sursvc_qh.msi
+C:\Windows\SysWOW64\config\systemprofile\AppData\Roaming\AMD\Chipset_Software\{A10790E0-26CA-4534-8921-51D170D2F6F2}\AMD_Chipset_Drivers.msi

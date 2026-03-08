@@ -1,0 +1,16 @@
+{
+  "name": "agentlee-browser-mcp",
+  "version": "1.0.0",
+  "description": "Agent Lee Browser MCP — headless browser agent running inside Lee VM",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.40.0"
+  }
+}

@@ -1,12 +1,14 @@
+import { spawn } from "child_process";
 import fs from "fs";
 import http from "http";
-import { spawn } from "child_process";
 import { CONFIG } from "./config.js";
 import { loadDotenv, mergeEnv } from "./dotenv.js";
 import { run } from "./exec.js";
 
 mergeEnv(loadDotenv(CONFIG.DOTENV_PATH));
-const BRIDGE_PORT = Number(process.env.MCP_BRIDGE_PORT || process.env.PORT || 8002);
+const BRIDGE_PORT = Number(
+  process.env.MCP_BRIDGE_PORT || process.env.PORT || 6002,
+);
 
 const AUTO_START = String(process.env.AUTO_START_MCPS ?? "1") !== "0";
 const MAX_LOG_LINES = Number(process.env.MCP_LOG_LINES || 600);
@@ -19,15 +21,21 @@ function pushLog(state, line) {
   const cleaned = String(line ?? "").replace(/\r?\n$/, "");
   if (!cleaned) return;
   state.logs.push(`[${nowIso()}] ${cleaned}`);
-  if (state.logs.length > MAX_LOG_LINES) state.logs.splice(0, state.logs.length - MAX_LOG_LINES);
+  if (state.logs.length > MAX_LOG_LINES)
+    state.logs.splice(0, state.logs.length - MAX_LOG_LINES);
 }
 
 function spawnProcess(cmd, args, opts = {}) {
   const { cwd, env } = opts;
   const s = String(cmd || "").toLowerCase();
-  const isCmd = process.platform === "win32" && (s.endsWith(".cmd") || s.endsWith(".bat"));
+  const isCmd =
+    process.platform === "win32" && (s.endsWith(".cmd") || s.endsWith(".bat"));
   if (isCmd) {
-    return spawn("cmd.exe", ["/d", "/s", "/c", "call", cmd, ...args], { cwd, env, windowsHide: true });
+    return spawn("cmd.exe", ["/d", "/s", "/c", "call", cmd, ...args], {
+      cwd,
+      env,
+      windowsHide: true,
+    });
   }
   return spawn(cmd, args, { cwd, env, windowsHide: true });
 }
@@ -36,7 +44,7 @@ const MCP_SPECS = {
   testsprite: { kind: "npm", pkg: "@testsprite/testsprite-mcp@latest" },
   playwright: { kind: "npm", pkg: "@playwright/mcp@latest" },
   insforge: { kind: "npm", pkg: "@insforge/mcp@latest" },
-  stitch: { kind: "stitch" }
+  stitch: { kind: "stitch" },
 };
 
 const processes = new Map();
@@ -53,7 +61,7 @@ function getOrCreateState(name) {
       lastSignal: null,
       lastError: null,
       logs: [],
-      child: null
+      child: null,
     });
   }
   return processes.get(name);
@@ -70,7 +78,7 @@ function listStatus() {
       stoppedAt: s.stoppedAt,
       lastExitCode: s.lastExitCode,
       lastSignal: s.lastSignal,
-      lastError: s.lastError
+      lastError: s.lastError,
     };
   }
   return out;
@@ -95,19 +103,28 @@ async function startMcp(name) {
   // InsForge MCP expects API_KEY + API_BASE_URL.
   // We map from common workspace env names already present in .env.local.
   if (name === "insforge") {
-    if (!env.API_KEY) env.API_KEY = env.INSFORGE_TOKEN || env.INSFORGE_API_KEY || "";
-    if (!env.API_BASE_URL) env.API_BASE_URL = env.INSFORGE_BASE_URL || env.INSFORGE_URL || env.INSFORGE_HOST || "http://localhost:7130";
+    if (!env.API_KEY)
+      env.API_KEY = env.INSFORGE_TOKEN || env.INSFORGE_API_KEY || "";
+    if (!env.API_BASE_URL)
+      env.API_BASE_URL =
+        env.INSFORGE_BASE_URL ||
+        env.INSFORGE_URL ||
+        env.INSFORGE_HOST ||
+        "http://localhost:7130";
   }
   let child;
 
   if (spec.kind === "npm") {
     // Start the MCP server as a long-running child (don't await).
     // On Windows, run npm.cmd directly.
-    child = spawnProcess(CONFIG.NPM_CMD, ["exec", "--yes", "--", spec.pkg], { env });
+    child = spawnProcess(CONFIG.NPM_CMD, ["exec", "--yes", "--", spec.pkg], {
+      env,
+    });
   } else if (spec.kind === "stitch") {
     const cwd = CONFIG.STITCH_PATH;
     const entry = cwd + "\\\\dist\\\\index.js";
-    if (!fs.existsSync(entry)) throw new Error("MISSING_STITCH_ENTRY: " + entry);
+    if (!fs.existsSync(entry))
+      throw new Error("MISSING_STITCH_ENTRY: " + entry);
     child = spawnProcess(CONFIG.NODE_EXE, [entry], { cwd, env });
   } else {
     throw new Error("UNKNOWN_SPEC_KIND");
@@ -121,8 +138,10 @@ async function startMcp(name) {
 
   pushLog(state, `[manager] started ${name} (pid=${child.pid})`);
 
-  if (child.stdout) child.stdout.on("data", (d) => pushLog(state, d.toString()));
-  if (child.stderr) child.stderr.on("data", (d) => pushLog(state, "[stderr] " + d.toString()));
+  if (child.stdout)
+    child.stdout.on("data", (d) => pushLog(state, d.toString()));
+  if (child.stderr)
+    child.stderr.on("data", (d) => pushLog(state, "[stderr] " + d.toString()));
 
   child.on("close", (code, signal) => {
     state.running = false;
@@ -131,7 +150,10 @@ async function startMcp(name) {
     state.stoppedAt = nowIso();
     state.lastExitCode = code;
     state.lastSignal = signal;
-    pushLog(state, `[manager] exited ${name} (code=${code}, signal=${signal || ""})`);
+    pushLog(
+      state,
+      `[manager] exited ${name} (code=${code}, signal=${signal || ""})`,
+    );
   });
 
   child.on("error", (e) => {
@@ -175,35 +197,44 @@ async function runStitch() {
   const env = { ...process.env };
   const cwd = CONFIG.STITCH_PATH;
   const entry = cwd + "\\\\dist\\\\index.js";
-  if (!fs.existsSync(entry)) return { code: 3, out: "", err: "Missing: " + entry };
+  if (!fs.existsSync(entry))
+    return { code: 3, out: "", err: "Missing: " + entry };
   return await run(CONFIG.NODE_EXE, [entry], { cwd, env });
 }
 
 const routes = {
-  "/": () => Promise.resolve({
-    code: 0,
-    status: "healthy",
-    service: "mcp-bridge",
-    port: BRIDGE_PORT,
-    health: "/health",
-    routes: [
-      "/health",
-      "/status",
-      "/start/:name",
-      "/stop/:name",
-      "/logs/:name",
-      "/run/testsprite",
-      "/run/playwright",
-      "/run/insforge",
-      "/run/stitch"
-    ]
-  }),
-  "/health": () => Promise.resolve({ code: 0, status: "healthy", port: BRIDGE_PORT }),
-  "/status": () => Promise.resolve({ code: 0, status: "ok", port: BRIDGE_PORT, modules: listStatus() }),
+  "/": () =>
+    Promise.resolve({
+      code: 0,
+      status: "healthy",
+      service: "mcp-bridge",
+      port: BRIDGE_PORT,
+      health: "/health",
+      routes: [
+        "/health",
+        "/status",
+        "/start/:name",
+        "/stop/:name",
+        "/logs/:name",
+        "/run/testsprite",
+        "/run/playwright",
+        "/run/insforge",
+        "/run/stitch",
+      ],
+    }),
+  "/health": () =>
+    Promise.resolve({ code: 0, status: "healthy", port: BRIDGE_PORT }),
+  "/status": () =>
+    Promise.resolve({
+      code: 0,
+      status: "ok",
+      port: BRIDGE_PORT,
+      modules: listStatus(),
+    }),
   "/run/testsprite": () => runPkg("@testsprite/testsprite-mcp@latest"),
   "/run/playwright": () => runPkg("@playwright/mcp@latest"),
   "/run/insforge": () => runPkg("@insforge/mcp@latest"),
-  "/run/stitch": () => runStitch()
+  "/run/stitch": () => runStitch(),
 };
 
 const server = http.createServer(async (req, res) => {
@@ -245,13 +276,27 @@ const server = http.createServer(async (req, res) => {
   if (pathname.startsWith("/logs/") && req.method === "GET") {
     const name = pathname.split("/").pop();
     const state = getOrCreateState(name);
-    const tail = Math.max(1, Math.min(500, Number(url.searchParams.get("tail") || "150")));
+    const tail = Math.max(
+      1,
+      Math.min(500, Number(url.searchParams.get("tail") || "150")),
+    );
     const slice = state.logs.slice(-tail);
-    return send({ ok: true, name, running: state.running, pid: state.pid, lines: slice.length, logs: slice }, 200);
+    return send(
+      {
+        ok: true,
+        name,
+        running: state.running,
+        pid: state.pid,
+        lines: slice.length,
+        logs: slice,
+      },
+      200,
+    );
   }
 
   // Legacy run endpoints + health (compat)
-  if (req.method !== "POST" && pathname !== "/health" && pathname !== "/") return send({ ok: false, error: "POST only" }, 405);
+  if (req.method !== "POST" && pathname !== "/health" && pathname !== "/")
+    return send({ ok: false, error: "POST only" }, 405);
 
   const fn = routes[pathname];
   if (!fn) return send({ ok: false, error: "Unknown route" }, 404);

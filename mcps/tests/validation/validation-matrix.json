@@ -1,0 +1,160 @@
+{
+  "$schema": "../../schemas/validation-result.schema.json",
+  "description": "Full validation matrix — all 14 agents × 5 levels. Populated by ValidationAgent after each test run.",
+  "generated_at": null,
+  "agents": [
+    {
+      "id": "planner-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "memory-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "vision-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "desktop-commander-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "playwright-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "insforge-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "stitch-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "testsprite-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "spline-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "voice-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "validation-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "health-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "docs-rag-agent-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    },
+    {
+      "id": "agent-registry-mcp",
+      "l1": "unknown",
+      "l2": "unknown",
+      "l3": "unknown",
+      "l4": "unknown",
+      "l5": "unknown",
+      "confidence": 0,
+      "readiness": "unknown"
+    }
+  ],
+  "level_descriptions": {
+    "l1": "Service readiness — registry field structural check (10 pts)",
+    "l2": "Health probe — model_lane + deployment reachable (20 pts)",
+    "l3": "Basic task — simple acceptance test from manifest (35 pts)",
+    "l4": "Complex task — multi-step acceptance test from manifest (25 pts)",
+    "l5": "Memory write — validation result persisted to registry (10 pts)"
+  },
+  "readiness_rules": {
+    "active": "All 5 levels passed",
+    "degraded": "L1 + L2 passed, but L3 or L4 partial",
+    "failed": "L2 or higher failed",
+    "quarantined": "L1 crashed or threw an error"
+  }
+}

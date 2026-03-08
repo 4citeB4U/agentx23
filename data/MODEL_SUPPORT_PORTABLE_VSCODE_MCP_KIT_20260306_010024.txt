@@ -1,0 +1,102 @@
+MODEL SUPPORT PROJECT REPORT
+
+=== Checking C:\Tools\Portable-VSCode-MCP-Kit ===
+[2026-03-06 01:01:15] [INFO] Python files found: 24090
+[2026-03-06 01:01:15] [INFO] Requirements/config files found: 20
+[2026-03-06 01:01:15] [INFO] Local venv folders found: 4
+[2026-03-06 01:01:15] [INFO] BAT/CMD files found: 108
+[2026-03-06 01:01:15] [INFO] PowerShell files found: 137
+[2026-03-06 01:01:15] [INFO] JSON files found: 4128
+[2026-03-06 01:01:15] [INFO] Files referencing torch: 58
+[2026-03-06 01:01:15] [INFO] Files referencing transformers: 23
+[2026-03-06 01:01:15] [INFO] Files referencing Python/venv paths: 12
+[2026-03-06 01:01:15] [INFO] Requirements/config files:
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\IPython\testing\plugin\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\extension\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\interop\consumer\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\interop\provider\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\service-manager-extension\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens-underscore\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens-underscore\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test_no_hyphens\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test_no_hyphens\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\f2py\setup.cfg
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\_core\tests\examples\cython\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\_core\tests\examples\limited_api\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\pandas\pyproject.toml
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\ruamel\yaml\clibz\setup.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\google-meta\requirements.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\google-meta\setup.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\meta-dataset\requirements.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\meta-dataset\setup.py
+[2026-03-06 01:01:16] [INFO] Local virtual environments:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jedi\third_party\typeshed\stdlib\3\venv
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\node_modules\axios\lib\env
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\axios\lib\env
+[2026-03-06 01:01:16] [INFO] Torch references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\bootstrap.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\ZxcvbnData\3\us_tv_and_film.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\accelerator.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\big_modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\checkpointing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\data_loader.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\hooks.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\inference.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\launchers.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\local_sgd.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\optimizer.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\parallelism_config.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\scheduler.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\state.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\tracking.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\env.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\estimate.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\launch.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\cluster.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\default.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\sagemaker.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\testing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\training.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\test_cli.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\test_ddp_comm_hook.py
+[2026-03-06 01:01:16] [INFO] Transformers references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\ZxcvbnData\3\english_wikipedia.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\accelerator.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\big_modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\estimate.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\launch.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\cluster.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\testing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\training.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_checkpointing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_ds_alst_ulysses_sp.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_ds_multiple_model.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_metrics.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_peak_memory_usage.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_performance.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_pippy.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_zero3_integration.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\dataclasses.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\fsdp_utils.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\imports.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\megatron_lm.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\offload.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\other.py
+[2026-03-06 01:01:16] [INFO] Python/venv path references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\bootstrap.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Health-Check.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\POLICY_REGISTER_2026-03-04.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\QA_FINAL_REPORT.md
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Run-All.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Verify-All.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\camelcase-css\package.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\camelcase-css\README.md
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\TrustTokenKeyCommitments\2025.9.29.1\keys.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\ipython_pygments_lexers.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\six.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\sounddevice.py
+[2026-03-06 01:01:16] [INFO] Recommended action: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe

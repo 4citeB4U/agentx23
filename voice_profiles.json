@@ -1,180 +1,180 @@
 [
-    {
-        "id": "sovereign_calm",
-        "label": "Profile A — Sovereign Calm (Default)",
-        "active": false,
-        "prosody": {
-            "rate": 0.85,
-            "pitch_semitones": 0.0,
-            "edge_rate": "-15%",
-            "edge_pitch": "+5Hz",
-            "pause": {
-                "comma_ms": 250,
-                "period_ms": 380,
-                "paragraph_ms": 560
-            }
-        },
-        "description": "Baritone 164Hz centered. Slow deliberate cadence. Measured pauses. Emotional intelligence. The Agent Lee default."
+  {
+    "id": "sovereign_calm",
+    "label": "Profile A — Sovereign Calm (Default)",
+    "active": false,
+    "prosody": {
+      "rate": 0.85,
+      "pitch_semitones": 0.0,
+      "edge_rate": "-15%",
+      "edge_pitch": "+5Hz",
+      "pause": {
+        "comma_ms": 250,
+        "period_ms": 380,
+        "paragraph_ms": 560
+      }
     },
-    {
-        "id": "technical_focus",
-        "label": "Profile B — Technical Focus",
-        "active": false,
-        "prosody": {
-            "rate": 0.95,
-            "pitch_semitones": -0.5,
-            "edge_rate": "-5%",
-            "edge_pitch": "+3Hz",
-            "pause": {
-                "comma_ms": 180,
-                "period_ms": 290,
-                "paragraph_ms": 420
-            }
-        },
-        "description": "Crisp, precise delivery. Less poetic, more technical. Debugging and execution mode."
+    "description": "Baritone 164Hz centered. Slow deliberate cadence. Measured pauses. Emotional intelligence. The Agent Lee default."
+  },
+  {
+    "id": "technical_focus",
+    "label": "Profile B — Technical Focus",
+    "active": false,
+    "prosody": {
+      "rate": 0.95,
+      "pitch_semitones": -0.5,
+      "edge_rate": "-5%",
+      "edge_pitch": "+3Hz",
+      "pause": {
+        "comma_ms": 180,
+        "period_ms": 290,
+        "paragraph_ms": 420
+      }
     },
-    {
-        "id": "motivational_architect",
-        "label": "Profile C — Motivational Architect",
-        "active": true,
-        "prosody": {
-            "rate": 1.00,
-            "pitch_semitones": -2.0,
-            "edge_rate": "+0%",
-            "edge_pitch": "-20Hz",
-            "pause": {
-                "comma_ms": 160,
-                "period_ms": 260,
-                "paragraph_ms": 380
-            }
-        },
-        "description": "Energized, rhythmic cadence. Hip-hop cadence. Building and motivating mode."
+    "description": "Crisp, precise delivery. Less poetic, more technical. Debugging and execution mode."
+  },
+  {
+    "id": "motivational_architect",
+    "label": "Profile C — Motivational Architect",
+    "active": true,
+    "prosody": {
+      "rate": 1.0,
+      "pitch_semitones": -2.0,
+      "edge_rate": "+0%",
+      "edge_pitch": "-20Hz",
+      "pause": {
+        "comma_ms": 160,
+        "period_ms": 260,
+        "paragraph_ms": 380
+      }
     },
-    {
-        "id": "deep_reflective",
-        "label": "Profile D — Deep Reflective",
-        "active": false,
-        "prosody": {
-            "rate": 0.75,
-            "pitch_semitones": -1.5,
-            "edge_rate": "-25%",
-            "edge_pitch": "+2Hz",
-            "pause": {
-                "comma_ms": 320,
-                "period_ms": 520,
-                "paragraph_ms": 750
-            }
-        },
-        "description": "Deepest, slowest. Long pauses. Teaching and philosophical mode. Heavy gravity."
+    "description": "Energized, rhythmic cadence. Hip-hop cadence. Building and motivating mode."
+  },
+  {
+    "id": "deep_reflective",
+    "label": "Profile D — Deep Reflective",
+    "active": false,
+    "prosody": {
+      "rate": 0.75,
+      "pitch_semitones": -1.5,
+      "edge_rate": "-25%",
+      "edge_pitch": "+2Hz",
+      "pause": {
+        "comma_ms": 320,
+        "period_ms": 520,
+        "paragraph_ms": 750
+      }
     },
-    {
-        "id": "narrator_classic",
-        "prosody": {
-            "rate": 0.92,
-            "pitch_semitones": 0.0,
-            "pause": {
-                "comma_ms": 200,
-                "period_ms": 320,
-                "paragraph_ms": 450
-            }
-        },
-        "description": "Slow, clear, deliberate — ideal for system status or mission summaries."
+    "description": "Deepest, slowest. Long pauses. Teaching and philosophical mode. Heavy gravity."
+  },
+  {
+    "id": "narrator_classic",
+    "prosody": {
+      "rate": 0.92,
+      "pitch_semitones": 0.0,
+      "pause": {
+        "comma_ms": 200,
+        "period_ms": 320,
+        "paragraph_ms": 450
+      }
     },
-    {
-        "id": "calm_consultant",
-        "prosody": {
-            "rate": 0.88,
-            "pitch_semitones": -1,
-            "pause": {
-                "comma_ms": 240,
-                "period_ms": 400,
-                "paragraph_ms": 600
-            }
-        },
-        "description": "Soft, slower, reinforcing trust and clarity in responses."
+    "description": "Slow, clear, deliberate — ideal for system status or mission summaries."
+  },
+  {
+    "id": "calm_consultant",
+    "prosody": {
+      "rate": 0.88,
+      "pitch_semitones": -1,
+      "pause": {
+        "comma_ms": 240,
+        "period_ms": 400,
+        "paragraph_ms": 600
+      }
     },
-    {
-        "id": "firm_commander",
-        "prosody": {
-            "rate": 1.00,
-            "pitch_semitones": 1,
-            "pause": {
-                "comma_ms": 180,
-                "period_ms": 280,
-                "paragraph_ms": 380
-            }
-        },
-        "description": "Direct and confident, suitable for operational directives and warnings."
+    "description": "Soft, slower, reinforcing trust and clarity in responses."
+  },
+  {
+    "id": "firm_commander",
+    "prosody": {
+      "rate": 1.0,
+      "pitch_semitones": 1,
+      "pause": {
+        "comma_ms": 180,
+        "period_ms": 280,
+        "paragraph_ms": 380
+      }
     },
-    {
-        "id": "energetic_analyst",
-        "prosody": {
-            "rate": 1.08,
-            "pitch_semitones": 2,
-            "pause": {
-                "comma_ms": 140,
-                "period_ms": 250,
-                "paragraph_ms": 320
-            }
-        },
-        "description": "Lively, quicker delivery with minimal pause for efficiency contexts."
+    "description": "Direct and confident, suitable for operational directives and warnings."
+  },
+  {
+    "id": "energetic_analyst",
+    "prosody": {
+      "rate": 1.08,
+      "pitch_semitones": 2,
+      "pause": {
+        "comma_ms": 140,
+        "period_ms": 250,
+        "paragraph_ms": 320
+      }
     },
-    {
-        "id": "reflective_scholar",
-        "prosody": {
-            "rate": 0.80,
-            "pitch_semitones": -0.5,
-            "pause": {
-                "comma_ms": 280,
-                "period_ms": 480,
-                "paragraph_ms": 700
-            }
-        },
-        "description": "Heavy pause and gentle pace — perfect for teaching or reasoning sessions."
+    "description": "Lively, quicker delivery with minimal pause for efficiency contexts."
+  },
+  {
+    "id": "reflective_scholar",
+    "prosody": {
+      "rate": 0.8,
+      "pitch_semitones": -0.5,
+      "pause": {
+        "comma_ms": 280,
+        "period_ms": 480,
+        "paragraph_ms": 700
+      }
     },
-    {
-        "id": "agentlee_premium_offline_v1",
-        "label": "Profile X — Premium Offline v1 (Piper/ONNX)",
-        "active": false,
-        "voice_profile_id": "agentlee_premium_offline_v1",
-        "reference_file": "agentvoice.m4a",
-        "targets": {
-            "f0_hz_median": 164,
-            "f0_hz_p10": 119,
-            "f0_hz_p90": 251,
-            "speech_wpm_target": 70,
-            "pause_style": "deliberate"
-        },
-        "piper": {
-            "speaker_id": 0,
-            "length_scale": 1.12,
-            "noise_scale": 0.45,
-            "noise_w": 0.30
-        },
-        "prosody": {
-            "rate": 0.92,
-            "pitch_semitones": 0.0,
-            "pitch_range_semitones": 4.0,
-            "pause": {
-                "comma_ms": 180,
-                "period_ms": 320,
-                "paragraph_ms": 520
-            }
-        },
-        "postfx": {
-            "normalize_dbfs": -16,
-            "compressor": {
-                "threshold_db": -22,
-                "ratio": 2.4,
-                "attack_ms": 10,
-                "release_ms": 120
-            }
-        },
-        "cache": {
-            "enabled": true,
-            "mode": "chunk",
-            "max_entries": 2000
-        },
-        "description": "Reference-matched offline voice. Piper ONNX backend. Deliberate 70wpm cadence, median F0 164Hz, baritone range 119-251Hz. Compressor + normalization postfx. Chunk caching enabled."
-    }
+    "description": "Heavy pause and gentle pace — perfect for teaching or reasoning sessions."
+  },
+  {
+    "id": "agentlee_premium_offline_v1",
+    "label": "Profile X — Premium Offline v1 (Piper/ONNX)",
+    "active": false,
+    "voice_profile_id": "agentlee_premium_offline_v1",
+    "reference_file": "agentvoice.m4a",
+    "targets": {
+      "f0_hz_median": 164,
+      "f0_hz_p10": 119,
+      "f0_hz_p90": 251,
+      "speech_wpm_target": 70,
+      "pause_style": "deliberate"
+    },
+    "piper": {
+      "speaker_id": 0,
+      "length_scale": 1.12,
+      "noise_scale": 0.45,
+      "noise_w": 0.3
+    },
+    "prosody": {
+      "rate": 0.92,
+      "pitch_semitones": 0.0,
+      "pitch_range_semitones": 4.0,
+      "pause": {
+        "comma_ms": 180,
+        "period_ms": 320,
+        "paragraph_ms": 520
+      }
+    },
+    "postfx": {
+      "normalize_dbfs": -16,
+      "compressor": {
+        "threshold_db": -22,
+        "ratio": 2.4,
+        "attack_ms": 10,
+        "release_ms": 120
+      }
+    },
+    "cache": {
+      "enabled": true,
+      "mode": "chunk",
+      "max_entries": 2000
+    },
+    "description": "Reference-matched offline voice. Piper ONNX backend. Deliberate 70wpm cadence, median F0 164Hz, baritone range 119-251Hz. Compressor + normalization postfx. Chunk caching enabled."
+  }
 ]

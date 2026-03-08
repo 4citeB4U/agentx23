@@ -1,3 +1,9 @@
+# LEEWAY HEADER BLOCK
+# File: vscode-mcp-tooling/Smoke-Test.ps1
+# Purpose: MCP smoke test for Agent Lee OS
+# Security: LEEWAY-CORE-2026 compliant
+# Performance: Sovereign MCP QA
+# Discovery: Part of Agent Lee OS QA pipeline
 # =====================================================================
 # LEEWAY_HEADER
 # TAG: TOOLS.MCP.SMOKETEST.MAIN

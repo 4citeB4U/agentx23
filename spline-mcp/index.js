@@ -8,23 +8,28 @@
  * - Provide prompting guides and workflow instructions
  */
 
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { createClient } from "@insforge/sdk";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema,
-} from '@modelcontextprotocol/sdk/types.js';
-import { createClient } from '@insforge/sdk';
-import fs from 'fs';
-import path from 'path';
-import os from 'os';
+    CallToolRequestSchema,
+    ListToolsRequestSchema,
+} from "@modelcontextprotocol/sdk/types.js";
+import express from "express";
+import fs from "fs";
+import os from "os";
+import path from "path";
 
 // ── Config ──────────────────────────────────────────────────────────────────
-const INSFORGE_URL     = process.env.INSFORGE_PROJECT_URL || 'https://3c4cp27v.us-west.insforge.app';
-const INSFORGE_ANON    = process.env.INSFORGE_API_KEY     || '';
-const DEFAULT_IMG_DIR  = path.join(os.homedir(), 'SplineAssets');
+const INSFORGE_URL =
+  process.env.INSFORGE_PROJECT_URL || "https://3c4cp27v.us-west.insforge.app";
+const INSFORGE_ANON = process.env.INSFORGE_API_KEY || "";
+const DEFAULT_IMG_DIR = path.join(os.homedir(), "SplineAssets");
 
-const insforge = createClient({ baseUrl: INSFORGE_URL, anonKey: INSFORGE_ANON });
+const insforge = createClient({
+  baseUrl: INSFORGE_URL,
+  anonKey: INSFORGE_ANON,
+});
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function ensureDir(dir) {
@@ -32,7 +37,7 @@ function ensureDir(dir) {
 }
 
 function text(str) {
-  return { type: 'text', text: str };
+  return { type: "text", text: str };
 }
 
 // ── Tool Handlers ─────────────────────────────────────────────────────────────
@@ -88,7 +93,7 @@ function splinePromptGuide() {
 async function splineGenerateImage(args) {
   const {
     prompt,
-    style = 'photorealistic',
+    style = "photorealistic",
     width = 1024,
     height = 1024,
     outputDir = DEFAULT_IMG_DIR,
@@ -96,10 +101,14 @@ async function splineGenerateImage(args) {
   } = args;
 
   const styleHints = {
-    photorealistic: 'photorealistic, studio lighting, white background, single object, front-facing, high detail',
-    illustration:   'clean illustration, flat white background, single object centered, bold colors',
-    '3d_render':    '3D render, clay material, soft studio lighting, white background, single hero object',
-    sketch:         'pencil sketch, clean lines, white background, single object, concept art style',
+    photorealistic:
+      "photorealistic, studio lighting, white background, single object, front-facing, high detail",
+    illustration:
+      "clean illustration, flat white background, single object centered, bold colors",
+    "3d_render":
+      "3D render, clay material, soft studio lighting, white background, single hero object",
+    sketch:
+      "pencil sketch, clean lines, white background, single object, concept art style",
   };
 
   const enhancedPrompt = `${prompt}, ${styleHints[style] || styleHints.photorealistic}`;
@@ -107,7 +116,7 @@ async function splineGenerateImage(args) {
   let response;
   try {
     response = await insforge.ai.images.generate({
-      model: 'google/gemini-3-pro-image-preview',
+      model: "google/gemini-3-pro-image-preview",
       prompt: enhancedPrompt,
       width,
       height,
@@ -116,9 +125,9 @@ async function splineGenerateImage(args) {
     // Fallback to a more widely available model
     try {
       response = await insforge.ai.images.generate({
-        model: 'openai/dall-e-3',
+        model: "openai/dall-e-3",
         prompt: enhancedPrompt,
-        size: '1024x1024',
+        size: "1024x1024",
       });
     } catch (err2) {
       return `Failed to generate image.\nPrimary error: ${err.message}\nFallback error: ${err2.message}`;
@@ -134,7 +143,7 @@ async function splineGenerateImage(args) {
   const ts = Date.now();
   const safeName = filename || `spline-ref-${ts}.png`;
   const filePath = path.join(outputDir, safeName);
-  fs.writeFileSync(filePath, Buffer.from(imageData.b64_json, 'base64'));
+  fs.writeFileSync(filePath, Buffer.from(imageData.b64_json, "base64"));
 
   return `✅ Image generated and saved!
 
@@ -160,7 +169,7 @@ async function splineGenerateImage(args) {
 
 // 3. Workflow Guide
 function splineWorkflowGuide(args) {
-  const { method = 'text' } = args; // 'text' | 'image' | 'combined'
+  const { method = "text" } = args; // 'text' | 'image' | 'combined'
 
   const guides = {
     text: `# Spline Text-to-3D Workflow
@@ -247,14 +256,15 @@ Combine a reference image (for shape) with a text prompt (for style/details).
 function splineCreateEmbed(args) {
   const {
     sceneUrl,
-    title = 'Spline 3D Scene',
-    width = '100%',
-    height = '100vh',
-    background = '#1a1a2e',
+    title = "Spline 3D Scene",
+    width = "100%",
+    height = "100vh",
+    background = "#1a1a2e",
     outputPath,
   } = args;
 
-  if (!sceneUrl) return 'Error: sceneUrl is required (e.g. https://prod.spline.design/XXXX/scene.splinecode)';
+  if (!sceneUrl)
+    return "Error: sceneUrl is required (e.g. https://prod.spline.design/XXXX/scene.splinecode)";
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -357,7 +367,7 @@ function splineCreateEmbed(args) {
   if (outputPath) {
     try {
       ensureDir(path.dirname(outputPath));
-      fs.writeFileSync(outputPath, html, 'utf8');
+      fs.writeFileSync(outputPath, html, "utf8");
       return `✅ HTML embed saved to: ${outputPath}\n\nOpen in a browser to preview your Spline scene.\nThe \`window.spline\` instance is available in the browser console for live debugging.`;
     } catch (err) {
       return `Error saving file: ${err.message}\n\n---\n${html}`;
@@ -369,33 +379,31 @@ function splineCreateEmbed(args) {
 
 // 5. Generate Interaction Code
 function splineGenerateInteractionCode(args) {
-  const {
-    sceneUrl,
-    framework = 'vanilla',
-    objectName,
-    actions = [],
-  } = args;
+  const { sceneUrl, framework = "vanilla", objectName, actions = [] } = args;
 
-  if (!sceneUrl) return 'Error: sceneUrl is required';
+  if (!sceneUrl) return "Error: sceneUrl is required";
 
   const actionComments = {
-    move:       `// Move object\nobj.position.x += 50;\nobj.position.y -= 20;\nobj.position.z = 100;`,
-    rotate:     `// Rotate object\nobj.rotation.y += Math.PI / 4;`,
-    scale:      `// Scale object\nobj.scale.x = 2;\nobj.scale.y = 2;\nobj.scale.z = 2;`,
-    color:      `// Change color\nobj.color = '#ff6b6b'; // CSS color`,
-    hide:       `// Toggle visibility\nobj.hide();\n// obj.show();`,
+    move: `// Move object\nobj.position.x += 50;\nobj.position.y -= 20;\nobj.position.z = 100;`,
+    rotate: `// Rotate object\nobj.rotation.y += Math.PI / 4;`,
+    scale: `// Scale object\nobj.scale.x = 2;\nobj.scale.y = 2;\nobj.scale.z = 2;`,
+    color: `// Change color\nobj.color = '#ff6b6b'; // CSS color`,
+    hide: `// Toggle visibility\nobj.hide();\n// obj.show();`,
     transition: `// State transition\nobj.transition({ to: 'HoverState', duration: 500, easing: 'easeInOut' });\n// Chain: obj.transition({ to: 'A' }).transition({ to: 'B' });`,
-    variable:   `// Update scene variables\nspline.setVariable('myVar', 'hello');\nspline.setVariable('count', 42);\nconst vars = spline.getVariables();\nconsole.log(vars);`,
-    event:      `// Listen for events\nspline.addEventListener('mouseDown', (e) => {\n  console.log('Clicked object:', e.target.name);\n});\nspline.addEventListener('mouseHover', (e) => {\n  e.target.color = '#ffffff';\n});`,
-    emit:       `// Trigger Spline events programmatically\nspline.emitEvent('mouseHover', '${objectName || 'Cube'}');\nspline.emitEvent('mouseDown', '${objectName || 'Cube'}');`,
-    list:       `// Discover all objects in scene\nconst all = spline.getAllObjects();\nconsole.table(all.map(o => ({ name: o.name, id: o.id })));\nconst events = spline.getSplineEvents();\nconsole.log('Events:', events);`,
+    variable: `// Update scene variables\nspline.setVariable('myVar', 'hello');\nspline.setVariable('count', 42);\nconst vars = spline.getVariables();\nconsole.log(vars);`,
+    event: `// Listen for events\nspline.addEventListener('mouseDown', (e) => {\n  console.log('Clicked object:', e.target.name);\n});\nspline.addEventListener('mouseHover', (e) => {\n  e.target.color = '#ffffff';\n});`,
+    emit: `// Trigger Spline events programmatically\nspline.emitEvent('mouseHover', '${objectName || "Cube"}');\nspline.emitEvent('mouseDown', '${objectName || "Cube"}');`,
+    list: `// Discover all objects in scene\nconst all = spline.getAllObjects();\nconsole.table(all.map(o => ({ name: o.name, id: o.id })));\nconst events = spline.getSplineEvents();\nconsole.log('Events:', events);`,
   };
 
-  const selectedActions = actions.length > 0
-    ? actions.map(a => actionComments[a] || `// Unknown action: ${a}`).join('\n\n')
-    : Object.values(actionComments).join('\n\n');
+  const selectedActions =
+    actions.length > 0
+      ? actions
+          .map((a) => actionComments[a] || `// Unknown action: ${a}`)
+          .join("\n\n")
+      : Object.values(actionComments).join("\n\n");
 
-  if (framework === 'react') {
+  if (framework === "react") {
     return `\`\`\`tsx
 import Spline from '@splinetool/react-spline';
 import { useRef } from 'react';
@@ -410,7 +418,7 @@ export default function Scene() {
     ${objectName ? `const obj = spline.findObjectByName('${objectName}');` : `const obj = spline.findObjectByName('YourObjectName');`}
     if (!obj) { console.warn('Object not found'); return; }
 
-    ${selectedActions.split('\n').join('\n    ')}
+    ${selectedActions.split("\n").join("\n    ")}
   }
 
   return (
@@ -427,7 +435,7 @@ export default function Scene() {
 `;
   }
 
-  if (framework === 'nextjs') {
+  if (framework === "nextjs") {
     return `\`\`\`tsx
 'use client';
 import Spline from '@splinetool/react-spline/next';
@@ -443,7 +451,7 @@ export default function SplineScene() {
     ${objectName ? `const obj = spline.findObjectByName('${objectName}');` : `const obj = spline.findObjectByName('YourObjectName');`}
     if (!obj) { console.warn('Object not found'); return; }
 
-    ${selectedActions.split('\n').join('\n    ')}
+    ${selectedActions.split("\n").join("\n    ")}
   }
 
   return (
@@ -483,7 +491,7 @@ export default function SplineScene() {
     ${objectName ? `const obj = spline.findObjectByName('${objectName}');` : `const obj = spline.findObjectByName('YourObjectName');`}
     if (!obj) { console.warn('Object not found'); return; }
 
-    ${selectedActions.split('\n').join('\n    ')}
+    ${selectedActions.split("\n").join("\n    ")}
   });
 </script>
 </body>
@@ -497,13 +505,13 @@ export default function SplineScene() {
 
 // 6. Open Editor Info
 function splineOpenEditor(args) {
-  const { action = 'generate' } = args;
+  const { action = "generate" } = args;
 
   const urls = {
-    generate:  'https://app.spline.design/#/ai-generate',
-    editor:    'https://app.spline.design/',
-    dashboard: 'https://spline.design/',
-    community: 'https://spline.design/community',
+    generate: "https://app.spline.design/#/ai-generate",
+    editor: "https://app.spline.design/",
+    dashboard: "https://spline.design/",
+    community: "https://spline.design/community",
   };
 
   return `# Spline Editor Access
@@ -537,74 +545,159 @@ function splineOpenEditor(args) {
 // ── Tool Definitions ──────────────────────────────────────────────────────────
 const TOOLS = [
   {
-    name: 'spline_prompt_guide',
-    description: 'Returns a comprehensive guide for writing effective prompts for Spline AI 3D generation (text-to-3D and image-to-3D best practices)',
-    inputSchema: { type: 'object', properties: {}, required: [] },
+    name: "spline_prompt_guide",
+    description:
+      "Returns a comprehensive guide for writing effective prompts for Spline AI 3D generation (text-to-3D and image-to-3D best practices)",
+    inputSchema: { type: "object", properties: {}, required: [] },
   },
   {
-    name: 'spline_generate_image',
-    description: 'Generates a high-quality reference image using InsForge AI that is optimized for use with Spline Image-to-3D. Saves the image to disk.',
+    name: "spline_generate_image",
+    description:
+      "Generates a high-quality reference image using InsForge AI that is optimized for use with Spline Image-to-3D. Saves the image to disk.",
     inputSchema: {
-      type: 'object',
+      type: "object",
       properties: {
-        prompt:    { type: 'string', description: 'Object description to generate an image of (e.g. "a ceramic coffee mug")' },
-        style:     { type: 'string', enum: ['photorealistic','illustration','3d_render','sketch'], description: 'Visual style of the generated image (default: photorealistic)' },
-        width:     { type: 'number', description: 'Image width in pixels (default: 1024)' },
-        height:    { type: 'number', description: 'Image height in pixels (default: 1024)' },
-        outputDir: { type: 'string', description: 'Directory to save the image (default: ~/SplineAssets)' },
-        filename:  { type: 'string', description: 'Output filename (default: spline-ref-<timestamp>.png)' },
+        prompt: {
+          type: "string",
+          description:
+            'Object description to generate an image of (e.g. "a ceramic coffee mug")',
+        },
+        style: {
+          type: "string",
+          enum: ["photorealistic", "illustration", "3d_render", "sketch"],
+          description:
+            "Visual style of the generated image (default: photorealistic)",
+        },
+        width: {
+          type: "number",
+          description: "Image width in pixels (default: 1024)",
+        },
+        height: {
+          type: "number",
+          description: "Image height in pixels (default: 1024)",
+        },
+        outputDir: {
+          type: "string",
+          description: "Directory to save the image (default: ~/SplineAssets)",
+        },
+        filename: {
+          type: "string",
+          description: "Output filename (default: spline-ref-<timestamp>.png)",
+        },
       },
-      required: ['prompt'],
+      required: ["prompt"],
     },
   },
   {
-    name: 'spline_workflow_guide',
-    description: 'Returns a step-by-step workflow guide for creating 3D objects in Spline from text or image prompts',
+    name: "spline_workflow_guide",
+    description:
+      "Returns a step-by-step workflow guide for creating 3D objects in Spline from text or image prompts",
     inputSchema: {
-      type: 'object',
+      type: "object",
       properties: {
-        method: { type: 'string', enum: ['text','image','combined'], description: 'Workflow type: text-to-3D, image-to-3D, or combined (default: text)' },
+        method: {
+          type: "string",
+          enum: ["text", "image", "combined"],
+          description:
+            "Workflow type: text-to-3D, image-to-3D, or combined (default: text)",
+        },
       },
       required: [],
     },
   },
   {
-    name: 'spline_create_embed',
-    description: 'Generates a complete, ready-to-use HTML page that embeds a Spline 3D scene using @splinetool/runtime with a loading screen and debug utilities',
+    name: "spline_create_embed",
+    description:
+      "Generates a complete, ready-to-use HTML page that embeds a Spline 3D scene using @splinetool/runtime with a loading screen and debug utilities",
     inputSchema: {
-      type: 'object',
+      type: "object",
       properties: {
-        sceneUrl:   { type: 'string', description: 'Spline scene .splinecode URL (from Spline editor → Export → Code → Vanilla JS)' },
-        title:      { type: 'string', description: 'HTML page title (default: "Spline 3D Scene")' },
-        width:      { type: 'string', description: 'Canvas width CSS value (default: "100%")' },
-        height:     { type: 'string', description: 'Canvas height CSS value (default: "100vh")' },
-        background: { type: 'string', description: 'Background color CSS value (default: "#1a1a2e")' },
-        outputPath: { type: 'string', description: 'File path to save the HTML (optional — if omitted, returns HTML as text)' },
+        sceneUrl: {
+          type: "string",
+          description:
+            "Spline scene .splinecode URL (from Spline editor → Export → Code → Vanilla JS)",
+        },
+        title: {
+          type: "string",
+          description: 'HTML page title (default: "Spline 3D Scene")',
+        },
+        width: {
+          type: "string",
+          description: 'Canvas width CSS value (default: "100%")',
+        },
+        height: {
+          type: "string",
+          description: 'Canvas height CSS value (default: "100vh")',
+        },
+        background: {
+          type: "string",
+          description: 'Background color CSS value (default: "#1a1a2e")',
+        },
+        outputPath: {
+          type: "string",
+          description:
+            "File path to save the HTML (optional — if omitted, returns HTML as text)",
+        },
       },
-      required: ['sceneUrl'],
+      required: ["sceneUrl"],
     },
   },
   {
-    name: 'spline_generate_interaction_code',
-    description: 'Generates JavaScript/TypeScript code to interact with Spline scene objects: move, rotate, scale, color change, state transitions, variable updates, and event listeners',
+    name: "spline_generate_interaction_code",
+    description:
+      "Generates JavaScript/TypeScript code to interact with Spline scene objects: move, rotate, scale, color change, state transitions, variable updates, and event listeners",
     inputSchema: {
-      type: 'object',
+      type: "object",
       properties: {
-        sceneUrl:   { type: 'string', description: 'Spline scene .splinecode URL' },
-        framework:  { type: 'string', enum: ['vanilla','react','nextjs'], description: 'Target framework (default: vanilla)' },
-        objectName: { type: 'string', description: 'Name of the primary Spline object to interact with (optional)' },
-        actions:    { type: 'array', items: { type: 'string', enum: ['move','rotate','scale','color','hide','transition','variable','event','emit','list'] }, description: 'Which interaction types to include (default: all)' },
+        sceneUrl: {
+          type: "string",
+          description: "Spline scene .splinecode URL",
+        },
+        framework: {
+          type: "string",
+          enum: ["vanilla", "react", "nextjs"],
+          description: "Target framework (default: vanilla)",
+        },
+        objectName: {
+          type: "string",
+          description:
+            "Name of the primary Spline object to interact with (optional)",
+        },
+        actions: {
+          type: "array",
+          items: {
+            type: "string",
+            enum: [
+              "move",
+              "rotate",
+              "scale",
+              "color",
+              "hide",
+              "transition",
+              "variable",
+              "event",
+              "emit",
+              "list",
+            ],
+          },
+          description: "Which interaction types to include (default: all)",
+        },
       },
-      required: ['sceneUrl'],
+      required: ["sceneUrl"],
     },
   },
   {
-    name: 'spline_open_editor',
-    description: 'Returns Spline editor and AI generation URLs and usage instructions. Use this to guide the user to the right Spline tool.',
+    name: "spline_open_editor",
+    description:
+      "Returns Spline editor and AI generation URLs and usage instructions. Use this to guide the user to the right Spline tool.",
     inputSchema: {
-      type: 'object',
+      type: "object",
       properties: {
-        action: { type: 'string', enum: ['generate','editor','dashboard','community'], description: 'Which Spline URL/info to focus on (default: generate)' },
+        action: {
+          type: "string",
+          enum: ["generate", "editor", "dashboard", "community"],
+          description: "Which Spline URL/info to focus on (default: generate)",
+        },
       },
       required: [],
     },
@@ -612,12 +705,16 @@ const TOOLS = [
 ];
 
 // ── MCP Server Setup ──────────────────────────────────────────────────────────
+const AGENT_NAME = "spline-mcp";
+const AGENT_VERSION = "1.0.0";
 const server = new Server(
-  { name: 'spline-mcp', version: '1.0.0' },
-  { capabilities: { tools: {} } }
+  { name: AGENT_NAME, version: AGENT_VERSION },
+  { capabilities: { tools: {} } },
 );
 
-server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools: TOOLS }));
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: TOOLS,
+}));
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args = {} } = request.params;
@@ -625,22 +722,22 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
     let result;
     switch (name) {
-      case 'spline_prompt_guide':
+      case "spline_prompt_guide":
         result = splinePromptGuide();
         break;
-      case 'spline_generate_image':
+      case "spline_generate_image":
         result = await splineGenerateImage(args);
         break;
-      case 'spline_workflow_guide':
+      case "spline_workflow_guide":
         result = splineWorkflowGuide(args);
         break;
-      case 'spline_create_embed':
+      case "spline_create_embed":
         result = splineCreateEmbed(args);
         break;
-      case 'spline_generate_interaction_code':
+      case "spline_generate_interaction_code":
         result = splineGenerateInteractionCode(args);
         break;
-      case 'spline_open_editor':
+      case "spline_open_editor":
         result = splineOpenEditor(args);
         break;
       default:
@@ -648,12 +745,53 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
     return { content: [text(result)] };
   } catch (err) {
-    return { content: [text(`Error in ${name}: ${err.message}`)], isError: true };
+    return {
+      content: [text(`Error in ${name}: ${err.message}`)],
+      isError: true,
+    };
   }
 });
 
-// ── Start ─────────────────────────────────────────────────────────────────────
+// ── Minimal HTTP server for health/info endpoints ──
+const app = express();
+const HTTP_PORT = process.env.SPLINE_MCP_HTTP_PORT || 9000;
+
+// CORS middleware for all routes
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") return res.sendStatus(200);
+  next();
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "healthy",
+    agent: AGENT_NAME,
+    version: AGENT_VERSION,
+    timestamp: new Date().toISOString(),
+  });
+});
+
+app.get("/info", (req, res) => {
+  res.json({
+    agent: AGENT_NAME,
+    version: AGENT_VERSION,
+    description: "Spline MCP Server — 3D/AI/InsForge integration",
+    endpoints: ["/health", "/info"],
+    tools: TOOLS.map((t) => t.name),
+  });
+});
+
+app.listen(HTTP_PORT, () => {
+  console.error(
+    `[spline-mcp] Health/info HTTP server listening on :${HTTP_PORT}`,
+  );
+});
+
+// ── Start MCP server (stdio) ──
 const transport = new StdioServerTransport();
 await server.connect(transport);
-console.error('[spline-mcp] Server started — 6 tools registered');
-console.error('[spline-mcp] InsForge AI endpoint:', INSFORGE_URL);
+console.error("[spline-mcp] Server started — 6 tools registered");
+console.error("[spline-mcp] InsForge AI endpoint:", INSFORGE_URL);

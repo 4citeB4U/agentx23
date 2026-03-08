@@ -1,0 +1,39 @@
+{
+  "description": "End-to-end smoke test — verifies the full Agent Lee OS pipeline is operational.",
+  "version": "1.0.0",
+  "created_at": "2025-01-01T00:00:00Z",
+  "tests": [
+    {
+      "id": "e2e-001",
+      "name": "Registry readable",
+      "tool": "agent-registry-mcp:list_agents",
+      "input": {},
+      "expect": { "total": ">=14" },
+      "timeout_ms": 5000
+    },
+    {
+      "id": "e2e-002",
+      "name": "Health sweep clean",
+      "tool": "health-agent-mcp:sweep_all_services",
+      "input": { "include_model_lanes": false, "include_db": false },
+      "expect": { "degraded_count": 0 },
+      "timeout_ms": 15000
+    },
+    {
+      "id": "e2e-003",
+      "name": "Validation L1 all agents pass",
+      "tool": "validation-agent-mcp:run_system_validation",
+      "input": { "filter_status": "unknown", "parallel": false },
+      "expect": { "failed_count": 0, "quarantined_count": 0 },
+      "timeout_ms": 120000
+    },
+    {
+      "id": "e2e-004",
+      "name": "System readiness >= 80%",
+      "tool": "agent-registry-mcp:get_system_readiness",
+      "input": {},
+      "expect": { "readiness_pct": ">=80" },
+      "timeout_ms": 5000
+    }
+  ]
+}
