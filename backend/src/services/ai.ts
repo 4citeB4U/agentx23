@@ -12,6 +12,9 @@ const KEYS = [
 const ZHIPU_KEY =
   process.env["Z-AI_API_KEY"] || process.env.ZHIPU_API_KEY || "";
 
+// Anthropic Claude — secondary fallback (fast Haiku model, low latency)
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || "";
+
 // NotebookLM notebook ID — grounded knowledge source for Agent Lee's responses
 const NOTEBOOKLM_NOTEBOOK_ID = process.env.NOTEBOOKLM_NOTEBOOK_ID || "";
 const NOTEBOOKLM_API_KEY =
@@ -617,6 +620,45 @@ class AIService {
     return null;
   }
 
+  /** Anthropic Claude Haiku — low-latency fallback when Gemini quota is exhausted */
+  private async callClaude(text: string): Promise<string | null> {
+    if (!ANTHROPIC_API_KEY) return null;
+    try {
+      console.log("[ai] Fallback → Claude Haiku (Anthropic)");
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "anthropic-version": "2023-06-01",
+          "x-api-key": ANTHROPIC_API_KEY,
+        },
+        body: JSON.stringify({
+          model: "claude-haiku-4-5",
+          max_tokens: 256,
+          system: AGENT_LEE_SYSTEM_PROMPT,
+          messages: [{ role: "user", content: text }],
+        }),
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data?.content?.[0]?.text;
+        if (reply) {
+          console.log("[ai] Claude Haiku fallback response received.");
+          return reply as string;
+        }
+      } else {
+        const errText = await res.text().catch(() => `HTTP ${res.status}`);
+        console.warn(
+          `[ai] Claude returned ${res.status}: ${errText.slice(0, 120)}`,
+        );
+      }
+    } catch (err: any) {
+      console.warn(`[ai] Claude fallback failed: ${err.message}`);
+    }
+    return null;
+  }
+
   async process(text: string): Promise<string> {
     const route = classifyIntent(text);
     console.log(
@@ -666,6 +708,9 @@ class AIService {
             /* fall through */
           }
         }
+        // Anthropic Claude Haiku — last fast-path resort
+        const claudeReply = await this.callClaude(text);
+        if (claudeReply) return claudeReply;
         return "Yo — the voice channel hit a snag. Give me a sec to recalibrate.";
       }
     }
@@ -720,11 +765,13 @@ class AIService {
           );
         }
       }
-      // Narration fallback for smart path
+      // Narration fallback for smart path — Gemini then Claude
       try {
         return await this.callGeminiDirect(text);
       } catch (err: any) {
         console.warn(`[ai] Smart path Gemini fallback failed: ${err.message}`);
+        const claudeReply = await this.callClaude(text);
+        if (claudeReply) return claudeReply;
         return "My planning lane is recalibrating. Stand by — I'll have a structured breakdown for you in a moment.";
       }
     }
@@ -738,10 +785,12 @@ class AIService {
     if (route.intent === "analyze_visual") {
       const visionResult = await this.callGlmVision(text);
       if (visionResult) return visionResult;
-      // Vision fallback → Gemini (multimodal capable)
+      // Vision fallback → Gemini then Claude
       try {
         return await this.callGeminiDirect(text);
       } catch (_) {
+        const claudeReply = await this.callClaude(text);
+        if (claudeReply) return claudeReply;
         return "Vision lane is down. Try again with the screenshot attached in the request payload.";
       }
     }
