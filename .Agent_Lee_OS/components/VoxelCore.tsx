@@ -1,7 +1,7 @@
 /* ============================================================================
 LEEWAY HEADER — DO NOT REMOVE
 PROFILE: LEEWAY-RUNTIME
-TAG: GENESIS.ENGINE.UI.BANNER
+TAG: UI.ENGINE._AGENT_LEE_OS_COMPONENTS_VOXELCORE_TSX.MAIN_UI.BANNER
 REGION: 🔵 UI
 ============================================================================ */
 
@@ -480,6 +480,199 @@ const getTargetPosition = (
     else if (part < 0.83)
       rInCyl(0.85, 3.0, -1.0, 0.5, 0); // leg L
     else rInCyl(0.85, 3.0, 1.0, 0.5, 0); // leg R
+  } else if (shape === "ankh") {
+    // Egyptian/African symbol of life — loop (torus) + crossbar + stem
+    const part = Math.random();
+    if (part < 0.38) {
+      // Loop: torus above crossbar, R=2, r=0.7, centered at y=4
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI * 2;
+      const R = 2.0,
+        r = 0.7;
+      p.x = (R + r * Math.cos(phi)) * Math.cos(theta);
+      p.z = (R + r * Math.cos(phi)) * Math.sin(theta) * 0.35;
+      p.y = r * Math.sin(phi) + 4.0;
+    } else if (part < 0.58) {
+      // Crossbar: horizontal bar from -3 to +3 at y=1.2
+      p.x = (Math.random() * 2 - 1) * 3.2;
+      p.y = 1.2 + rand() * 0.55;
+      p.z = rand() * 0.4;
+    } else {
+      // Stem: vertical bar from y=-4 to y=1.2
+      p.x = rand() * 0.7;
+      p.y = Math.random() * 5.2 - 4.0;
+      p.z = rand() * 0.4;
+    }
+  } else if (shape === "merkaba") {
+    // Star tetrahedron (sacred geometry) — two interlocking tetrahedra
+    const isUp = Math.random() > 0.5;
+    const t = Math.random(),
+      a = Math.random() * Math.PI * 2;
+    const r = 5.0 * Math.cbrt(t);
+    // Tetrahedron surface: 4 triangular faces sampled via barycentric
+    const faceIdx = Math.floor(Math.random() * 4);
+    const h = 5.5;
+    const verts = isUp
+      ? [
+          // Point-up tetrahedron
+          [
+            [0, h, 0],
+            [h * 0.82, -h * 0.33, h * 0.82],
+            [-h * 0.82 * 2, -h * 0.33, 0],
+            [0, -h * 0.33, -h * 0.82 * 1.4],
+          ],
+        ]
+      : [
+          // Point-down tetrahedron (rotated 180° on X)
+          [
+            [0, -h, 0],
+            [h * 0.82, h * 0.33, h * 0.82],
+            [-h * 0.82 * 2, h * 0.33, 0],
+            [0, h * 0.33, -h * 0.82 * 1.4],
+          ],
+        ];
+    const faces = [
+      [0, 1, 2],
+      [0, 1, 3],
+      [0, 2, 3],
+      [1, 2, 3],
+    ];
+    const face = faces[faceIdx % 4];
+    const vs = verts[0];
+    let u = Math.random(),
+      v = Math.random();
+    if (u + v > 1) {
+      u = 1 - u;
+      v = 1 - v;
+    }
+    const w = 1 - u - v;
+    p.x = u * vs[face[0]][0] + v * vs[face[1]][0] + w * vs[face[2]][0];
+    p.y = u * vs[face[0]][1] + v * vs[face[1]][1] + w * vs[face[2]][1];
+    p.z = u * vs[face[0]][2] + v * vs[face[1]][2] + w * vs[face[2]][2];
+    p.x *= 0.5;
+    p.y *= 0.5;
+    p.z *= 0.5;
+  } else if (shape === "thirdEye") {
+    // Eye almond shape with central iris — spiritual vision symbol
+    const t = Math.random() * Math.PI; // 0..pi covers full arc
+    const eyeHalfW = 5.5;
+    const eyeHalfH = 2.2;
+    const isIris = Math.random() > 0.65;
+    if (isIris) {
+      // Iris/pupil: filled circle
+      const theta = Math.random() * Math.PI * 2;
+      const r = Math.sqrt(Math.random()) * 1.6;
+      p.x = r * Math.cos(theta);
+      p.y = r * Math.sin(theta) * 0.7;
+      p.z = rand() * 0.5;
+    } else {
+      // Eye outline: almond curve — two arcs meeting at tips
+      const arc = Math.random() > 0.5 ? 1 : -1;
+      const angle = Math.random() * Math.PI;
+      p.x = eyeHalfW * Math.cos(angle) * arc;
+      p.y = eyeHalfH * Math.sin(angle) * arc;
+      p.z = rand() * 0.3;
+      // flatten to almond — narrow the Y at extremes
+      p.y *= Math.sin(angle);
+    }
+  } else if (shape === "infinity") {
+    // Lemniscate (figure-8) path in 3D
+    const t = Math.random() * Math.PI * 2;
+    const scale = 4.5;
+    const a = 1.0,
+      b = 2.0;
+    p.x = (scale * Math.cos(t)) / (1 + Math.sin(t) * Math.sin(t));
+    p.y = (scale * Math.sin(t) * Math.cos(t)) / (1 + Math.sin(t) * Math.sin(t));
+    p.z = rand() * 0.6;
+    // Add tube thickness
+    const nx = -Math.sin(t),
+      ny = Math.cos(t);
+    const thick = Math.random() * 0.8;
+    p.x += nx * thick;
+    p.y += ny * thick;
+  } else if (shape === "crescent") {
+    // Crescent moon — arc of outer circle minus inner offset circle
+    let found = false;
+    while (!found) {
+      const theta = Math.random() * Math.PI * 2;
+      const r = Math.sqrt(Math.random()) * 5.0;
+      const cx = r * Math.cos(theta);
+      const cy = r * Math.sin(theta);
+      // Outside main circle of radius 5
+      const inOuter = r <= 5.0;
+      // Inside occluding circle (offset right, radius 3.8)
+      const dx = cx - 2.2,
+        dy = cy;
+      const inInner = Math.sqrt(dx * dx + dy * dy) <= 3.8;
+      if (inOuter && !inInner) {
+        p.x = cx;
+        p.y = cy;
+        p.z = rand() * 0.6;
+        found = true;
+      }
+    }
+  } else if (shape === "sunburst") {
+    // Radiating tribal sun — center disk + 10 tapered rays
+    const isRay = Math.random() > 0.3;
+    if (isRay) {
+      const numRays = 10;
+      const ray = Math.floor(Math.random() * numRays);
+      const angle = (ray / numRays) * Math.PI * 2;
+      const t = Math.random(); // 0=center, 1=tip
+      const rayLen = 5.0;
+      const halfW = (1 - t) * 0.9;
+      const dist = 2.2 + t * rayLen;
+      const perp = rand() * halfW;
+      p.x = Math.cos(angle) * dist + Math.sin(angle) * perp;
+      p.z = Math.sin(angle) * dist - Math.cos(angle) * perp;
+      p.y = rand() * 0.5;
+    } else {
+      // Center disk
+      const theta = Math.random() * Math.PI * 2;
+      const r = Math.sqrt(Math.random()) * 2.2;
+      p.x = r * Math.cos(theta);
+      p.z = r * Math.sin(theta);
+      p.y = rand() * 0.5;
+    }
+  } else if (shape === "pyramid") {
+    // 4-sided ancient Egyptian pyramid — square base + 4 triangular faces
+    const isBase = Math.random() > 0.7;
+    if (isBase) {
+      // Square base
+      p.x = rand() * 5.0;
+      p.z = rand() * 5.0;
+      p.y = -3.5;
+    } else {
+      // 4 triangular faces
+      const face = Math.floor(Math.random() * 4);
+      const t = Math.random();
+      const u = Math.random() * (1 - t);
+      const base = 5.0,
+        halfH = 5.0;
+      // Face normals: N, S, E, W
+      if (face === 0) {
+        // North face
+        p.x = (t * 2 - t) * base + (u * 2 - u) * base;
+        p.z = -base * (1 - t);
+        p.y = t * halfH - 3.5;
+        p.x = (Math.random() * 2 - 1) * base * (1 - t);
+      } else if (face === 1) {
+        // South face
+        p.x = (Math.random() * 2 - 1) * base * (1 - t);
+        p.z = base * (1 - t);
+        p.y = t * halfH - 3.5;
+      } else if (face === 2) {
+        // East face
+        p.z = (Math.random() * 2 - 1) * base * (1 - t);
+        p.x = base * (1 - t);
+        p.y = t * halfH - 3.5;
+      } else {
+        // West face
+        p.z = (Math.random() * 2 - 1) * base * (1 - t);
+        p.x = -base * (1 - t);
+        p.y = t * halfH - 3.5;
+      }
+    }
   } else {
     // Fallback — sphere
     const r = 5.0 * Math.cbrt(Math.random());
@@ -850,6 +1043,138 @@ const buildCoreGeometry = (shape: CoreShape): THREE.BufferGeometry => {
         return merged;
       }
       return new THREE.SphereGeometry(4.0, 32, 32); // fallback
+    }
+
+    case "ankh": {
+      // Loop (torus) + crossbar (box) + stem (box)
+      const loop = ensureNonIndexed(new THREE.TorusGeometry(2.0, 0.65, 12, 40));
+      loop.translate(0, 4.0, 0);
+      const crossbar = ensureNonIndexed(new THREE.BoxGeometry(6.4, 1.1, 0.7));
+      crossbar.translate(0, 1.2, 0);
+      const stem = ensureNonIndexed(new THREE.BoxGeometry(1.4, 5.2, 0.7));
+      stem.translate(0, -1.5, 0);
+      const aParts = [loop, crossbar, stem];
+      const merged = mergeGeometries(aParts, false);
+      aParts.forEach((g) => g.dispose());
+      if (merged) {
+        merged.computeVertexNormals();
+        return merged;
+      }
+      return new THREE.TorusGeometry(2.0, 0.65, 12, 40);
+    }
+
+    case "merkaba": {
+      // Two interlocking tetrahedra — star tetrahedron
+      const t1 = ensureNonIndexed(new THREE.TetrahedronGeometry(3.5, 0));
+      t1.rotateX(Math.PI / 6);
+      const t2 = ensureNonIndexed(new THREE.TetrahedronGeometry(3.5, 0));
+      t2.rotateX(-Math.PI / 6);
+      t2.rotateY(Math.PI);
+      const mParts = [t1, t2];
+      const merged = mergeGeometries(mParts, false);
+      mParts.forEach((g) => g.dispose());
+      if (merged) {
+        merged.computeVertexNormals();
+        return merged;
+      }
+      return new THREE.OctahedronGeometry(3.0, 0);
+    }
+
+    case "thirdEye": {
+      // Almond eye shape extruded with iris sphere
+      const eyePath = new THREE.Shape();
+      eyePath.moveTo(-5.5, 0);
+      eyePath.quadraticCurveTo(0, 2.2, 5.5, 0);
+      eyePath.quadraticCurveTo(0, -2.2, -5.5, 0);
+      const eyeGeo = ensureNonIndexed(
+        new THREE.ExtrudeGeometry(eyePath, {
+          depth: 0.6,
+          bevelEnabled: true,
+          bevelThickness: 0.2,
+          bevelSize: 0.2,
+          bevelSegments: 3,
+        }),
+      );
+      eyeGeo.translate(0, 0, -0.3);
+      const iris = ensureNonIndexed(new THREE.SphereGeometry(1.6, 16, 16));
+      iris.scale(1, 0.7, 0.5);
+      const eParts = [eyeGeo, iris];
+      const merged = mergeGeometries(eParts, false);
+      eParts.forEach((g) => g.dispose());
+      if (merged) {
+        merged.computeVertexNormals();
+        return merged;
+      }
+      return new THREE.SphereGeometry(2.5, 32, 32);
+    }
+
+    case "infinity": {
+      // Figure-8 (lemniscate) — two linked tori
+      const tA = ensureNonIndexed(new THREE.TorusGeometry(2.4, 0.75, 12, 64));
+      tA.translate(-2.4, 0, 0);
+      const tB = ensureNonIndexed(new THREE.TorusGeometry(2.4, 0.75, 12, 64));
+      tB.translate(2.4, 0, 0);
+      const iParts = [tA, tB];
+      const merged = mergeGeometries(iParts, false);
+      iParts.forEach((g) => g.dispose());
+      if (merged) {
+        merged.computeVertexNormals();
+        return merged;
+      }
+      return new THREE.TorusGeometry(2.4, 0.75, 12, 64);
+    }
+
+    case "crescent": {
+      // Crescent moon — extruded 2D path
+      const moon = new THREE.Shape();
+      moon.absarc(0, 0, 5.0, -Math.PI / 2, Math.PI / 2, false);
+      const hole = new THREE.Path();
+      hole.absarc(2.2, 0, 3.8, Math.PI / 2, -Math.PI / 2, true);
+      moon.holes.push(hole);
+      const cGeo = ensureNonIndexed(
+        new THREE.ExtrudeGeometry(moon, {
+          depth: 1.2,
+          bevelEnabled: true,
+          bevelThickness: 0.2,
+          bevelSize: 0.2,
+          bevelSegments: 3,
+        }),
+      );
+      cGeo.translate(-1.1, 0, -0.6);
+      cGeo.computeVertexNormals();
+      return cGeo;
+    }
+
+    case "sunburst": {
+      // Center disk + 10 tapered ray cones
+      const disk = ensureNonIndexed(
+        new THREE.CylinderGeometry(2.2, 2.2, 0.8, 32),
+      );
+      const rayParts: THREE.BufferGeometry[] = [disk];
+      for (let ri = 0; ri < 10; ri++) {
+        const angle = (ri / 10) * Math.PI * 2;
+        const ray = ensureNonIndexed(new THREE.ConeGeometry(0.7, 5.0, 8));
+        ray.translate(0, 4.7, 0);
+        ray.rotateZ(-Math.PI / 2);
+        ray.rotateY(angle);
+        rayParts.push(ray);
+      }
+      const merged = mergeGeometries(rayParts, false);
+      rayParts.forEach((g) => g.dispose());
+      if (merged) {
+        merged.computeVertexNormals();
+        return merged;
+      }
+      return new THREE.CylinderGeometry(2.2, 2.2, 0.8, 32);
+    }
+
+    case "pyramid": {
+      // 4-sided Egyptian pyramid — CylinderGeometry with radialSegments=4
+      const pyr = new THREE.CylinderGeometry(0, 5.0, 8.5, 4, 1);
+      pyr.rotateY(Math.PI / 4); // face the square to camera
+      pyr.translate(0, -0.75, 0); // center vertically
+      pyr.computeVertexNormals();
+      return pyr;
     }
 
     default:

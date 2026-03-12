@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: UI
+TAG: UI.COMPONENT.UIMODULES.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = UIModules module
+WHY = Part of UI region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\components\UIModules.tsx
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 import {
   Box,
   Code2,
@@ -435,20 +467,14 @@ export const ContactRow: React.FC<{ contact: AgentContact }> = ({
   </div>
 );
 
-// --- Message Stream (Clean Chat) ---
+// --- Message Stream (Native Chat UX) ---
 const ThinkingBubble: React.FC = () => (
-  <div className="flex flex-col items-start animate-[fadeIn_0.3s_ease-out]">
-    <div className="flex gap-4 max-w-[90%]">
-      <div className="w-0.5 self-stretch rounded-full bg-linear-to-b from-accent-cyan to-blue-600" />
-      <div className="flex flex-col">
-        <div className="flex items-baseline gap-2 mb-1">
-          <span className="text-[10px] font-bold tracking-wider uppercase text-white">
-            agent
-          </span>
-          <span className="text-[9px] text-gray-600 font-mono">
-            {new Date().toLocaleTimeString()}
-          </span>
-        </div>
+  <div className="flex justify-start animate-[fadeIn_0.3s_ease-out] px-2">
+    <div className="max-w-[85%] flex items-end gap-2">
+      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-[10px] font-black text-white shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+        A
+      </div>
+      <div className="bg-[#1a1f2e] rounded-2xl rounded-bl-md px-4 py-3 shadow-lg border border-white/5">
         <div className="flex items-center gap-1.5 h-5">
           <span className="block w-1.5 h-1.5 rounded-full bg-cyan-400 thinking-dot-0" />
           <span className="block w-1.5 h-1.5 rounded-full bg-cyan-400 thinking-dot-1" />
@@ -469,7 +495,7 @@ export const MessageStream: React.FC<{
   }, [messages.length, isThinking]);
 
   return (
-    <GlassPanel title="Chats" className="min-h-62.5 flex flex-col">
+    <div className="flex flex-col flex-1 min-h-0">
       <style>{`
         @keyframes thinking-dot {
           0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
@@ -479,53 +505,66 @@ export const MessageStream: React.FC<{
         .thinking-dot-1 { animation: thinking-dot 1.2s ease-in-out 0.2s infinite; }
         .thinking-dot-2 { animation: thinking-dot 1.2s ease-in-out 0.4s infinite; }
       `}</style>
-      <div className="flex-1 space-y-6 overflow-y-auto max-h-87.5 custom-scrollbar p-6">
+      <div className="flex-1 space-y-3 overflow-y-auto custom-scrollbar px-3 py-4">
         {messages.map((msg) => {
           const isSystem = msg.sender === "system";
           const isAgent = msg.sender === "agent";
+          const isUser = msg.sender === "user";
           const isTelegram = msg.source === "telegram";
 
           return (
             <div
               key={msg.id}
-              className={`flex flex-col ${isSystem ? "items-center" : "items-start"} animate-[fadeIn_0.3s_ease-out]`}
+              className={`flex ${isSystem ? "justify-center" : isUser ? "justify-end" : "justify-start"} animate-[fadeIn_0.3s_ease-out] px-1`}
             >
               {isSystem ? (
-                <div className="flex items-center gap-2 py-2">
-                  <div className="h-px w-8 bg-linear-to-r from-transparent to-blue-500/50"></div>
-                  <span className="text-[9px] font-mono text-blue-400/80 tracking-widest uppercase">
+                <div className="flex items-center gap-2 py-1.5 max-w-[90%]">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent to-blue-500/30"></div>
+                  <span className="text-[9px] font-mono text-blue-400/70 tracking-widest uppercase whitespace-nowrap">
                     {msg.text}
                   </span>
-                  <div className="h-px w-8 bg-linear-to-l from-transparent to-blue-500/50"></div>
+                  <div className="h-px flex-1 bg-gradient-to-l from-transparent to-blue-500/30"></div>
                 </div>
-              ) : (
-                <div className="flex gap-4 max-w-[90%]">
-                  <div
-                    className={`w-0.5 self-stretch rounded-full ${isAgent ? "bg-linear-to-b from-accent-cyan to-blue-600" : isTelegram ? "bg-linear-to-b from-blue-400 to-blue-600" : "bg-gray-700"}`}
-                  ></div>
-                  <div className="flex flex-col">
-                    <div className="flex items-baseline gap-2 mb-1">
-                      <span
-                        className={`text-[10px] font-bold tracking-wider uppercase ${isAgent ? "text-white" : "text-gray-400"}`}
-                      >
-                        {msg.sender}
-                      </span>
-                      {isTelegram && (
-                        <span className="text-[8px] font-bold tracking-widest uppercase text-blue-400 bg-blue-500/10 border border-blue-500/30 rounded px-1.5 py-0.5">
-                          TG
-                        </span>
-                      )}
-                      <span className="text-[9px] text-gray-600 font-mono">
-                        {msg.timestamp}
-                      </span>
-                    </div>
+              ) : isUser ? (
+                <div className="max-w-[80%] flex flex-col items-end">
+                  <div className="bg-blue-600 rounded-2xl rounded-br-md px-4 py-2.5 shadow-lg shadow-blue-900/20">
                     <p
-                      data-testid={isAgent ? "agent-message" : "user-message"}
+                      data-testid="user-message"
                       data-sender={msg.sender}
-                      className="text-sm text-gray-300 leading-relaxed font-light"
+                      className="text-sm text-white leading-relaxed"
                     >
                       {msg.text}
                     </p>
+                  </div>
+                  <span className="text-[9px] text-gray-600 font-mono mt-1 mr-1">
+                    {msg.timestamp}
+                  </span>
+                </div>
+              ) : (
+                <div className="max-w-[85%] flex items-end gap-2">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-[10px] font-black text-white shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+                    A
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="bg-[#1a1f2e] rounded-2xl rounded-bl-md px-4 py-2.5 shadow-lg border border-white/5">
+                      {isTelegram && (
+                        <div className="mb-1">
+                          <span className="text-[8px] font-bold tracking-widest uppercase text-blue-400 bg-blue-500/10 border border-blue-500/30 rounded px-1.5 py-0.5">
+                            TG
+                          </span>
+                        </div>
+                      )}
+                      <p
+                        data-testid="agent-message"
+                        data-sender={msg.sender}
+                        className="text-sm text-gray-200 leading-relaxed"
+                      >
+                        {msg.text}
+                      </p>
+                    </div>
+                    <span className="text-[9px] text-gray-600 font-mono mt-1 ml-1">
+                      {msg.timestamp}
+                    </span>
                   </div>
                 </div>
               )}
@@ -535,21 +574,17 @@ export const MessageStream: React.FC<{
         {isThinking && <ThinkingBubble />}
         <div ref={scrollEndRef} />
       </div>
-    </GlassPanel>
+    </div>
   );
 };
 
 // --- Floating Dock (The Bottom Nav) ---
-// Inspired by macOS Dock / VisionOS. Floating, centered, blurred.
-// --- LEEWAY v12 HEADER ---
-// File: UIModules.tsx
-// Purpose: Sovereign IDE - Fixed Bottom Footer for Input/Mic/Nav
+// Native mobile app footer with unified input + nav dock
 // LEEWAY v12 Compliant
 export const BottomNav: React.FC<{
   activeTab: Tab;
   onTabChange: (t: Tab) => void;
   unreadCounts?: Partial<Record<Tab, number>>;
-  // Command input handlers (footer unified)
   onCommand?: (cmd: string) => void;
   onMicToggle?: () => void;
   isMicEnabled?: boolean;
@@ -576,7 +611,6 @@ export const BottomNav: React.FC<{
     { id: string; name: string; ts: string }[]
   >([]);
 
-  // Load chat history from localStorage
   useEffect(() => {
     const stored = localStorage.getItem("agent_lee_sessions");
     if (stored) {
@@ -602,96 +636,113 @@ export const BottomNav: React.FC<{
     localStorage.setItem("agent_lee_sessions", JSON.stringify(updated));
     onDeleteChat?.(id);
   };
+
   const items = [
-    { id: Tab.COMMS, icon: <House size={22} />, label: "Home" },
-    { id: Tab.LIVE, icon: <MonitorPlay size={22} />, label: "Remote" },
-    { id: Tab.PHONE, icon: <Smartphone size={22} />, label: "Phone" },
-    { id: Tab.FILES, icon: <FolderOpen size={22} />, label: "Data" },
-    { id: Tab.CODE, icon: <Code2 size={22} />, label: "Studio" },
-    { id: Tab.APPS, icon: <LayoutDashboard size={22} />, label: "Apps" },
-    { id: Tab.SYSTEM, icon: <Settings size={22} />, label: "Sys" },
+    { id: Tab.COMMS, icon: <House size={20} />, label: "Home" },
+    { id: Tab.LIVE, icon: <MonitorPlay size={20} />, label: "Remote" },
+    { id: Tab.PHONE, icon: <Smartphone size={20} />, label: "Phone" },
+    { id: Tab.FILES, icon: <FolderOpen size={20} />, label: "Data" },
+    { id: Tab.CODE, icon: <Code2 size={20} />, label: "Studio" },
+    { id: Tab.APPS, icon: <LayoutDashboard size={20} />, label: "Apps" },
+    { id: Tab.SYSTEM, icon: <Settings size={20} />, label: "Sys" },
   ];
+
   return (
-    <footer className="app-footer fixed bottom-0 left-0 right-0 z-50 bg-black/80 border-t border-gray-800 flex flex-col items-center pointer-events-none">
-      {/* Chat History Panel */}
+    <footer className="app-footer fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center pointer-events-none">
+      {/* --- Chat History Drawer --- */}
       {historyOpen && (
-        <div className="absolute bottom-full mb-2 left-4 right-4 max-w-lg mx-auto bg-[#0d1117] border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-            <span className="text-white text-xs font-bold tracking-widest uppercase">
-              Chat History
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => {
-                  onNewChat?.();
-                  setHistoryOpen(false);
-                }}
-                className="text-blue-400 hover:text-blue-300 text-xs font-bold px-2 py-1 rounded hover:bg-white/5 transition-colors"
-              >
-                + New Chat
-              </button>
-              <button
-                onClick={() => setHistoryOpen(false)}
-                className="text-gray-500 hover:text-white text-xs"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-          <div className="max-h-64 overflow-y-auto">
-            {sessions.length === 0 && (
-              <div className="px-4 py-6 text-gray-500 text-xs text-center">
-                No saved sessions yet
-              </div>
-            )}
-            {sessions.map((s) => (
-              <div
-                key={s.id}
-                className="px-4 py-3 border-b border-white/5 flex items-center gap-2 group hover:bg-white/5"
-              >
-                <div className="flex-1">
-                  <input
-                    className="bg-transparent text-white text-xs w-full focus:outline-none group-hover:underline"
-                    title="Session name"
-                    placeholder="Session name"
-                    aria-label="Rename session"
-                    defaultValue={s.name || `Session ${s.id.slice(-6)}`}
-                    onBlur={(e) => renameSession(s.id, e.target.value)}
-                    onKeyDown={(e) =>
-                      e.key === "Enter" && (e.target as HTMLInputElement).blur()
-                    }
-                  />
-                  <div className="text-gray-600 text-[10px] mt-0.5">{s.ts}</div>
-                </div>
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 pointer-events-auto"
+            onClick={() => setHistoryOpen(false)}
+          />
+          <div className="absolute bottom-full mb-1 left-2 right-2 max-w-md mx-auto bg-[#0c0f14] border border-white/10 rounded-2xl shadow-[0_-8px_40px_rgba(0,0,0,0.6)] overflow-hidden z-50 pointer-events-auto animate-[slideUp_0.25s_ease-out]">
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-b from-white/5 to-transparent">
+              <span className="text-white text-[11px] font-bold tracking-widest uppercase">
+                Conversations
+              </span>
+              <div className="flex items-center gap-1">
                 <button
-                  title="Delete chat"
-                  aria-label="Delete chat"
-                  onClick={() => deleteSession(s.id)}
-                  className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1 rounded hover:bg-red-500/10"
+                  onClick={() => {
+                    onNewChat?.();
+                    setHistoryOpen(false);
+                  }}
+                  className="h-8 px-3 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold rounded-full transition-colors shadow-lg shadow-blue-900/30 flex items-center gap-1.5"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="3 6 5 6 21 6" />
-                    <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                  New
+                </button>
+                <button
+                  onClick={() => setHistoryOpen(false)}
+                  className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 </button>
               </div>
-            ))}
+            </div>
+            {/* Session List */}
+            <div className="max-h-72 overflow-y-auto custom-scrollbar">
+              {sessions.length === 0 && (
+                <div className="px-4 py-10 text-center">
+                  <div className="text-gray-600 text-2xl mb-2">💬</div>
+                  <div className="text-gray-500 text-xs">No conversations yet</div>
+                  <div className="text-gray-600 text-[10px] mt-1">Start chatting to save your history</div>
+                </div>
+              )}
+              {sessions.map((s) => (
+                <div
+                  key={s.id}
+                  className="px-4 py-3 flex items-center gap-3 group hover:bg-white/5 transition-colors border-b border-white/[0.03] last:border-b-0"
+                >
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <input
+                      className="bg-transparent text-white text-[12px] w-full focus:outline-none focus:underline decoration-blue-500/50 truncate"
+                      title="Session name"
+                      placeholder="Untitled conversation"
+                      aria-label="Rename session"
+                      defaultValue={s.name || `Chat ${s.id.slice(-6)}`}
+                      onBlur={(e) => renameSession(s.id, e.target.value)}
+                      onKeyDown={(e) =>
+                        e.key === "Enter" && (e.target as HTMLInputElement).blur()
+                      }
+                    />
+                    <div className="text-gray-600 text-[10px] mt-0.5 font-mono">{s.ts}</div>
+                  </div>
+                  <button
+                    title="Delete conversation"
+                    aria-label="Delete conversation"
+                    onClick={() => deleteSession(s.id)}
+                    className="opacity-0 group-hover:opacity-100 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-red-400 transition-all rounded-full hover:bg-red-500/10"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="3 6 5 6 21 6" />
+                      <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
-      {/* Unified footer: command input (above) + nav (below) */}
-      <div className="w-full flex justify-center pointer-events-auto pt-3">
-        <div className="w-full max-w-lg px-4">
-          <div className="glass-panel rounded-full p-1 pl-4 flex items-center shadow-2xl border-white/10 bg-black/60">
+
+      {/* --- Unified Input Bar --- */}
+      <div className="w-full flex justify-center pointer-events-auto px-3 pt-2">
+        <div className="w-full max-w-lg">
+          <div className="bg-[#111318] border border-white/10 rounded-2xl px-1.5 py-1.5 flex items-center gap-1 shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
             <FooterCommand
               onCommand={onCommand}
               onMicToggle={onMicToggle}
@@ -704,8 +755,10 @@ export const BottomNav: React.FC<{
           </div>
         </div>
       </div>
+
+      {/* --- Nav Dock --- */}
       <div className="w-full flex justify-center pointer-events-auto">
-        <nav className="flex items-center gap-1 py-2">
+        <nav className="flex items-center gap-0 py-1.5 px-1">
           {items.map((item) => {
             const isActive = activeTab === item.id;
             const unread = unreadCounts[item.id as Tab] || 0;
@@ -715,36 +768,39 @@ export const BottomNav: React.FC<{
                 onClick={() => onTabChange(item.id as Tab)}
                 title={item.label}
                 aria-label={item.label}
-                className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group
-                  ${isActive ? "bg-white/10 text-white shadow-[0_0_20px_rgba(255,255,255,0.1)]" : "text-gray-500 hover:text-white hover:bg-white/5"}`}
+                className={`relative flex flex-col items-center justify-center w-12 h-10 rounded-xl transition-all duration-200 group
+                  ${isActive ? "text-blue-400" : "text-gray-600 hover:text-gray-300 active:scale-95"}`}
               >
                 {item.icon}
-                {/* Unread badge */}
+                <span className={`text-[8px] font-medium mt-0.5 transition-colors ${isActive ? "text-blue-400" : "text-gray-600 group-hover:text-gray-400"}`}>
+                  {item.label}
+                </span>
                 {unread > 0 && !isActive && (
-                  <span className="absolute -top-0.5 -right-0.5 min-w-4 h-4 bg-blue-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center px-1 shadow-[0_0_8px_rgba(59,130,246,0.8)]">
+                  <span className="absolute top-0 right-1 min-w-3.5 h-3.5 bg-red-500 text-white text-[8px] font-bold rounded-full flex items-center justify-center px-0.5 shadow-[0_0_6px_rgba(239,68,68,0.6)]">
                     {unread > 9 ? "9+" : unread}
                   </span>
                 )}
-                {/* Tooltip */}
-                <span className="absolute -top-10 bg-black/80 text-white text-[9px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md border border-white/10 pointer-events-none">
-                  {item.label}
-                </span>
-                {/* Active Dot */}
                 {isActive && (
-                  <div className="absolute -bottom-1 w-1 h-1 bg-blue-400 rounded-full shadow-[0_0_5px_#00A3FF]"></div>
+                  <div className="absolute -bottom-0.5 w-4 h-0.5 bg-blue-400 rounded-full shadow-[0_0_6px_#3b82f6]"></div>
                 )}
               </button>
             );
           })}
         </nav>
       </div>
-      <div className="h-2" />
+      <div className="h-1" />
+
+      <style>{`
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </footer>
   );
 };
 
-// --- Command Input (Floating Pill) ---
-// Footer-level command UI extracted so BottomNav can render it as a unified footer
+// --- Command Input (Native Chat Input Bar) ---
 const FooterCommand: React.FC<{
   onCommand?: (cmd: string) => void;
   onMicToggle?: () => void;
@@ -763,41 +819,35 @@ const FooterCommand: React.FC<{
   onChatHistory,
 }) => {
   const [val, setVal] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
   const submit = () => {
     if (disabled) return;
     if (!val.trim()) return;
     onCommand?.(val);
     setVal("");
+    inputRef.current?.focus();
   };
 
-  const micBtnClass =
-    micColor === "red" ? "text-red-400 bg-red-500/10" : "text-gray-400";
+  const micActive = micColor === "red";
 
   return (
-    <div className="w-full flex items-center gap-2">
-      {/* ☰ Chat History */}
+    <div className="w-full flex items-center gap-1">
+      {/* History toggle */}
       <button
-        title="Chat history"
-        aria-label="Chat history"
+        title="Conversations"
+        aria-label="Conversations"
         onClick={onChatHistory}
-        className="w-9 h-9 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-colors shrink-0"
+        className="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-white rounded-xl hover:bg-white/10 transition-all shrink-0 active:scale-90"
       >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
         </svg>
       </button>
+
+      {/* Text input */}
       <input
+        ref={inputRef}
         data-testid="command-input"
         type="text"
         value={val}
@@ -805,32 +855,40 @@ const FooterCommand: React.FC<{
         onKeyDown={(e) => e.key === "Enter" && submit()}
         placeholder={
           disabled
-            ? disabledHint || "COMMS locked (handshake invalid)"
-            : "Let's talk..."
+            ? disabledHint || "Connection required..."
+            : "Message Agent Lee..."
         }
         disabled={Boolean(disabled)}
-        className={`flex-1 bg-transparent text-white text-sm focus:outline-none placeholder-gray-500 font-light h-10 ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        className={`flex-1 bg-transparent text-white text-[14px] focus:outline-none placeholder-gray-500 h-9 min-w-0 ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
       />
-      <div className="flex gap-1">
-        <button
-          title="Voice input"
-          aria-label="Voice input"
-          onClick={onMicToggle}
-          disabled={Boolean(disabled)}
-          className={`w-10 h-10 flex items-center justify-center transition-colors rounded-full hover:bg-white/5 ${micBtnClass} ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
-        >
-          <Mic size={18} className={isMicEnabled ? "animate-pulse" : ""} />
-        </button>
-        <button
-          title="Send command"
-          aria-label="Send command"
-          onClick={submit}
-          disabled={Boolean(disabled)}
-          className={`w-10 h-10 flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)] ${disabled ? "opacity-40 cursor-not-allowed hover:bg-blue-600" : ""}`}
-        >
-          <Send size={16} className="ml-0.5" />
-        </button>
-      </div>
+
+      {/* Mic button */}
+      <button
+        title="Voice input"
+        aria-label="Voice input"
+        onClick={onMicToggle}
+        disabled={Boolean(disabled)}
+        className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all shrink-0 active:scale-90
+          ${micActive ? "text-red-400 bg-red-500/15 shadow-[0_0_12px_rgba(239,68,68,0.2)]" : "text-gray-500 hover:text-white hover:bg-white/10"}
+          ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+      >
+        <Mic size={17} className={isMicEnabled ? "animate-pulse" : ""} />
+      </button>
+
+      {/* Send button */}
+      <button
+        title="Send"
+        aria-label="Send"
+        onClick={submit}
+        disabled={Boolean(disabled) || !val.trim()}
+        className={`w-9 h-9 flex items-center justify-center rounded-xl transition-all shrink-0 active:scale-90
+          ${val.trim() && !disabled
+            ? "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-900/40"
+            : "bg-white/5 text-gray-600 cursor-default"}
+          ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+      >
+        <Send size={15} />
+      </button>
     </div>
   );
 };

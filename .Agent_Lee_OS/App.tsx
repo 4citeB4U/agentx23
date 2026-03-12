@@ -1,8 +1,40 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: CORE
+TAG: CORE.SDK._AGENT_LEE_OS_APP_TSX.MAIN_AGENT_LEE_OS_APP.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = App module
+WHY = Part of CORE region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\App.tsx
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CodeStudio } from "./components/CodeStudio";
 import { CreatorAccess } from "./components/CreatorAccess";
 import { AppDashboard } from "./components/deployment/AppDashboard";
-import { LeeVM } from "./components/LeeVM";
+import { LeeAgentWorkspace } from "./components/agent-workspace";
 import MemoryLake from "./components/MemoryLake";
 import { PhoneView } from "./components/PhoneView";
 import { RemoteView } from "./components/RemoteView";
@@ -352,7 +384,7 @@ function App() {
       .trim();
 
   const fetchChunk = (chunk: string): Promise<Blob | null> => {
-    const clipped = cleanForTTS(chunk).slice(0, 350);
+    const clipped = cleanForTTS(chunk).slice(0, 800);
     if (!clipped) return Promise.resolve(null);
     // Route normal speech through premium Gemini TTS; edge remains server-side fallback only.
     return fetch("/api/chat/tts", {
@@ -364,8 +396,6 @@ function App() {
       body: JSON.stringify({
         text: clipped,
         mode: "premium",
-        voiceProfile: "inspirational",
-        tone: "bright, energetic, uplifting",
       }),
     })
       .then((res) => (res.ok ? res.blob() : null))
@@ -533,10 +563,10 @@ function App() {
         setMessages(loaded);
         if (loaded.length > 0) {
           const existing = loadChatSessions();
-          const alreadyArchived = existing.some(
+          const existingSession = existing.find(
             (session) => session.messages?.[0]?.id === loaded[0]?.id,
           );
-          if (!alreadyArchived) {
+          if (!existingSession) {
             saveChatSessions([
               {
                 id: currentSessionId,
@@ -546,6 +576,8 @@ function App() {
               },
               ...existing,
             ]);
+          } else {
+            setCurrentSessionId(existingSession.id);
           }
         }
       } catch {
@@ -882,7 +914,6 @@ function App() {
       // Queue it — will play after current speech ends (via the drain effect above)
       pendingTabCommentRef.current = comment;
     } else {
-      <div className="absolute inset-0 holo-grid opacity-20 pointer-events-none z-0"></div>;
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
@@ -1048,28 +1079,11 @@ function App() {
         )}
         {/* VM renders as a floating popup overlay — never replaces main content */}
         {activeTab === Tab.COMMS && (
-          <div className="w-full h-full overflow-y-auto custom-scrollbar px-4 pb-40 flex flex-col items-center">
-            <div className="w-full max-w-2xl space-y-4">
-              {/* Phone companion download strip */}
-              <div className="flex items-center gap-2 px-1 pt-2 pb-1">
-                <span className="text-[10px] font-bold tracking-widest uppercase text-blue-400">
-                  COMMS
-                </span>
-                <div className="flex-1 h-px bg-blue-500/20" />
-                <a
-                  href="/workspace/agentlee_vm/agent-lee-companion.html"
-                  download="agent-lee-companion.html"
-                  className="text-[10px] text-cyan-400 hover:text-cyan-300 border border-cyan-500/30 rounded-full px-2.5 py-1 transition-colors"
-                  title="Download the Android companion PWA to your phone"
-                >
-                  📱 Get Phone Companion
-                </a>
-              </div>
+          <div className="w-full h-full flex flex-col max-w-2xl mx-auto">
               <MessageStream
                 messages={messages}
                 isThinking={agentTurnBusy && !isSpeaking}
               />
-            </div>
           </div>
         )}
         {activeTab === Tab.MESSAGES && (
@@ -1113,29 +1127,20 @@ function App() {
         onDeleteChat={handleDeleteChat}
       />
 
-      {/* ── FLOATING VM OVERLAY — popup, never replaces main view ── */}
+      {/* ── AGENT WORKSPACE OVERLAY — full-screen agent mode ── */}
       {isVmOpen && (
         <div
-          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 backdrop-blur-sm"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setIsVmOpen(false);
-          }}
+          className="fixed inset-0 z-[150] flex flex-col bg-[#09090b]"
         >
-          <div className="w-[96vw] h-[92vh] max-w-[1280px] max-h-[820px] relative rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(0,163,255,0.25)]">
-            <button
-              className="absolute top-3 right-3 z-[160] text-white/60 hover:text-white bg-black/50 border border-white/10 rounded-full w-7 h-7 flex items-center justify-center text-sm leading-none"
-              onClick={() => setIsVmOpen(false)}
-              title="Close VM"
-            >
-              ✕
-            </button>
-            {vmJobStatus && (
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-[160] px-4 py-1.5 bg-blue-600/80 text-white text-xs rounded-full font-mono">
-                {vmJobStatus}
-              </div>
-            )}
-            <LeeVM />
-          </div>
+          {/* Close button */}
+          <button
+            className="absolute top-2 right-2 z-[160] text-white/40 hover:text-white bg-black/60 border border-white/10 rounded-full w-7 h-7 flex items-center justify-center text-sm leading-none transition-colors"
+            onClick={() => setIsVmOpen(false)}
+            title="Close Workspace"
+          >
+            ✕
+          </button>
+          <LeeAgentWorkspace />
         </div>
       )}
 

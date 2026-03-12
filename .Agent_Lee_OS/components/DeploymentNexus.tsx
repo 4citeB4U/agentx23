@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: UI
+TAG: UI.COMPONENT.DEPLOYMENTNEXUS.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = DeploymentNexus module
+WHY = Part of UI region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\components\DeploymentNexus.tsx
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 import React, { useState } from 'react';
 import { Github, Cloud, Triangle } from 'lucide-react';
 import { HUDFrame } from './UIModules';

@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: UI
+TAG: UI.COMPONENT.MEMORYLAKE.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = MemoryLake module
+WHY = Part of UI region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\components\MemoryLake.tsx
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 // LEEWAY v12 HEADER
 // File: MemoryLake.tsx
 // Purpose: Omega Mandate Intelligence Pipeline — Multi-Select, 4-file sync, NotebookLM

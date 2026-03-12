@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: CORE
+TAG: CORE.SDK._AGENT_LEE_OS_CONSTANTS_TS.MAIN_AGENT_LEE_OS_CONSTANTS.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = constants module
+WHY = Part of CORE region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\constants.ts
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 import { AgentContact, Message, SystemStatus } from './types';
 
 export const INITIAL_STATUS: SystemStatus = {

@@ -54,6 +54,16 @@ export function useWakeWord({
     ts: 0,
   });
 
+  const onCommandRef = useRef(onCommand);
+  const onSpeechBargeRef = useRef(onSpeechBarge);
+  const onErrorRef = useRef(onError);
+
+  useEffect(() => {
+    onCommandRef.current = onCommand;
+    onSpeechBargeRef.current = onSpeechBarge;
+    onErrorRef.current = onError;
+  });
+
   const getSR = (): any =>
     (window as any).SpeechRecognition ||
     (window as any).webkitSpeechRecognition;
@@ -112,8 +122,8 @@ export function useWakeWord({
 
     lastFinalRef.current = { text: transcript, ts: now };
     stopRec();
-    onCommand(transcript);
-  }, [onCommand, stopRec]);
+    if (onCommandRef.current) onCommandRef.current(transcript);
+  }, [stopRec]);
 
   const scheduleTranscriptFlush = useCallback(() => {
     if (submitTimerRef.current) clearTimeout(submitTimerRef.current);
@@ -152,7 +162,7 @@ export function useWakeWord({
 
         if (!item.isFinal) {
           // Interim speech → barge-in (pause any playing TTS)
-          onSpeechBarge?.();
+          if (onSpeechBargeRef.current) onSpeechBargeRef.current();
           continue;
         }
 
@@ -181,18 +191,22 @@ export function useWakeWord({
       if (code === "audio-capture") {
         setState("OFF");
         stopRec();
-        onError?.(
-          "Microphone input is unavailable. Check your browser mic device and permissions.",
-        );
+        if (onErrorRef.current) {
+          onErrorRef.current(
+            "Microphone input is unavailable. Check your browser mic device and permissions.",
+          );
+        }
         return;
       }
 
       if (code === "not-allowed" || code === "service-not-allowed") {
         setState("OFF");
         stopRec();
-        onError?.(
-          "Microphone permission is blocked. Allow mic access for this app and try again.",
-        );
+        if (onErrorRef.current) {
+          onErrorRef.current(
+            "Microphone permission is blocked. Allow mic access for this app and try again.",
+          );
+        }
         return;
       }
 
@@ -221,9 +235,6 @@ export function useWakeWord({
     }
   }, [
     lang,
-    onCommand,
-    onError,
-    onSpeechBarge,
     scheduleRestart,
     setState,
     stopRec,
@@ -233,9 +244,11 @@ export function useWakeWord({
   const toggleMic = useCallback(() => {
     if (stateRef.current === "OFF") {
       if (!getSR()) {
-        onError?.(
-          "This browser does not expose live speech recognition for the mic button.",
-        );
+        if (onErrorRef.current) {
+          onErrorRef.current(
+            "This browser does not expose live speech recognition for the mic button.",
+          );
+        }
         return;
       }
       setState("ON");
@@ -244,7 +257,7 @@ export function useWakeWord({
       setState("OFF");
       stopRec();
     }
-  }, [onError, setState, startRec, stopRec]);
+  }, [setState, startRec, stopRec]);
 
   // No-op — kept for API compatibility so App.tsx doesn't break
   const startWakeWordListen = useCallback(() => {}, []);

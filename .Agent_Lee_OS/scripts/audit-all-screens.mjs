@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: UI
+TAG: CORE.SDK.AUDIT_ALL_SCREENS.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = audit-all-screens module
+WHY = Part of UI region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\scripts\audit-all-screens.mjs
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';

@@ -1,7 +1,7 @@
 /* ============================================================================
 LEEWAY HEADER — DO NOT REMOVE
 PROFILE: LEEWAY-RUNTIME
-TAG: GENESIS.ENGINE.UI.BANNER
+TAG: UI.ENGINE._AGENT_LEE_OS_COMPONENTS_PARTICLEBANNER_TSX.MAIN_UI.BANNER
 REGION: 🔵 UI
 ============================================================================ */
 
