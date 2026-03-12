@@ -1,0 +1,62 @@
+{
+  "$schema": "../../schemas/agent-test-spec.schema.json",
+  "agent_id": "planner-agent-mcp",
+  "basic_task": {
+    "name": "simple_plan_3_steps",
+    "goal": "Call make_plan with a simple intent and verify the response contains at least 3 ordered steps.",
+    "tool": "make_plan",
+    "input": {
+      "intent": "Find the most recent log file and summarize it",
+      "context": {}
+    },
+    "expected_output_shape": { "steps": "array", "steps.length": ">=3" },
+    "success_criteria": [
+      "steps is array",
+      "steps.length >= 3",
+      "each step has agent_id and goal"
+    ],
+    "verification_method": "assertion",
+    "retry_policy": {
+      "max_attempts": 2,
+      "backoff_ms": 1000,
+      "failure_class": "degraded"
+    },
+    "logging_requirements": [
+      "log input intent",
+      "log step count",
+      "log first step agent_id"
+    ],
+    "timeout_ms": 15000
+  },
+  "complex_task": {
+    "name": "multi_agent_plan_with_fallback",
+    "goal": "Call make_plan with a multi-phase intent and verify fallback paths are populated for at least one step.",
+    "tool": "make_plan",
+    "input": {
+      "intent": "Capture a screenshot of the browser, describe what is visible, write a test case for it, and store the result",
+      "context": { "require_fallbacks": true }
+    },
+    "expected_output_shape": {
+      "steps": "array",
+      "steps.length": ">=4",
+      "any_step.fallback_agent": "exists"
+    },
+    "success_criteria": [
+      "steps.length >= 4",
+      "at least one step has fallback_agent",
+      "no step has null agent_id"
+    ],
+    "verification_method": "assertion",
+    "retry_policy": {
+      "max_attempts": 2,
+      "backoff_ms": 2000,
+      "failure_class": "failed"
+    },
+    "logging_requirements": [
+      "log full plan",
+      "log fallback count",
+      "log total steps"
+    ],
+    "timeout_ms": 30000
+  }
+}

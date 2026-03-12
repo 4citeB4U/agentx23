@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: TEST
+TAG: CORE.SDK.LEVEL_TESTING_SPEC.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = level-testing.spec module
+WHY = Part of TEST region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\tests\level-testing.spec.js
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 /**
  * tests/level-testing.spec.js
  *

@@ -1,0 +1,41 @@
+MODEL SUPPORT SUMMARY
+Completed: 03/06/2026 01:01:16
+Output folder: C:\Tools
+Shared Python: C:\Tools\agentlee-venv\Scripts\python.exe
+
+Shared Python Version: Python 3.12.10
+Shared Pip Version: pip 26.0.1 from C:\Tools\agentlee-venv\Lib\site-packages\pip (python 3.12)
+Torch OK: True
+Transformers OK: True
+NumPy OK: True
+
+PROJECT RESULTS
+Directory: C:\Cerebral
+  Exists: True
+  PythonFiles: 12716
+  RequirementsFiles: 7
+  LocalVenvs: 3
+  TorchRefs: 20
+  TransformersRefs: 15
+  PythonExeRefs: 340
+  SharedPythonUsable: True
+  RecommendedAction: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe
+
+Directory: C:\Tools\Portable-VSCode-MCP-Kit
+  Exists: True
+  PythonFiles: 24090
+  RequirementsFiles: 20
+  LocalVenvs: 4
+  TorchRefs: 58
+  TransformersRefs: 23
+  PythonExeRefs: 12
+  SharedPythonUsable: True
+  RecommendedAction: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe
+
+REPORT FILES
+Main Report: C:\Tools\MODEL_SUPPORT_VERIFICATION_20260306_010024.txt
+Summary Report: C:\Tools\MODEL_SUPPORT_SUMMARY_20260306_010024.txt
+JSON Report: C:\Tools\MODEL_SUPPORT_VERIFICATION_20260306_010024.json
+Cerebral Report: C:\Tools\MODEL_SUPPORT_CEREBRAL_20260306_010024.txt
+Portable VSCode MCP Kit Report: C:\Tools\MODEL_SUPPORT_PORTABLE_VSCODE_MCP_KIT_20260306_010024.txt
+Errors Report: C:\Tools\MODEL_SUPPORT_ERRORS_20260306_010024.txt

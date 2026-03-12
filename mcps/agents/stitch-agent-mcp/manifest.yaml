@@ -1,0 +1,131 @@
+id: stitch-agent-mcp
+name: StitchAgent
+version: "1.0.0"
+mission: >
+  Generate, refine, and draft UI components and screens using the Stitch MCP.
+  Produces React component code, layout proposals, and UI flow maps.
+  Routes visual design decisions through Gemini for creative quality.
+
+layer: specialty
+model_lane: gemini
+fallback_model_lane: glm_flash
+deployment_location: vercel
+transport: sse
+runtime: node
+
+authority_boundaries: >
+  MAY: generate component code, propose layout/design changes,
+  create screen drafts, map UI flows.
+  MAY NOT: directly deploy to production, modify backend APIs,
+  access user data.
+
+memory_scope: session
+
+tools:
+  - name: generate_component
+    description: Generate a React component from a natural language description.
+    input_schema:
+      type: object
+      required: [description]
+      properties:
+        description: { type: string }
+        style_guide: { type: string }
+        framework: { type: string, enum: [react, vue, svelte], default: react }
+
+  - name: refine_layout
+    description: Refine an existing component or layout given improvement notes.
+    input_schema:
+      type: object
+      required: [component_code, notes]
+      properties:
+        component_code: { type: string }
+        notes: { type: string }
+
+  - name: draft_screen
+    description: Draft a full screen layout for a given page purpose.
+    input_schema:
+      type: object
+      required: [screen_name, purpose]
+      properties:
+        screen_name: { type: string }
+        purpose: { type: string }
+        sections: { type: array, items: { type: string } }
+
+  - name: map_ui_flow
+    description: Map the navigation flow between screens for a given feature.
+    input_schema:
+      type: object
+      required: [feature]
+      properties:
+        feature: { type: string }
+        screens: { type: array, items: { type: string } }
+
+  - name: propose_design_patch
+    description: Given a screenshot base64 and a user complaint, propose a targeted UI fix.
+    input_schema:
+      type: object
+      required: [complaint, screenshot_base64]
+      properties:
+        complaint: { type: string }
+        screenshot_base64:{ type: string }
+
+health_check: generate_component
+
+fallback_behavior: >
+  If Stitch MCP is unavailable, fall back to Gemini for pure text
+  component generation without visual preview.
+
+basic_task:
+  name: generate_single_component_spec
+  goal: >-
+    Generate one React button component spec from a description.
+    Proves: Gemini auth, prompt construction, JSX output shape.
+  tool: generate_component
+  input:
+    description: "A primary action button with a label and loading state"
+    framework: "react"
+  expected_output_shape:
+    type: object
+    required: [jsx]
+    properties:
+      jsx: { type: string, minLength: 20 }
+  success_criteria:
+    - "jsx is non-empty string"
+    - "jsx contains 'button' or 'Button'"
+    - "no exception thrown"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: transient
+  logging_requirements: ["model_used", "description_length", "output_length"]
+  timeout_ms: 20000
+
+complex_task:
+  name: generate_screen_layout_with_flow
+  goal: >-
+    Produce a small screen layout with sections, interaction flow,
+    and component relationships for an Agent Dashboard page.
+  tool: draft_screen
+  input:
+    description: "An agent dashboard showing all running MCP agents with their status, last task, and a quick-action button to run validation tests."
+    sections: ["header", "agent-list", "status-bar", "action-panel"]
+  expected_output_shape:
+    type: object
+    required: [layout, components, interaction_flow]
+    properties:
+      layout: { type: object }
+      components: { type: array, minItems: 3 }
+      interaction_flow: { type: string, minLength: 50 }
+  success_criteria:
+    - "layout has at least 3 sections"
+    - "components array has at least 3 entries"
+    - "interaction_flow describes at least one user action"
+    - "output references component relationships"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1500
+    failure_class: logic
+  logging_requirements: ["model_used", "section_count", "component_count"]
+  timeout_ms: 30000

@@ -1,0 +1,116 @@
+Debugger listening on ws://127.0.0.1:61034/e999db94-fb72-454e-ab4a-58299d756bd3
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+--- STARTING PERSONA VERIFICATION ---
+[DEV_STDOUT] Port 4173 is in use, trying another one...
+
+[DEV_STDOUT] 
+  [32m[1mVITE[22m v6.4.1[39m  [2mready in [0m[1m921[22m[2m[0m ms[22m
+
+
+[DEV_STDOUT]   [32mΓ₧£[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4174[22m/[39m
+
+Detected server at: http://127.0.0.1:4174/
+Navigating to http://127.0.0.1:4174/...
+[REQUEST] http://127.0.0.1:4174/
+[REQUEST] http://127.0.0.1:4174/@vite/client
+[REQUEST] http://127.0.0.1:4174/index.tsx
+[REQUEST] http://127.0.0.1:4174/@react-refresh
+[REQUEST] http://127.0.0.1:4174/node_modules/vite/dist/client/env.mjs
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/react.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/react-dom_client.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/App.tsx
+[REQUEST] http://127.0.0.1:4174/index.css
+[BROWSER_DEBUG] [vite] connecting...
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/chunk-YHPANKLD.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/chunk-PR4QN5HX.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/chunk-FD5SMSK5.js?v=8dfac20b
+[BROWSER_DEBUG] [vite] connected.
+[REQUEST] http://127.0.0.1:4174/components/CodeStudio.tsx
+[REQUEST] http://127.0.0.1:4174/components/CreatorAccess.tsx
+[REQUEST] http://127.0.0.1:4174/components/deployment/AppDashboard.tsx
+[REQUEST] http://127.0.0.1:4174/components/MemoryLake.tsx
+[REQUEST] http://127.0.0.1:4174/components/PhoneView.tsx
+[REQUEST] http://127.0.0.1:4174/components/RemoteView.tsx
+[REQUEST] http://127.0.0.1:4174/components/SystemHub.tsx
+[REQUEST] http://127.0.0.1:4174/components/SystemTelemetry.tsx
+[REQUEST] http://127.0.0.1:4174/components/UIModules.tsx
+[REQUEST] http://127.0.0.1:4174/components/VoxelCore.tsx
+[REQUEST] http://127.0.0.1:4174/hooks/useWakeWord.ts
+[REQUEST] http://127.0.0.1:4174/types.ts
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/lucide-react.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/components/deployment/AppList.tsx
+[REQUEST] http://127.0.0.1:4174/components/deployment/DiagnosticsPanel.tsx
+[REQUEST] http://127.0.0.1:4174/components/deployment/MetricsOverview.tsx
+[REQUEST] http://127.0.0.1:4174/components/deployment/useAppMetrics.ts
+[REQUEST] http://127.0.0.1:4174/services/CerebralClient.ts
+[REQUEST] http://127.0.0.1:4174/components/DeploymentNexus.tsx
+[REQUEST] http://127.0.0.1:4174/components/TunnelPanel.tsx
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/@react-three_fiber.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/three.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/constants.ts
+[REQUEST] http://127.0.0.1:4174/services/SovereignIdentity.ts
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/idb.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/jszip.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/components/deployment/appTypes.ts
+[REQUEST] http://127.0.0.1:4174/components/deployment/AppCard.tsx
+[REQUEST] http://127.0.0.1:4174/node_modules/.vite/deps/chunk-I2V5UT52.js?v=8dfac20b
+[REQUEST] http://127.0.0.1:4174/components/deployment/AppControls.tsx
+[BROWSER_INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold
+[REQUEST] http://127.0.0.1:4174/api/services/system-status
+[BROWSER_WARN] WebSocket connection to 'ws://localhost:8003/' failed: WebSocket is closed before the connection is established.
+[REQUEST] http://127.0.0.1:4174/api/services/system-status
+[REQUEST] http://127.0.0.1:4174/favicon.ico
+[BROWSER_WARN] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[BROWSER_LOG] Agent Lee: Initializing Memory Lake (Explorer Mirror Mode)...
+[REQUEST] http://127.0.0.1:4174/api/chat/tts
+[REQUEST] http://127.0.0.1:4174/api/chat/tts
+Page Title: Agent Lee // Sovereign IDE
+Voxel Core container detected.
+Testing command input...
+[BROWSER_ERROR] WebSocket connection to 'ws://localhost:8003/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[REQUEST] http://127.0.0.1:4174/api/chat
+Verifying user message is visible in UI...
+Waiting for agent response...
+[REQUEST] http://127.0.0.1:4174/api/chat/tts
+Verifying LIVE controls (mobile)...
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725462530&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725462533&display=1
+[REQUEST] http://127.0.0.1:4174/api/chat/tts
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725463336&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725464137&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725464941&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725465740&display=1
+[BROWSER_ERROR] WebSocket connection to 'ws://localhost:8003/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[REQUEST] http://127.0.0.1:4174/api/services/system-status
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725466539&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725467336&display=1
+[BROWSER_ERROR] WebSocket connection to 'ws://localhost:8003/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725468145&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725468936&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725469738&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725470540&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725471334&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725472139&display=1
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725472935&display=1
+[BROWSER_ERROR] WebSocket connection to 'ws://localhost:8003/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725473739&display=1
+[REQUEST] http://127.0.0.1:4174/api/services/system-status
+[REQUEST] http://127.0.0.1:4174/api/device/screenshot?ts=1772725474538&display=1
+--- PERSONA VERIFICATION FAILED ---
+TimeoutError: Waiting for selector `[data-testid="remote-control-zoom-in"]` failed
+    at CSSQueryHandler.waitFor (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/common/QueryHandler.js:211:46)
+    at async CdpFrame.waitForSelector (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:541:21)
+    ... 2 lines matching cause stack trace ...
+    at async runTest (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/scripts/verify-ui-persona.mjs:236:9) {
+  cause: TimeoutError: Waiting failed: 12000ms exceeded
+      at new WaitTask (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/common/WaitTask.js:46:34)
+      at IsolatedWorld.waitForFunction (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/api/Realm.js:22:26)
+      at CSSQueryHandler.waitFor (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/common/QueryHandler.js:176:95)
+      at async CdpFrame.waitForSelector (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/api/Frame.js:541:21)
+      at async CdpPage.waitForSelector (file:///C:/Tools/Portable-VSCode-MCP-Kit/node_modules/puppeteer-core/lib/esm/puppeteer/api/Page.js:1387:20)
+      at async verifyRemoteControls (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/scripts/verify-ui-persona.mjs:194:13)
+      at async runTest (file:///C:/Tools/Portable-VSCode-MCP-Kit/.Agent_Lee_OS/scripts/verify-ui-persona.mjs:236:9)
+}
+Waiting for the debugger to disconnect...

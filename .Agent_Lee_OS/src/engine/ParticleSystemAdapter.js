@@ -1,3 +1,35 @@
+/*
+LEEWAY HEADER — DO NOT REMOVE
+
+REGION: CORE
+TAG: CORE.SDK.PARTICLESYSTEMADAPTER.MAIN
+
+COLOR_ONION_HEX:
+NEON=#39FF14
+FLUO=#0DFF94
+PASTEL=#C7FFD8
+
+ICON_ASCII:
+family=lucide
+glyph=file
+
+5WH:
+WHAT = ParticleSystemAdapter module
+WHY = Part of CORE region
+WHO = LEEWAY Align Agent
+WHERE = .Agent_Lee_OS\src\engine\ParticleSystemAdapter.js
+WHEN = 2026
+HOW = Auto-aligned by LEEWAY align-agent
+
+AGENTS:
+ASSESS
+ALIGN
+AUDIT
+
+LICENSE:
+MIT
+*/
+
 // ParticleSystemAdapter.js
 // Chooses CPU or GPU engine, exposes a unified API to MorphController
 // Switches engines automatically when tier changes

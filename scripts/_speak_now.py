@@ -8,7 +8,7 @@ msg = (
 )
 
 req = urllib.request.Request(
-    'http://localhost:8001/api/chat/tts',
+    'http://localhost:6001/api/chat/tts',
     data=json.dumps({'text': msg}).encode(),
     headers={'Content-Type': 'application/json', 'x-neural-handshake': hs},
     method='POST'

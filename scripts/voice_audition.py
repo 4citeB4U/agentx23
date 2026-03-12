@@ -12,14 +12,14 @@ def audition():
     parser.add_argument("--profile", default="narrator_classic", help="Voice profile ID")
     parser.add_argument("--play", action="store_true", help="Play the audio using ffplay")
     parser.add_argument("--out", help="Output file path")
-    parser.add_argument("--port", type=int, default=8001, help="Port to target (8001: backend, 8007: direct)")
+    parser.add_argument("--port", type=int, default=6001, help="Port to target (6001: backend, 6007: direct)")
     
     args = parser.parse_args()
     
     if args.port == 8007:
         url = "http://127.0.0.1:8007/tts"
     else:
-        url = "http://127.0.0.1:8001/api/chat/tts"
+        url = "http://127.0.0.1:6001/api/chat/tts"
         
     handshake = os.getenv("NEURAL_HANDSHAKE") or "AGENT_LEE_SOVEREIGN_V1"
     

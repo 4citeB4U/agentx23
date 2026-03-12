@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Lee Holographic Controller Alpha</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06f9f9",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2323",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(6, 249, 249, 0.03);
+            border: 1px solid rgba(6, 249, 249, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .sci-fi-border {
+            border: 1px solid theme('colors.primary');
+            box-shadow: inset 0 0 10px rgba(6, 249, 249, 0.1);
+        }
+        .neon-text {
+            text-shadow: 0 0 5px theme('colors.primary'), 0 0 10px theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen overflow-x-hidden selection:bg-primary/30">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Nav -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">science</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-widest uppercase neon-text">Agent Lee // Alpha-V.1</h2>
+</div>
+<div class="flex items-center gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-primary text-sm font-medium tracking-wider uppercase border-b-2 border-primary pb-1" href="#">Holo-Core</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase" href="#">Diagnostics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase" href="#">Data Streams</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase" href="#">System logs</a>
+</nav>
+<div class="flex items-center gap-3 border-l border-primary/20 pl-8">
+<div class="flex flex-col items-end">
+<span class="text-xs text-primary font-mono">SYS_ADMIN</span>
+<span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono tracking-widest">OP-ID: 8839</span>
+</div>
+<div class="bg-primary/10 border border-primary/30 aspect-square bg-cover rounded-full size-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-1 p-6 gap-6 max-w-[1600px] mx-auto w-full">
+<!-- Left Sidebar: Controls -->
+<aside class="w-80 flex flex-col gap-6 shrink-0">
+<!-- Voice Synthesis -->
+<div class="glass-panel rounded-lg p-5 flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary/10 blur-xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="flex items-center gap-2 border-b border-primary/20 pb-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">graphic_eq</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold tracking-widest uppercase">Voice Synthesis</h3>
+</div>
+<div class="@container flex flex-col gap-5">
+<!-- Pitch -->
+<div class="flex w-full flex-col gap-2">
+<div class="flex w-full items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-mono uppercase tracking-wider">Pitch Resonance</p>
+<p class="text-primary text-xs font-mono">65%</p>
+</div>
+<div class="flex h-4 w-full items-center">
+<div class="flex h-1.5 flex-1 rounded-full bg-primary/10 border border-primary/20 relative">
+<div class="h-full w-[65%] rounded-full bg-primary shadow-[0_0_10px_theme('colors.primary')]"></div>
+<div class="absolute left-[65%] top-1/2 -translate-y-1/2 -translate-x-1/2 size-3 rounded-full bg-white dark:bg-slate-900 border-2 border-primary shadow-[0_0_5px_theme('colors.primary')]"></div>
+</div>
+</div>
+</div>
+<!-- Speed -->
+<div class="flex w-full flex-col gap-2">
+<div class="flex w-full items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-mono uppercase tracking-wider">Modulation Rate</p>
+<p class="text-primary text-xs font-mono">1.2x</p>
+</div>
+<div class="flex h-4 w-full items-center">
+<div class="flex h-1.5 flex-1 rounded-full bg-primary/10 border border-primary/20 relative">
+<div class="h-full w-[45%] rounded-full bg-primary shadow-[0_0_10px_theme('colors.primary')]"></div>
+<div class="absolute left-[45%] top-1/2 -translate-y-1/2 -translate-x-1/2 size-3 rounded-full bg-white dark:bg-slate-900 border-2 border-primary shadow-[0_0_5px_theme('colors.primary')]"></div>
+</div>
+</div>
+</div>
+<!-- Timbre -->
+<div class="flex w-full flex-col gap-2">
+<div class="flex w-full items-center justify-between">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-mono uppercase tracking-wider">Timbre Index</p>
+<p class="text-primary text-xs font-mono">82%</p>
+</div>
+<div class="flex h-4 w-full items-center">
+<div class="flex h-1.5 flex-1 rounded-full bg-primary/10 border border-primary/20 relative">
+<div class="h-full w-[82%] rounded-full bg-primary shadow-[0_0_10px_theme('colors.primary')]"></div>
+<div class="absolute left-[82%] top-1/2 -translate-y-1/2 -translate-x-1/2 size-3 rounded-full bg-white dark:bg-slate-900 border-2 border-primary shadow-[0_0_5px_theme('colors.primary')]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expression Matrix -->
+<div class="glass-panel rounded-lg p-5 flex flex-col gap-4">
+<div class="flex items-center gap-2 border-b border-primary/20 pb-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">face</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold tracking-widest uppercase">Expression Matrix</h3>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-primary/20 border border-primary text-primary px-3 py-2 rounded text-xs font-mono tracking-wider hover:bg-primary/30 transition-all flex items-center justify-center gap-2 shadow-[0_0_10px_theme('colors.primary')_inset]">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+                        NEUTRAL
+                    </button>
+<button class="bg-primary/5 border border-primary/30 text-slate-400 dark:text-slate-500 px-3 py-2 rounded text-xs font-mono tracking-wider hover:bg-primary/10 hover:border-primary/50 transition-all">
+                        HAPPY
+                    </button>
+<button class="bg-primary/5 border border-primary/30 text-slate-400 dark:text-slate-500 px-3 py-2 rounded text-xs font-mono tracking-wider hover:bg-primary/10 hover:border-primary/50 transition-all">
+                        THINKING
+                    </button>
+<button class="bg-primary/5 border border-primary/30 text-slate-400 dark:text-slate-500 px-3 py-2 rounded text-xs font-mono tracking-wider hover:bg-primary/10 hover:border-primary/50 transition-all">
+                        ALERT
+                    </button>
+</div>
+<div class="mt-4 pt-4 border-t border-primary/10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] text-slate-500 font-mono uppercase">Micro-expressions</span>
+<span class="text-[10px] text-primary font-mono">ACTIVE</span>
+</div>
+<div class="w-full bg-primary/10 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-full opacity-50 relative">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center: Hologram View -->
+<section class="flex-1 flex flex-col">
+<div class="sci-fi-border rounded-xl flex-1 relative bg-black/40 overflow-hidden flex flex-col">
+<!-- Decorative Corners -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary m-4"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary m-4"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary m-4"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary m-4"></div>
+<!-- HUD Elements -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10">
+<span class="text-primary text-xs font-mono bg-primary/10 px-3 py-1 border border-primary/30 rounded">STABILIZED</span>
+<span class="text-primary/70 text-[10px] font-mono tracking-widest">RES: 4K_HOLO</span>
+</div>
+<!-- 3D Canvas Container Placeholder -->
+<div class="flex-1 flex items-center justify-center relative w-full h-full p-12">
+<!-- Abstract representation of hologram -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2564&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30 mix-blend-screen" data-alt="Abstract glowing mesh patterns"></div>
+<div class="relative z-10 w-full max-w-lg aspect-square rounded-full border border-primary/20 flex items-center justify-center shadow-[0_0_50px_rgba(6,249,249,0.1)]">
+<div class="absolute inset-0 rounded-full border border-primary/10 scale-110"></div>
+<div class="absolute inset-0 rounded-full border border-primary/5 scale-125"></div>
+<div class="w-3/4 h-3/4 rounded-full bg-gradient-to-b from-primary/20 to-transparent flex items-center justify-center relative backdrop-blur-sm border border-primary/30">
+<!-- Core placeholder -->
+<div class="w-1/3 h-1/3 rounded-full bg-primary/40 blur-md absolute"></div>
+<span class="material-symbols-outlined text-6xl text-primary opacity-80 z-20" style="font-variation-settings: 'FILL' 1, 'wght' 200;">psychology</span>
+</div>
+</div>
+</div>
+<!-- Bottom stats -->
+<div class="absolute bottom-6 left-8 right-8 flex justify-between items-end border-t border-primary/20 pt-4 z-10">
+<div class="flex gap-6">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-500 font-mono uppercase">Render Engine</span>
+<span class="text-primary text-sm font-mono">SPLINE_V4</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-500 font-mono uppercase">FPS</span>
+<span class="text-primary text-sm font-mono">119.9</span>
+</div>
+</div>
+<div class="text-right flex flex-col">
+<span class="text-[10px] text-slate-500 font-mono uppercase">Sync Status</span>
+<span class="text-primary text-sm font-mono flex items-center gap-2 justify-end">
+<span class="size-1.5 rounded-full bg-primary inline-block animate-pulse"></span>
+                            ONLINE
+                         </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Metrics -->
+<aside class="w-80 flex flex-col gap-6 shrink-0">
+<!-- Speech Metrics -->
+<div class="glass-panel rounded-lg p-5 flex flex-col gap-4 flex-1">
+<div class="flex items-center gap-2 border-b border-primary/20 pb-2 mb-2">
+<span class="material-symbols-outlined text-primary text-sm">multiline_chart</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold tracking-widest uppercase">Speech Metrics</h3>
+</div>
+<div class="flex-1 flex flex-col gap-6">
+<!-- Waveform visualization placeholder -->
+<div class="h-32 bg-black/30 rounded border border-primary/20 relative overflow-hidden flex items-end p-2 gap-1 justify-between">
+<!-- Abstract bars -->
+<div class="w-2 bg-primary/60 rounded-t h-[40%]"></div>
+<div class="w-2 bg-primary/80 rounded-t h-[70%]"></div>
+<div class="w-2 bg-primary rounded-t h-[90%] shadow-[0_0_8px_theme('colors.primary')]"></div>
+<div class="w-2 bg-primary/60 rounded-t h-[50%]"></div>
+<div class="w-2 bg-primary/40 rounded-t h-[30%]"></div>
+<div class="w-2 bg-primary/70 rounded-t h-[80%]"></div>
+<div class="w-2 bg-primary/50 rounded-t h-[45%]"></div>
+<div class="w-2 bg-primary/90 rounded-t h-[85%] shadow-[0_0_8px_theme('colors.primary')]"></div>
+<div class="w-2 bg-primary/30 rounded-t h-[20%]"></div>
+<div class="w-2 bg-primary/60 rounded-t h-[60%]"></div>
+<div class="w-2 bg-primary/80 rounded-t h-[75%]"></div>
+<div class="w-2 bg-primary/40 rounded-t h-[35%]"></div>
+<div class="absolute top-2 left-2 flex items-center gap-2">
+<span class="size-2 rounded-full bg-red-500 animate-pulse"></span>
+<span class="text-[10px] text-slate-400 font-mono">REC</span>
+</div>
+</div>
+<!-- Transcript -->
+<div class="flex-1 border border-primary/20 rounded bg-primary/5 p-3 flex flex-col">
+<span class="text-[10px] text-slate-500 font-mono uppercase mb-2 border-b border-primary/10 pb-1">Live Transcript Stream</span>
+<div class="flex-1 overflow-hidden relative">
+<p class="text-xs font-mono text-slate-300 leading-relaxed">
+                                &gt; <span class="text-primary">System initializing...</span><br/>
+                                &gt; Audio channels synced.<br/>
+                                &gt; Awaiting user input.<br/>
+                                &gt; <span class="opacity-50">Processing ambient noise reduction...</span>
+</p>
+<div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background-dark to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Load -->
+<div class="glass-panel rounded-lg p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-primary/20 pb-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">memory</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold tracking-widest uppercase">Core Load</h3>
+</div>
+<span class="text-primary text-xs font-mono">NOMINAL</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-500 font-mono uppercase">CPU</span>
+<span class="text-lg font-mono text-slate-200">24<span class="text-xs text-primary">%</span></span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-500 font-mono uppercase">MEM</span>
+<span class="text-lg font-mono text-slate-200">12.4<span class="text-xs text-primary">GB</span></span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-500 font-mono uppercase">NET</span>
+<span class="text-lg font-mono text-slate-200">45<span class="text-xs text-primary">ms</span></span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] text-slate-500 font-mono uppercase">TMP</span>
+<span class="text-lg font-mono text-slate-200">42<span class="text-xs text-primary">°C</span></span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

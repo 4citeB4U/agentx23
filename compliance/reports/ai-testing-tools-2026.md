@@ -1,3 +1,10 @@
+<!-- LEEWAY HEADER BLOCK -->
+<!-- File: ai-testing-tools-2026.md -->
+<!-- Purpose: Agent Lee OS AI testing tools report -->
+<!-- Security: LEEWAY-CORE-2026 compliant -->
+<!-- Performance: Optimized for sovereign agentic compliance -->
+<!-- Discovery: Part of Agent Lee OS compliance pipeline -->
+
 # AI Testing Tools Comparison (2026) — LEEWAY Tailored
 
 ## Scope
@@ -30,13 +37,13 @@ This comparison is optimized for the current stack in this workspace:
 
 ## LEEWAY Decision Matrix
 
-| Criterion | AI-Augmented | Hybrid Code-First | Autonomous/Agentic |
-| :--- | ---: | ---: | ---: |
-| Authoring speed | High | Medium | High |
-| Determinism | Medium | High | Medium |
-| Explainability | Medium | High | Medium |
-| CI/CD fit | High | High | Medium-High |
-| Governance effort | Medium | Medium | High |
+| Criterion          |            AI-Augmented |          Hybrid Code-First |             Autonomous/Agentic |
+| :----------------- | ----------------------: | -------------------------: | -----------------------------: |
+| Authoring speed    |                    High |                     Medium |                           High |
+| Determinism        |                  Medium |                       High |                         Medium |
+| Explainability     |                  Medium |                       High |                         Medium |
+| CI/CD fit          |                    High |                       High |                    Medium-High |
+| Governance effort  |                  Medium |                     Medium |                           High |
 | Best use in LEEWAY | Regression acceleration | Core safety/contract tests | Adaptive exploratory + healing |
 
 ## Recommended Blend for This Repo

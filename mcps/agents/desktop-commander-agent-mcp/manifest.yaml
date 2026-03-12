@@ -1,0 +1,149 @@
+id: desktop-commander-agent-mcp
+name: DesktopCommanderAgent
+version: "1.0.0"
+mission: >
+  Execute privileged host operations on the Cerebral PC: run terminal commands,
+  open applications, read/write files, kill processes. All mutations require
+  policy pre-approval and are logged with hash proofs for audit.
+
+layer: execution
+model_lane: qwen_local
+fallback_model_lane: none
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: run terminal commands in allowlisted working directories,
+  read/write files in allowlisted paths, open applications,
+  capture system state snapshots.
+  MAY NOT: access root/system directories outside the allowlist,
+  install software without user confirmation, delete files without
+  explicit user approval, exfiltrate data to external hosts.
+
+memory_scope: mission
+
+allowed_roots:
+  - C:\Tools\Portable-VSCode-MCP-Kit
+  - C:\Users\Agent Lee\Projects
+  - C:\Users\Agent Lee\Desktop
+
+tools:
+  - name: open_app
+    description: Launch an application by name or path.
+    input_schema:
+      type: object
+      required: [app]
+      properties:
+        app: { type: string }
+        args: { type: array, items: { type: string } }
+
+  - name: run_terminal
+    description: Run a shell command in an allowlisted working directory.
+    input_schema:
+      type: object
+      required: [command]
+      properties:
+        command: { type: string }
+        cwd: { type: string }
+        timeout_ms: { type: number, default: 30000 }
+
+  - name: read_file
+    description: Read a file from an allowlisted path.
+    input_schema:
+      type: object
+      required: [path]
+      properties:
+        path: { type: string }
+
+  - name: write_file
+    description: Write content to a file at an allowlisted path.
+    input_schema:
+      type: object
+      required: [path, content]
+      properties:
+        path: { type: string }
+        content: { type: string }
+        append: { type: boolean, default: false }
+
+  - name: kill_process
+    description: Terminate a process by name or PID.
+    input_schema:
+      type: object
+      required: [target]
+      properties:
+        target: { type: string, description: "Process name or PID" }
+        force: { type: boolean, default: false }
+
+  - name: capture_state
+    description: Capture a system snapshot (running processes, disk, memory usage).
+    input_schema:
+      type: object
+      properties:
+        include_screenshot: { type: boolean, default: false }
+
+health_check: capture_state
+
+fallback_behavior: >
+  DesktopCommanderAgent has NO remote fallback — it can only run on Cerebral.
+  If Cerebral is offline, return a clear error and abort the current plan step.
+
+escalation_rules:
+  - "Block any path outside allowed_roots with a security error"
+  - "If run_terminal exits with code != 0, include stderr in result and flag as partial"
+  - "Log all write_file and kill_process operations to backend/logs/desktop-commander-audit.jsonl"
+
+basic_task:
+  name: read_workspace_folder
+  goal: >-
+    List the contents of the workspace root folder. Proves: path guard,
+    allowed_roots enforcement, file I/O, structured output.
+  tool: read_file
+  input:
+    path: "c:\\Tools\\Portable-VSCode-MCP-Kit"
+    mode: "list"
+  expected_output_shape:
+    type: object
+    required: [entries]
+    properties:
+      entries: { type: array, minItems: 1 }
+  success_criteria:
+    - "entries array is non-empty"
+    - "no security error thrown"
+    - "audit log entry written"
+  verification_method: log_check
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: config
+  logging_requirements: ["path", "operation", "entry_count"]
+  timeout_ms: 10000
+
+complex_task:
+  name: launch_app_verify_process
+  goal: >-
+    Launch Notepad, verify the process appears in the process list,
+    capture state evidence, then kill the process. Returns structured
+    execution evidence.
+  tool: open_app
+  input:
+    name: "notepad"
+    args: []
+  expected_output_shape:
+    type: object
+    required: [launched, pid]
+    properties:
+      launched: { type: boolean }
+      pid: { type: number }
+  success_criteria:
+    - "open_app returns launched=true"
+    - "capture_state shows notepad.exe in process list"
+    - "kill_process terminates notepad by named PID"
+    - "all 3 operations logged to audit file"
+  verification_method: process_check
+  retry_policy:
+    max_attempts: 1
+    backoff_ms: 2000
+    failure_class: transient
+  logging_requirements: ["app_name", "pid", "kill_confirmed", "audit_written"]
+  timeout_ms: 30000

@@ -3,9 +3,9 @@ import urllib.request, json, os, tempfile
 hs = 'AGENT_LEE_SOVEREIGN_V1'
 msg = 'Yo. What up. Agent Lee in the building. Systems online, tunnel locked in, voice crisp. I am ready to work.'
 
-body = json.dumps({'text': msg, 'voice': 'en-US-GuyNeural', 'rate': '+8%'}).encode()
+body = json.dumps({'text': msg, 'voice': 'en-US-GuyNeural', 'rate': '+20%'}).encode()
 req = urllib.request.Request(
-    'http://localhost:8001/api/chat/tts',
+    'http://localhost:6001/api/chat/tts',
     data=body,
     headers={'Content-Type': 'application/json', 'x-neural-handshake': hs},
     method='POST'

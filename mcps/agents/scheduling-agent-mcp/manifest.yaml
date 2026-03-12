@@ -1,0 +1,19 @@
+name: scheduling-agent-mcp
+version: 1.0.0
+description: >
+  SchedulingAgent — creates, reads, updates, and deletes timed events and tasks
+  using InsForge Postgres as the persistent backing store.
+capabilities:
+  - create_event
+  - list_events
+  - update_event
+  - delete_event
+  - get_next_event
+model_lane: glm_flash
+routing_path: smart
+tags:
+  - scheduling
+  - calendar
+  - tasks
+  - planning
+  - time-management

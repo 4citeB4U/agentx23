@@ -1,0 +1,139 @@
+id: docs-rag-agent-mcp
+name: DocsRAGAgent
+version: "1.0.0"
+mission: >
+  Retrieve, rank, and grounded-bundle relevant documentation passages
+  in response to Agent Lee's contextual queries. Supports local file
+  indexes, Markdown/YAML knowledge bases, and external API docs.
+  Always returns grounded, ranked passages — never hallucinated text.
+
+layer: interaction
+model_lane: notebooklm
+fallback_model_lane: glm_flash
+deployment_location: vercel
+transport: sse
+runtime: node
+
+authority_boundaries: >
+  MAY: read indexed docs, call embedding/search APIs, return ranked passages.
+  MAY NOT: write files, call external services beyond approved doc sources,
+  modify docs index.
+
+memory_scope: session
+
+tools:
+  - name: fetch_doc_snippet
+    description: >
+      Retrieve one relevant document snippet matching a query from the
+      local docs index or NotebookLM corpus.
+    input_schema:
+      type: object
+      required: [query]
+      properties:
+        query: { type: string }
+        max_results:
+          type: number
+          default: 3
+        sources:
+          type: array
+          items: { type: string }
+          description: Optional list of source paths or labels to restrict search
+
+  - name: build_context_bundle
+    description: >
+      Build a grounded context bundle from multiple sources (local docs,
+      YAML manifests, memory logs), rank passages by relevance, and return
+      the top-K with source attribution.
+    input_schema:
+      type: object
+      required: [query, sources]
+      properties:
+        query: { type: string }
+        sources:
+          type: array
+          items: { type: string }
+        top_k:
+          type: number
+          default: 5
+        deduplicate:
+          type: boolean
+          default: true
+
+  - name: index_local_docs
+    description: >
+      Scan a directory for .md/.yaml/.txt files and build or update the
+      local vector index. Idempotent — re-indexes only changed files.
+    input_schema:
+      type: object
+      required: [directory]
+      properties:
+        directory: { type: string }
+        extensions:
+          type: array
+          items: { type: string }
+          default: [".md", ".yaml", ".txt", ".json"]
+
+  - name: rank_passages
+    description: >
+      Given a query and a list of passages, return them ranked by semantic
+      relevance. Uses embedding similarity.
+    input_schema:
+      type: object
+      required: [query, passages]
+      properties:
+        query: { type: string }
+        passages:
+          type: array
+          items:
+            type: object
+            required: [text, source]
+            properties:
+              text: { type: string }
+              source: { type: string }
+
+health_check: fetch_doc_snippet
+
+fallback_behavior: >
+  If NotebookLM is offline, fall back to GLM-Flash for passage retrieval
+  with simpler keyword matching. If both offline, search local file index
+  directly without embedding ranking.
+
+escalation_rules:
+  - "Never return unsourced text — always include source attribution"
+  - "If local index is empty, trigger index_local_docs on mcps/ directory"
+
+basic_task:
+  name: retrieve_one_doc_snippet
+  goal: >-
+    Fetch one relevant snippet matching the query "agent validation levels"
+    from the local docs index. Proves: index readable, query resolves, source
+    attribution present.
+  tool: fetch_doc_snippet
+  input:
+    query: "agent validation levels"
+    max_results: 1
+  expected_output_shape:
+    type: object
+    required: [results]
+    properties:
+      results:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required: [text, source]
+  success_criteria:
+    - "results has at least 1 entry"
+    - "each result has non-empty text and source"
+    - "no exception thrown"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: config
+  logging_requirements: ["query", "result_count", "sources_searched"]
+  timeout_ms: 10000
+
+complex_task:
+  name: grounded_context_bundle_multi_source
+  goal: >-\n    Build a grounded context bundle from STARTUP.md, agent manifests,\n    and validation schema. Rank passages, deduplicate, and return the\n    top-5 most relevant with source attribution for the query:\n    \"How does the validation agent test each MCP?\"\n  tool: build_context_bundle\n  input:\n    query: "How does the validation agent test each MCP?"\n    sources:\n      - "mcps/STARTUP.md"\n      - "mcps/agents/validation-agent-mcp/manifest.yaml"\n      - "mcps/schemas/validation-result.schema.json"\n    top_k: 5\n    deduplicate: true\n  expected_output_shape:\n    type: object\n    required: [passages, query, total_searched]\n    properties:\n      passages:\n        type: array\n        minItems: 3\n        items:\n          type: object\n          required: [text, source, relevance_score]\n      query: { type: string }\n      total_searched: { type: number }\n  success_criteria:\n    - "at least 3 ranked passages returned"\n    - "each passage has source attribution"\n    - "each passage has relevance_score 0-1"\n    - "no duplicate passages"\n    - "query reflected in results"\n  verification_method: assertion\n  retry_policy:\n    max_attempts: 2\n    backoff_ms: 1000\n    failure_class: logic\n  logging_requirements: ["query", "sources_count", "passage_count", "dedup_removed"]\n  timeout_ms: 30000

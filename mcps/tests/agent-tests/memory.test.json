@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/agent-test-spec.schema.json",
+  "agent_id": "memory-agent-mcp",
+  "basic_task": {
+    "name": "store_and_retrieve_one_record",
+    "goal": "Write a single memory record then immediately recall it and verify field match.",
+    "tool": "recall_context",
+    "input": {
+      "session_id": "test-session-001",
+      "utterance": "ping",
+      "intent": "health_check"
+    },
+    "expected_output_shape": { "context": "object", "session_id": "exists" },
+    "success_criteria": [
+      "context is object",
+      "context.session_id matches input"
+    ],
+    "verification_method": "assertion",
+    "retry_policy": {
+      "max_attempts": 2,
+      "backoff_ms": 1000,
+      "failure_class": "degraded"
+    },
+    "logging_requirements": ["log session_id", "log context keys"],
+    "timeout_ms": 10000
+  },
+  "complex_task": {
+    "name": "compress_multi_mission_context_packet",
+    "goal": "Feed 5 simulated turns into compress_session and verify the output ContextPacket has correct structure.",
+    "tool": "compress_session",
+    "input": {
+      "session_id": "test-session-001",
+      "messages": [
+        { "role": "user", "content": "Turn 1" },
+        { "role": "assistant", "content": "Response 1" },
+        { "role": "user", "content": "Turn 2" },
+        { "role": "assistant", "content": "Response 2" },
+        { "role": "user", "content": "Turn 3" }
+      ]
+    },
+    "expected_output_shape": { "summary": "string", "token_count": "number" },
+    "success_criteria": ["summary.length > 0", "token_count < 2000"],
+    "verification_method": "assertion",
+    "retry_policy": {
+      "max_attempts": 2,
+      "backoff_ms": 2000,
+      "failure_class": "failed"
+    },
+    "logging_requirements": ["log summary length", "log token_count"],
+    "timeout_ms": 30000
+  }
+}

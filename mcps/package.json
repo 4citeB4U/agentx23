@@ -1,0 +1,36 @@
+{
+  "name": "agent-lee-mcps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent Lee OS — MCP agent workspace",
+  "workspaces": [
+    "agents/shared",
+    "agents/planner-agent-mcp",
+    "agents/memory-agent-mcp",
+    "agents/vision-agent-mcp",
+    "agents/desktop-commander-agent-mcp",
+    "agents/playwright-agent-mcp",
+    "agents/insforge-agent-mcp",
+    "agents/stitch-agent-mcp",
+    "agents/testsprite-agent-mcp",
+    "agents/spline-agent-mcp",
+    "agents/voice-agent-mcp",
+    "agents/validation-agent-mcp",
+    "agents/health-agent-mcp",
+    "agents/docs-rag-agent-mcp",
+    "agents/agent-registry-mcp",
+    "agents/scheduling-agent-mcp"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "@types/node": "^20.14.0"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "start:all": "concurrently \"npm:start -w agents/planner-agent-mcp\" \"npm:start -w agents/memory-agent-mcp\" \"npm:start -w agents/vision-agent-mcp\" \"npm:start -w agents/desktop-commander-agent-mcp\" \"npm:start -w agents/playwright-agent-mcp\" \"npm:start -w agents/insforge-agent-mcp\" \"npm:start -w agents/stitch-agent-mcp\" \"npm:start -w agents/testsprite-agent-mcp\" \"npm:start -w agents/spline-agent-mcp\" \"npm:start -w agents/voice-agent-mcp\" \"npm:start -w agents/validation-agent-mcp\" \"npm:start -w agents/health-agent-mcp\" \"npm:start -w agents/docs-rag-agent-mcp\" \"npm:start -w agents/agent-registry-mcp\" \"npm:start -w agents/scheduling-agent-mcp\""
+  }
+}

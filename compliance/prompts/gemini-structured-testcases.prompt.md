@@ -1,12 +1,20 @@
+<!-- LEEWAY HEADER BLOCK -->
+<!-- File: gemini-structured-testcases.prompt.md -->
+<!-- Purpose: Agent Lee OS Gemini structured testcases prompt -->
+<!-- Security: LEEWAY-CORE-2026 compliant -->
+<!-- Performance: Optimized for sovereign agentic compliance -->
+<!-- Discovery: Part of Agent Lee OS compliance pipeline -->
+
 SYSTEM: You are an expert test engineer.
 
 TASK:
 Given the component description below, generate a JSON array of test case objects.
 
 COMPONENT_DESCRIPTION:
-```{{COMPONENT_DESCRIPTION}}```
+`{{COMPONENT_DESCRIPTION}}`
 
 RESPONSE RULES:
+
 1. Return only valid JSON.
 2. Do not include markdown, commentary, or prose outside JSON.
 3. Field names and types must match the structure exactly.
@@ -17,17 +25,18 @@ RESPONSE RULES:
 
 JSON STRUCTURE:
 [
-  {
-    "testCaseID": "string",
-    "description": "string",
-    "preconditions": ["string"],
-    "steps": ["string"],
-    "expectedResults": ["string"],
-    "priority": "high|medium|low"
-  }
+{
+"testCaseID": "string",
+"description": "string",
+"preconditions": ["string"],
+"steps": ["string"],
+"expectedResults": ["string"],
+"priority": "high|medium|low"
+}
 ]
 
 QUALITY CONSTRAINTS:
+
 - Steps are actionable and deterministic.
 - Expected results are measurable.
 - Preconditions include required setup/state.

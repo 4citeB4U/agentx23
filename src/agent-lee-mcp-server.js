@@ -16,25 +16,29 @@
  *   agentlee_mission   — get the next mission from the mission queue
  */
 
-import { fileURLToPath } from "url";
-import path from "path";
-import fs from "fs";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { ListToolsRequestSchema, CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
-import { loadDotenv, mergeEnv } from "./dotenv.js";
+import {
+    CallToolRequestSchema,
+    ListToolsRequestSchema,
+} from "@modelcontextprotocol/sdk/types.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { CONFIG } from "./config.js";
+import { loadDotenv, mergeEnv } from "./dotenv.js";
 
 // ── Bootstrap env ─────────────────────────────────────────────────────────────
 mergeEnv(loadDotenv(CONFIG.DOTENV_PATH));
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 
-const BRAIN_URL  = process.env.BRAIN_URL  || "http://localhost:8004";
-const VISION_URL = process.env.VISION_URL || "http://localhost:8005";
-const HANDSHAKE  = process.env.NEURAL_HANDSHAKE || process.env.NEURAL_HANDSHAKE_KEY || "";
+const BRAIN_URL = process.env.BRAIN_URL || "http://localhost:6004";
+const VISION_URL = process.env.VISION_URL || "http://localhost:6005";
+const HANDSHAKE =
+  process.env.NEURAL_HANDSHAKE || process.env.NEURAL_HANDSHAKE_KEY || "";
 const MEMORY_PATH = path.join(PROJECT_ROOT, "workspace", "memory.json");
 
 // ── HTTP helper ───────────────────────────────────────────────────────────────
@@ -42,12 +46,23 @@ async function apiFetch(url, opts = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 12_000);
   try {
-    const headers = { "Content-Type": "application/json", ...(opts.headers || {}) };
+    const headers = {
+      "Content-Type": "application/json",
+      ...(opts.headers || {}),
+    };
     if (HANDSHAKE) headers["X-Agent-Handshake"] = HANDSHAKE;
-    const res = await fetch(url, { ...opts, headers, signal: controller.signal });
+    const res = await fetch(url, {
+      ...opts,
+      headers,
+      signal: controller.signal,
+    });
     const text = await res.text();
     let body;
-    try { body = JSON.parse(text); } catch { body = text; }
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = text;
+    }
     return { ok: res.ok, status: res.status, body };
   } catch (err) {
     return { ok: false, status: 0, body: err.message };
@@ -73,7 +88,7 @@ const TOOLS = [
   {
     name: "agentlee_health",
     description:
-      "Check the health status of all Agent Lee services (brain on :8004 and vision agent on :8005). Returns combined JSON status.",
+      "Check the health status of all Agent Lee services (brain on :6004 and vision agent on :6005). Returns combined JSON status.",
     inputSchema: {
       type: "object",
       properties: {},
@@ -143,7 +158,15 @@ const TOOLS = [
       properties: {
         action: {
           type: "string",
-          enum: ["click", "double_click", "right_click", "type", "key", "scroll", "move"],
+          enum: [
+            "click",
+            "double_click",
+            "right_click",
+            "type",
+            "key",
+            "scroll",
+            "move",
+          ],
           description: "Action to perform",
         },
         x: {
@@ -200,14 +223,13 @@ const TOOLS = [
 // ── Tool handlers ─────────────────────────────────────────────────────────────
 async function handleTool(name, args) {
   switch (name) {
-
     case "agentlee_health": {
       const [brain, vision] = await Promise.all([
         apiFetch(`${BRAIN_URL}/health`),
         apiFetch(`${VISION_URL}/health`),
       ]);
       const result = {
-        brain:  { status: brain.ok ? "ok" : "error",  data: brain.body  },
+        brain: { status: brain.ok ? "ok" : "error", data: brain.body },
         vision: { status: vision.ok ? "ok" : "error", data: vision.body },
       };
       const allOk = brain.ok && vision.ok;
@@ -221,7 +243,8 @@ async function handleTool(name, args) {
         method: "POST",
         body: JSON.stringify({ prompt, user_id, history: [] }),
       });
-      if (!r.ok) return fail(`Brain /chat error ${r.status}: ${pretty(r.body)}`);
+      if (!r.ok)
+        return fail(`Brain /chat error ${r.status}: ${pretty(r.body)}`);
       const reply = r.body?.reply || r.body?.response || pretty(r.body);
       return ok(reply);
     }
@@ -239,13 +262,17 @@ async function handleTool(name, args) {
 
     case "agentlee_screen": {
       const r = await apiFetch(`${VISION_URL}/stream/state`);
-      if (!r.ok) return fail(`Vision /stream/state error ${r.status}: ${pretty(r.body)}`);
+      if (!r.ok)
+        return fail(
+          `Vision /stream/state error ${r.status}: ${pretty(r.body)}`,
+        );
       return ok(pretty(r.body));
     }
 
     case "agentlee_analyze": {
       const r = await apiFetch(`${VISION_URL}/analyze`);
-      if (!r.ok) return fail(`Vision /analyze error ${r.status}: ${pretty(r.body)}`);
+      if (!r.ok)
+        return fail(`Vision /analyze error ${r.status}: ${pretty(r.body)}`);
       return ok(pretty(r.body));
     }
 
@@ -262,7 +289,8 @@ async function handleTool(name, args) {
         method: "POST",
         body: JSON.stringify(payload),
       });
-      if (!r.ok) return fail(`Vision /act error ${r.status}: ${pretty(r.body)}`);
+      if (!r.ok)
+        return fail(`Vision /act error ${r.status}: ${pretty(r.body)}`);
       return ok(pretty(r.body));
     }
 
@@ -276,7 +304,8 @@ async function handleTool(name, args) {
         const mem = JSON.parse(raw);
         if (key) {
           const val = mem[key];
-          if (val === undefined) return fail(`Key "${key}" not found in memory`);
+          if (val === undefined)
+            return fail(`Key "${key}" not found in memory`);
           return ok(pretty({ [key]: val }));
         }
         return ok(pretty(mem));
@@ -299,7 +328,7 @@ async function handleTool(name, args) {
 // ── MCP Server bootstrap ──────────────────────────────────────────────────────
 const server = new Server(
   { name: "AgentLee", version: "1.0.0" },
-  { capabilities: { tools: {} } }
+  { capabilities: { tools: {} } },
 );
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({

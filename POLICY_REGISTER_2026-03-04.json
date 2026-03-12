@@ -1,0 +1,315 @@
+{
+  "manifest": {
+    "name": "POLICY_REGISTER_2026-03-04",
+    "version": "1.0.0",
+    "generatedAt": "2026-03-04T00:00:00Z",
+    "scope": [
+      "LLM",
+      "MCP",
+      "Agents",
+      "Tools",
+      "Security",
+      "Filesystem",
+      "Terminal"
+    ],
+    "repo": "agentx23",
+    "branch": "ci/playwright-trace-retries"
+  },
+  "globalPolicies": {
+    "guardianPolicy": {
+      "source": "guardian/policy.json",
+      "enforcement": "active",
+      "operations": {
+        "email.send": {
+          "risk": "medium",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false,
+          "rateLimitPerHour": 20
+        },
+        "file.read": {
+          "risk": "low",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "file.write": {
+          "risk": "high",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": false
+        },
+        "file.delete": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        },
+        "process.launch": {
+          "risk": "high",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false,
+          "allowlistedExecutables": [
+            "node.exe",
+            "docker.exe",
+            "pwsh.exe",
+            "python.exe",
+            "git.exe",
+            "tsx"
+          ]
+        },
+        "network.external": {
+          "risk": "medium",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "docker.exec": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        },
+        "docker.build": {
+          "risk": "high",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "code.execute": {
+          "risk": "high",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": false
+        },
+        "code.generate": {
+          "risk": "low",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "package.install": {
+          "risk": "high",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": false
+        },
+        "registry.write": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        },
+        "git.push": {
+          "risk": "medium",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "git.commit": {
+          "risk": "low",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "browser.automate": {
+          "risk": "high",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": false
+        },
+        "powershell.execute": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        },
+        "mcp.call": {
+          "risk": "medium",
+          "requiresConfirmation": false,
+          "requiresCreatorSignature": false
+        },
+        "deployment.cloudflare": {
+          "risk": "high",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": false
+        },
+        "system.shutdown": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        },
+        "token.revoke": {
+          "risk": "critical",
+          "requiresConfirmation": true,
+          "requiresCreatorSignature": true
+        }
+      }
+    },
+    "coreGuardianPolicy": {
+      "source": "core/guardian_policy.json",
+      "authorizedAgents": {
+        "qwen3-coder-mcp": "SELF_MODIFICATION (requires snapshot + signature)",
+        "qwen3-health-mcp": "SYSTEM_READ (read-only)",
+        "qwen3-vision-mcp": "UI_ANALYSIS (sandboxed)"
+      },
+      "invariants": [
+        "SecureBoot must be verified or DevMode set",
+        "INSFORGE_ANON_KEY must not contain script fragments",
+        "Every repair must start from a 100% stable snapshot"
+      ]
+    }
+  },
+  "llmPolicies": {
+    "source": "server.py",
+    "reasoningContract": {
+      "requiredStructuredKeys": [
+        "intent",
+        "plan",
+        "tool_calls",
+        "analysis",
+        "final_answer",
+        "confidence"
+      ],
+      "rules": [
+        "Tool calls must be explicit and structured",
+        "No unverified tool-result claims",
+        "Unknown operators are hallucination flags"
+      ]
+    },
+    "allowedOperators": [
+      "BrowserOperator",
+      "FilesystemOperator",
+      "TelegramOperator",
+      "MCPBridgeOperator",
+      "DesktopHandsOperator",
+      "NotebookOperator"
+    ],
+    "adapterSelection": [
+      "qwen_general_adapter",
+      "qwen_code_adapter",
+      "qwen_ui_adapter",
+      "qwen_cdl_adapter"
+    ],
+    "rewardFunction": "R = code_pass_rate*0.4 + correctness*0.3 + planning_depth*0.2 - hallucination_penalty*0.1",
+    "inferencePolicy": {
+      "primary": "llama.cpp OpenAI-compatible local servers",
+      "secondary": "Ollama local endpoint",
+      "fallback": "Gemini",
+      "forcedMode": "qwen for main reasoning path unless failure"
+    },
+    "ttsPolicy": {
+      "tier1": "PocketTTS (marius/motivational_architect)",
+      "tier2": "Gemini TTS fallback",
+      "tier3": "edge-tts fallback",
+      "clientVoiceIgnored": true
+    }
+  },
+  "mcpPolicies": {
+    "source": "backend/src/routes/mcp.ts",
+    "bridgePort": "env MCP_BRIDGE_PORT or 8002",
+    "managedModules": ["testsprite", "playwright", "insforge", "stitch"],
+    "allowedOperations": [
+      "POST /api/mcp/testsprite",
+      "POST /api/mcp/playwright",
+      "POST /api/mcp/insforge",
+      "POST /api/mcp/stitch",
+      "GET /api/mcp/status",
+      "POST /api/mcp/start/:name",
+      "POST /api/mcp/stop/:name",
+      "GET /api/mcp/logs/:name"
+    ]
+  },
+  "agentPolicies": {
+    "source": "backend/src/routes/agents.ts",
+    "governance": "All sub-agent dispatches are wrapped by BrainRouter governedDispatch",
+    "agents": {
+      "insforge": {
+        "tasks": [
+          "scaffold_api",
+          "generate_route",
+          "generate_schema",
+          "generate_service",
+          "review_code",
+          "custom"
+        ]
+      },
+      "stitch": {
+        "tasks": [
+          "scaffold_component",
+          "generate_page",
+          "generate_styles",
+          "generate_hook",
+          "design_system",
+          "preview_url",
+          "custom"
+        ]
+      },
+      "spline": {
+        "tasks": [
+          "embed_scene",
+          "generate_animation",
+          "scaffold_3d_page",
+          "design_brief",
+          "orb_component",
+          "status"
+        ]
+      }
+    }
+  },
+  "toolPolicies": {
+    "securityMiddleware": {
+      "source": "backend/src/services/security.ts",
+      "publicRoute": "/health only",
+      "systemStatusRule": "/api/services/system-status requires x-neural-handshake",
+      "remoteRouteControls": [
+        "chat",
+        "mcp",
+        "tunnel",
+        "agents",
+        "brain",
+        "phone",
+        "apps",
+        "fs"
+      ],
+      "rateLimiting": "route-aware limits applied on handshake routes",
+      "cryptoIdentityRequired": [
+        "x-device-id",
+        "x-neural-signature",
+        "x-neural-timestamp",
+        "x-neural-nonce"
+      ],
+      "devBypass": "only when DEV_ALLOW_UNAUTH=true and local/dev criteria match"
+    },
+    "hmacAuth": {
+      "source": "backend/src/services/hmacAuth.ts",
+      "acceptedAuthModes": [
+        "x-neural-handshake",
+        "x-leeway-signature + x-leeway-ts"
+      ],
+      "timestampWindowMs": 300000,
+      "timingSafeCompare": true
+    },
+    "filesystem": {
+      "source": "backend/src/routes/fs.ts",
+      "writeGuard": "HMAC or handshake required for mutating calls",
+      "pathPolicy": [
+        "no absolute path traversal",
+        "no UNC escape",
+        "alias-root constrained resolution",
+        "audit log required"
+      ]
+    },
+    "terminal": {
+      "source": "backend/src/services/terminal-policy.ts",
+      "modes": ["safe", "build", "admin"],
+      "hardDenies": [
+        "destructive delete/format patterns",
+        "credential dump patterns",
+        "privilege escalation patterns",
+        "persistence attack patterns",
+        "curl|sh style remote execution"
+      ],
+      "secretSanitization": true
+    },
+    "chatAndTelegram": {
+      "source": "backend/src/routes/chat.ts",
+      "telegramRules": [
+        "bot token + authorized user id required",
+        "chat_id must match configured TELEGRAM_USER_ID",
+        "inbound polling offset is tracked",
+        "voice relay sends TTS output via Telegram sendVoice"
+      ],
+      "ttsBridge": "proxy to neural router /tts with sovereign voice lock"
+    }
+  },
+  "notes": {
+    "status": "policy register generated from current source snapshot",
+    "intendedUse": "diffable governance baseline for operations and audits"
+  }
+}

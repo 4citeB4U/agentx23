@@ -1,4 +1,4 @@
-{"variant_type": "Generate a harder variant of this task", "error": "All connection attempts failed"}
+{"domain": "career", "id": "LOG_004", "intent": "Factoring Setup", "user": "Owner-Op with 1 truck", "state": "Waiting 30 days for broker payments, fuel cards are maxed", "blocker": "Immediate cash flow crisis", "lee_plan": "1. Research top 3 'Non-Recourse' factoring companies. 2. Verify 'Buy-out' terms for existing debt. 3. Script a 2% rate negotiation."}
 {"variant_type": "Generate an edge case where this task could fail and how to handle it", "error": "All connection attempts failed"}
 {"variant_type": "Simulate a tool-failure scenario for this task with recovery plan", "error": "All connection attempts failed"}
 {"variant_type": "Refactor this solution to be more modular and testable", "error": "All connection attempts failed"}

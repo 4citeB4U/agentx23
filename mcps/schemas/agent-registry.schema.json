@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentlee.os/schemas/agent-registry.schema.json",
+  "title": "AgentRegistry",
+  "description": "Registry of all MCP agents in the Agent Lee OS workforce",
+  "type": "object",
+  "required": ["version", "agents"],
+  "properties": {
+    "version": { "type": "string" },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "mission",
+          "layer",
+          "tools",
+          "inputs",
+          "outputs",
+          "authority_boundaries",
+          "model_lane",
+          "deployment_location",
+          "fallback_behavior",
+          "health_check",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Kebab-case unique agent ID"
+          },
+          "name": { "type": "string" },
+          "mission": { "type": "string" },
+          "layer": {
+            "type": "string",
+            "enum": ["backbone", "execution", "perception", "data", "specialty"]
+          },
+          "tools": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "inputs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "outputs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "authority_boundaries": {
+            "type": "string",
+            "description": "What this agent is and is NOT allowed to do"
+          },
+          "model_lane": {
+            "type": "string",
+            "enum": [
+              "gemini",
+              "glm_flash",
+              "glm_vision",
+              "qwen_local",
+              "qwen_vision_local",
+              "qwen_vision_deep",
+              "qwen_3d",
+              "qwen_math",
+              "notebooklm",
+              "none"
+            ]
+          },
+          "fallback_model_lane": {
+            "type": "string"
+          },
+          "deployment_location": {
+            "type": "string",
+            "enum": [
+              "cloudflare",
+              "vercel",
+              "cerebral",
+              "phone",
+              "remote",
+              "local"
+            ]
+          },
+          "transport": {
+            "type": "string",
+            "enum": ["stdio", "sse", "http", "websocket"],
+            "default": "stdio"
+          },
+          "runtime": {
+            "type": "string",
+            "enum": ["python", "node", "mixed"]
+          },
+          "port": { "type": ["number", "null"] },
+          "fallback_behavior": { "type": "string" },
+          "health_check": { "type": "string" },
+          "memory_scope": {
+            "type": "string",
+            "enum": ["session", "mission", "canonical", "none"]
+          },
+          "escalation_rules": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "auth_allowed": {
+            "type": "array",
+            "description": "Which credentials this agent may use",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gemini_key",
+                "zai_key",
+                "vercel_db",
+                "local_files",
+                "cerebral_socket",
+                "telegram_bot",
+                "cloudflare_endpoint",
+                "hf_token"
+              ]
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["online", "offline", "degraded", "unknown", "disabled"]
+          },
+          "last_seen": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+id: memory-agent-mcp
+name: MemoryAgent
+version: "1.0.0"
+mission: >
+  Manage Agent Lee's memory across three scopes: session (in-flight context),
+  mission (compressed episode), and canonical (long-term Vercel/Postgres lake).
+  Uses NotebookLM for retrieval and GLM-Flash for compression.
+
+layer: backbone
+model_lane: notebooklm
+fallback_model_lane: glm_flash
+deployment_location: vercel
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: read and write memory scopes, compress sessions, produce context packets.
+  MAY NOT: execute code, control browsers, access files outside designated memory paths.
+
+memory_scope: canonical
+
+tools:
+  - name: recall_context
+    description: Retrieve relevant memories for the current session and intent from NotebookLM.
+    input_schema:
+      type: object
+      required: [session_id, utterance]
+      properties:
+        session_id: { type: string }
+        utterance: { type: string }
+        intent: { type: string }
+        top_k: { type: number, default: 5 }
+
+  - name: compress_session
+    description: Summarize and compress the current session into a MemorySnapshot for the ContextPacket.
+    input_schema:
+      type: object
+      required: [session_id, messages]
+      properties:
+        session_id: { type: string }
+        messages:
+          type: array
+          items: { type: object }
+
+  - name: build_context_packet
+    description: Assemble a full ContextPacket from current session state + retrieved memory.
+    input_schema:
+      type: object
+      required: [session_id, user_id, intent, utterance]
+      properties:
+        session_id: { type: string }
+        user_id: { type: string }
+        intent: { type: string }
+        utterance: { type: string }
+        platform: { type: string }
+
+  - name: write_summary
+    description: Persist a MissionSummary to canonical memory (Vercel/Postgres).
+    input_schema:
+      type: object
+      required: [summary]
+      properties:
+        summary: { type: object }
+
+  - name: fetch_related_episodes
+    description: Retrieve past MissionSummaries related to the current utterance.
+    input_schema:
+      type: object
+      required: [utterance]
+      properties:
+        utterance: { type: string }
+        top_k: { type: number, default: 3 }
+
+health_check: recall_context
+
+fallback_behavior: >
+  If NotebookLM is unavailable (503/429), fall back to GLM-Flash for
+  summarized context retrieval. If Vercel DB is offline, cache writes
+  to a local JSON file at data/memory_cache.jsonl.
+
+basic_task:
+  name: store_and_retrieve_one_record
+  goal: >-
+    Store one memory record via write_summary then retrieve it via recall_context.
+    Proves: NotebookLM connectivity or local cache fallback, round-trip correctness.
+  tool: write_summary
+  input:
+    session_id: "val-basic-002"
+    summary: "Validation test: memory round-trip check."
+    key_facts: ["memory layer is operational", "round-trip verified"]
+    mission_id: "val-mission-basic-002"
+  expected_output_shape:
+    type: object
+    required: [written]
+    properties:
+      written: { type: boolean }
+  success_criteria:
+    - "write_summary returns written=true"
+    - "subsequent recall_context returns at least 1 fact"
+    - "no exception thrown during write"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: config
+  logging_requirements: ["memory_write", "source"]
+  timeout_ms: 15000
+
+complex_task:
+  name: compress_multi_mission_context_packet
+  goal: >-
+    Read multiple mission logs, compress them into a context packet, remove
+    duplication, and produce a reusable summary for a new task.
+  tool: build_context_packet
+  input:
+    session_id: "val-complex-002"
+    user_id: "validation-agent"
+    intent: "recall_memory"
+    utterance: "Summarize what I was doing with GitHub Desktop."
+    messages:
+      - { role: "user", content: "Open GitHub Desktop" }
+      - { role: "assistant", content: "Opened GitHub Desktop." }
+      - { role: "user", content: "Check for uncommitted changes" }
+      - { role: "assistant", content: "Found 3 uncommitted changes." }
+      - { role: "user", content: "What was the repo name?" }
+  expected_output_shape:
+    type: object
+    required: [session_id, utterance, memory_snapshot]
+    properties:
+      memory_snapshot:
+        type: object
+        required: [summary, key_facts]
+  success_criteria:
+    - "context_packet.memory_snapshot.summary is non-empty"
+    - "key_facts array has at least 2 entries"
+    - "no duplicate facts in key_facts"
+    - "episode_ids present and non-empty if NotebookLM reachable"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: logic
+  logging_requirements: ["context_built", "compression_ratio", "fact_count"]
+  timeout_ms: 30000
+
+escalation_rules:
+  - "If recall_context returns empty for 3 consecutive turns, warn agent-lee-core"
+  - "If write_summary fails, queue to data/memory_cache.jsonl and retry on next success"

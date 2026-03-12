@@ -1,0 +1,11 @@
+Welcome to Agent Lee VM — LEE_VM_01
+Instance: SOVEREIGN SANDBOX
+Kernel : Local-First v2.0  |  LEEWAY-CORE-2026
+Policy : VM-First. All tasks run here first.
+
+Directories:
+  ~/projects/  — copied project sandboxes
+  ~/output/    — build and test artifacts
+  ~/scripts/   — Agent Lee automation scripts
+
+Workflow: copy → edit → build → test → present → apply

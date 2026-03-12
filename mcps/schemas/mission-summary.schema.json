@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentlee.os/schemas/mission-summary.schema.json",
+  "title": "MissionSummary",
+  "description": "Compressed outcome of a completed or abandoned mission, stored to canonical memory",
+  "type": "object",
+  "required": [
+    "mission_id",
+    "session_id",
+    "original_utterance",
+    "intent",
+    "status",
+    "timestamp"
+  ],
+  "properties": {
+    "mission_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "parent_mission_id": { "type": ["string", "null"] },
+    "original_utterance": { "type": "string" },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "converse",
+        "plan_task",
+        "recall_memory",
+        "write_memory",
+        "execute_code",
+        "execute_terminal",
+        "automate_browser",
+        "analyze_visual",
+        "generate_3d",
+        "translate_language",
+        "test_system",
+        "design_ui",
+        "speak_voice",
+        "orchestrate_agents"
+      ]
+    },
+    "plan_executed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agents_involved": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tools_used": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outcome_summary": {
+      "type": "string",
+      "description": "1-3 sentence natural language summary of what happened"
+    },
+    "artifacts": {
+      "type": "array",
+      "description": "Any files, URLs, or blobs produced",
+      "items": {
+        "type": "object",
+        "required": ["type", "ref"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "file",
+              "url",
+              "image",
+              "component",
+              "test_report",
+              "voice_clip"
+            ]
+          },
+          "ref": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "partial", "failed", "aborted", "escalated"]
+    },
+    "error": { "type": ["string", "null"] },
+    "duration_ms": { "type": "number" },
+    "token_cost": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "number" },
+        "output": { "type": "number" }
+      }
+    },
+    "model_lane_used": { "type": "string" },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "key_learnings": {
+      "type": "array",
+      "description": "Facts that should go into long-term memory",
+      "items": { "type": "string" }
+    },
+    "verification": {
+      "type": "object",
+      "description": "Result of the VerificationController pass",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "vision",
+            "db_check",
+            "process_check",
+            "assertion",
+            "testsprite",
+            "none"
+          ]
+        },
+        "passed": { "type": "boolean" },
+        "evidence": { "type": "string" },
+        "agent_used": { "type": "string" }
+      }
+    },
+    "narration": {
+      "type": ["string", "null"],
+      "description": "Final natural language narration delivered to the user"
+    },
+    "validation_result": {
+      "type": "object",
+      "description": "Validation agent 2-task test result for this agent (if this is a validation mission)",
+      "properties": {
+        "agent_id": { "type": "string" },
+        "basic_task_status": {
+          "type": "string",
+          "enum": ["passed", "failed", "skipped", "error"]
+        },
+        "complex_task_status": {
+          "type": "string",
+          "enum": ["passed", "failed", "skipped", "error"]
+        },
+        "confidence_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "readiness": {
+          "type": "string",
+          "enum": ["active", "degraded", "failed", "quarantined"]
+        }
+      }
+    }
+  }
+}

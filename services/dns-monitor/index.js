@@ -9,13 +9,12 @@
  */
 
 import dns from 'dns/promises';
-import https from 'https';
 
 const hostname   = process.env.PUBLIC_HOSTNAME || process.argv[2] || '';
 const INTERVAL   = parseInt(process.env.DNS_CHECK_INTERVAL || '60000');
 const TG_TOKEN   = process.env.TELEGRAM_BOT_TOKEN_2 || process.env.TELEGRAM_BOT_TOKEN || '';
 const TG_CHAT    = process.env.TELEGRAM_USER_ID || '';
-const BACKEND    = process.env.BACKEND_URL || 'http://localhost:8001';
+const BACKEND    = process.env.BACKEND_URL || 'http://localhost:6001';
 
 if (!hostname) {
     console.log('[dns-monitor] No PUBLIC_HOSTNAME set. Waiting for tunnel to start...');

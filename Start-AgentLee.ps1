@@ -1,3 +1,9 @@
+# LEEWAY HEADER BLOCK
+# File: Start-AgentLee.ps1
+# Purpose: Agent Lee OS startup script
+# Security: LEEWAY-CORE-2026 compliant
+# Performance: Optimized for sovereign agentic startup
+# Discovery: Part of Agent Lee OS boot pipeline
 # =====================================================================
 # Agent Lee Studio - Unified Stack Entry
 # Canonical entrypoint is Run-All.ps1 (PM2 ecosystem + verify)

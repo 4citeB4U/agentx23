@@ -1,0 +1,23 @@
+MODEL SUPPORT VERIFICATION
+[2026-03-06 00:58:47] [INFO] Verification started
+[2026-03-06 00:58:47] [INFO] Verification started
+[2026-03-06 00:58:47] [INFO] Output folder: C:\Tools
+[2026-03-06 00:58:47] [INFO] Output folder: C:\Tools
+[2026-03-06 00:58:47] [INFO] Shared Python target: C:\Tools\agentlee-venv\Scripts\python.exe
+[2026-03-06 00:58:47] [INFO] Shared Python target: C:\Tools\agentlee-venv\Scripts\python.exe
+
+
+=== Shared Python Verification ===
+=== Shared Python Verification ===
+[2026-03-06 00:58:48] [INFO] Python version: Python 3.12.10
+[2026-03-06 00:58:48] [INFO] Python version: Python 3.12.10
+[2026-03-06 00:58:48] [INFO] Pip version: pip 26.0.1 from C:\Tools\agentlee-venv\Lib\site-packages\pip (python 3.12)
+[2026-03-06 00:58:48] [INFO] Pip version: pip 26.0.1 from C:\Tools\agentlee-venv\Lib\site-packages\pip (python 3.12)
+[2026-03-06 00:58:48] [INFO] Torch import OK: True
+[2026-03-06 00:58:48] [INFO] Torch import OK: True
+[2026-03-06 00:58:48] [INFO] Transformers import OK: True
+[2026-03-06 00:58:48] [INFO] Transformers import OK: True
+[2026-03-06 00:58:48] [INFO] NumPy import OK: True
+[2026-03-06 00:58:48] [INFO] NumPy import OK: True
+
+=== Checking C:\Cerebral ===

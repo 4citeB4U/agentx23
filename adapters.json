@@ -1,0 +1,19 @@
+{
+  "mcp_registry": [
+    {
+      "id": "qwen3-health-mcp",
+      "name": "qwen3-health",
+      "endpoint": "http://localhost:8080/mcp/health"
+    },
+    {
+      "id": "qwen3-coder-mcp",
+      "name": "qwen3-coder",
+      "endpoint": "http://localhost:8080/mcp/coder"
+    },
+    {
+      "id": "qwen3-vision-mcp",
+      "name": "qwen3-vision",
+      "endpoint": "http://localhost:8080/mcp/vision"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+id: agent-registry-mcp
+name: AgentRegistryMCP
+version: "1.0.0"
+mission: >
+  Serve as the live, queryable runtime MCP interface to agent-registry.json.
+  Provide discovery, capability lookup, authority boundary checks, and
+  status updates for all registered agents. The single source of truth
+  about what agents exist and whether they are ready.
+
+layer: backbone
+model_lane: none
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: read agent-registry.json, update status/readiness/last_seen fields,
+  report health, capabilities, and fallback chains.
+  MAY NOT: add or remove agent entries without explicit approval, modify
+  manifest files, restart agent processes.
+
+memory_scope: session
+
+tools:
+  - name: list_agents
+    description: >
+      Return all registered agents with their current status, layer,
+      model_lane, and tool list.
+    input_schema:
+      type: object
+      properties:
+        filter_layer:
+          type: string
+          enum: [all, backbone, execution, interaction, specialty, data]
+          default: all
+        filter_status:
+          type: string
+          enum: [all, active, degraded, failed, quarantined, unknown]
+          default: all
+
+  - name: get_agent_capabilities
+    description: >
+      Return full capabilities, authority boundaries, and fallback chain
+      for a specific agent.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+
+  - name: update_agent_status
+    description: >
+      Update the status, readiness, basic_task_status, complex_task_status,
+      last_tested_at, and confidence_score for one agent in the registry.
+      Called by ValidationAgent after each validation run.
+    input_schema:
+      type: object
+      required: [agent_id, status]
+      properties:
+        agent_id: { type: string }
+        status:
+          type: string
+          enum: [active, degraded, failed, quarantined, unknown]
+        basic_task_status:
+          type: string
+          enum: [passed, failed, skipped, error]
+        complex_task_status:
+          type: string
+          enum: [passed, failed, skipped, error]
+        last_tested_at:
+          type: string
+          format: date-time
+        confidence_score:
+          type: number
+          minimum: 0
+          maximum: 100
+        notes:
+          type: string
+
+  - name: get_fallback_chain
+    description: >
+      Given an agent ID, return the full fallback chain: primary agent →
+      fallback agent(s) → model lane fallbacks.
+    input_schema:
+      type: object
+      required: [agent_id]
+      properties:
+        agent_id: { type: string }
+
+  - name: check_authority
+    description: >
+      Given an agent ID and a requested operation, return whether the agent
+      has authority to perform it (based on authority_boundaries field).
+    input_schema:
+      type: object
+      required: [agent_id, operation]
+      properties:
+        agent_id: { type: string }
+        operation: { type: string }
+
+  - name: get_system_readiness
+    description: >
+      Return a system-wide readiness summary: which agents are active,
+      degraded, failed, or quarantined, and which intent classes are
+      currently serviceable.
+    input_schema:
+      type: object
+      properties:
+        include_intent_coverage:
+          type: boolean
+          default: true
+
+health_check: list_agents
+
+fallback_behavior: >
+  AgentRegistryMCP reads a local JSON file — it has no external dependencies.
+  If registry file is corrupt, return error and DO NOT update. Always readable
+  even in degraded mode.
+
+escalation_rules:
+  - "If registry file missing or corrupt, halt and alert agent-lee-core"
+  - "Never remove an agent entry — only update status to quarantined"
+
+basic_task:
+  name: list_all_registered_agents
+  goal: >-
+    Return the full list of all registered agents with id, status, and layer.
+    Proves: registry file loads, JSON parses, response shaped correctly.
+  tool: list_agents
+  input:
+    filter_layer: all
+    filter_status: all
+  expected_output_shape:
+    type: object
+    required: [agents, count]
+    properties:
+      agents:
+        type: array
+        minItems: 10
+      count: { type: number, minimum: 10 }
+  success_criteria:
+    - "agents array has at least 10 entries"
+    - "each entry has id, status, and layer"
+    - "no exception thrown"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 300
+    failure_class: config
+  logging_requirements: ["agent_count", "registry_version"]
+  timeout_ms: 5000
+
+complex_task:
+  name: full_readiness_with_intent_coverage
+  goal: >-
+    Return health, capabilities, authority boundaries, and fallback chain
+    for all active agents. Include a coverage map showing which intent
+    classes are currently serviceable.
+  tool: get_system_readiness
+  input:
+    include_intent_coverage: true
+  expected_output_shape:
+    type: object
+    required: [active_agents, degraded_agents, failed_agents, intent_coverage]
+    properties:
+      active_agents: { type: array }
+      degraded_agents: { type: array }
+      failed_agents: { type: array }
+      intent_coverage:
+        type: object
+        description: Map of intent class to serviceable agent or null
+  success_criteria:
+    - "intent_coverage has at least 10 intent class keys"
+    - "each active agent entry includes capabilities and fallback_chain"
+    - "no crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: logic
+  logging_requirements:
+    ["active_count", "degraded_count", "intent_coverage_slots"]
+  timeout_ms: 15000

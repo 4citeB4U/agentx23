@@ -1,0 +1,13 @@
+{
+  "name": "agentlee-dashboard-mcp",
+  "version": "1.0.0",
+  "description": "Agent Lee Dashboard MCP — real-time agent/LLM health monitor",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

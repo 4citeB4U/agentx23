@@ -1,0 +1,149 @@
+id: spline-agent-mcp
+name: SplineAgent
+version: "1.0.0"
+mission: >
+  Generate 3D scene specifications, SVG-to-shape conversion, geometry math,
+  and model prompt refinement. Uses Qwen3-3D-1.8B for spec generation and
+  Qwen3-Math-4B for spatial calculations. Outputs are Spline-compatible specs.
+
+layer: specialty
+model_lane: qwen_3d
+fallback_model_lane: glm_flash
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: generate 3D specs, perform geometry math, describe scenes,
+  refine prompts for Spline/Three.js.
+  MAY NOT: access file system beyond designated output path,
+  call external 3D rendering APIs without user confirmation.
+
+memory_scope: session
+
+tools:
+  - name: generate_3d_spec
+    description: Generate a structured Spline/Three.js-compatible 3D scene spec from a description.
+    input_schema:
+      type: object
+      required: [description]
+      properties:
+        description: { type: string }
+        style:
+          {
+            type: string,
+            enum: [minimal, organic, geometric, cyberpunk],
+            default: minimal,
+          }
+        output_format:
+          { type: string, enum: [json, glsl, threejs], default: json }
+
+  - name: svg_to_shape
+    description: Convert an SVG path to a 3D extrustion spec.
+    input_schema:
+      type: object
+      required: [svg_path]
+      properties:
+        svg_path: { type: string }
+        depth: { type: number, default: 10 }
+        bevel: { type: boolean, default: true }
+
+  - name: calculate_geometry
+    description: Solve geometry/spatial math problems.
+    input_schema:
+      type: object
+      required: [problem]
+      properties:
+        problem: { type: string }
+
+  - name: describe_scene
+    description: Generate a natural language description of a 3D scene spec.
+    input_schema:
+      type: object
+      required: [scene_json]
+      properties:
+        scene_json: { type: object }
+
+  - name: refine_model_prompt
+    description: Improve a 3D model generation prompt for better output quality.
+    input_schema:
+      type: object
+      required: [prompt]
+      properties:
+        prompt: { type: string }
+        platform:
+          {
+            type: string,
+            enum: [spline, threejs, blender, unity],
+            default: spline,
+          }
+
+health_check: generate_3d_spec
+
+fallback_behavior: >
+  If Qwen3-3D is unavailable locally, fall back to GLM-Flash for
+  text-only 3D spec generation (no geometry computation).
+
+basic_task:
+  name: generate_simple_3d_object
+  goal: >-
+    Generate a 3D spec for a simple sphere object.
+    Proves: Qwen3-3D or GLM fallback, JSON spec output shape.
+  tool: generate_3d_spec
+  input:
+    description: "A smooth metallic red sphere with a diameter of 2 units"
+    output_format: "json"
+  expected_output_shape:
+    type: object
+    required: [object_type, geometry, material]
+    properties:
+      object_type: { type: string }
+      geometry: { type: object }
+      material: { type: object }
+  success_criteria:
+    - "object_type is 'sphere' or similar"
+    - "geometry.diameter or geometry.radius present"
+    - "material.color references red"
+    - "no exception thrown"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: transient
+  logging_requirements:
+    ["model_used", "description_length", "spec_fields_count"]
+  timeout_ms: 20000
+
+complex_task:
+  name: generate_multi_object_scene
+  goal: >-
+    Generate a multi-object 3D scene spec with positioning, purpose, and constraints
+    for a workspace visualization (desk, computer, chair, lamp).
+  tool: generate_3d_spec
+  input:
+    description: "A 3D workspace scene: a desk with a computer monitor on top, a chair positioned in front of the desk at 0.8 unit gap, and a lamp to the upper right of the monitor. All objects should be at realistic scale."
+    output_format: "json"
+    scene_mode: true
+  expected_output_shape:
+    type: object
+    required: [scene, objects]
+    properties:
+      scene: { type: object }
+      objects:
+        type: array
+        minItems: 3
+        items:
+          type: object
+          required: [name, position, geometry]
+  success_criteria:
+    - "at least 3 distinct objects in scene"
+    - "each object has position coordinates"
+    - "at least one spatial constraint described"
+    - "objects reference real-world scale"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 2000
+    failure_class: logic
+  logging_requirements: ["model_used", "object_count", "scene_bounds"]
+  timeout_ms: 40000

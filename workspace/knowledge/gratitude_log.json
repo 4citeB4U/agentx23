@@ -556,5 +556,104 @@
     "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
     "source_url": "https://arxiv.org/abs/2602.17662v1",
     "verified": true
+  },
+  {
+    "source": "Abdulhamid97Mousa/mosaic",
+    "category": "open_source_repo",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "MOSAIC: A Unified Platform for Cross-Paradigm Comparison and Evaluation of Homogeneous and Heterogeneous Multi-Agent RL, LLM, VLM, and Human Decision-Makers",
+    "appreciation": "I recognize the engineering effort behind Abdulhamid97Mousa/mosaic. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/Abdulhamid97Mousa/mosaic",
+    "verified": true
+  },
+  {
+    "source": "philtimmes/KeSSie",
+    "category": "open_source_repo",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "KeSSie HUGE Context Semantic recall for Large Language Models",
+    "appreciation": "I recognize the engineering effort behind philtimmes/KeSSie. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/philtimmes/KeSSie",
+    "verified": true
+  },
+  {
+    "source": "ELM-Research/ELM",
+    "category": "open_source_repo",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": " A Training and Evaluation Framework for ECG-Language Models (ELMs) ",
+    "appreciation": "I recognize the engineering effort behind ELM-Research/ELM. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/ELM-Research/ELM",
+    "verified": true
+  },
+  {
+    "source": "mozi1924/Qwen3-TTS-EasyFinetuning",
+    "category": "open_source_repo",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Easy fine-tuning for Qwen3-TTS: Fast voice cloning and high-quality multilingual speech synthesis.",
+    "appreciation": "I recognize the engineering effort behind mozi1924/Qwen3-TTS-EasyFinetuning. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/mozi1924/Qwen3-TTS-EasyFinetuning",
+    "verified": true
+  },
+  {
+    "source": "tatwan/agenticai_smolagents",
+    "category": "open_source_repo",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "This is a 6-module, hands-on mini-course for building AI agents using Hugging Face's smolagents library. It targets intermediate-to-advanced practitioners who are comfortable with Python and have basic familiarity with language models.",
+    "appreciation": "I recognize the engineering effort behind tatwan/agenticai_smolagents. Its contribution to the open-source AI ecosystem is valuable and noted.",
+    "source_url": "https://github.com/tatwan/agenticai_smolagents",
+    "verified": true
+  },
+  {
+    "source": "j-int8/qwen2.5-7b-agentbench-v7",
+    "category": "open_model",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Tags: transformers, safetensors, qwen2, text-generation, text-generation-inference",
+    "appreciation": "I acknowledge None for releasing j-int8/qwen2.5-7b-agentbench-v7. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/j-int8/qwen2.5-7b-agentbench-v7",
+    "verified": true
+  },
+  {
+    "source": "3006-sa-toolathlon/MyAwesomeModel-TestRepo",
+    "category": "open_model",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Tags: transformers, pytorch, bert, feature-extraction, license:mit",
+    "appreciation": "I acknowledge None for releasing 3006-sa-toolathlon/MyAwesomeModel-TestRepo. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/3006-sa-toolathlon/MyAwesomeModel-TestRepo",
+    "verified": true
+  },
+  {
+    "source": "HamadaMayu/qwen2.5-7b-agent-dbv4_final_alfv5_success_01",
+    "category": "open_model",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Tags: license:apache-2.0, region:us",
+    "appreciation": "I acknowledge None for releasing HamadaMayu/qwen2.5-7b-agent-dbv4_final_alfv5_success_01. Open model releases expand AI access for everyone.",
+    "source_url": "https://huggingface.co/HamadaMayu/qwen2.5-7b-agent-dbv4_final_alfv5_success_01",
+    "verified": true
+  },
+  {
+    "source": "A Time-Varying and Covariate-Dependent Correlation Model for Multivariate Longitudinal Studies",
+    "category": "research_paper",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "In multivariate longitudinal studies, associations between outcomes often exhibit time-varying and individual level heterogeneity, motivating the modeling of correlations as an explicit function of time and covariates. However, most existing methods for correlation analysis fail to simultaneously ca",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.21200v1",
+    "verified": true
+  },
+  {
+    "source": "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs",
+    "category": "research_paper",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Embodied LLMs endow robots with high-level task reasoning, but they cannot reflect on what went wrong or why, turning deployment into a sequence of independent trials where mistakes repeat rather than accumulate into experience. Drawing upon human reflective practitioners, we introduce Reflective Te",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.21198v1",
+    "verified": true
+  },
+  {
+    "source": "On Data Engineering for Scaling LLM Terminal Capabilities",
+    "category": "research_paper",
+    "date": "2026-02-25T08:00:28.049844+00:00",
+    "key_insights": "Despite rapid recent progress in the terminal capabilities of large language models, the training data strategies behind state-of-the-art terminal agents remain largely undisclosed. We address this gap through a systematic study of data engineering practices for terminal agents, making two key contr",
+    "appreciation": "I respect the research effort behind this paper. Academic contributions advance our collective understanding and inspire safe improvements.",
+    "source_url": "https://arxiv.org/abs/2602.21193v1",
+    "verified": true
   }
 ]

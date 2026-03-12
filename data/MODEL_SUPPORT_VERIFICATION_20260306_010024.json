@@ -1,0 +1,26 @@
+[
+  {
+    "Directory": "C:\\Cerebral",
+    "Exists": true,
+    "PythonFiles": 12716,
+    "RequirementsFiles": 7,
+    "LocalVenvs": 3,
+    "TorchRefs": 20,
+    "TransformersRefs": 15,
+    "PythonExeRefs": 340,
+    "SharedPythonUsable": true,
+    "RecommendedAction": "Can use shared runtime: C:\\Tools\\agentlee-venv\\Scripts\\python.exe"
+  },
+  {
+    "Directory": "C:\\Tools\\Portable-VSCode-MCP-Kit",
+    "Exists": true,
+    "PythonFiles": 24090,
+    "RequirementsFiles": 20,
+    "LocalVenvs": 4,
+    "TorchRefs": 58,
+    "TransformersRefs": 23,
+    "PythonExeRefs": 12,
+    "SharedPythonUsable": true,
+    "RecommendedAction": "Can use shared runtime: C:\\Tools\\agentlee-venv\\Scripts\\python.exe"
+  }
+]

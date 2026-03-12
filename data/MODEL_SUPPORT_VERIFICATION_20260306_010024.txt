@@ -1,0 +1,209 @@
+MODEL SUPPORT VERIFICATION
+[2026-03-06 01:00:24] [INFO] Verification started
+[2026-03-06 01:00:24] [INFO] Verification started
+[2026-03-06 01:00:24] [INFO] Output folder: C:\Tools
+[2026-03-06 01:00:24] [INFO] Output folder: C:\Tools
+[2026-03-06 01:00:24] [INFO] Shared Python target: C:\Tools\agentlee-venv\Scripts\python.exe
+[2026-03-06 01:00:24] [INFO] Shared Python target: C:\Tools\agentlee-venv\Scripts\python.exe
+
+
+=== Shared Python Verification ===
+=== Shared Python Verification ===
+[2026-03-06 01:00:24] [INFO] Python version: Python 3.12.10
+[2026-03-06 01:00:24] [INFO] Python version: Python 3.12.10
+[2026-03-06 01:00:24] [INFO] Pip version: pip 26.0.1 from C:\Tools\agentlee-venv\Lib\site-packages\pip (python 3.12)
+[2026-03-06 01:00:24] [INFO] Pip version: pip 26.0.1 from C:\Tools\agentlee-venv\Lib\site-packages\pip (python 3.12)
+[2026-03-06 01:00:24] [INFO] Torch import OK: True
+[2026-03-06 01:00:24] [INFO] Torch import OK: True
+[2026-03-06 01:00:24] [INFO] Transformers import OK: True
+[2026-03-06 01:00:24] [INFO] Transformers import OK: True
+[2026-03-06 01:00:24] [INFO] NumPy import OK: True
+[2026-03-06 01:00:24] [INFO] NumPy import OK: True
+
+=== Checking C:\Cerebral ===
+[2026-03-06 01:00:38] [INFO] Python files found: 12716
+[2026-03-06 01:00:38] [INFO] Requirements/config files found: 7
+[2026-03-06 01:00:38] [INFO] Local venv folders found: 3
+[2026-03-06 01:00:38] [INFO] BAT/CMD files found: 95
+[2026-03-06 01:00:38] [INFO] PowerShell files found: 121
+[2026-03-06 01:00:38] [INFO] JSON files found: 2632
+[2026-03-06 01:00:38] [INFO] Files referencing torch: 20
+[2026-03-06 01:00:38] [INFO] Files referencing transformers: 15
+[2026-03-06 01:00:38] [INFO] Files referencing Python/venv paths: 340
+[2026-03-06 01:00:38] [INFO] Requirements/config files:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\requirements.txt
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\adodbapi\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\f2py\setup.cfg
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\_core\tests\examples\cython\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\numpy\_core\tests\examples\limited_api\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\win32\Demos\c_extension\setup.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\tests\requirements.txt
+[2026-03-06 01:00:38] [INFO] Local virtual environments:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\digital-brain\node_modules\@next\env
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\vscode-mcp-tooling\node_modules\axios\lib\env
+[2026-03-06 01:00:38] [INFO] Torch references:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\talk.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_check\error\_pep\pep484585\errpep484585container.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_data\code\pep\datacodepep484585.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\bin\convert_hf_to_gguf.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\eole_ct2.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\fairseq.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\opennmt_py.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\transformers.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\utils.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\specs\model_spec.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\_backends.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\_torch_specific.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\einops.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\layers\torch.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\run_tests.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_einsum.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_examples.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_layers.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_ops.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\einops\tests\test_other.py
+[2026-03-06 01:00:38] [INFO] Transformers references:
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\attr\_make.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawstate.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\__init__.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\clawastmain.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_kind\clawastmodule.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_pep\clawastpep695.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_ast\_scope\clawastscopebefore.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_importlib\_clawimpload.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\plug\_plughintable.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_conf\decorplace\confplacetrie.py
+[2026-03-06 01:00:38] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\_util\hint\pep\proposal\pep695.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\bin\convert_hf_to_gguf.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2\converters\transformers.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\ctranslate2-4.7.1.dist-info\entry_points.txt
+[2026-03-06 01:00:39] [INFO] Python/venv path references:
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\cerebral_mcp_server.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\daemon_full_log.txt
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\file_indexer.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\foundry_log.txt
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\INSTALL.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\PORTS.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\README.md
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\recover_services.ps1
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\start_cerebral.bat
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\six.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\sounddevice.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\meta.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\_infermain.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionbuiltin.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionitems.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\collection\infercollectionsabc.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\kind\infercallable.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\bite\kind\inferthirdparty.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\cave\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\cave\_cavelib.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\__init__.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawmain.py
+[2026-03-06 01:00:39] [INFO]   C:\Cerebral\.venv\Lib\site-packages\beartype\claw\_clawstate.py
+[2026-03-06 01:00:39] [INFO] Recommended action: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe
+
+=== Checking C:\Tools\Portable-VSCode-MCP-Kit ===
+[2026-03-06 01:01:15] [INFO] Python files found: 24090
+[2026-03-06 01:01:15] [INFO] Requirements/config files found: 20
+[2026-03-06 01:01:15] [INFO] Local venv folders found: 4
+[2026-03-06 01:01:15] [INFO] BAT/CMD files found: 108
+[2026-03-06 01:01:15] [INFO] PowerShell files found: 137
+[2026-03-06 01:01:15] [INFO] JSON files found: 4128
+[2026-03-06 01:01:15] [INFO] Files referencing torch: 58
+[2026-03-06 01:01:15] [INFO] Files referencing transformers: 23
+[2026-03-06 01:01:15] [INFO] Files referencing Python/venv paths: 12
+[2026-03-06 01:01:15] [INFO] Requirements/config files:
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\IPython\testing\plugin\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\extension\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\interop\consumer\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\interop\provider\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\service-manager-extension\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens-underscore\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test-hyphens-underscore\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test_no_hyphens\pyproject.toml
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jupyterlab\tests\mock_packages\test_no_hyphens\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\f2py\setup.cfg
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\_core\tests\examples\cython\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\numpy\_core\tests\examples\limited_api\setup.py
+[2026-03-06 01:01:15] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\pandas\pyproject.toml
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\ruamel\yaml\clibz\setup.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\google-meta\requirements.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\google-meta\setup.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\meta-dataset\requirements.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\workspace\intel\meta-dataset\setup.py
+[2026-03-06 01:01:16] [INFO] Local virtual environments:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\jedi\third_party\typeshed\stdlib\3\venv
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\node_modules\axios\lib\env
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\axios\lib\env
+[2026-03-06 01:01:16] [INFO] Torch references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\bootstrap.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\ZxcvbnData\3\us_tv_and_film.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\accelerator.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\big_modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\checkpointing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\data_loader.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\hooks.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\inference.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\launchers.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\local_sgd.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\optimizer.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\parallelism_config.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\scheduler.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\state.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\tracking.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\env.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\estimate.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\launch.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\cluster.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\default.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\sagemaker.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\testing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\training.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\test_cli.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\test_ddp_comm_hook.py
+[2026-03-06 01:01:16] [INFO] Transformers references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\ZxcvbnData\3\english_wikipedia.txt
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\accelerator.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\big_modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\estimate.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\launch.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\commands\config\cluster.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\testing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\training.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_checkpointing.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_ds_alst_ulysses_sp.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_ds_multiple_model.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_metrics.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_peak_memory_usage.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_performance.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_pippy.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\test_utils\scripts\external_deps\test_zero3_integration.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\dataclasses.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\fsdp_utils.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\imports.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\megatron_lm.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\modeling.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\offload.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\accelerate\utils\other.py
+[2026-03-06 01:01:16] [INFO] Python/venv path references:
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\bootstrap.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Health-Check.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\POLICY_REGISTER_2026-03-04.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\QA_FINAL_REPORT.md
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Run-All.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\Verify-All.ps1
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\camelcase-css\package.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\camelcase-css\README.md
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.chrome-devtools\TrustTokenKeyCommitments\2025.9.29.1\keys.json
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\ipython_pygments_lexers.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\six.py
+[2026-03-06 01:01:16] [INFO]   C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\sounddevice.py
+[2026-03-06 01:01:16] [INFO] Recommended action: Can use shared runtime: C:\Tools\agentlee-venv\Scripts\python.exe

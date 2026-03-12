@@ -27,7 +27,17 @@ log = logging.getLogger("pocket_tts_server")
 
 # ── Config — LOCKED SOVEREIGN VOICE (2026-02-22) ───────────────────────
 PRESET_VOICE   = "marius"                   # Kyutai deep resonant preset — 🔒 LOCKED
-LOCKED_PROFILE = "motivational_architect"   # 🔒 LOCKED — always used, ignores incoming profile
+LOCKED_PROFILE = "motivational_architect"   # 🔒 LOCKED — default profile
+# Optional per-app voice presets (JSON) and override flag
+# Example: POCKET_VOICE_PRESETS='{"AgentLeeUI":"premium-male-1","OtherApp":"female-warm-2"}'
+try:
+    POCKET_VOICE_PRESETS = json.loads(os.environ.get("POCKET_VOICE_PRESETS", "{}"))
+except Exception:
+    POCKET_VOICE_PRESETS = {}
+
+# If true, allow incoming 'voice' or mapped app voice to override LOCKED_PROFILE.
+# Default: false (respect sovereign lock). Set to '1' or 'true' to enable.
+ALLOW_APP_VOICE_OVERRIDE = str(os.environ.get("POCKET_ALLOW_APP_VOICE_OVERRIDE", "false")).lower() in ("1", "true", "yes")
 # ——————————————————————————————————————
 # PITCH_RATIO = 0.88  — CONFIRMED AND LOCKED BY CREATOR 2026-02-22
 # DO NOT CHANGE. ratio < 1.0 = deeper/baritone. ratio > 1.0 = chipmunk (wrong).
@@ -38,7 +48,8 @@ REF_PITCH_HZ   = 168.0             # Reference median F0 from reference recordin
 BASE_PITCH_HZ  = 130.0             # Marius approximate base F0
 PITCH_RATIO    = 0.88              # 🔒 LOCKED — deep baritone (DO NOT RAISE ABOVE 1.0)
 FFMPEG         = "ffmpeg"          # Use PATH version
-PORT           = 8007
+# Read port from env for PM2 / ecosystem compatibility. Defaults to 8007 (locked sovereign port).
+POCKET_PORT    = int(os.environ.get("POCKET_TTS_PORT", "8007"))
 PROFILES_PATH  = Path(__file__).parent.parent / "voice_profiles.json"
 
 # ── Globals ───────────────────────────────────────────────────────────────────
@@ -204,6 +215,8 @@ def health():
         "voice":       PRESET_VOICE,
         "profiles":    list(_profiles.keys()),
         "baseline_pitch_ratio": round(PITCH_RATIO, 3),
+        "allow_app_voice_override": ALLOW_APP_VOICE_OVERRIDE,
+        "app_voice_presets": POCKET_VOICE_PRESETS,
     }
 
 
@@ -215,9 +228,36 @@ async def tts(req: TTSRequest):
         raise HTTPException(503, "model still loading")
 
     text = req.text.strip()[:800]
-    # 🔒 SOVEREIGN LOCK: always use LOCKED_PROFILE regardless of what was sent
+    # Determine profile to use
+    # Priority: explicit incoming 'voice' (if override allowed) -> mapped preset by app (if override allowed)
+    # -> LOCKED_PROFILE (default)
+    incoming_voice = (req.profile or req.profile) if hasattr(req, 'profile') else None
+    # FastAPI Pydantic model sets 'profile' field; also support 'app' in body
+    app_field = getattr(req, 'app', None)
     profile = LOCKED_PROFILE
-    log.info(f"TTS [{len(text)}ch] | profile: {profile} (locked) | {text[:70]}...")
+    if ALLOW_APP_VOICE_OVERRIDE:
+        # prefer explicit voice param
+        try:
+            body = req.__dict__
+        except Exception:
+            body = {}
+        explicit_voice = None
+        if isinstance(body, dict):
+            explicit_voice = body.get('profile') or body.get('voice')
+            app_field = app_field or body.get('app')
+
+        if explicit_voice:
+            profile = explicit_voice
+            log.info(f"TTS [{len(text)}ch] | profile overridden by request voice: {profile} | {text[:70]}...")
+        elif app_field and str(app_field) in POCKET_VOICE_PRESETS:
+            profile = POCKET_VOICE_PRESETS.get(str(app_field))
+            log.info(f"TTS [{len(text)}ch] | profile mapped from app '{app_field}': {profile} | {text[:70]}...")
+        else:
+            profile = LOCKED_PROFILE
+            log.info(f"TTS [{len(text)}ch] | profile: {profile} (override enabled but no mapping) | {text[:70]}...")
+    else:
+        profile = LOCKED_PROFILE
+        log.info(f"TTS [{len(text)}ch] | profile: {profile} (locked) | {text[:70]}...")
 
     try:
         audio_bytes, mime = synthesize(text, profile)
@@ -228,9 +268,27 @@ async def tts(req: TTSRequest):
     return Response(content=audio_bytes, media_type=mime)
 
 
+# Compatibility alias: some components post to `/synthesize`.
+@app.post("/synthesize")
+async def synthesize_alias(req: TTSRequest):
+    return await tts(req)
+
+
+
+# LEEWAY-HEADER
+# TAG: AI.VOICE.SERVER.POCKET_TTS
+# Standard: LEEWAY-CORE-2026
+
+import argparse
+
 if __name__ == "__main__":
-    log.info("=== Agent Lee Pocket-TTS starting on :%d ===", PORT)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", type=int, default=POCKET_PORT)
+    args = parser.parse_args()
+    # Allow environment override via POCKET_TTS_PORT or CLI --port
+    port = int(os.environ.get("POCKET_TTS_PORT", args.port))
+    log.info(f"[Omega] Voice Engine frequency set to {port}")
     load_voice_profiles()
     load_model()
-    log.info("=== READY — http://127.0.0.1:%d ===", PORT)
-    uvicorn.run(app, host="127.0.0.1", port=PORT, log_level="warning")
+    log.info(f"=== READY — http://127.0.0.1:{port} ===")
+    uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")

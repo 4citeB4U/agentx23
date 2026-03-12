@@ -1,0 +1,24 @@
+﻿SYSTEM ARTIFACT SCAN SUMMARY
+Completed: 03/06/2026 00:30:06
+Drive Scanned: C:\
+Agent Count: 4
+Run As Admin: YES
+Extensions: .exe, .dll, .bat, .cmd, .msi
+Total Files Found: 97741
+Count .bat: 545
+Count .cmd: 917
+Count .dll: 85039
+Count .exe: 10739
+Count .msi: 501
+CSV Inventory: C:\Tools\system_artifacts_20260306_001653.csv
+JSON Inventory: C:\Tools\system_artifacts_20260306_001653.json
+All Paths TXT: C:\Tools\ALL_SYSTEM_ARTIFACT_PATHS_20260306_001653.txt
+EXE Paths TXT: C:\Tools\ALL_EXE_PATHS_20260306_001653.txt
+DLL Paths TXT: C:\Tools\ALL_DLL_PATHS_20260306_001653.txt
+BAT Paths TXT: C:\Tools\ALL_BAT_PATHS_20260306_001653.txt
+CMD Paths TXT: C:\Tools\ALL_CMD_PATHS_20260306_001653.txt
+MSI Paths TXT: C:\Tools\ALL_MSI_PATHS_20260306_001653.txt
+Type Counts CSV: C:\Tools\system_artifact_type_counts_20260306_001653.csv
+Folder Counts CSV: C:\Tools\system_artifact_folder_counts_20260306_001653.csv
+Main Report Log: C:\Tools\SYSTEM_ARTIFACT_SCAN_REPORT_20260306_001653.log
+Non-Fatal Errors: 0

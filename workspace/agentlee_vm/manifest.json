@@ -1,0 +1,17 @@
+{
+  "name": "Agent Lee — Companion",
+  "short_name": "AgentLee",
+  "description": "Agent Lee sovereign companion — voice, tasks, and full phone integration",
+  "start_url": "https://agentlee.rapidwebdevelop.com/workspace/agentlee_vm/agent-lee-companion.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect width='96' height='96' fill='%23020617'/><circle cx='48' cy='48' r='32' fill='none' stroke='%230ea5e9' stroke-width='3'/><circle cx='48' cy='48' r='16' fill='%230ea5e9' opacity='0.6'/><circle cx='48' cy='48' r='5' fill='%2300ffff'/></svg>",
+      "sizes": "96x96",
+      "type": "image/svg+xml"
+    }
+  ]
+}

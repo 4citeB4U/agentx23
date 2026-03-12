@@ -6,8 +6,8 @@
 # ============================================================
 
 $HANDSHAKE   = $env:NEURAL_HANDSHAKE  ?? "AGENT_LEE_SOVEREIGN_V1"
-$LOCAL_BASE  = "http://localhost:8001"
-$BRAIN_BASE  = "http://localhost:8004"
+$LOCAL_BASE  = "http://localhost:6001"
+$BRAIN_BASE  = "http://localhost:6004"
 $INSFORGE    = "https://3c4cp27v.us-west.insforge.app"
 $DB_PATH     = "workspace\episodes.db"
 $PERSONA     = "agentLee.persona.json"

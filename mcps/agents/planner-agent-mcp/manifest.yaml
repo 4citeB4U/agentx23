@@ -1,0 +1,169 @@
+id: planner-agent-mcp
+name: PlannerAgent
+version: "1.0.0"
+mission: >
+  Decompose an incoming user intent into an ordered task plan,
+  assign each step to the correct MCP agent, and provide recovery
+  suggestions when a step fails. The Planner never executes work
+  itself — it only reasons and delegates.
+
+layer: backbone
+model_lane: glm_flash
+fallback_model_lane: qwen_local
+deployment_location: cerebral
+transport: stdio
+runtime: node
+
+authority_boundaries: >
+  MAY: produce plans, assign agents, summarize mission state.
+  MAY NOT: run terminal commands, read/write files on the host,
+  call external APIs directly, modify user data.
+
+memory_scope: mission
+
+tools:
+  - name: make_plan
+    description: >
+      Given a ContextPacket, produce an ordered list of steps with
+      agent assignments and model lanes.
+    input_schema:
+      type: object
+      required: [context]
+      properties:
+        context:
+          type: object
+          description: ContextPacket
+
+  - name: break_into_steps
+    description: Break a high-level goal string into granular sub-tasks.
+    input_schema:
+      type: object
+      required: [goal]
+      properties:
+        goal:
+          type: string
+        max_steps:
+          type: number
+          default: 8
+
+  - name: choose_agent
+    description: Given an intent class, return the best primary agent ID.
+    input_schema:
+      type: object
+      required: [intent]
+      properties:
+        intent:
+          type: string
+
+  - name: suggest_recovery
+    description: >
+      Given a failed step and its error, propose a corrective action
+      or alternative agent path.
+    input_schema:
+      type: object
+      required: [failed_step, error]
+      properties:
+        failed_step:
+          type: string
+        error:
+          type: string
+        context:
+          type: object
+
+  - name: summarize_mission
+    description: >
+      Produce a MissionSummary from the completed context packet
+      and all tool outputs collected this turn.
+    input_schema:
+      type: object
+      required: [context, tool_outputs, status]
+      properties:
+        context:
+          type: object
+        tool_outputs:
+          type: array
+          items:
+            type: object
+        status:
+          type: string
+          enum: [completed, partial, failed, aborted, escalated]
+        duration_ms:
+          type: number
+
+health_check: make_plan
+
+fallback_behavior: >
+  If GLM-4.7-Flash is unavailable, fall back to Qwen local for
+  planning. If planning fails entirely, Agent Lee Core handles the
+  turn as a simple conversation and flags for retry.
+
+escalation_rules:
+  - "If make_plan returns an empty array, escalate to agent-lee-core"
+  - "If recovery fails twice on the same step, escalate to agent-lee-core and abort"
+
+basic_task:
+  name: simple_plan_3_steps
+  goal: >-
+    Take a simple user request and decompose it into exactly 3 ordered steps,
+    each assigned to a named agent. Proves: intent intake, INTENT_ROUTER_MAP lookup,
+    structured output, no crash.
+  tool: make_plan
+  input:
+    context:
+      session_id: "val-basic-001"
+      user_id: "validation-agent"
+      intent: "plan_task"
+      utterance: "Open the settings page"
+      timestamp: "2026-03-07T00:00:00Z"
+  expected_output_shape:
+    type: object
+    required: [steps]
+    properties:
+      steps:
+        type: array
+        minItems: 1
+  success_criteria:
+    - "steps array is non-empty"
+    - "each step has agent and description fields"
+    - "no step is assigned to agent 'none' or 'unknown'"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: logic
+  logging_requirements: ["plan_created", "intent_class", "step_count"]
+  timeout_ms: 15000
+
+complex_task:
+  name: multi_agent_plan_with_fallback
+  goal: >-
+    Take a multi-step mission, choose the correct agents for each step, define fallback
+    paths, and return a structured plan with at least 4 steps including one recovery path.
+  tool: make_plan
+  input:
+    context:
+      session_id: "val-complex-001"
+      user_id: "validation-agent"
+      intent: "orchestrate_agents"
+      utterance: "Check whether GitHub Desktop is installed, open it if it exists, inspect the current repo state, and tell me if there are uncommitted changes."
+      timestamp: "2026-03-07T00:00:00Z"
+  expected_output_shape:
+    type: object
+    required: [steps]
+    properties:
+      steps:
+        type: array
+        minItems: 4
+  success_criteria:
+    - "at least 4 steps produced"
+    - "at least one step uses desktop-commander-agent-mcp"
+    - "at least one step uses vision-agent-mcp or similar"
+    - "recovery/fallback step present or suggest_recovery called"
+    - "output includes agent assignments with model_lane"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: logic
+  logging_requirements: ["plan_created", "agent_assignments", "fallback_paths"]
+  timeout_ms: 30000

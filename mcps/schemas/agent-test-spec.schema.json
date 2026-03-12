@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentlee.os/schemas/agent-test-spec.schema.json",
+  "title": "AgentTestSpec",
+  "description": "2-task acceptance test definition embedded in every agent manifest",
+  "type": "object",
+  "required": ["basic_task", "complex_task"],
+  "properties": {
+    "basic_task": {
+      "$ref": "#/definitions/TestTask"
+    },
+    "complex_task": {
+      "$ref": "#/definitions/TestTask"
+    }
+  },
+  "definitions": {
+    "TestTask": {
+      "type": "object",
+      "required": [
+        "name",
+        "goal",
+        "tool",
+        "input",
+        "expected_output_shape",
+        "success_criteria",
+        "verification_method"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Stable snake_case identifier for this test"
+        },
+        "goal": {
+          "type": "string",
+          "description": "Human-readable description of what this task proves"
+        },
+        "tool": {
+          "type": "string",
+          "description": "The MCP tool name to invoke"
+        },
+        "input": {
+          "type": "object",
+          "description": "Static input payload for the tool call"
+        },
+        "expected_output_shape": {
+          "type": "object",
+          "description": "JSON Schema fragment the output must satisfy"
+        },
+        "success_criteria": {
+          "type": "array",
+          "description": "Ordered list of assertions that must all pass",
+          "items": { "type": "string" }
+        },
+        "verification_method": {
+          "type": "string",
+          "enum": [
+            "assertion",
+            "vision",
+            "db_check",
+            "process_check",
+            "testsprite",
+            "log_check"
+          ],
+          "description": "How the output is confirmed correct"
+        },
+        "retry_policy": {
+          "type": "object",
+          "properties": {
+            "max_attempts": { "type": "number", "default": 2 },
+            "backoff_ms": { "type": "number", "default": 1000 },
+            "failure_class": {
+              "type": "string",
+              "enum": ["transient", "config", "auth", "logic", "crash"]
+            }
+          }
+        },
+        "logging_requirements": {
+          "type": "array",
+          "description": "Keys that must appear in the run log for this task",
+          "items": { "type": "string" }
+        },
+        "timeout_ms": {
+          "type": "number",
+          "default": 30000
+        }
+      }
+    }
+  }
+}

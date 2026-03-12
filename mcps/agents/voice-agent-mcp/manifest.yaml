@@ -1,0 +1,131 @@
+id: voice-agent-mcp
+name: VoiceAgent
+version: "1.0.0"
+mission: >
+  Handle all text-to-speech output and voice-mode state for Agent Lee.
+  Routes speech generation through Gemini TTS or Edge-TTS locally.
+  Controls voice mode, queues notifications, and streams voice replies.
+
+layer: specialty
+model_lane: gemini
+fallback_model_lane: none
+deployment_location: phone
+transport: sse
+runtime: node
+
+authority_boundaries: >
+  MAY: generate and play TTS audio, set voice mode state,
+  queue voice notifications.
+  MAY NOT: record or process microphone audio (that is handled by
+  the phone embodiment layer), access personal files.
+
+memory_scope: session
+
+tools:
+  - name: speak_response
+    description: Convert text to speech and play or return as base64 audio.
+    input_schema:
+      type: object
+      required: [text]
+      properties:
+        text: { type: string }
+        voice_id: { type: string, default: "en-US-GuyNeural" }
+        speed: { type: number, default: 1.0 }
+
+  - name: stream_voice_reply
+    description: Stream a voice reply sentence-by-sentence via SSE.
+    input_schema:
+      type: object
+      required: [text]
+      properties:
+        text: { type: string }
+        voice_id: { type: string }
+
+  - name: set_voice_mode
+    description: Enable or disable voice mode for the current session.
+    input_schema:
+      type: object
+      required: [enabled]
+      properties:
+        enabled: { type: boolean }
+        session_id: { type: string }
+
+  - name: queue_voice_notification
+    description: Add a message to the voice notification queue.
+    input_schema:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string }
+        priority:
+          { type: string, enum: [low, normal, high, urgent], default: normal }
+
+health_check: speak_response
+
+fallback_behavior: >
+  If Gemini TTS is unavailable, fall back to Edge-TTS (local system).
+  If Edge-TTS is unavailable, return text with "voice unavailable" flag
+  and let the frontend display text only.
+
+basic_task:
+  name: generate_single_spoken_response
+  goal: >-
+    Synthesize a short spoken response and return audio or text fallback.
+    Proves: Edge-TTS pipeline, voice selection, base64 output shape.
+  tool: speak_response
+  input:
+    text: "Agent Lee OS validation layer is operational."
+    voice_id: "en-US-GuyNeural"
+  expected_output_shape:
+    type: object
+    required: [text]
+    properties:
+      audio_base64: { type: string }
+      text: { type: string }
+      text_fallback: { type: boolean }
+  success_criteria:
+    - "text field matches input text"
+    - "either audio_base64 is present OR text_fallback=true"
+    - "no crash"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 500
+    failure_class: transient
+  logging_requirements: ["voice_id", "chars_synthesized", "source"]
+  timeout_ms: 15000
+
+complex_task:
+  name: multi_turn_voice_interaction
+  goal: >-
+    Handle a 3-turn voice exchange with preserved tone and context continuity.
+    The third turn must reference context from turn 1. Command handoff to
+    desktop-commander-agent-mcp is simulated.
+  tool: stream_voice_reply
+  input:
+    session_id: "val-voice-complex-001"
+    turns:
+      - { role: "user", text: "Hey Lee, what time is it?" }
+      - { role: "assistant", text: "It's noon, boss. What do you need?" }
+      - { role: "user", text: "Open Notepad like you said you could." }
+    voice_id: "en-US-GuyNeural"
+  expected_output_shape:
+    type: object
+    required: [response_text, context_referenced]
+    properties:
+      response_text: { type: string, minLength: 10 }
+      context_referenced: { type: boolean }
+      handoff_agent: { type: string }
+  success_criteria:
+    - "response_text is non-empty"
+    - "context_referenced=true (turn 3 references prior context)"
+    - "handoff_agent=desktop-commander-agent-mcp or equivalent"
+    - "no crash across 3 turns"
+  verification_method: assertion
+  retry_policy:
+    max_attempts: 2
+    backoff_ms: 1000
+    failure_class: logic
+  logging_requirements:
+    ["session_id", "turn_count", "context_carry", "handoff_agent"]
+  timeout_ms: 30000

@@ -1,0 +1,917 @@
+﻿C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$R4ML4I7\venv\Lib\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$REXC0H6\venv\Lib\site-packages\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\autoprefixer.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\baseline-browser-mapping.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\browserslist.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\cssesc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\esbuild.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\glob.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\jiti.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\jsesc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\json5.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\mime.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\nanoid.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\node-which.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\npm-run-all.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\parser.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\pbjs.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\pbts.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\pidtree.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\prebuild-install.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\rc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\resolve.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\rollup.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\run-p.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\run-s.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\sucrase.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\sucrase-node.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\tailwind.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\tailwindcss.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\tsc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\tsserver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\tsx.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\update-browserslist-db.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\uuid.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\.bin\vite.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\normalize-package-data\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\npm-run-all\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\npm-run-all\node_modules\.bin\which.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$ROMFSKW\node_modules\sharp\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RQ6APZ3\Scripts\streamlit.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RQ6APZ3\Scripts\wmitest.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\baseline-browser-mapping.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\browserslist.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\esbuild.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\glob.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\is-docker.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\jsesc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\json5.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\nanoid.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\node-which.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\parser.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\playwright.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\playwright-core.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\rimraf.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\rollup.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\rollup-plugin-visualizer.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\semver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\tsc.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\tsserver.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\update-browserslist-db.cmd
+C:\$RECYCLE.BIN\S-1-5-21-2261595122-1654042803-1616381735-1001\$RVDXYRL\node_modules\.bin\vite.cmd
+C:\Cerebral\.venv\Lib\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\acorn.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\autoprefixer.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\browserslist.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\cross-env.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\cross-env-shell.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\esbuild.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\glob.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\jiti.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\jsesc.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\json5.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\mime.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\nanoid.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\node-which.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\parser.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\playwright.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\playwright-core.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\prebuild-install.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\rc.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\rimraf.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\rollup.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\semver.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\terser.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\tsc.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\tsserver.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\tsx.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral\agent-lee-os2\node_modules\.bin\vite.cmd
+C:\Cerebral\agent-lee-os2\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\Cerebral\agent-lee-os2\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\autoprefixer.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\browserslist.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\cross-env.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\cross-env-shell.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\esbuild.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\glob.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\jiti.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\jsesc.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\json5.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\mime.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\nanoid.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\node-which.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\parser.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\prebuild-install.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\rc.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\rimraf.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\rollup.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\semver.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\tsc.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\tsserver.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\tsx.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral\Cerebral-os\node_modules\.bin\vite.cmd
+C:\Cerebral\Cerebral-os\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\Cerebral\Cerebral-os\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\acorn.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\browserslist.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\eslint.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\jiti.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\jsesc.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\json5.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\js-yaml.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\loose-envify.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\nanoid.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\napi-postinstall.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\next.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\node-gyp-build.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\node-gyp-build-optional.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\node-gyp-build-test.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\node-which.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\parser.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\resolve.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\semver.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\tsc.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\tsserver.cmd
+C:\Cerebral\digital-brain\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral\digital-brain\node_modules\@typescript-eslint\typescript-estree\node_modules\.bin\semver.cmd
+C:\Cerebral\digital-brain\node_modules\eslint-plugin-react\node_modules\.bin\resolve.cmd
+C:\Cerebral\digital-brain\node_modules\is-bun-module\node_modules\.bin\semver.cmd
+C:\Cerebral\digital-brain\node_modules\sharp\node_modules\.bin\semver.cmd
+C:\Cerebral\digital-brain\node_modules\tsconfig-paths\node_modules\.bin\json5.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\crc32.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\glob.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\insforge-mcp.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\markdown-it.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\mkdirp.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\node-which.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\semver.cmd
+C:\Cerebral\vscode-mcp-tooling\node_modules\.bin\testsprite-mcp-plugin.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\acorn.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\autoprefixer.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\browserslist.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\cross-env.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\cross-env-shell.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\esbuild.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\glob.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\jiti.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\jsesc.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\json5.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\mime.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\nanoid.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\node-which.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\parser.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\prebuild-install.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\rc.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\rimraf.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\rollup.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\semver.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\terser.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\tsc.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\tsserver.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\tsx.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\.bin\vite.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\Cerebral_backup\agent-lee-os2\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\autoprefixer.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\browserslist.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\cross-env.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\cross-env-shell.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\esbuild.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\glob.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\jiti.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\jsesc.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\json5.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\mime.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\nanoid.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\node-which.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\parser.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\prebuild-install.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\rc.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\rimraf.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\rollup.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\semver.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\tsc.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\tsserver.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\tsx.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\.bin\vite.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\Cerebral_backup\Cerebral-os\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Cerebral-os\node_modules\.bin\autoprefixer.cmd
+C:\Cerebral-os\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Cerebral-os\node_modules\.bin\browsers.cmd
+C:\Cerebral-os\node_modules\.bin\browserslist.cmd
+C:\Cerebral-os\node_modules\.bin\cross-env.cmd
+C:\Cerebral-os\node_modules\.bin\cross-env-shell.cmd
+C:\Cerebral-os\node_modules\.bin\esbuild.cmd
+C:\Cerebral-os\node_modules\.bin\escodegen.cmd
+C:\Cerebral-os\node_modules\.bin\esgenerate.cmd
+C:\Cerebral-os\node_modules\.bin\esparse.cmd
+C:\Cerebral-os\node_modules\.bin\esvalidate.cmd
+C:\Cerebral-os\node_modules\.bin\extract-zip.cmd
+C:\Cerebral-os\node_modules\.bin\glob.cmd
+C:\Cerebral-os\node_modules\.bin\jiti.cmd
+C:\Cerebral-os\node_modules\.bin\jsesc.cmd
+C:\Cerebral-os\node_modules\.bin\json5.cmd
+C:\Cerebral-os\node_modules\.bin\js-yaml.cmd
+C:\Cerebral-os\node_modules\.bin\mime.cmd
+C:\Cerebral-os\node_modules\.bin\nanoid.cmd
+C:\Cerebral-os\node_modules\.bin\node-which.cmd
+C:\Cerebral-os\node_modules\.bin\parser.cmd
+C:\Cerebral-os\node_modules\.bin\prebuild-install.cmd
+C:\Cerebral-os\node_modules\.bin\puppeteer.cmd
+C:\Cerebral-os\node_modules\.bin\rc.cmd
+C:\Cerebral-os\node_modules\.bin\rimraf.cmd
+C:\Cerebral-os\node_modules\.bin\rollup.cmd
+C:\Cerebral-os\node_modules\.bin\semver.cmd
+C:\Cerebral-os\node_modules\.bin\tsc.cmd
+C:\Cerebral-os\node_modules\.bin\tsserver.cmd
+C:\Cerebral-os\node_modules\.bin\tsx.cmd
+C:\Cerebral-os\node_modules\.bin\update-browserslist-db.cmd
+C:\Cerebral-os\node_modules\.bin\vite.cmd
+C:\Cerebral-os\node_modules\@puppeteer\browsers\node_modules\.bin\semver.cmd
+C:\Cerebral-os\node_modules\node-abi\node_modules\.bin\semver.cmd
+C:\Cerebral-os\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\MCP-Servers\gcloud.cmd
+C:\MCP-Servers\run-chrome-devtools-mcp.cmd
+C:\MCP-Servers\run-insforge-mcp.cmd
+C:\MCP-Servers\run-spline-mcp.cmd
+C:\MCP-Servers\run-stitch-mcp.cmd
+C:\MCP-Servers\run-testsprite-mcp.cmd
+C:\MCP-Servers\start-mcp-servers.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\bq.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\docker-credential-gcloud.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\git-credential-gcloud.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\gsutil.cmd
+C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin\java_dev_appserver.cmd
+C:\Program Files (x86)\Google\GoogleUpdater\147.0.7703.0\uninstall.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\arm64\install-sampleprovider.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\arm64\uninstall-sampleprovider.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\install-sampleprovider.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\uninstall-sampleprovider.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\DismFoDInstall.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\GenerateUnionWinMD.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\install-sampleprovider.cmd
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\uninstall-sampleprovider.cmd
+C:\Program Files (x86)\Yarn\bin\yarn.cmd
+C:\Program Files (x86)\Yarn\bin\yarnpkg.cmd
+C:\Program Files\Git\cmd\start-ssh-agent.cmd
+C:\Program Files\Git\cmd\start-ssh-pageant.cmd
+C:\Program Files\Git\usr\share\vim\vim91\tools\vim_vs_net.cmd
+C:\Program Files\livekitserver\node_modules\.bin\loose-envify.cmd
+C:\Program Files\livekitserver\node_modules\.bin\mime.cmd
+C:\Program Files\livekitserver\node_modules\.bin\nodemon.cmd
+C:\Program Files\livekitserver\node_modules\.bin\nodetouch.cmd
+C:\Program Files\livekitserver\node_modules\.bin\pino.cmd
+C:\Program Files\livekitserver\node_modules\.bin\pino-pretty.cmd
+C:\Program Files\livekitserver\node_modules\.bin\sdp-verify.cmd
+C:\Program Files\livekitserver\node_modules\.bin\semver.cmd
+C:\Program Files\livekitserver\node_modules\.bin\tsc.cmd
+C:\Program Files\livekitserver\node_modules\.bin\tsserver.cmd
+C:\Program Files\LM Studio\resources\app\.webpack\main\native_modules\node-gyp-bin\node-gyp.cmd
+C:\Program Files\LM Studio\resources\app\.webpack\main\native_modules\node-gyp-bin1\node-gyp.cmd
+C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin\az.cmd
+C:\Program Files\Microsoft VS Code\bin\code.cmd
+C:\Program Files\node-v22.17.1-win-x64\corepack.cmd
+C:\Program Files\node-v22.17.1-win-x64\hint.cmd
+C:\Program Files\node-v22.17.1-win-x64\http-server.cmd
+C:\Program Files\node-v22.17.1-win-x64\ngrok.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\corepack.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\corepack.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\npm.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\npx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\pnpm.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\pnpx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\yarn.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\nodewin\yarnpkg.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\npm.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\npx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\pnpm.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\pnpx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\yarn.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\corepack\shims\yarnpkg.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\acorn.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\browserslist.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\cssesc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\ejs.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\escodegen.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\esgenerate.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\esparse.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\esvalidate.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\extract-zip.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\fxparser.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\glob.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\gonzales.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\image-size.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\is-ci.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\is-docker.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\jake.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\mkdirp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\nanoid.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\node-which.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\rc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\rimraf.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\tsc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\tsserver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\.bin\update-browserslist-db.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\make-dir\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\package-json\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\semver-diff\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\hint\node_modules\update-notifier\node_modules\.bin\is-ci.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\http-server\node_modules\.bin\he.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\http-server\node_modules\.bin\mime.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\http-server\node_modules\.bin\opener.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\ngrok\bin\ngrok.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\ngrok\node_modules\.bin\extract-zip.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\ngrok\node_modules\.bin\uuid.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\ngrok\node_modules\.bin\yaml.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\npm\bin\node-gyp-bin\node-gyp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\npm\bin\npm.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\npm\bin\npx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin\node-gyp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\jsesc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\parser.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\pkg-fetch.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\prebuild-install.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\rc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\resolve.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\pkg\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\surrealdb\node_modules\.bin\tsc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\surrealdb\node_modules\.bin\tsserver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\surrealdb\node_modules\.bin\uuidv7.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\ts-node\node_modules\.bin\acorn.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\tsx\node_modules\.bin\esbuild.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\acorn.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\cervel.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\edge-runtime.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\esbuild.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\js-yaml.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\micro.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\mkdirp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\node-gyp-build.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\node-gyp-build-optional.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\node-gyp-build-test.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\node-pre-gyp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\node-which.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\nopt.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\rolldown.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\srvx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\tree-kill.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\tsc.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\tsserver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\.bin\tsx.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@mapbox\node-pre-gyp\bin\node-pre-gyp.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\express\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\hono\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\next\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\node\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\redwood\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\redwood\node_modules\.bin\semver.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vercel\node_modules\@vercel\remix-builder\node_modules\.bin\nft.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vite\node_modules\.bin\nanoid.cmd
+C:\Program Files\node-v22.17.1-win-x64\node_modules\vite\node_modules\.bin\rollup.cmd
+C:\Program Files\node-v22.17.1-win-x64\npm.cmd
+C:\Program Files\node-v22.17.1-win-x64\npx.cmd
+C:\Program Files\node-v22.17.1-win-x64\pkg.cmd
+C:\Program Files\node-v22.17.1-win-x64\pnpm.cmd
+C:\Program Files\node-v22.17.1-win-x64\pnpx.cmd
+C:\Program Files\node-v22.17.1-win-x64\tsc.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-node.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-node-cwd.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-node-esm.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-node-script.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-node-transpile-only.cmd
+C:\Program Files\node-v22.17.1-win-x64\ts-script.cmd
+C:\Program Files\node-v22.17.1-win-x64\tsserver.cmd
+C:\Program Files\node-v22.17.1-win-x64\tsx.cmd
+C:\Program Files\node-v22.17.1-win-x64\vc.cmd
+C:\Program Files\node-v22.17.1-win-x64\vercel.cmd
+C:\Program Files\node-v22.17.1-win-x64\vite.cmd
+C:\Program Files\node-v22.17.1-win-x64\yarn.cmd
+C:\Program Files\node-v22.17.1-win-x64\yarnpkg.cmd
+C:\Program Files\PowerShell\7\preview\pwsh-preview.cmd
+C:\ProgramData\chocolatey\bin\RefreshEnv.cmd
+C:\ProgramData\chocolatey\redirects\RefreshEnv.cmd
+C:\Recovery\OEM\Backup\icons.cmd
+C:\Recovery\OEM\Backup\oemsetupRecovery.cmd
+C:\Recovery\OEM\Scripts\AfterImageApply.cmd
+C:\Recovery\OEM\Scripts\BeforeImageApply.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\autoprefixer.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\browserslist.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\cssesc.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\esbuild.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\jiti.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\jsesc.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\json5.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\loose-envify.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\nanoid.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\parser.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\resolve.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\rollup.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\sucrase.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\sucrase-node.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\tailwind.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\tailwindcss.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\tsc.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\tsserver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\update-browserslist-db.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\vite.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.Agent_Lee_OS\node_modules\.bin\yaml.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\.venv\Lib\site-packages\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\browsers.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\esbuild.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\escodegen.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\esgenerate.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\esparse.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\esvalidate.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\extract-zip.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\js-yaml.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\mime.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\mkdirp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\multicast-dns.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\puppeteer.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\rimraf.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\tsc.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\tsserver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\tsx.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\backend\node_modules\.bin\uuid.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\blessed.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\browsers.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\crc32.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\esbuild.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\escodegen.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\esgenerate.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\esparse.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\esvalidate.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\extract-zip.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\glob.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\insforge-mcp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\js-yaml.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\markdown-it.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\mkdirp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\multicast-dns.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\nanoid.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\needle.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\node-which.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\parser.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\playwright.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\playwright-core.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\playwright-mcp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\pm2.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\pm2-dev.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\pm2-docker.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\pm2-runtime.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\puppeteer.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\resolve.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\rollup.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\systeminformation.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\testsprite-mcp-plugin.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\tsc.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\tsserver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\tsx.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\vite.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\vite-node.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\vitest.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\why-is-node-running.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\.bin\yaml.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\@playwright\test\node_modules\.bin\playwright.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\@playwright\test\node_modules\.bin\playwright-core.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\@pm2\agent\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\@pm2\io\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\node_modules\.bin\mkdirp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\pm2\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\node_modules\vite\node_modules\.bin\esbuild.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\spline-mcp\node_modules\.bin\node-which.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\crc32.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\glob.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\insforge-mcp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\markdown-it.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\mkdirp.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\node-which.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\semver.cmd
+C:\Tools\Portable-VSCode-MCP-Kit\vscode-mcp-tooling\node_modules\.bin\testsprite-mcp-plugin.cmd
+C:\Users\Agent Lee\.antigravity\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\Users\Agent Lee\.antigravity\extensions\vscjava.vscode-maven-0.45.1-universal\resources\maven-wrapper\mvnw.cmd
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\visual\generate_solution.cmd
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\visual\generate_vs2015.cmd
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\visual\generate_vs2017.cmd
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\visual\generate_vs2019.cmd
+C:\Users\Agent Lee\.cargo\registry\src\index.crates.io-6f17d22bba15001f\lz4-sys-1.11.1+lz4-1.10.0\liblz4\build\visual\generate_vs2022.cmd
+C:\Users\Agent Lee\.cursor\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\Users\Agent Lee\.cursor\extensions\ms-vscode-remote.remote-containers-0.394.0\dev-containers-user-cli\bin\devcontainer.cmd
+C:\Users\Agent Lee\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\rust-windbg.cmd
+C:\Users\Agent Lee\.vscode\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\Users\Agent Lee\.vscode\extensions\ms-vscode-remote.remote-containers-0.442.0\dev-containers-user-cli\bin\devcontainer.cmd
+C:\Users\Agent Lee\.vscode\extensions\ms-vscode-remote.remote-containers-0.447.0\dev-containers-user-cli\bin\devcontainer.cmd
+C:\Users\Agent Lee\.vscode\extensions\vscjava.vscode-maven-0.45.1\resources\maven-wrapper\mvnw.cmd
+C:\Users\Agent Lee\.windsurf\extensions\ms-python.debugpy-2025.18.0-win32-x64\bundled\libs\debugpy\_vendored\pydevd\pydevd_attach_to_process\linux_and_mac\compile_manylinux.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\detect-libc.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\parser.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\rollup.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.8\node_modules\.bin\sass.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\parser.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\terser.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\AppData\Local\Microsoft\TypeScript\5.9\node_modules\.bin\webpack.cmd
+C:\Users\Agent Lee\AppData\Local\node\corepack\v1\yarn\1.22.22\bin\yarn.cmd
+C:\Users\Agent Lee\AppData\Local\node\corepack\v1\yarn\1.22.22\bin\yarnpkg.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\0d92fdd791cc1044\node_modules\.bin\husky.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\0e148cd3092b57d4\node_modules\.bin\insforge-install.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\1415fee72ff6294b\node_modules\.bin\create-vite.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\1415fee72ff6294b\node_modules\.bin\cva.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\15c61037b1978c83\node_modules\.bin\chrome-devtools-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\16baa19dd5d31de6\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\16baa19dd5d31de6\node_modules\.bin\notebooklm-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\16baa19dd5d31de6\node_modules\.bin\patchright.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\16baa19dd5d31de6\node_modules\.bin\patchright-core.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\1838e33cf768caf6\node_modules\.bin\node.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\1ab9c0f68ac2536e\node_modules\.bin\husky.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\1ab9c0f68ac2536e\node_modules\.bin\husky-init.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\2662cbd72e57abb6\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\2662cbd72e57abb6\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\2662cbd72e57abb6\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\38c708f8d73fe4c9\node_modules\.bin\gemini.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3b6d9d6502b30bc9\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3b6d9d6502b30bc9\node_modules\.bin\eslint.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3b6d9d6502b30bc9\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3b6d9d6502b30bc9\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3b6d9d6502b30bc9\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3c2a9ea6c4b6e0a2\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3c2a9ea6c4b6e0a2\node_modules\.bin\katex.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3c2a9ea6c4b6e0a2\node_modules\.bin\markdown-it.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\3c2a9ea6c4b6e0a2\node_modules\.bin\markdownlint-cli2.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\browsers.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\crc32.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\desktop-commander.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\escodegen.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\esgenerate.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\esparse.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\esvalidate.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\extract-zip.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\is-docker.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\is-inside-container.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\markdown-it.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\marked.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\md2pdf.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\md-to-pdf.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\pdf2md.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\puppeteer.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\remove.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\setup.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\.bin\uuid.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\cosmiconfig\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\515228b7c8d004a2\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\515228b7c8d004a2\node_modules\.bin\eslint.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\515228b7c8d004a2\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\515228b7c8d004a2\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8125ebe10bdf1a44\node_modules\.bin\chrome-devtools-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\markdown-it.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\testsprite-mcp-plugin.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\8ddf6bea01b2519d\node_modules\.bin\yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\9833c18b2d85bc59\node_modules\.bin\playwright.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\9833c18b2d85bc59\node_modules\.bin\playwright-core.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\9833c18b2d85bc59\node_modules\.bin\playwright-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\9e6ab3a7b4bb5d37\node_modules\.bin\mcp-server-sequential-thinking.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\aab42732f01924e5\node_modules\.bin\is-docker.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\aab42732f01924e5\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\aab42732f01924e5\node_modules\.bin\rc.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\aab42732f01924e5\node_modules\.bin\serve.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\browsers.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\escodegen.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\esgenerate.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\esparse.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\esvalidate.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\extract-zip.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\mcp-server-puppeteer.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\puppeteer.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ab5cd9f6d13a2312\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\af83b2f376097e2c\node_modules\.bin\crc32.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\af83b2f376097e2c\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\af83b2f376097e2c\node_modules\.bin\insforge-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\af83b2f376097e2c\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\bd296a660a54852e\node_modules\.bin\kill-port.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c35ab75beed40a3c\node_modules\.bin\context7-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c35ab75beed40a3c\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\create-react-app.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\envinfo.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c67e74de0542c87c\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c768fb61489ca31c\node_modules\.bin\create-insforge-app.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\c768fb61489ca31c\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\cc2145a2fe1558fa\node_modules\.bin\create-next-app.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\d352e76cc6b4974c\node_modules\.bin\create-playwright.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\d7bcf1e9427e7044\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\d7bcf1e9427e7044\node_modules\.bin\stitch-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e41f203b7505f1fb\node_modules\.bin\playwright.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e41f203b7505f1fb\node_modules\.bin\playwright-core.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e5196fa6dc3cecbc\node_modules\.bin\he.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e5196fa6dc3cecbc\node_modules\.bin\http-server.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e5196fa6dc3cecbc\node_modules\.bin\mime.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\e5196fa6dc3cecbc\node_modules\.bin\opener.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ebaba8b9e55fd0a9\node_modules\.bin\node.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\ebaba8b9e55fd0a9\node_modules\node\node_modules\.bin\node.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\f65068a554d538e3\node_modules\.bin\crc32.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\f65068a554d538e3\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\f65068a554d538e3\node_modules\.bin\insforge-mcp.cmd
+C:\Users\Agent Lee\AppData\Local\npm-cache\_npx\f65068a554d538e3\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\pnpm\pnpx.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Antigravity\bin\antigravity.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Antigravity\resources\app\node_modules\vscode-jsonrpc\node.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Antigravity\resources\app\node_modules\vscode-languageserver\node.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Antigravity\resources\app\node_modules\vscode-languageserver-protocol\node.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\cursor\resources\app\bin\cursor.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\cursor\resources\app\codeBin\code.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Microsoft VS Code\bin\new_code.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Windsurf\bin\windsurf.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Windsurf\resources\app\node_modules\vscode-jsonrpc\node.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Windsurf\resources\app\node_modules\vscode-languageserver\node.cmd
+C:\Users\Agent Lee\AppData\Local\Programs\Windsurf\resources\app\node_modules\vscode-languageserver-protocol\node.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-@grpc-proto-loader-0.7.15-4cdfbf35a35461fc843abe8b9e2c0770b5095e60-integrity\node_modules\@grpc\proto-loader\.bin\proto-loader-gen-types.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-acorn-8.15.0-a360898bc415edaac46c8241f6383975b930b816-integrity\node_modules\acorn\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-autoprefixer-10.4.21-77189468e7a8ad1d9a37fbc08efc9f480cf0a95d-integrity\node_modules\autoprefixer\.bin\autoprefixer.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-browserslist-4.25.1-ba9e8e6f298a1d86f829c9b975e07948967bb111-integrity\node_modules\browserslist\.bin\browserslist.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-cssesc-3.0.0-37741919903b868565e1c09ea747445cd18983ee-integrity\node_modules\cssesc\.bin\cssesc.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-eslint-8.57.1-7df109654aba7e3bbe5c8eae533c5e461d3c6ca9-integrity\node_modules\eslint\.bin\eslint.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-glob-10.3.10-0351ebb809fd187fe421ab96af83d3a70715df4b-integrity\node_modules\glob\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-glob-10.4.5-f4d9f0b90ffdbab09c9d77f5f29b4262517b0956-integrity\node_modules\glob\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-handlebars-4.7.8-41c42c18b1be2365439188c77c6afae71c0cd9e9-integrity\node_modules\handlebars\.bin\handlebars.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-jiti-1.21.7-9dd81043424a3d28458b193d965f0d18a2300ba9-integrity\node_modules\jiti\.bin\jiti.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-json5-1.0.2-63d98d60f21b313b77c4d6da18bfa69d80e1d593-integrity\node_modules\json5\.bin\json5.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-json5-2.2.3-78cd6f1a19bdc12b73db5ad0c61efd66c1e29283-integrity\node_modules\json5\.bin\json5.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-js-yaml-4.1.0-c1fb65f8f5017901cdd2c951864ba18458a10602-integrity\node_modules\js-yaml\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-loose-envify-1.4.0-71ee51fa7be4caec1a63839f7e682d8132d30caf-integrity\node_modules\loose-envify\.bin\loose-envify.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-mime-1.6.0-32cd9e5c64553bd58d19a568af452acff04981b1-integrity\node_modules\mime\.bin\mime.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-nanoid-3.3.11-4f4f112cefbe303202f2199838128936266d185b-integrity\node_modules\nanoid\.bin\nanoid.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-napi-postinstall-0.3.2-03c62080e88b311c4d7423b0f15f0c920bbcc626-integrity\node_modules\napi-postinstall\.bin\napi-postinstall.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-next-14.2.31-a5aae03a10d333b610d355306382c86e790c9418-integrity\node_modules\next\.bin\next.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-resolve-1.22.10-b663e83ffb09bbf2386944736baae803029b8b39-integrity\node_modules\resolve\.bin\resolve.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-resolve-2.0.0-next.5-6b0ec3107e671e52b68cd068ef327173b90dc03c-integrity\node_modules\resolve\.bin\resolve.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-rimraf-3.0.2-f1a5402ba6220ad52cc1282bac1ae3aa49fd061a-integrity\node_modules\rimraf\.bin\rimraf.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-sdp-transform-2.15.0-79d37a2481916f36a0534e07b32ceaa87f71df42-integrity\node_modules\sdp-transform\.bin\sdp-verify.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-semver-6.3.1-556d2ef8689146e46dcea4bfdd095f3434dffcb4-integrity\node_modules\semver\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-semver-7.7.2-67d99fdcd35cec21e6f8b87a7fd515a33f982b58-integrity\node_modules\semver\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-sucrase-3.35.0-57f17a3d7e19b36d8995f06679d121be914ae263-integrity\node_modules\sucrase\.bin\sucrase.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-sucrase-3.35.0-57f17a3d7e19b36d8995f06679d121be914ae263-integrity\node_modules\sucrase\.bin\sucrase-node.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-tailwindcss-3.4.17-ae8406c0f96696a631c790768ff319d46d5e5a63-integrity\node_modules\tailwindcss\.bin\tailwind.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-tailwindcss-3.4.17-ae8406c0f96696a631c790768ff319d46d5e5a63-integrity\node_modules\tailwindcss\.bin\tailwindcss.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-typescript-5.8.3-92f8a3e5e3cf497356f4178c34cd65a7f5e8440e-integrity\node_modules\typescript\.bin\tsc.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-typescript-5.8.3-92f8a3e5e3cf497356f4178c34cd65a7f5e8440e-integrity\node_modules\typescript\.bin\tsserver.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-typescript-5.9.2-d93450cddec5154a2d5cabe3b8102b83316fb2a6-integrity\node_modules\typescript\.bin\tsc.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-typescript-5.9.2-d93450cddec5154a2d5cabe3b8102b83316fb2a6-integrity\node_modules\typescript\.bin\tsserver.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-uglify-js-3.19.3-82315e9bbc6f2b25888858acd1fff8441035b77f-integrity\node_modules\uglify-js\.bin\uglifyjs.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-update-browserslist-db-1.1.3-348377dd245216f9e7060ff50b15a1b740b75420-integrity\node_modules\update-browserslist-db\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-uuid-10.0.0-5a95aa454e6e002725c79055fd42aaba30ca6294-integrity\node_modules\uuid\.bin\uuid.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-which-2.0.2-7c6a8dd0a636a0327e10b59c9286eee93f3f51b1-integrity\node_modules\which\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Local\Yarn\Cache\v6\npm-yaml-2.8.0-15f8c9866211bdc2d3781a0890e44d4fa1a5fff6-integrity\node_modules\yaml\.bin\yaml.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\cssesc.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\ejs.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\escodegen.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\esgenerate.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\esparse.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\esvalidate.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\extract-zip.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\fxparser.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\gonzales.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\hint.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\image-size.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\is-ci.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\is-docker.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\jake.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\rc.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\tsc.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\tsserver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\make-dir\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\package-json\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\semver-diff\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-edgedevtools.vscode-edge-devtools\node_modules\update-notifier\node_modules\.bin\is-ci.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\cli-bin\devcontainer.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\10de4c23\zcxY.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-1a3fa695\wer4.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-29ed2179\5tfE.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-29ed2179\On2X.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-29ed2179\uS5c.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-29ed2179\vqWO.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-3591fcbd\eeG7.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\411592c9\yDf1.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\-5c2c34af\3rM5.cmd
+C:\Users\Agent Lee\AppData\Roaming\Code\User\History\74dc9fb9\xC7r.cmd
+C:\Users\Agent Lee\AppData\Roaming\Cursor\User\globalStorage\ms-vscode-remote.remote-containers\cli-bin\devcontainer.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\blessed.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\chrome-devtools-mcp.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\crc32.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\escodegen.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\esgenerate.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\esparse.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\esvalidate.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\insforge-mcp.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\markdown-it.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\mime.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\needle.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\pm2.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\pm2-dev.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\pm2-docker.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\pm2-runtime.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\resolve.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\stitch-mcp.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\supergateway.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\systeminformation.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\testsprite-mcp-plugin.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\.bin\uuid.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\@pm2\agent\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\@pm2\io\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\pm2\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\AppData\Roaming\npm\node_modules\pm2\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\AppData\Roaming\Python\Python313\Scripts\wmitest.cmd
+C:\Users\Agent Lee\AppData\Roaming\Python\Python313\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\Users\Agent Lee\AppData\Roaming\uv\tools\aider-chat\Lib\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\acorn.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\bcrypt.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\dotenv.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\esbuild.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\fxparser.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\jiti.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\jsesc.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\json5.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\js-yaml.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\lz-string.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\mime.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\mkdirp.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\node-pg-migrate.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\openai.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\parser.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\rollup.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\sucrase.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\sucrase-node.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tldts.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tree-kill.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsc.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsconfck.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsserver.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsup.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsup-node.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\tsx.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\uuid.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\vite.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\vite-node.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\vitest.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\why-is-node-running.cmd
+C:\Users\Agent Lee\insforge\node_modules\.bin\yaml.cmd
+C:\Users\Agent Lee\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\node_modules\.bin\next.cmd
+C:\Users\Agent Lee\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\esbuild.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\jsesc.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\json5.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\parser.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\rollup.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\tsc.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\tsserver.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\OneDrive\Documents\agent-lee_-eldt-logistics-academy\node_modules\.bin\vite.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\baseline-browser-mapping.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\browserslist.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\esbuild.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\glob.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\jsesc.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\json5.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\nanoid.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\node-which.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\parser.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\rimraf.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\rollup.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\semver.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\tsc.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\tsserver.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\Agent Lee\OneDrive\Documents\fleetmaster-pro_-logistics-&-drone-academy-4\node_modules\.bin\vite.cmd
+C:\Users\Agent Lee\scoop\shims\scoop.cmd
+C:\Users\leewaylogistics\node_modules\.bin\autoprefixer.cmd
+C:\Users\leewaylogistics\node_modules\.bin\browserslist.cmd
+C:\Users\leewaylogistics\node_modules\.bin\cssesc.cmd
+C:\Users\leewaylogistics\node_modules\.bin\edgespark.cmd
+C:\Users\leewaylogistics\node_modules\.bin\esbuild.cmd
+C:\Users\leewaylogistics\node_modules\.bin\glob.cmd
+C:\Users\leewaylogistics\node_modules\.bin\jiti.cmd
+C:\Users\leewaylogistics\node_modules\.bin\jsesc.cmd
+C:\Users\leewaylogistics\node_modules\.bin\json5.cmd
+C:\Users\leewaylogistics\node_modules\.bin\loose-envify.cmd
+C:\Users\leewaylogistics\node_modules\.bin\nanoid.cmd
+C:\Users\leewaylogistics\node_modules\.bin\node-which.cmd
+C:\Users\leewaylogistics\node_modules\.bin\parser.cmd
+C:\Users\leewaylogistics\node_modules\.bin\resolve.cmd
+C:\Users\leewaylogistics\node_modules\.bin\rollup.cmd
+C:\Users\leewaylogistics\node_modules\.bin\semver.cmd
+C:\Users\leewaylogistics\node_modules\.bin\sucrase.cmd
+C:\Users\leewaylogistics\node_modules\.bin\sucrase-node.cmd
+C:\Users\leewaylogistics\node_modules\.bin\tailwind.cmd
+C:\Users\leewaylogistics\node_modules\.bin\tailwindcss.cmd
+C:\Users\leewaylogistics\node_modules\.bin\tsc.cmd
+C:\Users\leewaylogistics\node_modules\.bin\tsserver.cmd
+C:\Users\leewaylogistics\node_modules\.bin\update-browserslist-db.cmd
+C:\Users\leewaylogistics\node_modules\.bin\vite.cmd
+C:\Users\leewaylogistics\node_modules\.bin\yaml.cmd
+C:\Users\leewaylogistics\node_modules\tailwindcss\node_modules\.bin\jiti.cmd
+C:\VS-CODE-MCP\.venv\Lib\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\VS-CODE-MCP\Agent Lee's Studio\.venv\Lib\site-packages\greenlet\platform\setup_switch_x64_masm.cmd
+C:\VS-CODE-MCP\Agent Lee's Studio\node_modules\.bin\playwright.cmd
+C:\VS-CODE-MCP\Agent Lee's Studio\node_modules\.bin\playwright-core.cmd
+C:\VS-CODE-MCP\Portable VS Code MCP Kit\node_modules\.bin\playwright.cmd
+C:\VS-CODE-MCP\Portable VS Code MCP Kit\node_modules\.bin\playwright-core.cmd
+C:\Windows\System32\hpatchmonTask.cmd
+C:\Windows\System32\oobe\BypassNRO.cmd
+C:\Windows\System32\winrm.cmd
+C:\Windows\SysWOW64\winrm.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-e..-unifiedwritefilter_31bf3856ad364e35_10.0.26100.7309_none_38068cd537ca21ef\UwfServicingMasterScript.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-hotpatch-monitor_31bf3856ad364e35_10.0.26100.7309_none_5eece77122f4e51f\hpatchmonTask.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-hotpatch-monitor_31bf3856ad364e35_10.0.26100.7705_none_5ec202e12314ee5f\hpatchmonTask.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-hotpatch-monitor_31bf3856ad364e35_10.0.26100.7920_none_5eaed5852322d8ca\hpatchmonTask.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-o..ne-plugins-wireless_31bf3856ad364e35_10.0.26100.7309_none_b9a376b43fc1fa78\BypassNRO.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-o..ne-plugins-wireless_31bf3856ad364e35_10.0.26100.7705_none_b97892243fe203b8\BypassNRO.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\CHKROOT.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\END.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\ROOTDRV.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\SETPATHS.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\TSMKUDIR.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\TSMKUFIL.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_f01337f1d44b046e\USRLOGON.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\CHKROOT.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\END.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\ROOTDRV.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\SETPATHS.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\TSMKUDIR.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\TSMKUFIL.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_8ecd969a1bd3cde9\USRLOGON.CMD
+C:\Windows\WinSxS\amd64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7309_none_663162e85d07439a\winrm.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7705_none_66067e585d274cda\winrm.cmd
+C:\Windows\WinSxS\amd64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7920_none_65f350fc5d353745\winrm.cmd
+C:\Windows\WinSxS\wow64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.1_none_fa67e24408abc669\USRLOGON.CMD
+C:\Windows\WinSxS\wow64_microsoft-windows-t..ices-appcompattools_31bf3856ad364e35_10.0.26100.7623_none_992240ec50348fe4\USRLOGON.CMD
+C:\Windows\WinSxS\wow64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.1_none_d1adc81249f528d5\winrm.cmd
+C:\Windows\WinSxS\wow64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7309_none_70860d3a91680595\winrm.cmd
+C:\Windows\WinSxS\wow64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7705_none_705b28aa91880ed5\winrm.cmd
+C:\Windows\WinSxS\wow64_microsoft-windows-w..for-management-core_31bf3856ad364e35_10.0.26100.7920_none_7047fb4e9195f940\winrm.cmd

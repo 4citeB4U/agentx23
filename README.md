@@ -1,11 +1,18 @@
+<!-- LEEWAY HEADER BLOCK -->
+<!-- File: README.md -->
+<!-- Purpose: Agent Lee OS main documentation -->
+<!-- Security: LEEWAY-CORE-2026 compliant -->
+<!-- Performance: Optimized for sovereign agentic documentation -->
+<!-- Discovery: Part of Agent Lee OS documentation pipeline -->
+
 # 🌑 AGENT LEE OS — THE SOVEREIGN INTELLIGENCE ENVIRONMENT
 
-> *"We stopped building tools. We started building entities."*  
+> _"We stopped building tools. We started building entities."_  
 > — **The Night Architect, Leeway Innovations**
 
 **Status:** `SOVEREIGN // SYSTEM ONLINE`  
-**Version:** v3.0 — Sovereign Self-Repair Edition  
-**Last Updated:** 2026-02-21  
+**Version:** v3.1 — Full-Stack Live Edition  
+**Last Updated:** 2026-03-08  
 **Standard:** LEEWAY-CORE-2026
 
 ---
@@ -27,32 +34,37 @@ He was built by **Leeway Innovations** under one architect: **The Night Architec
 
 ## 🎤 Talk To Agent Lee
 
-| Method | How |
-|--------|-----|
-| **UI Chat** | http://localhost:8000 → COMMS sector → type or speak |
-| **Telegram** | `@Lee2912bot` from authorized user ID `6939665945` |
-| **Voice** | Click mic in UI — responds via en-US-GuyNeural voice |
+| Method       | How                                                             |
+| ------------ | --------------------------------------------------------------- |
+| **UI Chat**  | [UI Chat](http://localhost:7000) → COMMS sector → type or speak |
+| **Telegram** | `@Lee2912bot` from authorized user ID `6939665945`              |
+| **Voice**    | Click mic in UI — responds via en-US-GuyNeural voice            |
 
-**Try:** *"Tell me about yourself"* — Agent Lee speaks his full backstory aloud and in the UI.
+**Try:** _"Tell me about yourself"_ — Agent Lee speaks his full backstory aloud and in the UI.
 
 ---
 
 ## 🖥️ Interface Schematics
 
 ### The Header — Status Deck
-- **Soul Orb** (top-left): Cyan=Idle · Purple=Thinking · Blue=Speaking · Red=Error  
+
+- **Soul Orb** (top-left): Cyan=Idle · Purple=Thinking · Blue=Speaking · Red=Error
 - **Status Badge:** Neural Bridge (WebSocket) connection state
 
 ### Sector 1 — COMMS (Chat)
+
 Primary dialogue. Text or voice. Real-time streaming + TTS playback.
 
 ### Sector 2 — MATRIX (Remote)
+
 Screen sharing. Device enrollment required (hardware-bound token).
 
 ### Sector 3 — DATA (Files)
+
 File tree browser. Read/write via authenticated REST API.
 
 ### Sector 4 — SYSTEM (Settings)
+
 Voice toggle, DevTools, connection parameters.
 
 ---
@@ -60,6 +72,7 @@ Voice toggle, DevTools, connection parameters.
 ## ⚡ Boot Sequence
 
 ### First Boot
+
 ```powershell
 npm install
 npm run key:generate        # RSA-4096 keypair — move private.pem offline!
@@ -70,19 +83,45 @@ npm run test:preflight      # Verify clean state
 ```
 
 ### Standard Boot
+
 ```powershell
 ./Start-AgentLee.ps1
 ```
 
 ### Port Map
-| Port | Service |
-|------|---------|
-| 8000 | Frontend UI (React 18 + Three.js) |
+
+| Port | Service                            |
+| ---- | ---------------------------------- |
+| 8000 | Frontend UI (React 18 + Three.js)  |
 | 8001 | Backend API (Express + TypeScript) |
-| 8002 | MCP Bridge |
-| 8003 | WebSocket stream |
-| 8004 | Neural Router |
-| 8005 | Desktop Agent (loopback only) |
+| 8002 | MCP Bridge                         |
+| 8003 | WebSocket stream                   |
+| 8004 | Neural Router                      |
+| 8005 | Desktop Agent (loopback only)      |
+
+---
+
+## 🧠 Canonical Memory Lake (Vercel)
+
+Set Vercel Memory Lake as the canonical store while keeping local files as cache/staging:
+
+```powershell
+$env:CANONICAL_MEMORY_BASE_URL="https://<your-vercel-app>.vercel.app"
+$env:CANONICAL_MEMORY_API_KEY="<optional-memory-key>"
+$env:CANONICAL_MEMORY_TIMEOUT="8"
+$env:CANONICAL_MEMORY_REPLAY_HEADERS="true"
+$env:LOCAL_ONLY_INFERENCE="true"
+```
+
+- BrainRouter read-through context now includes canonical memory query results when configured.
+- Episodes, missions, and synthetic variants are asynchronously written to canonical memory endpoints.
+- Local files remain fallback/cache: `workspace/memory.json`, `workspace/episodes.db`, `workspace/synthetic.jsonl`, `workspace/mission_queue.json`.
+
+One-shot migration utility:
+
+```powershell
+py -3.12 scripts/migrate_to_vercel_memory_lake.py --base-url https://<your-vercel-app>.vercel.app
+```
 
 ---
 
@@ -112,13 +151,13 @@ npm run test:all          # Full suite
 
 ## 🔗 MCP Arsenal
 
-| Module | Role | Function |
-|--------|------|----------|
-| Playwright | The Ghost | Browser automation, E2E testing |
-| TestSprite | The Auditor | Autonomous test generation |
-| InsForge | The Scribe | Database management |
-| Stitch | The Architect | UI design generation |
-| Desktop Commander | The Hands | File system + process control |
+| Module            | Role          | Function                        |
+| ----------------- | ------------- | ------------------------------- |
+| Playwright        | The Ghost     | Browser automation, E2E testing |
+| TestSprite        | The Auditor   | Autonomous test generation      |
+| InsForge          | The Scribe    | Database management             |
+| Stitch            | The Architect | UI design generation            |
+| Desktop Commander | The Hands     | File system + process control   |
 
 ---
 
@@ -142,7 +181,7 @@ The interface is built on the **Neo-Glass** doctrine: minimal obstruction, maxim
 - **The Component**: Fixed top bar (`h=60px`) with blur-backdrop.
 - **CSS Orb (The Soul)**: A procedural animation core at the top-left.
   - **Intent**: Instant visual feedback of Agent cognition.
-  - **States**: *Cyan* (Idle), *Purple* (Thinking), *Blue* (Speaking), *Red* (Error).
+  - **States**: _Cyan_ (Idle), _Purple_ (Thinking), _Blue_ (Speaking), _Red_ (Error).
 - **Status Badge**: A holographic pill indicating connection stability.
   - **Intent**: Confirms the Neural Bridge (WebSocket) is active.
 
@@ -201,12 +240,12 @@ The Brain of the system is not a single script; it is a **Hybrid Intelligence Me
 
 The Agent is augmented by specialized **Model Context Protocol (MCP)** servers.
 
-| Module | Roles | Function |
-| :--- | :--- | :--- |
-| **Stitch** | *The Architect* | Generates and refines UI components and enables visual thought workflows. |
-| **TestSprite** | *The Auditor* | Autonomous testing suite for bug hunting and integrity checks. |
-| **Playwright** | *The Ghost* | Browser automation entity for navigation and data extraction. |
-| **InsForge** | *The Scribe* | Database management that structures chaotic data into orderly schemas. |
+| Module         | Roles           | Function                                                                  |
+| :------------- | :-------------- | :------------------------------------------------------------------------ |
+| **Stitch**     | _The Architect_ | Generates and refines UI components and enables visual thought workflows. |
+| **TestSprite** | _The Auditor_   | Autonomous testing suite for bug hunting and integrity checks.            |
+| **Playwright** | _The Ghost_     | Browser automation entity for navigation and data extraction.             |
+| **InsForge**   | _The Scribe_    | Database management that structures chaotic data into orderly schemas.    |
 
 ---
 

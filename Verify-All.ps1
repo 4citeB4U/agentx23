@@ -1,3 +1,15 @@
+# LEEWAY HEADER BLOCK
+# File: Verify-All.ps1
+# Purpose: Agent Lee OS verification script
+# Security: LEEWAY-CORE-2026 compliant
+# Performance: Optimized for sovereign agentic verification
+# Discovery: Part of Agent Lee OS verification pipeline
+# LEEWAY HEADER BLOCK
+# File: Verify-All.ps1
+# Purpose: Verification runner for Agent Lee OS
+# Security: LEEWAY-CORE-2026 compliant
+# Performance: Orchestrates sovereign verification
+# Discovery: Part of Agent Lee OS QA pipeline
 # Verify-All.ps1 — Agent Lee v1 stack verifier
 # Run: .\Verify-All.ps1
 # Returns exit 0 if all checks pass, exit 1 on any failure.
@@ -7,6 +19,7 @@ $py   = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
 $pass = $true
 
 function Check-Ok { param($label, $ok, $detail="")
+  # Removed unused variable 'cfg'
   $icon = if ($ok) { "[PASS]" } else { "[FAIL]" }
   $col  = if ($ok) { "Green"  } else { "Red"    }
   Write-Host ("{0,-6} {1,-48} {2}" -f $icon, $label, $detail) -ForegroundColor $col
